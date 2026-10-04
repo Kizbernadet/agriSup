@@ -10,6 +10,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page_header";
+import { Paragraphs } from "@/components/ui/paragraphs";
 import { ToProvide } from "@/components/ui/to_provide";
 import { toAppLocale } from "@/i18n/locale";
 import { getFormationBySlug, listPublishedFormationSlugs } from "@/lib/data/formations";
@@ -127,12 +128,6 @@ function DetailSection({
       {children}
     </section>
   );
-}
-
-// Texte long : paragraphes séparés par une ligne vide.
-function Paragraphs({ text }: { text: string | null }) {
-  if (!text?.trim()) return <ToProvide />;
-  return text.split(/\n{2,}/).map((paragraph, index) => <p key={index}>{paragraph}</p>);
 }
 
 function BulletList({ items }: { items: readonly string[] }) {

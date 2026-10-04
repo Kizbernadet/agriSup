@@ -18,10 +18,15 @@ export const contactSchema = z
     consent: consentField,
     locale: localeField,
   })
-  // Il faut pouvoir répondre : email OU téléphone.
-  .refine((data) => data.email || data.phone, {
+  // Il faut pouvoir répondre : email OU téléphone. `when` : la règle est vérifiée même si
+  // d'autres champs sont en erreur, pour afficher toutes les erreurs en une fois.
+  .refine((data) => Boolean(data.email || data.phone), {
     message: "contact_required",
     path: ["email"],
+    when: (payload) => {
+      const value = payload.value as { email?: unknown; phone?: unknown };
+      return typeof value === "object" && value !== null;
+    },
   });
 
 export type ContactInput = z.input<typeof contactSchema>;

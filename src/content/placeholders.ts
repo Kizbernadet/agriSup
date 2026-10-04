@@ -90,3 +90,77 @@ export const INSTITUTION = {
 export const PRESENTATION_VIDEO: { youtubeId: string | null } = {
   youtubeId: null,
 };
+
+export const INSTITUTION_DETAILS = {
+  // Source : presentation_projet.md §2. « La liste définitive des domaines doit être
+  // confirmée par AGRI'SUP. »
+  fields: [
+    { fr: "Agriculture", en: "Agriculture" },
+    { fr: "Élevage", en: "Livestock farming" },
+    { fr: "Production animale", en: "Animal production" },
+    { fr: "Aquaculture", en: "Aquaculture" },
+    { fr: "Autres sciences agricoles", en: "Other agricultural sciences" },
+  ] satisfies Localized[],
+
+  // Source : presentation_projet.md §3. Historique NON VALIDÉ : la page l'affiche avec
+  // un avertissement. Le cahier (§5.2) exige une validation avant publication.
+  history: [
+    {
+      label: { fr: "Origines", en: "Origins" },
+      text: {
+        fr: "Les informations recueillies situent les origines d'AGRI'SUP à Ségou.",
+        en: "The information gathered places AGRI'SUP's origins in Ségou.",
+      },
+    },
+    {
+      label: { fr: "2006", en: "2006" },
+      text: {
+        fr: "Date mentionnée comme repère historique de l'établissement.",
+        en: "Date mentioned as a historical milestone for the school.",
+      },
+    },
+    {
+      label: { fr: "Évolution", en: "Growth" },
+      text: {
+        fr: "L'activité a évolué progressivement vers l'enseignement supérieur.",
+        en: "Its activity gradually developed towards higher education.",
+      },
+    },
+    {
+      label: { fr: "Aujourd'hui", en: "Today" },
+      text: {
+        fr: "L'établissement est implanté à Sotuba ACI, Bamako.",
+        en: "The school is based in Sotuba ACI, Bamako.",
+      },
+    },
+  ] satisfies { label: Localized; text: Localized }[],
+};
+
+// Réseaux sociaux : aucune URL fournie. Le kakémono mentionne une page Facebook
+// « agri'sup SEGOU » (URL à obtenir). Laisser null tant que non validé.
+export const SOCIAL_LINKS: {
+  facebook: string | null;
+  instagram: string | null;
+  youtube: string | null;
+} = {
+  facebook: null,
+  instagram: null,
+  youtube: null,
+};
+
+// Brochure PDF (cahier §10.6) : à fournir par AGRI'SUP, à déposer dans public/brochure/.
+export const BROCHURE_PATH: string | null = null;
+
+// Mentions légales. Hébergeur : informations publiques de Vercel (à revérifier sur
+// vercel.com/legal avant mise en ligne). Éditeur : à compléter par AGRI'SUP.
+export const LEGAL = {
+  publicationManager: null as string | null,
+  registration: null as string | null,
+  host: {
+    name: "Vercel Inc.",
+    address: "440 N Barranca Ave #4133, Covina, CA 91723, USA",
+    website: "https://vercel.com",
+  },
+  // Durée de conservation des demandes : à fixer par AGRI'SUP.
+  retentionPeriod: null as string | null,
+};

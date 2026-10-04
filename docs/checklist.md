@@ -19,7 +19,7 @@
 - [x] 4. Données et API de lecture (migrations à appliquer sur Neon)
 - [x] 5. Pages : Accueil, Formations, Admission
 - [x] 6. Formulaires Contact et Préinscription (notification email active dès l'ajout de la clé Resend)
-- [ ] 7. Pages : AGRI'SUP, Actualités, FAQ, Contact, Mentions légales
+- [x] 7. Pages : AGRI'SUP, Actualités, FAQ, Contact, Mentions légales
 - [ ] 8. Images, performance, SEO, analytics
 - [ ] 9. Accessibilité et tests
 - [ ] 10. Mise en ligne
@@ -33,7 +33,10 @@
 - [ ] Partenariats confirmés (et autorisation écrite pour leurs logos, le cas échéant)
 - [ ] Traductions anglaises relues
 - [ ] Logo officiel SVG intégré
-- [ ] Mentions légales validées (responsable de publication, hébergeur)
+- [ ] Mentions légales validées (responsable de publication, immatriculation, durée de conservation, hébergeur)
+- [ ] Historique, vision, mission, direction et infrastructures fournis ou retirés
+- [ ] URL des réseaux sociaux et brochure PDF fournies
+- [ ] Réponses de la FAQ validées
 - [ ] Clé Resend + `RATE_LIMIT_SECRET` configurées sur Vercel
 - [ ] Domaine vérifié chez Resend, domaine personnalisé sur Vercel
 - [ ] Passage au plan Vercel Pro (usage commercial)

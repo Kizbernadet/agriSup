@@ -133,6 +133,15 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Préinscription** : formation présélectionnée depuis sa page (`?formation=`), vérifiée en base côté serveur ; années académiques proposées = année en cours et suivante (bascule en juillet, hypothèse à confirmer) ; niveaux d'études génériques à valider ; confirmation avec lien WhatsApp pré-rempli (cahier §10.1).
 - **Formulaires sans JavaScript** : non pris en charge (envoi en JSON). Compromis accepté pour le MVP ; WhatsApp et téléphone restent disponibles.
 
+### Phase 7
+
+- **Page AGRI'SUP** : une seule page avec ancres (présentation, histoire, vision et mission, pédagogie, direction). L'historique de `presentation_projet.md` §3 (Ségou, 2006, évolution, Sotuba ACI) est affiché **avec un avertissement « en cours de validation »** : à valider ou retirer avant la mise en ligne (cahier §5.2). Vision, mission, infrastructures et direction : `[À FOURNIR]`. Les noms du fondateur ne sont pas publiés (presentation_projet.md §4).
+- **Actualités** : liste paginée (`?page=`, rendue à la demande) et pages détail statiques. Images = affiches de `assets/annonces/` copiées dans `public/images/actualites/` (choix de la cliente), recadrées dans les cartes, affichées entières dans le détail ; voile sombre en thème sombre (charte §8).
+- **FAQ** : 10 questions (cahier §12 + LMD + « la préinscription vaut-elle admission ? »), en `<details>` natifs, contenu dans `src/content/faq.ts`. Les réponses ne s'appuient que sur des informations sourcées ou sur le fonctionnement du site.
+- **Contact** : coordonnées, itinéraire Google Maps, carte chargée **au clic** (rien n'est envoyé à Google avant), langue de la carte = langue du site. Réseaux sociaux et brochure : `[À FOURNIR]` (aucune URL ni PDF fournis).
+- **Mentions légales et confidentialité** : texte provisoire (avertissement visible), référence à la loi malienne n° 2013-015 et à l'APDP, liste des cookies et traceurs (langue, thème, YouTube et Maps au clic). Hébergeur : informations publiques de Vercel, à revérifier.
+- **Formulaire de contact** : la règle « email ou téléphone » utilise l'option `when` de zod 4 pour s'afficher en même temps que les autres erreurs.
+
 ### Dépendances
 
 - **`npm audit`** signale 5 vulnérabilités « high » dans `micromatch`, via `eslint-config-next`. Ce sont des **outils de développement uniquement**, qui ne sont pas livrés en production. Je ne corrige pas avec `--force`, car cela casserait la configuration ESLint ; à revoir à la prochaine version de `eslint-config-next`.

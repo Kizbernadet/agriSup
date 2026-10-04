@@ -9,7 +9,8 @@
       "title": "AGRI'SUP — École Supérieure Privée des Sciences et Technologies Agricoles"
     },
     "agrisup": {
-      "title": "AGRI'SUP"
+      "title": "AGRI'SUP",
+      "description": "Présentation d'AGRI'SUP : identité, domaines, histoire, vision, pédagogie et direction."
     },
     "formations": {
       "title": "Formations",
@@ -24,21 +25,21 @@
       "description": "Préinscription en ligne à AGRI'SUP : transmettez vos informations pour démarrer votre procédure d'admission."
     },
     "actualites": {
-      "title": "Actualités"
+      "title": "Actualités",
+      "description": "Actualités d'AGRI'SUP : admissions, activités pratiques, événements et annonces."
     },
     "faq": {
-      "title": "Questions fréquentes"
+      "title": "Questions fréquentes",
+      "description": "Questions fréquentes sur AGRI'SUP : formations, admission, préinscription et contact."
     },
     "contact": {
       "title": "Contact",
       "description": "Contacter AGRI'SUP : adresse, téléphone, WhatsApp, email et formulaire de contact."
     },
     "mentions_legales": {
-      "title": "Mentions légales et confidentialité"
+      "title": "Mentions légales et confidentialité",
+      "description": "Mentions légales et politique de confidentialité du site AGRI'SUP."
     }
-  },
-  "placeholder": {
-    "in_progress": "Page en cours de construction."
   },
   "not_found": {
     "title": "Page introuvable",
@@ -248,5 +249,95 @@
     "success_whatsapp": "Vous pouvez aussi nous écrire sur WhatsApp pour toute question.",
     "whatsapp_message": "Bonjour AGRI'SUP, je viens d'envoyer une préinscription pour la formation {formation}.",
     "back_home": "Retour à l'accueil"
+  },
+  "agrisup_page": {
+    "intro": "École supérieure privée des sciences et technologies agricoles, implantée à Sotuba ACI, Bamako.",
+    "on_this_page": "Sur cette page",
+    "presentation_title": "Présentation",
+    "fields_title": "Domaines couverts",
+    "history_title": "Histoire",
+    "history_unverified": "Historique en cours de validation par l'établissement : les éléments ci-dessous proviennent des informations recueillies.",
+    "vision_mission_title": "Vision et mission",
+    "vision_title": "Vision",
+    "mission_title": "Mission",
+    "pedagogy_title": "Pédagogie",
+    "pedagogy_intro": "Le parcours de formation relie les connaissances théoriques à la pratique de terrain.",
+    "infrastructures_title": "Infrastructures et dispositifs pratiques",
+    "direction_title": "Direction",
+    "direction_text": "La présentation de l'équipe de direction sera publiée après validation par l'établissement."
+  },
+  "actualites_page": {
+    "intro": "La vie de l'établissement : admissions, activités pratiques, événements et annonces.",
+    "read_more": "Lire l'actualité",
+    "empty": "Aucune actualité pour le moment.",
+    "pagination": "Pagination des actualités",
+    "previous": "Page précédente",
+    "next": "Page suivante",
+    "page_of": "Page {page} sur {count}",
+    "back": "Toutes les actualités",
+    "published_on": "Publié le {date}",
+    "category": {
+      "RENTREE": "Rentrée",
+      "ADMISSIONS": "Admissions",
+      "EVENEMENT": "Événement",
+      "CONFERENCE": "Conférence",
+      "ACTIVITE_PRATIQUE": "Activité pratique",
+      "CEREMONIE": "Cérémonie",
+      "PARTENARIAT": "Partenariat",
+      "RESULTATS": "Résultats",
+      "ANNONCE": "Annonce"
+    }
+  },
+  "faq_page": {
+    "intro": "Les réponses aux questions les plus fréquentes sur AGRI'SUP, ses formations et la préinscription.",
+    "more_title": "Vous ne trouvez pas votre réponse ?",
+    "more_text": "Posez votre question directement à l'équipe d'AGRI'SUP."
+  },
+  "contact_page": {
+    "intro": "Une question sur une formation, l'admission ou la préinscription ? Contactez AGRI'SUP.",
+    "info_title": "Coordonnées",
+    "address": "Adresse",
+    "directions": "Itinéraire",
+    "phones": "Téléphone",
+    "whatsapp": "WhatsApp",
+    "whatsapp_text": "Écrivez-nous directement sur WhatsApp.",
+    "email": "Email",
+    "social_title": "Réseaux sociaux",
+    "brochure_title": "Brochure",
+    "brochure_download": "Télécharger la brochure (PDF)",
+    "map_title": "Plan d'accès",
+    "map_load": "Afficher la carte",
+    "map_notice": "La carte est fournie par Google Maps : l'afficher transmet des données de navigation à Google.",
+    "map_iframe_title": "Carte : AGRI'SUP, Sotuba ACI, Bamako"
+  },
+  "legal_page": {
+    "intro": "Informations légales sur le site et sur le traitement de vos données personnelles.",
+    "draft": "Texte provisoire, à faire valider juridiquement par AGRI'SUP avant la mise en ligne.",
+    "editor_title": "Éditeur du site",
+    "editor_name": "Nom",
+    "editor_address": "Adresse",
+    "editor_phone": "Téléphone",
+    "editor_manager": "Responsable de la publication",
+    "editor_registration": "Immatriculation",
+    "host_title": "Hébergement",
+    "host_text": "Le site est hébergé par :",
+    "database_text": "Les données des formulaires sont stockées dans une base PostgreSQL hébergée par Neon, sur des serveurs situés dans l'Union européenne (Francfort, Allemagne). Les notifications par email sont envoyées via Resend.",
+    "data_title": "Données personnelles",
+    "data_collected": "Données collectées : via le formulaire de contact (nom, email ou téléphone, sujet, message) et via le formulaire de préinscription (nom, prénom, téléphone, email facultatif, ville, niveau d'études, formation et année académique souhaitées, message facultatif).",
+    "data_purpose": "Finalité : ces données servent uniquement à répondre à vos demandes et à traiter votre préinscription. Elles ne sont ni vendues ni utilisées à des fins publicitaires.",
+    "data_basis": "Base légale : votre consentement, donné en cochant la case prévue dans chaque formulaire.",
+    "data_recipients": "Destinataires : le personnel habilité d'AGRI'SUP, ainsi que les prestataires techniques nécessaires au fonctionnement du site (hébergement, base de données, envoi d'emails).",
+    "data_retention": "Durée de conservation :",
+    "data_security": "Sécurité : les échanges sont chiffrés (HTTPS) ; les adresses IP utilisées pour limiter les envois abusifs ne sont jamais conservées en clair.",
+    "rights_title": "Vos droits",
+    "rights_text": "Conformément à la loi n° 2013-015 du 21 mai 2013 portant protection des données à caractère personnel en République du Mali, vous disposez d'un droit d'accès, de rectification, d'opposition et de suppression de vos données. Pour l'exercer, contactez AGRI'SUP via la page Contact. Vous pouvez également saisir l'Autorité de Protection des Données à caractère Personnel (APDP).",
+    "cookies_title": "Cookies et stockage local",
+    "cookies_locale": "Langue : un cookie technique (NEXT_LOCALE) mémorise la langue choisie.",
+    "cookies_theme": "Thème : votre choix entre thème clair et sombre est enregistré dans le stockage local de votre navigateur, sans être transmis.",
+    "cookies_youtube": "Vidéo : la vidéo de présentation n'est chargée depuis YouTube (domaine youtube-nocookie.com) que si vous cliquez sur « lecture ». YouTube peut alors déposer ses propres traceurs.",
+    "cookies_maps": "Carte : la carte Google Maps n'est chargée que si vous cliquez sur « Afficher la carte ».",
+    "cookies_none": "Aucun cookie publicitaire n'est utilisé.",
+    "ip_title": "Propriété intellectuelle",
+    "ip_text": "Les contenus de ce site (textes, logo, visuels) sont la propriété d'AGRI'SUP, sauf mention contraire. Toute reproduction sans autorisation est interdite."
   }
 }

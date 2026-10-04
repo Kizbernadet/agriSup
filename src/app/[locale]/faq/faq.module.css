@@ -1,0 +1,12 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  font-weight: var(--font-weight-semibold);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}

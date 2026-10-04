@@ -120,6 +120,8 @@ const FORMATIONS: FormationSeed[] = [
 type ActualiteSeed = {
   slug: string;
   category: ActualiteCategory;
+  // Affiche de assets/annonces/ copiée dans public/images/actualites/ (générée par IA).
+  imagePath: string;
   publishedAt: Date;
   fr: { title: string; excerpt: string; content: string };
   en: { title: string; excerpt: string; content: string };
@@ -129,6 +131,7 @@ type ActualiteSeed = {
 const ACTUALITES: ActualiteSeed[] = [
   {
     slug: "preinscriptions-en-ligne-ouvertes",
+    imagePath: "/images/actualites/affiche_inscriptions_continuent.jpg",
     category: "ADMISSIONS",
     publishedAt: new Date("2026-10-01T09:00:00Z"),
     fr: {
@@ -147,6 +150,7 @@ const ACTUALITES: ActualiteSeed[] = [
   },
   {
     slug: "sortie-pedagogique-visite-de-ferme",
+    imagePath: "/images/actualites/affiche_sortie_pedagogique.jpg",
     category: "ACTIVITE_PRATIQUE",
     publishedAt: new Date("2026-09-24T09:00:00Z"),
     fr: {
@@ -164,6 +168,7 @@ const ACTUALITES: ActualiteSeed[] = [
   },
   {
     slug: "pourquoi-etudier-a-agrisup",
+    imagePath: "/images/actualites/affiche_pourquoi_agrisup.jpg",
     category: "ANNONCE",
     publishedAt: new Date("2026-09-15T09:00:00Z"),
     fr: {
@@ -213,6 +218,7 @@ async function seedActualites() {
   for (const actualite of ACTUALITES) {
     const data = {
       category: actualite.category,
+      imagePath: actualite.imagePath,
       published: true,
       publishedAt: actualite.publishedAt,
       verified: false,

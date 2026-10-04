@@ -73,6 +73,15 @@ export async function listActualites({
   return { items, page, pageSize, total, pageCount: Math.ceil(total / pageSize) };
 }
 
+// Pour la génération statique des pages détail au build.
+export async function listPublishedActualiteSlugs(): Promise<string[]> {
+  const actualites = await db.actualite.findMany({
+    where: visibleNow(),
+    select: { slug: true },
+  });
+  return actualites.map((actualite) => actualite.slug);
+}
+
 export async function getActualiteBySlug(
   locale: Locale,
   slug: string,

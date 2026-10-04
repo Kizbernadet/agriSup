@@ -9,7 +9,8 @@
       "title": "AGRI'SUP — Private Higher School of Agricultural Sciences and Technologies"
     },
     "agrisup": {
-      "title": "About AGRI'SUP"
+      "title": "About AGRI'SUP",
+      "description": "About AGRI'SUP: identity, fields, history, vision, teaching approach and leadership."
     },
     "formations": {
       "title": "Programs",
@@ -24,21 +25,21 @@
       "description": "Online pre-registration at AGRI'SUP: send your details to start your admission process."
     },
     "actualites": {
-      "title": "News"
+      "title": "News",
+      "description": "AGRI'SUP news: admissions, practical activities, events and announcements."
     },
     "faq": {
-      "title": "Frequently asked questions"
+      "title": "Frequently asked questions",
+      "description": "Frequently asked questions about AGRI'SUP: programs, admissions, pre-registration and contact."
     },
     "contact": {
       "title": "Contact",
       "description": "Contact AGRI'SUP: address, phone, WhatsApp, email and contact form."
     },
     "mentions_legales": {
-      "title": "Legal notice and privacy"
+      "title": "Legal notice and privacy",
+      "description": "Legal notice and privacy policy of the AGRI'SUP website."
     }
-  },
-  "placeholder": {
-    "in_progress": "This page is under construction."
   },
   "not_found": {
     "title": "Page not found",
@@ -248,5 +249,95 @@
     "success_whatsapp": "You can also message us on WhatsApp with any questions.",
     "whatsapp_message": "Hello AGRI'SUP, I have just sent a pre-registration for the {formation} program.",
     "back_home": "Back to home"
+  },
+  "agrisup_page": {
+    "intro": "A private higher school of agricultural sciences and technologies, based in Sotuba ACI, Bamako.",
+    "on_this_page": "On this page",
+    "presentation_title": "Overview",
+    "fields_title": "Fields covered",
+    "history_title": "History",
+    "history_unverified": "History being validated by the school: the information below comes from the details gathered so far.",
+    "vision_mission_title": "Vision and mission",
+    "vision_title": "Vision",
+    "mission_title": "Mission",
+    "pedagogy_title": "Teaching approach",
+    "pedagogy_intro": "The learning path connects theoretical knowledge with fieldwork.",
+    "infrastructures_title": "Facilities and practical training",
+    "direction_title": "Leadership",
+    "direction_text": "The leadership team will be presented after validation by the school."
+  },
+  "actualites_page": {
+    "intro": "School life: admissions, practical activities, events and announcements.",
+    "read_more": "Read the article",
+    "empty": "No news yet.",
+    "pagination": "News pagination",
+    "previous": "Previous page",
+    "next": "Next page",
+    "page_of": "Page {page} of {count}",
+    "back": "All news",
+    "published_on": "Published on {date}",
+    "category": {
+      "RENTREE": "Start of year",
+      "ADMISSIONS": "Admissions",
+      "EVENEMENT": "Event",
+      "CONFERENCE": "Conference",
+      "ACTIVITE_PRATIQUE": "Practical activity",
+      "CEREMONIE": "Ceremony",
+      "PARTENARIAT": "Partnership",
+      "RESULTATS": "Results",
+      "ANNONCE": "Announcement"
+    }
+  },
+  "faq_page": {
+    "intro": "Answers to the most frequent questions about AGRI'SUP, its programs and pre-registration.",
+    "more_title": "Can't find your answer?",
+    "more_text": "Ask the AGRI'SUP team directly."
+  },
+  "contact_page": {
+    "intro": "A question about a program, admissions or pre-registration? Contact AGRI'SUP.",
+    "info_title": "Contact details",
+    "address": "Address",
+    "directions": "Directions",
+    "phones": "Phone",
+    "whatsapp": "WhatsApp",
+    "whatsapp_text": "Message us directly on WhatsApp.",
+    "email": "Email",
+    "social_title": "Social media",
+    "brochure_title": "Brochure",
+    "brochure_download": "Download the brochure (PDF)",
+    "map_title": "Map",
+    "map_load": "Show the map",
+    "map_notice": "The map is provided by Google Maps: displaying it sends browsing data to Google.",
+    "map_iframe_title": "Map: AGRI'SUP, Sotuba ACI, Bamako"
+  },
+  "legal_page": {
+    "intro": "Legal information about this website and how your personal data is processed.",
+    "draft": "Provisional text, to be legally validated by AGRI'SUP before going live.",
+    "editor_title": "Website publisher",
+    "editor_name": "Name",
+    "editor_address": "Address",
+    "editor_phone": "Phone",
+    "editor_manager": "Publication manager",
+    "editor_registration": "Registration",
+    "host_title": "Hosting",
+    "host_text": "The website is hosted by:",
+    "database_text": "Form data is stored in a PostgreSQL database hosted by Neon, on servers located in the European Union (Frankfurt, Germany). Email notifications are sent through Resend.",
+    "data_title": "Personal data",
+    "data_collected": "Data collected: through the contact form (name, email or phone, subject, message) and the pre-registration form (last name, first name, phone, optional email, city, level of education, desired program and academic year, optional message).",
+    "data_purpose": "Purpose: this data is only used to answer your requests and process your pre-registration. It is never sold or used for advertising.",
+    "data_basis": "Legal basis: your consent, given by ticking the box in each form.",
+    "data_recipients": "Recipients: authorised AGRI'SUP staff, and the technical providers needed to run the website (hosting, database, email delivery).",
+    "data_retention": "Retention period:",
+    "data_security": "Security: exchanges are encrypted (HTTPS); IP addresses used to limit abusive submissions are never stored in plain text.",
+    "rights_title": "Your rights",
+    "rights_text": "In accordance with Law No. 2013-015 of 21 May 2013 on the protection of personal data in the Republic of Mali, you have the right to access, correct, object to and delete your data. To exercise these rights, contact AGRI'SUP through the Contact page. You may also contact the Personal Data Protection Authority (APDP).",
+    "cookies_title": "Cookies and local storage",
+    "cookies_locale": "Language: a technical cookie (NEXT_LOCALE) remembers your language choice.",
+    "cookies_theme": "Theme: your light or dark theme choice is saved in your browser's local storage and is not transmitted.",
+    "cookies_youtube": "Video: the presentation video is only loaded from YouTube (youtube-nocookie.com domain) if you click \"play\". YouTube may then set its own trackers.",
+    "cookies_maps": "Map: the Google Maps map is only loaded if you click \"Show the map\".",
+    "cookies_none": "No advertising cookies are used.",
+    "ip_title": "Intellectual property",
+    "ip_text": "The content of this website (texts, logo, visuals) belongs to AGRI'SUP unless otherwise stated. Any reproduction without permission is prohibited."
   }
 }
