@@ -1,0 +1,42 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
+  padding: var(--space-2);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: transparent;
+  color: var(--color-brand);
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition);
+}
+
+.toggle:hover {
+  background-color: var(--color-surface-raised);
+  border-color: var(--color-text-muted);
+}
+
+.toggle:disabled {
+  cursor: default;
+}
+
+.icon_moon,
+.icon_sun {
+  width: var(--space-4);
+  height: var(--space-4);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* L'icône montre le thème vers lequel on bascule : lune en clair, soleil en sombre. */
+[data-theme="dark"] .icon_moon,
+:root:not([data-theme="dark"]) .icon_sun {
+  display: none;
+}

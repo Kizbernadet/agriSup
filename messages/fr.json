@@ -8,14 +8,30 @@
     "home": {
       "title": "AGRI'SUP — École Supérieure Privée des Sciences et Technologies Agricoles"
     },
-    "agrisup": { "title": "AGRI'SUP" },
-    "formations": { "title": "Formations" },
-    "admission": { "title": "Admission" },
-    "preinscription": { "title": "Préinscription" },
-    "actualites": { "title": "Actualités" },
-    "faq": { "title": "Questions fréquentes" },
-    "contact": { "title": "Contact" },
-    "mentions_legales": { "title": "Mentions légales et confidentialité" }
+    "agrisup": {
+      "title": "AGRI'SUP"
+    },
+    "formations": {
+      "title": "Formations"
+    },
+    "admission": {
+      "title": "Admission"
+    },
+    "preinscription": {
+      "title": "Préinscription"
+    },
+    "actualites": {
+      "title": "Actualités"
+    },
+    "faq": {
+      "title": "Questions fréquentes"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "mentions_legales": {
+      "title": "Mentions légales et confidentialité"
+    }
   },
   "placeholder": {
     "in_progress": "Page en cours de construction."
@@ -24,5 +40,9 @@
     "title": "Page introuvable",
     "description": "La page demandée n'existe pas ou a été déplacée.",
     "back_home": "Retour à l'accueil"
+  },
+  "theme": {
+    "activate_dark": "Activer le mode sombre",
+    "activate_light": "Activer le mode clair"
   }
 }

@@ -1,0 +1,170 @@
+/*
+ * Variables de design — source : docs/charte_graphique.md (v2.1).
+ *
+ * Les variables marquées [CHARTE §3] sont copiées telles quelles de la section 3.
+ * Celles marquées [AJOUT] n'existaient pas dans la section 3 ; leur origine est
+ * indiquée à chaque fois (voir aussi docs/decisions.md, 2026-10-04).
+ *
+ * Contrastes WCAG 2.1 vérifiés (texte) : minimum 4,84:1 en clair (or foncé sur fond),
+ * 5,29:1 en sombre (texte secondaire sur surface surélevée).
+ *
+ * Points de rupture (les variables CSS ne sont pas utilisables dans @media) :
+ *   tablette : min-width 640px — desktop : min-width 1024px.
+ */
+
+/* ---------- Thème clair (par défaut) ---------- */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* [CHARTE §3] */
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-text: #1f2937;
+  --color-text-muted: #4b5563;
+  --color-border: #e5e7eb;
+  --color-brand: #1b2a47;
+  --color-action: #2a724f;
+  --color-action-hover: #215c3f;
+  --color-on-action: #ffffff;
+  --color-accent: #c59b2e; /* décoration uniquement : 2,4:1, insuffisant pour du texte */
+  --color-accent-text: #8a6a14;
+  --color-focus: #1b2a47;
+  --shadow-card: 0 4px 12px rgba(17, 24, 39, 0.08);
+  --photo-overlay: transparent;
+
+  /* [AJOUT] Surface surélevée (menus, modales). La charte ne la définit qu'en sombre ;
+     en clair, le relief vient de l'ombre, donc la surface reste blanche. */
+  --color-surface-raised: #ffffff;
+
+  /* [AJOUT] Couleurs d'état : valeurs de la charte §2, sans variable en §3. */
+  --color-success: #15803d;
+  --color-error: #b91c1c;
+  --color-warning: #a16207;
+  --color-info: #1d4ed8;
+
+  /* [AJOUT] Liens dans le texte : couleur d'action en clair (charte §5). */
+  --color-link: var(--color-action);
+
+  /* [AJOUT] Fond du header : non précisé par la charte, aligné sur les cartes. */
+  --color-header-bg: var(--color-surface);
+}
+
+/* ---------- Thème sombre ---------- */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* [CHARTE §3] */
+  --color-bg: #0c1410;
+  --color-surface: #16261e;
+  --color-text: #e5e7eb;
+  --color-text-muted: #9ca3af;
+  --color-border: #2a3d33;
+  --color-brand: #f3f4f6;
+  --color-action: #2ecc71;
+  --color-action-hover: #58d68d;
+  --color-on-action: #0c1410; /* jamais de blanc sur le vert vif (règle d'accessibilité) */
+  --color-accent: #d4af37;
+  --color-accent-text: #d4af37;
+  --color-focus: #d4af37;
+  --shadow-card: none;
+  --photo-overlay: rgba(0, 0, 0, 0.2);
+
+  /* [AJOUT] Surface surélevée : valeur de la charte §2 (#1F3328). */
+  --color-surface-raised: #1f3328;
+
+  /* [AJOUT] Couleurs d'état sombres : charte §2. */
+  --color-success: #4ade80;
+  --color-error: #f87171;
+  --color-warning: #facc15;
+  --color-info: #60a5fa;
+
+  /* [AJOUT] Liens dans le texte : accent or en sombre (charte §5). */
+  --color-link: var(--color-accent);
+
+  --color-header-bg: var(--color-surface);
+}
+
+/* ---------- Valeurs communes aux deux thèmes ---------- */
+:root {
+  /* [CHARTE §3] Polices. Les variables --font-montserrat et --font-inter sont posées par
+     next/font, qui héberge les fichiers et renomme les familles : on ne peut donc pas
+     écrire "Montserrat" en dur. Les polices de secours sont celles de la charte. */
+  --font-heading: var(--font-montserrat), "Segoe UI", Arial, sans-serif;
+  --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  /* [CHARTE §3] */
+  --radius: 8px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --transition: 200ms ease;
+
+  /* [AJOUT] Graisses autorisées (charte §1). */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* [AJOUT] Échelle typographique de la charte §1, convertie en rem (1rem = 16px)
+     pour respecter le réglage de taille de police du navigateur. Valeurs mobiles ici,
+     valeurs desktop dans la media query ci-dessous. */
+  --font-size-h1: 2rem; /* 32px */
+  --font-size-h2: 1.625rem; /* 26px */
+  --font-size-h3: 1.375rem; /* 22px */
+  --font-size-h4: 1.125rem; /* 18px */
+  --font-size-body: 1rem; /* 16px */
+  --font-size-small: 0.875rem; /* 14px */
+
+  --line-height-h1: 1.2;
+  --line-height-h2: 1.25;
+  --line-height-h3: 1.3;
+  --line-height-h4: 1.35;
+  --line-height-body: 1.6;
+  --line-height-small: 1.5;
+
+  /* [AJOUT] Longueur de ligne maximale du texte courant (charte §1). */
+  --line-length: 70ch;
+
+  /* [AJOUT] Largeur maximale du contenu (charte §6 : 1200px). */
+  --container-max: 75rem;
+
+  /* [AJOUT] Zone cliquable minimale (charte §5 : 44 × 44px). */
+  --tap-target: 2.75rem;
+
+  /* [AJOUT] Anneau de focus (charte §5 : contour 2px, décalage 2px). */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+
+  /* [AJOUT] Épaisseur des bordures (cartes, champs, boutons secondaires). */
+  --border-width: 1px;
+
+  /* [AJOUT] Opacité des éléments désactivés (charte §5 : 50 %). */
+  --opacity-disabled: 0.5;
+
+  /* [AJOUT] Texte sur photo (charte §8 : « toujours un dégradé sombre sous le texte »).
+     Dégradé basé sur le Vert Nuit #0C1410 de la charte, opaque à 85 % sous le texte :
+     le texte --color-on-photo y atteint au moins 11:1, quelle que soit la photo. */
+  --photo-text-gradient: linear-gradient(
+    to top,
+    rgba(12, 20, 16, 0.85) 0%,
+    rgba(12, 20, 16, 0.6) 50%,
+    rgba(12, 20, 16, 0) 100%
+  );
+  /* [AJOUT] Couleur du texte sur photo : blanc cassé de la charte (#F3F4F6). */
+  --color-on-photo: #f3f4f6;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --font-size-h1: 3rem; /* 48px */
+    --font-size-h2: 2.25rem; /* 36px */
+    --font-size-h3: 1.75rem; /* 28px */
+    --font-size-h4: 1.375rem; /* 22px */
+    --font-size-body: 1.0625rem; /* 17px */
+  }
+}

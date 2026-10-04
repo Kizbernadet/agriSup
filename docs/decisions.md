@@ -71,4 +71,15 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Typage des traductions** d'après `messages/fr.json` : une clé manquante ou mal orthographiée provoque une erreur TypeScript.
 - **Prettier + eslint-config-prettier** pour une mise en forme uniforme. `.gitattributes` force les fins de ligne LF (le poste de développement est sous Windows).
 - **`.env.example` sans coordonnées réelles :** les coordonnées de test (numéro et email personnels) vont uniquement dans `.env.local`, qui n'est pas versionné.
+### Phase 2
+
+- **Variables ajoutées** dans `src/styles/tokens.css`, chacune marquée `[AJOUT]` avec sa source. En plus de la liste ci-dessus : `--color-on-photo` (#F3F4F6, déjà dans la charte), `--border-width`, les graisses, l'anneau de focus, `--opacity-disabled` et `--line-length`.
+- **Contrastes vérifiés par calcul** : tous les textes respectent le niveau AA dans les deux thèmes (minimum 4,84:1). En revanche, `--color-border` (#E5E7EB, 1,18:1) ne suffit pas pour le contour d'un champ de formulaire (WCAG 1.4.11 exige 3:1). Les champs utiliseront donc `--color-text-muted` (7,2:1) en phase 3, sans nouvelle variable.
+- **Polices auto-hébergées par `next/font`** : aucune requête vers Google côté visiteur. `--font-heading` et `--font-body` pointent vers les variables de next/font, car next/font renomme les familles.
+- **Thème** : l'état est porté par `<html data-theme>`, posé par un script dans le `<head>` avant le premier affichage. Clé `localStorage` : `agrisup_theme`. Tant que l'utilisateur n'a rien choisi, le site suit les changements de préférence du système.
+- **Échelle typographique** : valeurs mobiles par défaut, valeurs desktop à partir de 1024 px. La charte ne définit pas de valeurs tablette. H5 et H6 n'existent pas dans la charte : H5 reprend la taille H4 et H6 celle du texte courant.
+- **Page `/guide-style`** : outil de contrôle visuel, 404 en production et non indexée.
+
+### Dépendances
+
 - **`npm audit`** signale 5 vulnérabilités « high » dans `micromatch`, via `eslint-config-next`. Ce sont des **outils de développement uniquement**, qui ne sont pas livrés en production. Je ne corrige pas avec `--force`, car cela casserait la configuration ESLint ; à revoir à la prochaine version de `eslint-config-next`.

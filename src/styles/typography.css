@@ -1,0 +1,60 @@
+/* Échelle typographique de la charte §1 : Montserrat pour les titres, Inter pour le texte. */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-brand);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-h3);
+}
+
+/* La charte s'arrête à H4 : H5 et H6 reprennent la taille H4 et le texte courant. */
+h4,
+h5 {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-h4);
+}
+
+h6 {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-body);
+}
+
+p,
+li {
+  max-width: var(--line-length);
+  text-wrap: pretty;
+}
+
+small {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-semibold);
+}

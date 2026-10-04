@@ -8,14 +8,30 @@
     "home": {
       "title": "AGRI'SUP — Private Higher School of Agricultural Sciences and Technologies"
     },
-    "agrisup": { "title": "About AGRI'SUP" },
-    "formations": { "title": "Programs" },
-    "admission": { "title": "Admissions" },
-    "preinscription": { "title": "Pre-registration" },
-    "actualites": { "title": "News" },
-    "faq": { "title": "Frequently asked questions" },
-    "contact": { "title": "Contact" },
-    "mentions_legales": { "title": "Legal notice and privacy" }
+    "agrisup": {
+      "title": "About AGRI'SUP"
+    },
+    "formations": {
+      "title": "Programs"
+    },
+    "admission": {
+      "title": "Admissions"
+    },
+    "preinscription": {
+      "title": "Pre-registration"
+    },
+    "actualites": {
+      "title": "News"
+    },
+    "faq": {
+      "title": "Frequently asked questions"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "mentions_legales": {
+      "title": "Legal notice and privacy"
+    }
   },
   "placeholder": {
     "in_progress": "This page is under construction."
@@ -24,5 +40,9 @@
     "title": "Page not found",
     "description": "The requested page does not exist or has been moved.",
     "back_home": "Back to home"
+  },
+  "theme": {
+    "activate_dark": "Switch to dark mode",
+    "activate_light": "Switch to light mode"
   }
 }

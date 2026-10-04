@@ -17,6 +17,8 @@ export const routing = defineRouting({
     "/faq": "/faq",
     "/contact": "/contact",
     "/mentions_legales": { fr: "/mentions-legales", en: "/legal-notice" },
+    // Outil interne de contrôle visuel, 404 en production.
+    "/guide_style": "/guide-style",
   },
 });
 
