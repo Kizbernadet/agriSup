@@ -16,6 +16,17 @@ cp .env.example .env.local   # puis renseigner les valeurs
 npm run dev                  # http://localhost:3000 → redirige vers /fr
 ```
 
+## Base de données
+
+1. Créer un projet sur [Neon](https://neon.tech) (région Europe, Francfort) et copier la chaîne de connexion « pooled » dans `DATABASE_URL` de `.env.local`.
+2. Appliquer les migrations puis charger les données de test :
+
+```bash
+npm run db:deploy   # crée les tables
+npm run db:seed     # formations et actualités de test (relançable sans doublon)
+npm run db:studio   # explorer les données dans le navigateur
+```
+
 ## Scripts
 
 | Commande                          | Rôle                                                         |
@@ -26,6 +37,10 @@ npm run dev                  # http://localhost:3000 → redirige vers /fr
 | `npm run lint`                    | ESLint                                                       |
 | `npm run typecheck`               | Vérification TypeScript (génère d'abord les types de routes) |
 | `npm run format` / `format:check` | Mise en forme Prettier                                       |
+| `npm run db:migrate`              | Crée une migration après modification du schéma (dev)        |
+| `npm run db:deploy`               | Applique les migrations (Neon, production)                   |
+| `npm run db:seed`                 | Charge les données de test                                   |
+| `npm run db:studio`               | Interface web d'exploration des données                      |
 
 ## Organisation
 
@@ -36,6 +51,8 @@ npm run dev                  # http://localhost:3000 → redirige vers /fr
 | `messages/`         | Textes de l'interface par langue                                       |
 | `src/components/`   | Composants réutilisables                                               |
 | `assets/`           | Sources brutes (logo, photos, annonces), jamais servies telles quelles |
+| `prisma/`           | Schéma, migrations et données de test                                  |
+| `src/app/api/`      | API publiques (formations, actualités)                                 |
 | `docs/`             | Cadrage, charte graphique, plan, décisions, checklist                  |
 
 ## Documentation

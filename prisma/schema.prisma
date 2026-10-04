@@ -1,0 +1,201 @@
+// Schéma de données AGRI'SUP (cahier de cadrage §15), validé le 2026-10-04.
+// Conventions : modèles et champs en camelCase côté TypeScript,
+// tables et colonnes en snake_case côté PostgreSQL (@@map / @map).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------- Énumérations ----------
+
+// Langues du site. Ajouter le bambara ici le moment venu (avec une migration).
+enum Locale {
+  fr
+  en
+}
+
+enum FormationLevel {
+  DUT
+  LICENCE_PRO
+}
+
+// Regroupement proposé d'après le kakémono, validé par la cliente pour les filtres.
+// À confirmer avec AGRI'SUP.
+enum FormationDomain {
+  PRODUCTION_VEGETALE
+  ELEVAGE_SANTE_ANIMALE
+  AQUACULTURE
+  AGRIBUSINESS
+  AGROFORESTERIE
+}
+
+// Types d'actualités listés au cahier §11.1.
+enum ActualiteCategory {
+  RENTREE
+  ADMISSIONS
+  EVENEMENT
+  CONFERENCE
+  ACTIVITE_PRATIQUE
+  CEREMONIE
+  PARTENARIAT
+  RESULTATS
+  ANNONCE
+}
+
+// Statuts du cahier §8.4.
+enum PreinscriptionStatus {
+  NEW
+  CONTACTED
+  PROCESSING
+  ACCEPTED
+  REJECTED
+}
+
+// Statuts du cahier §9.2.
+enum ContactMessageStatus {
+  UNREAD
+  READ
+  ANSWERED
+}
+
+// ---------- Contenus éditoriaux ----------
+
+model Formation {
+  id                String          @id @default(cuid())
+  // Identifiant d'URL commun aux deux langues (kebab-case).
+  slug              String          @unique
+  level             FormationLevel
+  domain            FormationDomain
+  // Durée et crédits facultatifs : affichés « à fournir » tant qu'ils ne sont pas confirmés.
+  durationSemesters Int?            @map("duration_semesters")
+  credits           Int?
+  published         Boolean         @default(false)
+  // false = contenu non validé par AGRI'SUP (donnée de test ou à confirmer).
+  verified          Boolean         @default(false)
+  sortOrder         Int             @default(0) @map("sort_order")
+  createdAt         DateTime        @default(now()) @map("created_at")
+  updatedAt         DateTime        @updatedAt @map("updated_at")
+
+  translations    FormationTranslation[]
+  preinscriptions Preinscription[]
+
+  @@index([published, sortOrder])
+  @@map("formations")
+}
+
+model FormationTranslation {
+  id                    String   @id @default(cuid())
+  formationId           String   @map("formation_id")
+  locale                Locale
+  name                  String
+  summary               String
+  // Textes longs en Markdown ; listes en tableaux PostgreSQL.
+  description           String?
+  program               String?
+  objectives            String[]
+  skills                String[]
+  careerOpportunities   String[] @map("career_opportunities")
+  admissionRequirements String[] @map("admission_requirements")
+  requiredDocuments     String[] @map("required_documents")
+
+  formation Formation @relation(fields: [formationId], references: [id], onDelete: Cascade)
+
+  @@unique([formationId, locale])
+  @@map("formation_translations")
+}
+
+model Actualite {
+  id          String            @id @default(cuid())
+  slug        String            @unique
+  category    ActualiteCategory
+  // Chemin d'une image optimisée dans /public (phase 8).
+  imagePath   String?           @map("image_path")
+  published   Boolean           @default(false)
+  publishedAt DateTime?         @map("published_at")
+  verified    Boolean           @default(false)
+  createdAt   DateTime          @default(now()) @map("created_at")
+  updatedAt   DateTime          @updatedAt @map("updated_at")
+
+  translations ActualiteTranslation[]
+
+  @@index([published, publishedAt])
+  @@map("actualites")
+}
+
+model ActualiteTranslation {
+  id          String @id @default(cuid())
+  actualiteId String @map("actualite_id")
+  locale      Locale
+  title       String
+  excerpt     String
+  // Markdown.
+  content     String
+
+  actualite Actualite @relation(fields: [actualiteId], references: [id], onDelete: Cascade)
+
+  @@unique([actualiteId, locale])
+  @@map("actualite_translations")
+}
+
+// ---------- Données envoyées par les visiteurs ----------
+
+model Preinscription {
+  id             String               @id @default(cuid())
+  firstName      String               @map("first_name")
+  lastName       String               @map("last_name")
+  phone          String
+  // Facultatif : beaucoup de candidats sont joignables par téléphone/WhatsApp uniquement.
+  email          String?
+  city           String
+  educationLevel String               @map("education_level")
+  // Restrict : on ne supprime pas une formation qui a des préinscriptions.
+  formationId    String               @map("formation_id")
+  academicYear   String               @map("academic_year")
+  message        String?
+  locale         Locale
+  status         PreinscriptionStatus @default(NEW)
+  // Date d'acceptation de la politique de confidentialité.
+  consentAt      DateTime             @map("consent_at")
+  createdAt      DateTime             @default(now()) @map("created_at")
+  updatedAt      DateTime             @updatedAt @map("updated_at")
+
+  formation Formation @relation(fields: [formationId], references: [id], onDelete: Restrict)
+
+  @@index([status, createdAt])
+  @@map("preinscriptions")
+}
+
+model ContactMessage {
+  id        String               @id @default(cuid())
+  name      String
+  // Au moins l'un des deux est exigé par la validation (zod), pas par la base.
+  email     String?
+  phone     String?
+  subject   String
+  message   String
+  locale    Locale
+  status    ContactMessageStatus @default(UNREAD)
+  consentAt DateTime             @map("consent_at")
+  createdAt DateTime             @default(now()) @map("created_at")
+  updatedAt DateTime             @updatedAt @map("updated_at")
+
+  @@index([status, createdAt])
+  @@map("contact_messages")
+}
+
+// ---------- Technique ----------
+
+// Limitation de débit des formulaires, fenêtre fixe.
+// key = "<route>:<empreinte SHA-256 de l'IP>" : l'adresse IP n'est jamais stockée en clair.
+model RateLimit {
+  key         String   @id
+  windowStart DateTime @map("window_start")
+  count       Int
+
+  @@map("rate_limits")
+}

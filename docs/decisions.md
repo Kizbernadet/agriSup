@@ -91,6 +91,18 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Champs de formulaire** : label relié, aide et erreur annoncées via `aria-describedby`, astérisque doublé d'un texte pour les lecteurs d'écran, contour en `--color-text-muted` (contraste 3:1 minimum).
 - **Le contenu principal `<main id="contenu">` est dans le layout** : les pages ne rendent plus leur propre `<main>`.
 
+### Phase 4
+
+- **Prisma 7.10.0** (dernière version stable ; le tag npm « latest » pointait vers une 8.0 RC). Configuration dans `prisma.config.ts`, qui charge `.env.local` via `@next/env` (pas de dépendance `dotenv`). Client généré dans `src/generated/prisma` (non versionné, régénéré par `postinstall`).
+- **Pilote `@prisma/adapter-pg`** (PostgreSQL standard) plutôt que le pilote spécifique Neon : il fonctionne avec Neon (URL « pooled ») comme avec une base locale (`npx prisma dev`), ce qui facilite les tests.
+- **Schéma** : traductions dans des tables séparées (`*_translations`, une ligne par langue) ; ajouter le bambara = une valeur d'enum + des lignes, sans changer les tables. Tables et colonnes en snake_case côté PostgreSQL.
+- **Champ `verified`** sur formations et actualités : `false` = non validé par AGRI'SUP. Toutes les données de test sont à `false` ; à revoir avant la mise en ligne.
+- **Préinscription** : email facultatif, téléphone obligatoire (beaucoup de candidats sont joignables uniquement par téléphone ou WhatsApp). Contact : email *ou* téléphone (vérifié par zod en phase 6). Date de consentement stockée.
+- **Identifiant d'URL commun aux deux langues** (`licence-pro-agronomie`), validé par la cliente.
+- **Domaines** : 5 valeurs validées par la cliente pour les filtres (production végétale, élevage et santé animale, aquaculture, agribusiness, agroforesterie). La répartition de chaque formation est une proposition à confirmer avec AGRI'SUP.
+- **Couche d'accès aux données** (`src/lib/data/`) partagée entre les API et les pages, avec repli sur le français si une traduction manque.
+- **API en lecture** : paramètres validés par zod (400 si invalides), 404 sur identifiant inconnu, 500 générique sans détail technique (journalisé côté serveur), cache CDN de 5 minutes.
+
 ### Dépendances
 
 - **`npm audit`** signale 5 vulnérabilités « high » dans `micromatch`, via `eslint-config-next`. Ce sont des **outils de développement uniquement**, qui ne sont pas livrés en production. Je ne corrige pas avec `--force`, car cela casserait la configuration ESLint ; à revoir à la prochaine version de `eslint-config-next`.

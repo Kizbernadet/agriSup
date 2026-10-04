@@ -42,3 +42,6 @@ next-env.d.ts
 
 # fichiers d environnement : seul le modèle est versionné
 !.env.example
+
+# client Prisma généré (recréé par `prisma generate`, lancé à l installation)
+/src/generated/
