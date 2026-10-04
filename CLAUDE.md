@@ -119,3 +119,9 @@ contenu ou le périmètre fonctionnel du projet.
 - Photos sources dans `assets/photos/` et `assets/annonces/`.
 - Export en WebP ou AVIF, avec `srcset`, `loading="lazy"` hors première vue et un `alt` descriptif.
 - Nommage des images optimisées en snake_case, par exemple `etudiants_tp_laboratoire_800w.webp`.
+
+## Next.js 16
+
+Cette version de Next.js diffère des versions connues (ex. `proxy.ts` remplace `middleware.ts`). Consignes officielles :
+
+@AGENTS.md

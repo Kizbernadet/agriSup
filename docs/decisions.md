@@ -61,3 +61,14 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 
 - **Images fournies :** les affiches 1 à 4 sont générées par IA et montrent des personnes fictives. Elles ne seront pas présentées comme des photos de l'école ; elles servent d'inspiration pour les annonces de test.
   L'image 5 (photo réelle du kakémono) sert de **source documentaire** pour la liste des formations, à confirmer.
+
+### Phase 1
+
+- **Next.js 16.3 + next-intl 4.** Next.js 16 remplace `middleware.ts` par `src/proxy.ts`.
+  `AGENTS.md` (généré et maintenu par Next.js) est importé dans `CLAUDE.md` : il renvoie vers la documentation embarquée dans `node_modules/next/dist/docs/`.
+- **URL :** `/` redirige vers `/fr` ou `/en` selon la langue du navigateur. Les anciennes formes (`/fr/mentions_legales`, `/en/formations`) redirigent vers les URL publiques (`/fr/mentions-legales`, `/en/programs`).
+- **Cookie `NEXT_LOCALE`** posé par next-intl pour mémoriser la langue. C'est un cookie fonctionnel, exempté de consentement ; il sera mentionné dans la page Mentions légales.
+- **Typage des traductions** d'après `messages/fr.json` : une clé manquante ou mal orthographiée provoque une erreur TypeScript.
+- **Prettier + eslint-config-prettier** pour une mise en forme uniforme. `.gitattributes` force les fins de ligne LF (le poste de développement est sous Windows).
+- **`.env.example` sans coordonnées réelles :** les coordonnées de test (numéro et email personnels) vont uniquement dans `.env.local`, qui n'est pas versionné.
+- **`npm audit`** signale 5 vulnérabilités « high » dans `micromatch`, via `eslint-config-next`. Ce sont des **outils de développement uniquement**, qui ne sont pas livrés en production. Je ne corrige pas avec `--force`, car cela casserait la configuration ESLint ; à revoir à la prochaine version de `eslint-config-next`.

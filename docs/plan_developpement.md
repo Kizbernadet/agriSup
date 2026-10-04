@@ -66,7 +66,7 @@ agrisup/
 ├── scripts/
 │   └── optimize_images.ts
 ├── src/
-│   ├── middleware.ts             # détection de la langue (nom imposé par Next.js)
+│   ├── proxy.ts                  # détection de la langue (nom imposé par Next.js 16)
 │   ├── i18n/
 │   │   ├── routing.ts            # langues + URL traduites (kebab-case)
 │   │   └── request.ts

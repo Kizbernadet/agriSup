@@ -13,7 +13,7 @@
 - [ ] Photos réelles de l'école (avec droits et autorisations)
 
 ## Phases
-- [ ] 1. Initialisation (projet, arborescence, langues, réorganisation de `assets/`)
+- [x] 1. Initialisation (projet, arborescence, langues, réorganisation de `assets/`)
 - [ ] 2. Fondations visuelles (variables, polices, double thème)
 - [ ] 3. Composants communs
 - [ ] 4. Données et API de lecture

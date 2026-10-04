@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "site_name": "AGRI'SUP",
+    "title": "AGRI'SUP — École Supérieure Privée des Sciences et Technologies Agricoles",
+    "description": "AGRI'SUP, école supérieure privée des sciences et technologies agricoles à Sotuba ACI, Bamako (Mali) : formations, admission, préinscription et contact."
+  },
+  "pages": {
+    "home": {
+      "title": "AGRI'SUP — École Supérieure Privée des Sciences et Technologies Agricoles"
+    },
+    "agrisup": { "title": "AGRI'SUP" },
+    "formations": { "title": "Formations" },
+    "admission": { "title": "Admission" },
+    "preinscription": { "title": "Préinscription" },
+    "actualites": { "title": "Actualités" },
+    "faq": { "title": "Questions fréquentes" },
+    "contact": { "title": "Contact" },
+    "mentions_legales": { "title": "Mentions légales et confidentialité" }
+  },
+  "placeholder": {
+    "in_progress": "Page en cours de construction."
+  },
+  "not_found": {
+    "title": "Page introuvable",
+    "description": "La page demandée n'existe pas ou a été déplacée.",
+    "back_home": "Retour à l'accueil"
+  }
+}
