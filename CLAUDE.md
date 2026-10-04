@@ -13,8 +13,8 @@ tu construis quelque chose qui doit survivre à une V2.
 Site vitrine professionnel pour AGRI'SUP (école supérieure privée des
 sciences et technologies agricoles, Bamako, Mali) permettant à un visiteur
 de comprendre l'école, ses formations, de contacter l'établissement et de
-se préinscrire. Documents de référence complets : `/docs/cahier_de_cadrage.md`
-et `/docs/presentation_institutionnelle.md`.
+se préinscrire. Documents de référence complets : `docs/description_projet.md`
+(cahier de cadrage) et `docs/presentation_projet.md` (présentation institutionnelle).
 
 ## Non-négociables
 
@@ -36,7 +36,7 @@ et `/docs/presentation_institutionnelle.md`.
    la logique n'est pas évidente d'elle-même.
 5. **Tu documentes tes décisions structurantes** (choix de librairie,
    organisation de dossier non triviale, compromis technique) dans un
-   fichier `DECISIONS.md` à la racine, sous forme de liste datée.
+   fichier `docs/decisions.md`, sous forme de liste datée.
 
 ## Stack technique retenue
 
@@ -44,7 +44,7 @@ et `/docs/presentation_institutionnelle.md`.
 - Backend : API routes Next.js (pas de serveur séparé pour ce MVP).
 - Base de données : PostgreSQL via Prisma ORM.
 - Emails (formulaires contact/préinscription) : Resend.
-- Hébergement : Vercel (frontend + API routes) + Railway (PostgreSQL).
+- Hébergement : Vercel, plan gratuit pour le MVP (frontend + API routes) + Neon (PostgreSQL).
 - Protection formulaires : honeypot + validation serveur stricte (zod ou
   équivalent), rate limiting basique sur les routes sensibles.
 
@@ -63,8 +63,8 @@ et `/docs/presentation_institutionnelle.md`.
 
 ## Documents de référence
 
-- `/docs/cahier_de_cadrage.md` — périmètre fonctionnel complet du MVP.
-- `/docs/presentation_projet.md` — contenu institutionnel source
+- `docs/description_projet.md` — cahier de cadrage : périmètre fonctionnel complet du MVP.
+- `docs/presentation_projet.md` — contenu institutionnel source
   (textes, structure de l'école, formations).
 
 Lis ces deux documents avant de répondre à la moindre question sur le
@@ -75,7 +75,7 @@ contenu ou le périmètre fonctionnel du projet.
 - **Tous les fichiers et dossiers du projet sont en snake_case** : minuscules, mots séparés par `_`, sans accents ni espaces.
   - ✅ `charte_graphique.md`, `page_formations.html`, `logo_inverse.svg`
   - ❌ `charte-graphique.md`, `PageFormations.html`, `logo inversé.svg`
-- **Seule exception :** `CLAUDE.md`, dont le nom est imposé par Claude Code.
+- **Exceptions :** `CLAUDE.md`, dont le nom est imposé par Claude Code, et les fichiers dont le nom est imposé par un outil ou un framework (`README.md`, `package.json`, `.env.example`, `next.config.ts`, `not-found.tsx`, `eslint.config.mjs`, etc.).
 - Cette règle s'applique à tout fichier que tu crées : pages, composants, styles, scripts et images.
 
 ## Documents de référence
