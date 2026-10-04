@@ -18,3 +18,15 @@ export const MAIN_NAV: readonly NavItem[] = [
   { href: "/faq", labelKey: "faq" },
   { href: "/contact", labelKey: "contact" },
 ];
+
+// Niveau d'études déclaré à la préinscription (cahier §8.2). Liste générique proposée,
+// à valider par AGRI'SUP selon ses conditions d'accès. Libellés dans messages > form.
+export const EDUCATION_LEVELS = [
+  "BAC_EN_COURS",
+  "BAC",
+  "BT",
+  "BAC_PLUS_2",
+  "LICENCE_OU_PLUS",
+  "AUTRE",
+] as const;
+export type EducationLevel = (typeof EDUCATION_LEVELS)[number];

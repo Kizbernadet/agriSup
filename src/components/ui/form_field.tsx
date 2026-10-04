@@ -163,3 +163,55 @@ export function SelectField({
     </FieldShell>
   );
 }
+
+type CheckboxFieldProps = {
+  name: string;
+  // Libellé riche (peut contenir un lien).
+  label: ReactNode;
+  error?: string;
+  required?: boolean;
+  requiredLabel: string;
+};
+
+export function CheckboxField({
+  name,
+  label,
+  error,
+  required,
+  requiredLabel,
+}: CheckboxFieldProps) {
+  const { id, errorId } = fieldIds(name);
+
+  return (
+    <div className={styles.field}>
+      <div className={styles.checkbox_row}>
+        <input
+          id={id}
+          name={name}
+          type="checkbox"
+          required={required}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={error ? errorId : undefined}
+          className={styles.checkbox}
+        />
+        <label htmlFor={id} className={styles.checkbox_label}>
+          {label}
+          {required && (
+            <>
+              <span className={styles.required} aria-hidden="true">
+                {" "}
+                *
+              </span>
+              <span className="visually_hidden"> ({requiredLabel})</span>
+            </>
+          )}
+        </label>
+      </div>
+      {error && (
+        <p id={errorId} className={styles.error}>
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}

@@ -61,3 +61,23 @@
   font-weight: var(--font-weight-medium);
   color: var(--color-error);
 }
+
+.checkbox_row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+/* La zone cliquable comprend aussi le libellé (label relié), au-delà des 44px. */
+.checkbox {
+  flex-shrink: 0;
+  width: var(--space-4);
+  height: var(--space-4);
+  margin-top: var(--space-1);
+  accent-color: var(--color-action);
+  cursor: pointer;
+}
+
+.checkbox_label {
+  cursor: pointer;
+}

@@ -1,0 +1,54 @@
+.layout {
+  display: grid;
+  gap: var(--space-5);
+  padding-block: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
+  .aside {
+    position: sticky;
+    top: calc(var(--space-7) * 2);
+  }
+}
+
+.main {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.aside_title {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+.phones {
+  display: grid;
+  list-style: none;
+  padding: 0;
+}
+
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap-target);
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}
+
+.phone svg {
+  width: var(--space-4);
+  height: var(--space-4);
+  color: var(--color-accent-text);
+}
+
+.aside_actions {
+  display: grid;
+  gap: var(--space-2);
+}

@@ -20,7 +20,8 @@
       "description": "Admission requirements, required documents and application procedure at AGRI'SUP."
     },
     "preinscription": {
-      "title": "Pre-registration"
+      "title": "Pre-registration",
+      "description": "Online pre-registration at AGRI'SUP: send your details to start your admission process."
     },
     "actualites": {
       "title": "News"
@@ -29,7 +30,8 @@
       "title": "Frequently asked questions"
     },
     "contact": {
-      "title": "Contact"
+      "title": "Contact",
+      "description": "Contact AGRI'SUP: address, phone, WhatsApp, email and contact form."
     },
     "mentions_legales": {
       "title": "Legal notice and privacy"
@@ -88,7 +90,48 @@
     "default_message": "Hello AGRI'SUP, I would like to get some information."
   },
   "form": {
-    "required": "required"
+    "required": "required",
+    "required_legend": "Fields marked with an asterisk (*) are required.",
+    "submit_contact": "Send message",
+    "submit_preinscription": "Send my pre-registration",
+    "sending": "Sending…",
+    "honeypot_label": "Do not fill in this field",
+    "consent_before": "I agree that my data may be used to process my request, in accordance with the ",
+    "consent_link": "privacy policy",
+    "error_title": "The form contains errors",
+    "error_intro": "Please correct the following fields and submit the form again:",
+    "rate_limited": "Too many submissions in a short time. Please try again in a few minutes.",
+    "server_error": "Sending failed. Please try again later or contact us by phone or WhatsApp.",
+    "network_error": "Unable to connect. Please check your internet connection and try again.",
+    "choose": "Choose…",
+    "fields": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Message",
+      "consent": "Consent",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "city": "City of residence",
+      "education_level": "Current level of education",
+      "formation": "Desired program",
+      "academic_year": "Target academic year"
+    },
+    "hints": {
+      "email_or_phone": "Please provide at least an email or a phone number so we can reply.",
+      "phone": "Example: +223 70 00 00 00",
+      "email_optional": "Optional, but useful to receive documents.",
+      "message_optional": "Optional: your situation, your questions…"
+    },
+    "education_levels": {
+      "BAC_EN_COURS": "High school diploma in progress",
+      "BAC": "High school diploma (baccalauréat)",
+      "BT": "Technician certificate (BT)",
+      "BAC_PLUS_2": "Two years of higher education (BTS, DUT…)",
+      "LICENCE_OU_PLUS": "Bachelor's degree or higher",
+      "AUTRE": "Other"
+    }
   },
   "common": {
     "to_provide": "[TO BE PROVIDED]",
@@ -177,5 +220,33 @@
     "disclaimer": "Online pre-registration is for sending your first details. It does not mean final admission.",
     "questions_title": "A question about admissions?",
     "questions_text": "The AGRI'SUP team can answer by phone, WhatsApp or through the contact form."
+  },
+  "form_errors": {
+    "required": "This field is required.",
+    "too_long": "This text is too long.",
+    "too_short": "This text is too short.",
+    "invalid_email": "Enter a valid email address (example: name@example.com).",
+    "invalid_phone": "Enter a valid phone number (8 to 15 digits).",
+    "invalid_choice": "Choose a valid option from the list.",
+    "consent_required": "You must accept the privacy policy to send the form.",
+    "contact_required": "Provide an email or a phone number."
+  },
+  "contact_form": {
+    "title": "Write to us",
+    "success_title": "Message sent",
+    "success_text": "Thank you, your message has been sent to AGRI'SUP. We will reply as soon as possible.",
+    "send_another": "Send another message"
+  },
+  "preinscription_page": {
+    "intro": "Send your first details to AGRI'SUP: the school will then contact you about the next steps.",
+    "group_identity": "Your details",
+    "group_project": "Your study plans",
+    "help_title": "Need help?",
+    "help_text": "A question before pre-registering? The AGRI'SUP team is here to help.",
+    "success_title": "Pre-registration sent",
+    "success_text": "Thank you {firstName}, your pre-registration has been sent to AGRI'SUP. The school will contact you about the next steps of the admission process.",
+    "success_whatsapp": "You can also message us on WhatsApp with any questions.",
+    "whatsapp_message": "Hello AGRI'SUP, I have just sent a pre-registration for the {formation} program.",
+    "back_home": "Back to home"
   }
 }

@@ -122,6 +122,17 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Image d'aperçu : affiche « Sortie pédagogique »**, choisie par la cliente malgré les réserves (image générée par IA, personnes fictives). Recadrée en 16:9 par CSS sur la scène centrale. À remplacer par une vraie photo ou la miniature de la vidéo officielle.
 - **`next/image` au lieu d'un script `sharp` maison** (prévu en phase 8) : AVIF/WebP, `srcset` (8 tailles) et chargement différé automatiques. Mesure : 356 Ko (JPG) → 70 Ko (AVIF, 640 px).
 
+### Phase 6
+
+- **Schémas zod partagés** entre navigateur et serveur (`src/lib/validation/`). Les messages d'erreur sont des clés de traduction : une seule source, deux langues. Le serveur revalide toujours.
+- **Chaîne de traitement commune** (`src/lib/form_endpoint.ts`) : JSON obligatoire (bloque les envois croisés depuis un autre site), corps ≤ 16 Ko, limitation de débit, champ piège, validation, enregistrement.
+- **Limitation de débit** : 5 envois par IP et par formulaire toutes les 10 minutes, en une requête SQL atomique, réponse 429 avec `Retry-After`. IP stockée sous forme d'empreinte **HMAC** avec la clé `RATE_LIMIT_SECRET` : un simple SHA-256 se retrouverait en testant toutes les IPv4.
+- **Champ piège (`website`)** : un robot qui le remplit reçoit une fausse réussite, rien n'est enregistré.
+- **Notification email en texte brut** (aucune injection HTML possible). Sans `RESEND_API_KEY`, l'envoi est ignoré et journalisé, mais la demande est enregistrée ; un échec d'envoi ne fait jamais échouer le formulaire.
+- **Accessibilité des formulaires** : récapitulatif d'erreurs focalisé avec liens vers chaque champ (dans l'ordre visuel), `aria-invalid`, aides et erreurs reliées par `aria-describedby`, message de réussite focalisé.
+- **Préinscription** : formation présélectionnée depuis sa page (`?formation=`), vérifiée en base côté serveur ; années académiques proposées = année en cours et suivante (bascule en juillet, hypothèse à confirmer) ; niveaux d'études génériques à valider ; confirmation avec lien WhatsApp pré-rempli (cahier §10.1).
+- **Formulaires sans JavaScript** : non pris en charge (envoi en JSON). Compromis accepté pour le MVP ; WhatsApp et téléphone restent disponibles.
+
 ### Dépendances
 
 - **`npm audit`** signale 5 vulnérabilités « high » dans `micromatch`, via `eslint-config-next`. Ce sont des **outils de développement uniquement**, qui ne sont pas livrés en production. Je ne corrige pas avec `--force`, car cela casserait la configuration ESLint ; à revoir à la prochaine version de `eslint-config-next`.

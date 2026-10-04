@@ -20,7 +20,8 @@
       "description": "Conditions d'accès, documents à fournir et procédure d'admission à AGRI'SUP."
     },
     "preinscription": {
-      "title": "Préinscription"
+      "title": "Préinscription",
+      "description": "Préinscription en ligne à AGRI'SUP : transmettez vos informations pour démarrer votre procédure d'admission."
     },
     "actualites": {
       "title": "Actualités"
@@ -29,7 +30,8 @@
       "title": "Questions fréquentes"
     },
     "contact": {
-      "title": "Contact"
+      "title": "Contact",
+      "description": "Contacter AGRI'SUP : adresse, téléphone, WhatsApp, email et formulaire de contact."
     },
     "mentions_legales": {
       "title": "Mentions légales et confidentialité"
@@ -88,7 +90,48 @@
     "default_message": "Bonjour AGRI'SUP, je souhaite obtenir des informations."
   },
   "form": {
-    "required": "obligatoire"
+    "required": "obligatoire",
+    "required_legend": "Les champs marqués d'un astérisque (*) sont obligatoires.",
+    "submit_contact": "Envoyer le message",
+    "submit_preinscription": "Envoyer ma préinscription",
+    "sending": "Envoi en cours…",
+    "honeypot_label": "Ne pas remplir ce champ",
+    "consent_before": "J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la ",
+    "consent_link": "politique de confidentialité",
+    "error_title": "Le formulaire contient des erreurs",
+    "error_intro": "Corrigez les champs suivants puis renvoyez le formulaire :",
+    "rate_limited": "Trop d'envois en peu de temps. Réessayez dans quelques minutes.",
+    "server_error": "L'envoi a échoué. Réessayez plus tard ou contactez-nous par téléphone ou WhatsApp.",
+    "network_error": "Connexion impossible. Vérifiez votre connexion internet puis réessayez.",
+    "choose": "Choisir…",
+    "fields": {
+      "name": "Nom complet",
+      "email": "Email",
+      "phone": "Téléphone",
+      "subject": "Sujet",
+      "message": "Message",
+      "consent": "Consentement",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "city": "Ville de résidence",
+      "education_level": "Niveau d'études actuel",
+      "formation": "Formation souhaitée",
+      "academic_year": "Année académique visée"
+    },
+    "hints": {
+      "email_or_phone": "Indiquez au moins un email ou un téléphone pour que nous puissions vous répondre.",
+      "phone": "Exemple : +223 70 00 00 00",
+      "email_optional": "Facultatif, mais utile pour recevoir des documents.",
+      "message_optional": "Facultatif : votre situation, vos questions…"
+    },
+    "education_levels": {
+      "BAC_EN_COURS": "Baccalauréat en cours",
+      "BAC": "Baccalauréat obtenu",
+      "BT": "Brevet de technicien (BT)",
+      "BAC_PLUS_2": "Bac + 2 (BTS, DUT…)",
+      "LICENCE_OU_PLUS": "Licence ou plus",
+      "AUTRE": "Autre"
+    }
   },
   "common": {
     "to_provide": "[À FOURNIR]",
@@ -177,5 +220,33 @@
     "disclaimer": "La préinscription en ligne sert à transmettre vos premières informations. Elle ne vaut pas admission définitive.",
     "questions_title": "Une question sur l'admission ?",
     "questions_text": "L'équipe d'AGRI'SUP vous répond par téléphone, WhatsApp ou via le formulaire de contact."
+  },
+  "form_errors": {
+    "required": "Ce champ est obligatoire.",
+    "too_long": "Ce texte est trop long.",
+    "too_short": "Ce texte est trop court.",
+    "invalid_email": "Saisissez une adresse email valide (exemple : nom@exemple.com).",
+    "invalid_phone": "Saisissez un numéro de téléphone valide (8 à 15 chiffres).",
+    "invalid_choice": "Choisissez une option valide dans la liste.",
+    "consent_required": "Vous devez accepter la politique de confidentialité pour envoyer le formulaire.",
+    "contact_required": "Indiquez un email ou un numéro de téléphone."
+  },
+  "contact_form": {
+    "title": "Écrivez-nous",
+    "success_title": "Message envoyé",
+    "success_text": "Merci, votre message a bien été transmis à AGRI'SUP. Nous vous répondrons dans les meilleurs délais.",
+    "send_another": "Envoyer un autre message"
+  },
+  "preinscription_page": {
+    "intro": "Transmettez vos premières informations à AGRI'SUP : l'établissement vous recontacte ensuite pour la suite de la procédure.",
+    "group_identity": "Vos coordonnées",
+    "group_project": "Votre projet d'études",
+    "help_title": "Besoin d'aide ?",
+    "help_text": "Une question avant de vous préinscrire ? L'équipe d'AGRI'SUP vous répond.",
+    "success_title": "Préinscription envoyée",
+    "success_text": "Merci {firstName}, votre préinscription a bien été transmise à AGRI'SUP. L'établissement vous contactera pour la suite de la procédure d'admission.",
+    "success_whatsapp": "Vous pouvez aussi nous écrire sur WhatsApp pour toute question.",
+    "whatsapp_message": "Bonjour AGRI'SUP, je viens d'envoyer une préinscription pour la formation {formation}.",
+    "back_home": "Retour à l'accueil"
   }
 }
