@@ -1,0 +1,25 @@
+.meta {
+  display: grid;
+  gap: var(--space-1);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.row dt {
+  color: var(--color-text-muted);
+}
+
+.row dt::after {
+  content: " :";
+}
+
+.row dd {
+  margin: 0;
+  font-weight: var(--font-weight-medium);
+}

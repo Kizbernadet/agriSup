@@ -103,6 +103,18 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Couche d'accès aux données** (`src/lib/data/`) partagée entre les API et les pages, avec repli sur le français si une traduction manque.
 - **API en lecture** : paramètres validés par zod (400 si invalides), 404 sur identifiant inconnu, 500 générique sans détail technique (journalisé côté serveur), cache CDN de 5 minutes.
 
+### Phase 5
+
+- **Contenus institutionnels localisés dans `src/content/placeholders.ts`** (présentation, axes, parcours pédagogique, partenaires), avec leur source dans `presentation_projet.md`. Les libellés d'interface restent dans `messages/`.
+- **Chiffres clés calculés depuis la base** (nombre de formations, de niveaux et de domaines) plutôt que des chiffres fictifs : rien d'inventé, et mise à jour automatique (cahier §4.3).
+- **Pas de photo dans le hero** tant qu'aucune photo réelle de l'école n'est disponible (les affiches fournies sont générées par IA).
+- **Filtres des formations côté navigateur** : les 12 formations sont dans la page statique, le filtrage est instantané sans requête serveur (connexions lentes). Sans JavaScript, toutes les formations restent visibles. Boutons `aria-pressed`, nombre de résultats annoncé (`aria-live`).
+- **Bandeau « en cours de validation »** sur chaque formation non vérifiée (cahier §6.3), et marqueur `[À FOURNIR]` pour chaque rubrique vide.
+- **Pages statiques régénérées toutes les heures** (`revalidate = 3600`) : accueil, liste et détails des formations. Les 24 pages détail (12 × 2 langues) sont générées au build ; une nouvelle formation est rendue à la demande.
+- **Lien de préinscription contextualisé** depuis une formation (`?formation=<slug>`), pour la présélection en phase 6 ; message WhatsApp pré-rempli avec le nom de la formation (cahier §10.1).
+- **Textes longs en paragraphes simples** (séparés par une ligne vide) et non en Markdown : aucun contenu formaté n'existe encore, inutile d'ajouter une bibliothèque.
+- **`sslmode=verify-full`** dans la chaîne Neon : même comportement que `require` avec le pilote actuel, mais explicite (supprime l'avertissement du pilote).
+
 ### Dépendances
 
 - **`npm audit`** signale 5 vulnérabilités « high » dans `micromatch`, via `eslint-config-next`. Ce sont des **outils de développement uniquement**, qui ne sont pas livrés en production. Je ne corrige pas avec `--force`, car cela casserait la configuration ESLint ; à revoir à la prochaine version de `eslint-config-next`.

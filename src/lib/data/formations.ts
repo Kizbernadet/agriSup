@@ -60,6 +60,15 @@ export async function listFormations({
   });
 }
 
+// Pour la génération statique des pages détail au build.
+export async function listPublishedFormationSlugs(): Promise<string[]> {
+  const formations = await db.formation.findMany({
+    where: { published: true },
+    select: { slug: true },
+  });
+  return formations.map((formation) => formation.slug);
+}
+
 export async function getFormationBySlug(
   locale: Locale,
   slug: string,

@@ -1,0 +1,28 @@
+.header {
+  padding-block: var(--space-5) var(--space-6);
+  background-color: var(--color-surface);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-3);
+}
+
+/* Filet or décoratif sous le titre (charte : or clair réservé à la décoration). */
+.inner h1::after {
+  content: "";
+  display: block;
+  width: var(--space-7);
+  height: var(--space-1);
+  margin-top: var(--space-3);
+  border-radius: var(--radius);
+  background-color: var(--color-accent);
+}
+
+.intro {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  color: var(--color-text-muted);
+  max-width: var(--line-length);
+}

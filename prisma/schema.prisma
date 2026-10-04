@@ -94,7 +94,7 @@ model FormationTranslation {
   locale                Locale
   name                  String
   summary               String
-  // Textes longs en Markdown ; listes en tableaux PostgreSQL.
+  // Textes longs : paragraphes séparés par une ligne vide ; listes en tableaux PostgreSQL.
   description           String?
   program               String?
   objectives            String[]
@@ -133,7 +133,7 @@ model ActualiteTranslation {
   locale      Locale
   title       String
   excerpt     String
-  // Markdown.
+  // Paragraphes séparés par une ligne vide.
   content     String
 
   actualite Actualite @relation(fields: [actualiteId], references: [id], onDelete: Cascade)

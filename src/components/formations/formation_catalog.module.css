@@ -1,0 +1,80 @@
+.catalog {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.filters {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+}
+
+.group {
+  border: none;
+  padding: 0;
+  min-width: 0;
+}
+
+.legend {
+  margin-bottom: var(--space-2);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  min-height: var(--tap-target);
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-width) solid var(--color-text-muted);
+  border-radius: var(--radius);
+  background-color: transparent;
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.chip:hover {
+  border-color: var(--color-action);
+}
+
+/* Sélection : même couleurs que le bouton primaire (contrastes vérifiés). */
+.chip[aria-pressed="true"] {
+  border-color: var(--color-action);
+  background-color: var(--color-action);
+  color: var(--color-on-action);
+}
+
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.count {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+}
+
+.reset {
+  min-height: var(--tap-target);
+  padding: var(--space-2);
+  border: none;
+  background: none;
+  color: var(--color-link);
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -17,7 +17,7 @@
 - [x] 2. Fondations visuelles (variables, polices, double thème)
 - [x] 3. Composants communs
 - [x] 4. Données et API de lecture (migrations à appliquer sur Neon)
-- [ ] 5. Pages : Accueil, Formations, Admission
+- [x] 5. Pages : Accueil, Formations, Admission
 - [ ] 6. Formulaires Contact et Préinscription
 - [ ] 7. Pages : AGRI'SUP, Actualités, FAQ, Contact, Mentions légales
 - [ ] 8. Images, performance, SEO, analytics

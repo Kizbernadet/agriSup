@@ -1,0 +1,17 @@
+.card {
+  height: 100%;
+}
+
+.title {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+.summary {
+  flex-grow: 1;
+  color: var(--color-text-muted);
+}
+
+.link {
+  align-self: flex-start;
+}

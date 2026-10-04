@@ -12,10 +12,12 @@
       "title": "About AGRI'SUP"
     },
     "formations": {
-      "title": "Programs"
+      "title": "Programs",
+      "description": "All AGRI'SUP programs: DUT diplomas and professional bachelor's degrees in agricultural sciences and technologies."
     },
     "admission": {
-      "title": "Admissions"
+      "title": "Admissions",
+      "description": "Admission requirements, required documents and application procedure at AGRI'SUP."
     },
     "preinscription": {
       "title": "Pre-registration"
@@ -87,5 +89,89 @@
   },
   "form": {
     "required": "required"
+  },
+  "common": {
+    "to_provide": "[TO BE PROVIDED]",
+    "breadcrumb": "Breadcrumb",
+    "contact_us": "Contact us",
+    "discover_formations": "Explore our programs",
+    "preinscription": "Pre-register"
+  },
+  "formation": {
+    "level": {
+      "DUT": "DUT",
+      "LICENCE_PRO": "Professional Bachelor's"
+    },
+    "domain": {
+      "PRODUCTION_VEGETALE": "Crop production and agronomy",
+      "ELEVAGE_SANTE_ANIMALE": "Livestock and animal health",
+      "AQUACULTURE": "Aquaculture",
+      "AGRIBUSINESS": "Agribusiness",
+      "AGROFORESTERIE": "Agroforestry"
+    },
+    "duration": "{semesters} semesters · {credits} credits",
+    "duration_unknown": "Duration to be confirmed",
+    "level_label": "Level",
+    "domain_label": "Field",
+    "duration_label": "Duration",
+    "view": "View program",
+    "unverified": "The information for this program is being validated by AGRI'SUP.",
+    "whatsapp_message": "Hello AGRI'SUP, I would like information about the {name} program."
+  },
+  "formations_page": {
+    "intro": "AGRI'SUP offers DUT diplomas and professional bachelor's degrees, within the LMD system, in agricultural sciences and technologies.",
+    "filters_title": "Filter programs",
+    "all": "All",
+    "results": "{count, plural, =0 {No program matches these criteria.} one {# program} other {# programs}}",
+    "reset": "Reset filters"
+  },
+  "formation_detail": {
+    "presentation": "Overview",
+    "objectives": "Objectives",
+    "skills": "Target skills",
+    "program": "Curriculum",
+    "careers": "Career opportunities",
+    "admission": "Admission requirements",
+    "documents": "Required documents",
+    "apply_title": "Interested in this program?",
+    "apply_text": "Send your pre-registration or ask the school your questions.",
+    "back": "All programs"
+  },
+  "home": {
+    "hero_title": "Private Higher School of Agricultural Sciences and Technologies",
+    "hero_lead": "DUT diplomas and professional bachelor's degrees to train for careers in agriculture, livestock farming and agricultural sciences.",
+    "axes_title": "Our training pillars",
+    "intro_title": "Who we are",
+    "intro_more": "About AGRI'SUP",
+    "figures_title": "AGRI'SUP in figures",
+    "figures_formations": "programs",
+    "figures_levels": "diploma levels",
+    "figures_domains": "fields of study",
+    "featured_title": "Featured programs",
+    "featured_all": "View all programs",
+    "why_title": "Why choose AGRI'SUP?",
+    "why_intro": "A learning path that connects knowledge with the field.",
+    "partners_title": "Partners",
+    "partners_intro": "Institutions AGRI'SUP works with. The nature of each collaboration is being confirmed.",
+    "cta_title": "Would you like to join AGRI'SUP?",
+    "cta_step_1": "Explore the programs",
+    "cta_step_2": "Check the requirements",
+    "cta_step_3": "Pre-register"
+  },
+  "admission_page": {
+    "intro": "Who can apply, which documents to provide and how to apply.",
+    "conditions_title": "Who can apply?",
+    "conditions_intro": "Admission requirements depend on the program level.",
+    "documents_title": "Which documents should I provide?",
+    "documents_intro": "The official list of application documents will be provided by AGRI'SUP.",
+    "procedure_title": "How do I apply?",
+    "step_1": "Choose a program",
+    "step_2": "Check the admission requirements",
+    "step_3": "Fill in the pre-registration form",
+    "step_4": "Be contacted by AGRI'SUP to complete your application",
+    "step_5": "Follow the official admission procedure",
+    "disclaimer": "Online pre-registration is for sending your first details. It does not mean final admission.",
+    "questions_title": "A question about admissions?",
+    "questions_text": "The AGRI'SUP team can answer by phone, WhatsApp or through the contact form."
   }
 }

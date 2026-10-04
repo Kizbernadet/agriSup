@@ -1,0 +1,35 @@
+.figures {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .figures {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.figure {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  border-top: var(--space-1) solid var(--color-accent);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.value {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+  color: var(--color-brand);
+}
+
+.label {
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+}

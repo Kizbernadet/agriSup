@@ -1,0 +1,26 @@
+.presentation {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-body);
+}
+
+.partners {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .partners {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.partner_name {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+.partner_description {
+  color: var(--color-text-muted);
+}

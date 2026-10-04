@@ -12,10 +12,12 @@
       "title": "AGRI'SUP"
     },
     "formations": {
-      "title": "Formations"
+      "title": "Formations",
+      "description": "Toutes les formations d'AGRI'SUP : DUT et licences professionnelles en sciences et technologies agricoles."
     },
     "admission": {
-      "title": "Admission"
+      "title": "Admission",
+      "description": "Conditions d'accès, documents à fournir et procédure d'admission à AGRI'SUP."
     },
     "preinscription": {
       "title": "Préinscription"
@@ -87,5 +89,89 @@
   },
   "form": {
     "required": "obligatoire"
+  },
+  "common": {
+    "to_provide": "[À FOURNIR]",
+    "breadcrumb": "Fil d'Ariane",
+    "contact_us": "Nous contacter",
+    "discover_formations": "Découvrir nos formations",
+    "preinscription": "Se préinscrire"
+  },
+  "formation": {
+    "level": {
+      "DUT": "DUT",
+      "LICENCE_PRO": "Licence professionnelle"
+    },
+    "domain": {
+      "PRODUCTION_VEGETALE": "Production végétale et agronomie",
+      "ELEVAGE_SANTE_ANIMALE": "Élevage et santé animale",
+      "AQUACULTURE": "Aquaculture",
+      "AGRIBUSINESS": "Agribusiness",
+      "AGROFORESTERIE": "Agroforesterie"
+    },
+    "duration": "{semesters} semestres · {credits} crédits",
+    "duration_unknown": "Durée à confirmer",
+    "level_label": "Niveau",
+    "domain_label": "Domaine",
+    "duration_label": "Durée",
+    "view": "Voir la formation",
+    "unverified": "Les informations de cette formation sont en cours de validation par AGRI'SUP.",
+    "whatsapp_message": "Bonjour AGRI'SUP, je souhaite obtenir des informations concernant la formation {name}."
+  },
+  "formations_page": {
+    "intro": "AGRI'SUP propose des DUT et des licences professionnelles, dans le système LMD, en sciences et technologies agricoles.",
+    "filters_title": "Filtrer les formations",
+    "all": "Tous",
+    "results": "{count, plural, =0 {Aucune formation ne correspond à ces critères.} one {# formation} other {# formations}}",
+    "reset": "Réinitialiser les filtres"
+  },
+  "formation_detail": {
+    "presentation": "Présentation",
+    "objectives": "Objectifs",
+    "skills": "Compétences visées",
+    "program": "Programme",
+    "careers": "Débouchés",
+    "admission": "Conditions d'admission",
+    "documents": "Documents requis",
+    "apply_title": "Cette formation vous intéresse ?",
+    "apply_text": "Transmettez votre préinscription ou posez vos questions à l'établissement.",
+    "back": "Toutes les formations"
+  },
+  "home": {
+    "hero_title": "École Supérieure Privée des Sciences et Technologies Agricoles",
+    "hero_lead": "Des DUT et des licences professionnelles pour se former aux métiers de l'agriculture, de l'élevage et des sciences agricoles.",
+    "axes_title": "Nos axes de formation",
+    "intro_title": "Qui sommes-nous ?",
+    "intro_more": "Découvrir AGRI'SUP",
+    "figures_title": "AGRI'SUP en chiffres",
+    "figures_formations": "formations",
+    "figures_levels": "niveaux de diplôme",
+    "figures_domains": "domaines de formation",
+    "featured_title": "Formations à la une",
+    "featured_all": "Voir toutes les formations",
+    "why_title": "Pourquoi choisir AGRI'SUP ?",
+    "why_intro": "Un parcours pédagogique qui relie les connaissances au terrain.",
+    "partners_title": "Partenaires",
+    "partners_intro": "Institutions avec lesquelles AGRI'SUP entretient des relations. La nature de chaque collaboration est en cours de confirmation.",
+    "cta_title": "Vous souhaitez rejoindre AGRI'SUP ?",
+    "cta_step_1": "Découvrir les formations",
+    "cta_step_2": "Vérifier les conditions",
+    "cta_step_3": "Se préinscrire"
+  },
+  "admission_page": {
+    "intro": "Qui peut candidater, quels documents fournir et comment faire la démarche.",
+    "conditions_title": "Qui peut candidater ?",
+    "conditions_intro": "Les conditions d'accès dépendent du niveau de la formation.",
+    "documents_title": "Quels documents fournir ?",
+    "documents_intro": "La liste officielle des pièces du dossier sera communiquée par AGRI'SUP.",
+    "procedure_title": "Comment faire la démarche ?",
+    "step_1": "Choisir une formation",
+    "step_2": "Vérifier les conditions d'admission",
+    "step_3": "Remplir le formulaire de préinscription",
+    "step_4": "Être contacté par AGRI'SUP pour compléter le dossier",
+    "step_5": "Suivre la procédure officielle d'admission",
+    "disclaimer": "La préinscription en ligne sert à transmettre vos premières informations. Elle ne vaut pas admission définitive.",
+    "questions_title": "Une question sur l'admission ?",
+    "questions_text": "L'équipe d'AGRI'SUP vous répond par téléphone, WhatsApp ou via le formulaire de contact."
   }
 }
