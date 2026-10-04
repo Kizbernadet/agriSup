@@ -1,0 +1,106 @@
+.footer {
+  margin-top: var(--space-7);
+  padding-top: var(--space-6);
+  border-top: var(--border-width) solid var(--color-border);
+  background-color: var(--color-surface);
+  /* Laisse de la place au bouton WhatsApp flottant en bas de page. */
+  padding-bottom: calc(var(--tap-target) + var(--space-5));
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  }
+}
+
+.column {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  color: var(--color-brand);
+}
+
+.title {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-semibold);
+}
+
+.muted {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.address {
+  display: flex;
+  gap: var(--space-2);
+  font-style: normal;
+}
+
+.list {
+  display: grid;
+  list-style: none;
+  padding: 0;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: var(--space-4);
+  height: var(--space-4);
+  margin-top: var(--space-1);
+  color: var(--color-accent-text);
+}
+
+.contact_link,
+.nav_link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap-target);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.contact_link .icon {
+  margin-top: 0;
+}
+
+.contact_link:hover,
+.nav_link:hover {
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  padding-top: var(--space-3);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.bottom .nav_link {
+  font-size: var(--font-size-small);
+}

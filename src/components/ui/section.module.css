@@ -1,0 +1,28 @@
+.section {
+  padding-block: var(--space-6);
+  scroll-margin-top: var(--space-7);
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-block: var(--space-7);
+  }
+}
+
+.surface {
+  background-color: var(--color-surface);
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.header {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.intro {
+  color: var(--color-text-muted);
+}

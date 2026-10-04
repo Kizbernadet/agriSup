@@ -1,0 +1,25 @@
+.floating {
+  position: fixed;
+  right: calc(var(--space-3) + env(safe-area-inset-right));
+  bottom: calc(var(--space-3) + env(safe-area-inset-bottom));
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--tap-target) + var(--space-3));
+  height: calc(var(--tap-target) + var(--space-3));
+  border-radius: var(--radius);
+  background-color: var(--color-action);
+  color: var(--color-on-action);
+  box-shadow: var(--shadow-card);
+  transition: background-color var(--transition);
+}
+
+.floating:hover {
+  background-color: var(--color-action-hover);
+}
+
+.floating svg {
+  width: var(--space-5);
+  height: var(--space-5);
+}

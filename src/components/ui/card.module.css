@@ -1,0 +1,11 @@
+/* Clair : ombre légère. Sombre : pas d'ombre, la hiérarchie passe par le fond (charte §5). */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}

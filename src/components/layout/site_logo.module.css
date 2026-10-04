@@ -1,0 +1,32 @@
+.logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  min-height: var(--tap-target);
+  text-decoration: none;
+  border-radius: var(--radius);
+}
+
+/* Largeur minimale de 120px imposée par la charte §7 pour le logo. */
+.placeholder {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: calc(var(--space-7) + var(--space-6) + var(--space-2));
+  padding: var(--space-1) var(--space-2);
+  border: var(--border-width) dashed var(--color-accent);
+  border-radius: var(--radius);
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  color: var(--color-brand);
+}
+
+.notice {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  color: var(--color-text-muted);
+}

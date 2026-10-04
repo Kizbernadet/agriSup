@@ -15,7 +15,7 @@
 ## Phases
 - [x] 1. Initialisation (projet, arborescence, langues, réorganisation de `assets/`)
 - [x] 2. Fondations visuelles (variables, polices, double thème)
-- [ ] 3. Composants communs
+- [x] 3. Composants communs
 - [ ] 4. Données et API de lecture
 - [ ] 5. Pages : Accueil, Formations, Admission
 - [ ] 6. Formulaires Contact et Préinscription

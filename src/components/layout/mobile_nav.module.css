@@ -1,0 +1,80 @@
+.root {
+  display: flex;
+}
+
+@media (min-width: 1024px) {
+  .root {
+    display: none;
+  }
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
+  padding: var(--space-2);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: transparent;
+  color: var(--color-brand);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+}
+
+.toggle svg {
+  width: var(--space-4);
+  height: var(--space-4);
+}
+
+/* Libellé visible uniquement s'il y a la place (le nom accessible vient d'aria-label). */
+.toggle_text {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .toggle_text {
+    display: inline;
+  }
+}
+
+/* Panneau pleine largeur, ancré sous le header (positionné par rapport à celui-ci). */
+.panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: calc(100vh - var(--space-7));
+  overflow-y: auto;
+  padding: var(--space-3);
+  border-bottom: var(--border-width) solid var(--color-border);
+  background-color: var(--color-surface-raised);
+  box-shadow: var(--shadow-card);
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panel_footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.cta {
+  flex-grow: 1;
+}
+
+@media (min-width: 640px) {
+  .cta {
+    flex-grow: 0;
+  }
+}

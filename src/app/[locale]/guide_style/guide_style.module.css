@@ -6,13 +6,6 @@
   gap: var(--space-6);
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-}
-
 .kicker {
   color: var(--color-text-muted);
   font-size: var(--font-size-small);
@@ -121,4 +114,16 @@
   padding: var(--space-4);
   color: var(--color-on-photo);
   font-weight: var(--font-weight-medium);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.stack {
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--line-length);
 }

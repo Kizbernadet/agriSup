@@ -1,0 +1,19 @@
+.skip_link {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius);
+  background-color: var(--color-action);
+  color: var(--color-on-action);
+  font-weight: var(--font-weight-semibold);
+  transform: translateY(calc(-100% - var(--space-4)));
+}
+
+.skip_link:focus-visible {
+  transform: none;
+}

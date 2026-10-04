@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { ThemeToggle } from "@/components/layout/theme_toggle";
+import { WhatsappButton } from "@/components/contact/whatsapp_button";
+import { Accordion } from "@/components/ui/accordion";
+import { Alert } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Button, ButtonLink } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { SelectField, TextAreaField, TextField } from "@/components/ui/form_field";
 import styles from "./guide_style.module.css";
 
 // Page de contrôle visuel réservée au développement : 404 en production.
@@ -42,11 +48,8 @@ export default async function GuideStylePage({
   setRequestLocale(locale);
 
   return (
-    <main className={styles.page}>
-      <header className={styles.header}>
-        <p className={styles.kicker}>Outil de développement</p>
-        <ThemeToggle />
-      </header>
+    <div className={styles.page}>
+      <p className={styles.kicker}>Outil de développement</p>
 
       <section className={styles.section} aria-labelledby="typo">
         <h2 id="typo">Typographie</h2>
@@ -116,6 +119,100 @@ export default async function GuideStylePage({
         </p>
       </section>
 
+      <section className={styles.section} aria-labelledby="composants">
+        <h2 id="composants">Composants</h2>
+
+        <h3>Boutons</h3>
+        <div className={styles.row}>
+          <ButtonLink href="/preinscription">Primaire</ButtonLink>
+          <ButtonLink href="/formations" variant="secondary">
+            Secondaire
+          </ButtonLink>
+          <Button disabled>Désactivé</Button>
+          <WhatsappButton />
+        </div>
+
+        <h3>Carte et badge</h3>
+        <div className={styles.cards}>
+          <Card as="article">
+            <Badge>Licence professionnelle</Badge>
+            <h4>Nom de formation (exemple)</h4>
+            <p>Description courte de démonstration, sans valeur institutionnelle.</p>
+            <ButtonLink href="/formations" variant="secondary">
+              Voir la formation
+            </ButtonLink>
+          </Card>
+        </div>
+
+        <h3>Alertes</h3>
+        <div className={styles.stack}>
+          <Alert variant="success" title="Demande envoyée">
+            Message de confirmation.
+          </Alert>
+          <Alert variant="error" title="Le formulaire contient des erreurs">
+            Message d&apos;erreur.
+          </Alert>
+          <Alert variant="warning" title="Information à confirmer">
+            Message d&apos;avertissement.
+          </Alert>
+          <Alert variant="info" title="Bon à savoir">
+            Message d&apos;information.
+          </Alert>
+        </div>
+
+        <h3>Accordéon</h3>
+        <Accordion
+          items={[
+            {
+              id: "q1",
+              question: "Question de démonstration 1 ?",
+              answer: <p>Réponse 1.</p>,
+            },
+            {
+              id: "q2",
+              question: "Question de démonstration 2 ?",
+              answer: <p>Réponse 2.</p>,
+            },
+          ]}
+        />
+
+        <h3>Champs de formulaire</h3>
+        <form className={styles.stack}>
+          <TextField
+            name="demo_nom"
+            label="Nom"
+            required
+            requiredLabel="obligatoire"
+            autoComplete="family-name"
+          />
+          <TextField
+            name="demo_email"
+            type="email"
+            label="Email"
+            hint="Nous ne partageons jamais votre adresse."
+            error="Saisissez une adresse email valide."
+            required
+            requiredLabel="obligatoire"
+            defaultValue="adresse-invalide"
+          />
+          <SelectField
+            name="demo_niveau"
+            label="Niveau"
+            requiredLabel="obligatoire"
+            placeholder="Choisir…"
+            options={[
+              { value: "dut", label: "DUT" },
+              { value: "licence", label: "Licence professionnelle" },
+            ]}
+          />
+          <TextAreaField
+            name="demo_message"
+            label="Message"
+            requiredLabel="obligatoire"
+          />
+        </form>
+      </section>
+
       <section className={styles.section} aria-labelledby="photo">
         <h2 id="photo">Texte sur photo</h2>
         <div className={styles.photo_demo}>
@@ -125,6 +222,6 @@ export default async function GuideStylePage({
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

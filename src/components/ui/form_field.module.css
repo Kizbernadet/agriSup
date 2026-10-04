@@ -1,0 +1,63 @@
+.field {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.label {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.required {
+  color: var(--color-error);
+}
+
+.hint {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  color: var(--color-text-muted);
+}
+
+/* Contour en --color-text-muted et non --color-border : WCAG 1.4.11 exige un contraste
+   de 3:1 pour repérer un champ (7,2:1 en clair, 6,2:1 en sombre). */
+.control {
+  width: 100%;
+  min-height: var(--tap-target);
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-width) solid var(--color-text-muted);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  line-height: var(--line-height-body);
+  transition: border-color var(--transition);
+}
+
+.control:hover {
+  border-color: var(--color-text);
+}
+
+.control[aria-invalid="true"] {
+  border-color: var(--color-error);
+  border-width: var(--focus-ring-width);
+}
+
+.control:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+
+.textarea {
+  min-height: calc(var(--tap-target) * 3);
+  resize: vertical;
+}
+
+.select {
+  cursor: pointer;
+}
+
+.error {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-error);
+}

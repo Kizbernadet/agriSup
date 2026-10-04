@@ -1,14 +1,17 @@
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { ButtonLink } from "@/components/ui/button";
+import { Section } from "@/components/ui/section";
 
 export default function NotFoundPage() {
   const t = useTranslations("not_found");
 
   return (
-    <main>
+    <Section>
       <h1>{t("title")}</h1>
       <p>{t("description")}</p>
-      <Link href="/">{t("back_home")}</Link>
-    </main>
+      <div>
+        <ButtonLink href="/">{t("back_home")}</ButtonLink>
+      </div>
+    </Section>
   );
 }

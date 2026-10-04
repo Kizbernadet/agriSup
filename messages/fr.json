@@ -44,5 +44,48 @@
   "theme": {
     "activate_dark": "Activer le mode sombre",
     "activate_light": "Activer le mode clair"
+  },
+  "nav": {
+    "home": "Accueil",
+    "agrisup": "AGRI'SUP",
+    "formations": "Formations",
+    "admission": "Admission",
+    "actualites": "Actualités",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "main_label": "Navigation principale",
+    "footer_label": "Navigation du pied de page"
+  },
+  "header": {
+    "skip_link": "Aller au contenu",
+    "menu_open": "Ouvrir le menu",
+    "menu_close": "Fermer le menu",
+    "menu": "Menu",
+    "cta_preinscription": "Se préinscrire",
+    "home_link": "AGRI'SUP Mali — accueil",
+    "logo_placeholder": "Logo provisoire"
+  },
+  "language": {
+    "label": "Choix de la langue",
+    "fr": "Français",
+    "en": "English"
+  },
+  "footer": {
+    "denomination": "École Supérieure Privée des Sciences et Technologies Agricoles",
+    "address_title": "Adresse",
+    "contact_title": "Contact",
+    "navigation_title": "Navigation",
+    "phone": "Téléphone",
+    "email": "Email",
+    "legal": "Mentions légales et confidentialité",
+    "rights": "Tous droits réservés."
+  },
+  "whatsapp": {
+    "label": "Nous écrire sur WhatsApp",
+    "button": "WhatsApp",
+    "default_message": "Bonjour AGRI'SUP, je souhaite obtenir des informations."
+  },
+  "form": {
+    "required": "obligatoire"
   }
 }

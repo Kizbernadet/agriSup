@@ -80,6 +80,17 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Échelle typographique** : valeurs mobiles par défaut, valeurs desktop à partir de 1024 px. La charte ne définit pas de valeurs tablette. H5 et H6 n'existent pas dans la charte : H5 reprend la taille H4 et H6 celle du texte courant.
 - **Page `/guide-style`** : outil de contrôle visuel, 404 en production et non indexée.
 
+### Phase 3
+
+- **Header desktop sur deux rangées (≥ 1024px)** : logo et actions (langue, thème, Préinscription), puis la navigation. Sur une seule rangée, le bouton Préinscription débordait à 1024px. Une rangée unique aurait demandé un point de rupture à 1280px, absent de la charte.
+- **Menu mobile (< 1024px)** : panneau déroulant fermé par Échap (le focus revient au bouton), par un clic à l'extérieur ou par le choix d'un lien. Il contient aussi la langue et le bouton Préinscription, cachés dans le header sous 640px.
+- **Logo** : emplacement provisoire volontairement visible (contour pointillé or + « Logo provisoire »), large d'au moins 120px. Il sera remplacé par les SVG officiels.
+- **CTA WhatsApp persistant** : bouton flottant en bas à droite sur toutes les pages (cahier §20). Il n'apparaît que si `NEXT_PUBLIC_WHATSAPP_NUMBER` est renseigné ; même règle pour l'email avec `NEXT_PUBLIC_CONTACT_EMAIL`.
+- **Coordonnées** centralisées dans `src/content/placeholders.ts`, avec source et statut pour chaque valeur.
+- **Accordéon en `<details>/<summary>`** natif : accessible et sans JavaScript.
+- **Champs de formulaire** : label relié, aide et erreur annoncées via `aria-describedby`, astérisque doublé d'un texte pour les lecteurs d'écran, contour en `--color-text-muted` (contraste 3:1 minimum).
+- **Le contenu principal `<main id="contenu">` est dans le layout** : les pages ne rendent plus leur propre `<main>`.
+
 ### Dépendances
 
 - **`npm audit`** signale 5 vulnérabilités « high » dans `micromatch`, via `eslint-config-next`. Ce sont des **outils de développement uniquement**, qui ne sont pas livrés en production. Je ne corrige pas avec `--force`, car cela casserait la configuration ESLint ; à revoir à la prochaine version de `eslint-config-next`.

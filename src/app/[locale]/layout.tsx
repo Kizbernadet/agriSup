@@ -3,6 +3,10 @@ import { Inter, Montserrat } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { FloatingWhatsappButton } from "@/components/contact/whatsapp_button";
+import { SiteFooter } from "@/components/layout/site_footer";
+import { SiteHeader } from "@/components/layout/site_header";
+import { MAIN_CONTENT_ID, SkipLink } from "@/components/layout/skip_link";
 import { ThemeScript } from "@/components/layout/theme_script";
 import { routing } from "@/i18n/routing";
 import "@/styles/tokens.css";
@@ -63,7 +67,16 @@ export default async function LocaleLayout({
         <ThemeScript />
       </head>
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <SkipLink />
+          <SiteHeader />
+          {/* tabIndex -1 : le lien d'évitement peut y déplacer le focus. */}
+          <main id={MAIN_CONTENT_ID} tabIndex={-1}>
+            {children}
+          </main>
+          <SiteFooter />
+          <FloatingWhatsappButton />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

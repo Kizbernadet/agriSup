@@ -44,5 +44,48 @@
   "theme": {
     "activate_dark": "Switch to dark mode",
     "activate_light": "Switch to light mode"
+  },
+  "nav": {
+    "home": "Home",
+    "agrisup": "About",
+    "formations": "Programs",
+    "admission": "Admissions",
+    "actualites": "News",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "main_label": "Main navigation",
+    "footer_label": "Footer navigation"
+  },
+  "header": {
+    "skip_link": "Skip to content",
+    "menu_open": "Open menu",
+    "menu_close": "Close menu",
+    "menu": "Menu",
+    "cta_preinscription": "Pre-register",
+    "home_link": "AGRI'SUP Mali — home",
+    "logo_placeholder": "Temporary logo"
+  },
+  "language": {
+    "label": "Language selection",
+    "fr": "Français",
+    "en": "English"
+  },
+  "footer": {
+    "denomination": "Private Higher School of Agricultural Sciences and Technologies",
+    "address_title": "Address",
+    "contact_title": "Contact",
+    "navigation_title": "Navigation",
+    "phone": "Phone",
+    "email": "Email",
+    "legal": "Legal notice and privacy",
+    "rights": "All rights reserved."
+  },
+  "whatsapp": {
+    "label": "Message us on WhatsApp",
+    "button": "WhatsApp",
+    "default_message": "Hello AGRI'SUP, I would like to get some information."
+  },
+  "form": {
+    "required": "required"
   }
 }

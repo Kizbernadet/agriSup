@@ -1,0 +1,44 @@
+/* Le texte reste en --color-text pour la lisibilité ; la couleur d'état marque
+   la bordure gauche et le titre. */
+.alert {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-width) solid var(--color-border);
+  border-left-width: var(--space-1);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+.title {
+  font-weight: var(--font-weight-semibold);
+}
+
+.success {
+  border-left-color: var(--color-success);
+}
+.success .title {
+  color: var(--color-success);
+}
+
+.error {
+  border-left-color: var(--color-error);
+}
+.error .title {
+  color: var(--color-error);
+}
+
+.warning {
+  border-left-color: var(--color-warning);
+}
+.warning .title {
+  color: var(--color-warning);
+}
+
+.info {
+  border-left-color: var(--color-info);
+}
+.info .title {
+  color: var(--color-info);
+}
