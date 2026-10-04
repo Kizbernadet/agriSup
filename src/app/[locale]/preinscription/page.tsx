@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { WhatsappButton } from "@/components/contact/whatsapp_button";
@@ -59,13 +58,10 @@ export default async function PreinscriptionPage({
       <Container className={styles.layout}>
         <div className={styles.main}>
           <Alert variant="info">{tAdmission("disclaimer")}</Alert>
-          {/* Suspense requis : le formulaire lit ?formation= dans l'URL. */}
-          <Suspense>
-            <PreinscriptionForm
-              formations={formationOptions}
-              academicYears={academicYearOptions()}
-            />
-          </Suspense>
+          <PreinscriptionForm
+            formations={formationOptions}
+            academicYears={academicYearOptions()}
+          />
         </div>
 
         <aside className={styles.aside} aria-labelledby="aide_titre">

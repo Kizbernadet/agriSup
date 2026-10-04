@@ -2,6 +2,10 @@
   padding-block: var(--space-5) var(--space-6);
   background-color: var(--color-surface);
   border-bottom: var(--border-width) solid var(--color-border);
+  /* Halo décoratif, mêmes teintes douces que le bandeau d'accueil. */
+  background-image:
+    radial-gradient(circle at 92% 10%, var(--color-accent-soft), transparent 35%),
+    radial-gradient(circle at 70% 120%, var(--color-action-soft), transparent 40%);
 }
 
 .inner {

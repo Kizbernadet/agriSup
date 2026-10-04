@@ -1,6 +1,23 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("Formations", () => {
+  test("la liste et le formulaire sont pré-rendus côté serveur (sans JavaScript)", async ({
+    request,
+  }) => {
+    const catalog = await (await request.get("/fr/formations")).text();
+    expect(catalog.match(/<article/g)?.length ?? 0).toBeGreaterThan(0);
+    const form = await (await request.get("/fr/preinscription")).text();
+    expect(form).toContain('name="formation"');
+  });
+
+  test("un lien ?domaine= présélectionne le filtre", async ({ page }) => {
+    await page.goto("/fr/formations?domaine=AQUACULTURE");
+    await expect(page.getByRole("button", { name: "Aquaculture" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+  });
+
   test("les filtres combinent niveau et domaine", async ({ page }) => {
     await page.goto("/fr/formations");
     const count = page.locator("[aria-live=polite]");
@@ -25,7 +42,7 @@ test.describe("Formations", () => {
 
   test("la page détail propose une préinscription présélectionnée", async ({ page }) => {
     await page.goto("/fr/formations");
-    await page.getByRole("link", { name: /Voir la formation : Agronomie/ }).click();
+    await page.getByRole("link", { name: "Agronomie", exact: true }).click();
     await expect(page.locator("h1")).toHaveText("Agronomie");
 
     await page.getByRole("link", { name: "Se préinscrire" }).last().click();

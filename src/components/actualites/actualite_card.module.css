@@ -3,11 +3,6 @@
   height: 100%;
   padding: 0;
   overflow: hidden;
-  transition: border-color var(--transition);
-}
-
-.card:hover {
-  border-color: var(--color-action);
 }
 
 .media {

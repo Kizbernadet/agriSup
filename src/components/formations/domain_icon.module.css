@@ -1,0 +1,23 @@
+/* Pastille d'icône : fond vert doux, icône en couleur d'action (contraste ≥ 4,5:1). */
+.tile {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-6);
+  height: var(--space-6);
+  border-radius: var(--radius);
+  background-color: var(--color-action-soft);
+  color: var(--color-action);
+}
+
+.tile svg {
+  width: var(--space-5);
+  height: var(--space-5);
+}
+
+.inline {
+  flex-shrink: 0;
+  width: var(--space-4);
+  height: var(--space-4);
+}

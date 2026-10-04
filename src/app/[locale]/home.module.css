@@ -21,6 +21,48 @@
   line-height: var(--line-height-body);
 }
 
+.card_title {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+/* ---------- Secteur agricole ---------- */
+
+.sector {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .sector {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sector_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-6);
+  height: var(--space-6);
+  border-radius: var(--radius);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-text);
+}
+
+.sector_icon svg {
+  width: var(--space-5);
+  height: var(--space-5);
+}
+
+/* ---------- Partenaires ---------- */
+
 .partners {
   display: grid;
   gap: var(--space-4);
@@ -34,11 +76,47 @@
   }
 }
 
-.partner_name {
+/* Initiale décorative en attendant les logos officiels (autorisation requise). */
+.partner_monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-6);
+  height: var(--space-6);
+  border: var(--focus-ring-width) solid var(--color-accent);
+  border-radius: var(--radius);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
   font-size: var(--font-size-h4);
-  line-height: var(--line-height-h4);
+  color: var(--color-accent-text);
 }
 
-.partner_description {
-  color: var(--color-text-muted);
+/* ---------- Bandeau final « Rejoindre AGRI'SUP » ---------- */
+
+.cta_band {
+  padding-block: var(--space-6);
+  border-top: var(--border-width) solid var(--color-border);
+  background-color: var(--color-surface);
+  background-image:
+    radial-gradient(circle at 100% 0%, var(--color-accent-soft), transparent 40%),
+    radial-gradient(circle at 0% 100%, var(--color-action-soft), transparent 45%);
+}
+
+@media (min-width: 1024px) {
+  .cta_band {
+    padding-block: var(--space-7);
+  }
+}
+
+.cta_inner {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.cta_inner a svg {
+  transition: transform var(--transition);
+}
+
+.cta_inner a:hover svg {
+  transform: translateX(var(--space-1));
 }

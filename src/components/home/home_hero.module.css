@@ -1,7 +1,13 @@
 .hero {
+  position: relative;
+  overflow: hidden;
   padding-block: var(--space-6);
-  background-color: var(--color-surface);
   border-bottom: var(--border-width) solid var(--color-border);
+  background-color: var(--color-surface);
+  /* Halo décoratif : teintes douces de la charte (or et vert). */
+  background-image:
+    radial-gradient(circle at 85% 15%, var(--color-accent-soft), transparent 45%),
+    radial-gradient(circle at 0% 100%, var(--color-action-soft), transparent 40%);
 }
 
 @media (min-width: 1024px) {
@@ -10,7 +16,53 @@
   }
 }
 
+/* ---------- Motif décoratif ---------- */
+
+.pattern {
+  position: absolute;
+  inset: auto 0 0 auto;
+  width: 100%;
+  height: 60%;
+  pointer-events: none;
+  /* Fondu sur le bord gauche : le motif se fond dans le fond, sans arête visible. */
+  mask-image: linear-gradient(to right, transparent, black 40%);
+}
+
+@media (min-width: 1024px) {
+  .pattern {
+    width: 60%;
+    height: 100%;
+  }
+}
+
+.sun {
+  fill: var(--color-accent-soft);
+}
+
+.sun_ring {
+  fill: none;
+  stroke: var(--color-accent-soft);
+  stroke-width: 12;
+}
+
+.field {
+  fill: var(--color-action-soft);
+}
+
+.field_back {
+  fill: var(--color-action-soft);
+}
+
+.furrows path {
+  fill: none;
+  stroke: var(--color-accent-soft);
+  stroke-width: 3;
+}
+
+/* ---------- Contenu ---------- */
+
 .inner {
+  position: relative;
   display: grid;
   gap: var(--space-5);
   align-items: center;
@@ -43,10 +95,36 @@
   color: var(--color-text-muted);
 }
 
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+}
+
+.badges li {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius);
+  background-color: var(--color-action-soft);
+  color: var(--color-action);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
+}
+
+/* La flèche du bouton principal glisse légèrement au survol. */
+.actions a svg {
+  transition: transform var(--transition);
+}
+
+.actions a:hover svg {
+  transform: translateX(var(--space-1));
 }
 
 .contact_link {
@@ -56,7 +134,8 @@
   font-weight: var(--font-weight-semibold);
 }
 
-/* Encadré des axes : filet or décoratif à gauche. */
+/* ---------- Encadré des axes ---------- */
+
 .axes {
   display: grid;
   gap: var(--space-3);
@@ -65,6 +144,7 @@
   border-left: var(--space-1) solid var(--color-accent);
   border-radius: var(--radius);
   background-color: var(--color-bg);
+  box-shadow: var(--shadow-card);
 }
 
 .axes_title {
@@ -81,15 +161,24 @@
 
 .axes_list li {
   display: flex;
-  align-items: flex-start;
-  gap: var(--space-2);
+  align-items: center;
+  gap: var(--space-3);
   font-weight: var(--font-weight-medium);
 }
 
-.check {
+.axis_icon {
+  display: inline-flex;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  border-radius: var(--radius);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-text);
+}
+
+.axis_icon svg {
   width: var(--space-4);
   height: var(--space-4);
-  margin-top: var(--space-1);
-  color: var(--color-accent-text);
 }

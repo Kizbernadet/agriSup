@@ -1,5 +1,13 @@
 .card {
+  position: relative;
   height: 100%;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
 }
 
 .title {
@@ -7,11 +15,37 @@
   line-height: var(--line-height-h4);
 }
 
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Étend la zone cliquable du lien à toute la carte. */
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
 .summary {
   flex-grow: 1;
   color: var(--color-text-muted);
 }
 
-.link {
-  align-self: flex-start;
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-link);
+  font-weight: var(--font-weight-semibold);
+}
+
+.more svg {
+  width: var(--space-4);
+  height: var(--space-4);
+  transition: transform var(--transition);
+}
+
+.card:hover .more svg {
+  transform: translateX(var(--space-1));
 }

@@ -21,7 +21,7 @@
 - [x] 6. Formulaires Contact et Préinscription (notification email active dès l'ajout de la clé Resend)
 - [x] 7. Pages : AGRI'SUP, Actualités, FAQ, Contact, Mentions légales
 - [ ] 8. Images, performance, SEO, analytics
-- [ ] 9. Accessibilité et tests (automatisés en place : 40 unitaires, 46 bout en bout, axe 0 violation ; reste le test manuel NVDA)
+- [ ] 9. Accessibilité et tests (automatisés en place : 40 unitaires, 48 bout en bout, axe 0 violation ; reste le test manuel NVDA)
 - [ ] 10. Mise en ligne
 
 ## Avant mise en ligne (bloquant)
@@ -37,6 +37,7 @@
 - [ ] Historique, vision, mission, direction et infrastructures fournis ou retirés
 - [ ] URL des réseaux sociaux et brochure PDF fournies
 - [ ] Réponses de la FAQ validées
+- [ ] Contenus généraux validés : descriptions des domaines, exemples de métiers, étapes pédagogiques, section « secteur » (`src/content/domains.ts`)
 - [ ] Clé Resend + `RATE_LIMIT_SECRET` configurées sur Vercel
 - [ ] Domaine vérifié chez Resend, domaine personnalisé sur Vercel
 - [ ] Passage au plan Vercel Pro (usage commercial)

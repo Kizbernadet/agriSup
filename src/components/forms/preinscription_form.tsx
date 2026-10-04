@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { WhatsappButton } from "@/components/contact/whatsapp_button";
 import { Alert } from "@/components/ui/alert";
@@ -37,11 +36,16 @@ export function PreinscriptionForm({
   const tErrors = useTranslations("form_errors");
   const tPage = useTranslations("preinscription_page");
   const locale = useLocale();
-  // Formation présélectionnée depuis sa page détail (?formation=<slug>).
-  const requested = useSearchParams().get("formation");
-  const defaultFormation = formations.some((option) => option.value === requested)
-    ? (requested ?? "")
-    : "";
+  // Formation présélectionnée depuis sa page détail (?formation=<slug>). Lue après le
+  // chargement (et non via useSearchParams) pour que le formulaire reste pré-rendu.
+  const [defaultFormation, setDefaultFormation] = useState("");
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("formation");
+    if (formations.some((option) => option.value === requested)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- synchronisation unique avec l'URL au chargement
+      setDefaultFormation(requested ?? "");
+    }
+  }, [formations]);
   const [submitted, setSubmitted] = useState<Submitted | null>(null);
 
   const { status, fieldErrors, formError, handleSubmit } = useFormSubmission({
@@ -167,6 +171,8 @@ export function PreinscriptionForm({
       <fieldset className={styles.fieldset}>
         <legend className={styles.fieldset_legend}>{tPage("group_project")}</legend>
         <SelectField
+          // Clé : recrée le champ quand la présélection arrive après le chargement.
+          key={defaultFormation}
           name="formation"
           label={labels.formation}
           placeholder={t("choose")}

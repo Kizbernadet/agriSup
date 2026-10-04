@@ -179,7 +179,10 @@
     "documents": "Required documents",
     "apply_title": "Interested in this program?",
     "apply_text": "Send your pre-registration or ask the school your questions.",
-    "back": "All programs"
+    "back": "All programs",
+    "domain_title": "The field at a glance",
+    "careers_examples": "Examples of careers in the sector",
+    "careers_note": "For information only: careers in this field, not outcomes guaranteed by the program."
   },
   "home": {
     "hero_title": "Private Higher School of Agricultural Sciences and Technologies",
@@ -204,7 +207,23 @@
     "video_play": "Play the AGRI'SUP presentation video",
     "video_coming": "Presentation video coming soon",
     "video_iframe_title": "AGRI'SUP presentation video",
-    "video_cover_alt": "AGRI'SUP \"Field trip\" poster: a teacher shows ears of corn to students during a farm visit."
+    "video_cover_alt": "AGRI'SUP \"Field trip\" poster: a teacher shows ears of corn to students during a farm visit.",
+    "eyebrow_about": "About",
+    "eyebrow_figures": "At a glance",
+    "eyebrow_domains": "Fields",
+    "eyebrow_featured": "Programs",
+    "eyebrow_sector": "The sector",
+    "eyebrow_pedagogy": "Teaching",
+    "eyebrow_partners": "Network",
+    "eyebrow_join": "Admissions",
+    "domains_title": "Our fields of study",
+    "domains_intro": "Five fields to train for careers in agriculture, livestock farming and agricultural value chains.",
+    "domains_count": "{count, plural, =0 {No programs} one {# program} other {# programs}}",
+    "domains_link": "View programs",
+    "sector_title": "Train for careers in an essential sector",
+    "sector_intro": "Agriculture and livestock farming are at the heart of Mali's economy.",
+    "hero_badge_levels": "DUT and professional bachelor's degrees",
+    "hero_badge_lmd": "LMD system"
   },
   "admission_page": {
     "intro": "Who can apply, which documents to provide and how to apply.",
@@ -220,7 +239,10 @@
     "step_5": "Follow the official admission procedure",
     "disclaimer": "Online pre-registration is for sending your first details. It does not mean final admission.",
     "questions_title": "A question about admissions?",
-    "questions_text": "The AGRI'SUP team can answer by phone, WhatsApp or through the contact form."
+    "questions_text": "The AGRI'SUP team can answer by phone, WhatsApp or through the contact form.",
+    "eyebrow_conditions": "Step 1",
+    "eyebrow_documents": "Step 2",
+    "eyebrow_procedure": "Step 3"
   },
   "form_errors": {
     "required": "This field is required.",

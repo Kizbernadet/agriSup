@@ -179,7 +179,10 @@
     "documents": "Documents requis",
     "apply_title": "Cette formation vous intéresse ?",
     "apply_text": "Transmettez votre préinscription ou posez vos questions à l'établissement.",
-    "back": "Toutes les formations"
+    "back": "Toutes les formations",
+    "domain_title": "Le domaine en bref",
+    "careers_examples": "Exemples de métiers du secteur",
+    "careers_note": "À titre indicatif : métiers du domaine, et non débouchés garantis par la formation."
   },
   "home": {
     "hero_title": "École Supérieure Privée des Sciences et Technologies Agricoles",
@@ -204,7 +207,23 @@
     "video_play": "Lire la vidéo de présentation d'AGRI'SUP",
     "video_coming": "Vidéo de présentation à venir",
     "video_iframe_title": "Vidéo de présentation d'AGRI'SUP",
-    "video_cover_alt": "Affiche AGRI'SUP « Sortie pédagogique » : un enseignant présente des épis de maïs à des étudiants lors d'une visite de ferme."
+    "video_cover_alt": "Affiche AGRI'SUP « Sortie pédagogique » : un enseignant présente des épis de maïs à des étudiants lors d'une visite de ferme.",
+    "eyebrow_about": "À propos",
+    "eyebrow_figures": "En bref",
+    "eyebrow_domains": "Domaines",
+    "eyebrow_featured": "Formations",
+    "eyebrow_sector": "Le secteur",
+    "eyebrow_pedagogy": "Pédagogie",
+    "eyebrow_partners": "Réseau",
+    "eyebrow_join": "Admission",
+    "domains_title": "Nos domaines de formation",
+    "domains_intro": "Cinq domaines pour se former aux métiers de l'agriculture, de l'élevage et des filières agricoles.",
+    "domains_count": "{count, plural, =0 {Aucune formation} one {# formation} other {# formations}}",
+    "domains_link": "Voir les formations",
+    "sector_title": "Se former aux métiers d'un secteur essentiel",
+    "sector_intro": "L'agriculture et l'élevage sont au cœur de la vie économique du Mali.",
+    "hero_badge_levels": "DUT et licences professionnelles",
+    "hero_badge_lmd": "Système LMD"
   },
   "admission_page": {
     "intro": "Qui peut candidater, quels documents fournir et comment faire la démarche.",
@@ -220,7 +239,10 @@
     "step_5": "Suivre la procédure officielle d'admission",
     "disclaimer": "La préinscription en ligne sert à transmettre vos premières informations. Elle ne vaut pas admission définitive.",
     "questions_title": "Une question sur l'admission ?",
-    "questions_text": "L'équipe d'AGRI'SUP vous répond par téléphone, WhatsApp ou via le formulaire de contact."
+    "questions_text": "L'équipe d'AGRI'SUP vous répond par téléphone, WhatsApp ou via le formulaire de contact.",
+    "eyebrow_conditions": "Étape 1",
+    "eyebrow_documents": "Étape 2",
+    "eyebrow_procedure": "Étape 3"
   },
   "form_errors": {
     "required": "Ce champ est obligatoire.",

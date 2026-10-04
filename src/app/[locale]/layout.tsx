@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { FloatingWhatsappButton } from "@/components/contact/whatsapp_button";
 import { SiteFooter } from "@/components/layout/site_footer";
 import { SiteHeader } from "@/components/layout/site_header";
+import { RevealScript } from "@/components/layout/reveal_script";
 import { MAIN_CONTENT_ID, SkipLink } from "@/components/layout/skip_link";
 import { ThemeScript } from "@/components/layout/theme_script";
 import { routing } from "@/i18n/routing";
@@ -65,6 +66,7 @@ export default async function LocaleLayout({
     >
       <head>
         <ThemeScript />
+        <RevealScript />
       </head>
       <body>
         <NextIntlClientProvider>

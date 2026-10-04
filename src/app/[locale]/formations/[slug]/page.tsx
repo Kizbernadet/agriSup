@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { WhatsappButton } from "@/components/contact/whatsapp_button";
+import { DomainIcon } from "@/components/formations/domain_icon";
 import { FormationMeta } from "@/components/formations/formation_meta";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +13,7 @@ import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page_header";
 import { Paragraphs } from "@/components/ui/paragraphs";
 import { ToProvide } from "@/components/ui/to_provide";
+import { DOMAINS } from "@/content/domains";
 import { toAppLocale } from "@/i18n/locale";
 import { getFormationBySlug, listPublishedFormationSlugs } from "@/lib/data/formations";
 import styles from "./formation_detail.module.css";
@@ -64,7 +66,10 @@ export default async function FormationDetailPage({
           { label: formation.name },
         ]}
       >
-        <Badge>{t(`level.${formation.level}`)}</Badge>
+        <div className={styles.identity}>
+          <DomainIcon domain={formation.domain} />
+          <Badge>{t(`level.${formation.level}`)}</Badge>
+        </div>
         <FormationMeta {...formation} />
         <div className={styles.actions}>
           <ButtonLink href={preinscriptionHref}>{tCommon("preinscription")}</ButtonLink>
@@ -96,6 +101,24 @@ export default async function FormationDetailPage({
         <DetailSection id="documents" title={tDetail("documents")}>
           <BulletList items={formation.requiredDocuments} />
         </DetailSection>
+
+        <aside className={styles.domain} aria-labelledby="domaine_titre">
+          <div className={styles.domain_heading}>
+            <DomainIcon domain={formation.domain} />
+            <div>
+              <h2 id="domaine_titre">{tDetail("domain_title")}</h2>
+              <p className={styles.domain_name}>{t(`domain.${formation.domain}`)}</p>
+            </div>
+          </div>
+          <p>{DOMAINS[formation.domain].description[locale]}</p>
+          <h3 className={styles.careers_title}>{tDetail("careers_examples")}</h3>
+          <ul className={styles.careers}>
+            {DOMAINS[formation.domain].careers.map((career) => (
+              <li key={career.fr}>{career[locale]}</li>
+            ))}
+          </ul>
+          <p className={styles.note}>{tDetail("careers_note")}</p>
+        </aside>
 
         <Card className={styles.apply}>
           <h2>{tDetail("apply_title")}</h2>

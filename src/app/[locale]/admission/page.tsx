@@ -4,6 +4,13 @@ import { WhatsappButton } from "@/components/contact/whatsapp_button";
 import { Alert } from "@/components/ui/alert";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import {
+  ClipboardIcon,
+  GraduationIcon,
+  PhoneIcon,
+  SearchIcon,
+  SendIcon,
+} from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
 import { Steps } from "@/components/ui/steps";
@@ -46,6 +53,7 @@ export default async function AdmissionPage({
 
       <Section
         id="conditions"
+        eyebrow={tPage("eyebrow_conditions")}
         title={tPage("conditions_title")}
         intro={tPage("conditions_intro")}
       >
@@ -62,6 +70,7 @@ export default async function AdmissionPage({
       <Section
         id="documents"
         tone="surface"
+        eyebrow={tPage("eyebrow_documents")}
         title={tPage("documents_title")}
         intro={tPage("documents_intro")}
       >
@@ -70,14 +79,18 @@ export default async function AdmissionPage({
         </div>
       </Section>
 
-      <Section id="procedure" title={tPage("procedure_title")}>
+      <Section
+        id="procedure"
+        eyebrow={tPage("eyebrow_procedure")}
+        title={tPage("procedure_title")}
+      >
         <Steps
           items={[
-            tPage("step_1"),
-            tPage("step_2"),
-            tPage("step_3"),
-            tPage("step_4"),
-            tPage("step_5"),
+            { label: tPage("step_1"), icon: <SearchIcon /> },
+            { label: tPage("step_2"), icon: <ClipboardIcon /> },
+            { label: tPage("step_3"), icon: <SendIcon /> },
+            { label: tPage("step_4"), icon: <PhoneIcon /> },
+            { label: tPage("step_5"), icon: <GraduationIcon /> },
           ]}
         />
         <Alert variant="info">{tPage("disclaimer")}</Alert>

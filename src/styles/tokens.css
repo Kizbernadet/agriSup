@@ -48,6 +48,16 @@
 
   /* [AJOUT] Fond du header : non précisé par la charte, aligné sur les cartes. */
   --color-header-bg: var(--color-surface);
+
+  /* [AJOUT — enrichissement UI] Teintes douces pour les pastilles d'icônes et les fonds
+     décoratifs : Vert Terrain à 8 % et Or Moisson à 12 % d'opacité. Les icônes posées
+     dessus restent en --color-action / --color-accent-text (contraste ≥ 4,5:1). */
+  --color-action-soft: rgba(42, 114, 79, 0.08);
+  --color-accent-soft: rgba(197, 155, 46, 0.12);
+
+  /* [AJOUT — enrichissement UI] Ombre des cartes au survol (même teinte que
+     --shadow-card, plus diffuse). */
+  --shadow-card-hover: 0 12px 28px rgba(17, 24, 39, 0.12);
 }
 
 /* ---------- Thème sombre ---------- */
@@ -83,6 +93,13 @@
   --color-link: var(--color-accent);
 
   --color-header-bg: var(--color-surface);
+
+  /* [AJOUT] Vert vif à 12 % et Or brillant à 14 % en sombre. */
+  --color-action-soft: rgba(46, 204, 113, 0.12);
+  --color-accent-soft: rgba(212, 175, 55, 0.14);
+
+  /* [AJOUT] Pas d'ombre en sombre (charte §5) : le survol passe par la bordure. */
+  --shadow-card-hover: none;
 }
 
 /* ---------- Valeurs communes aux deux thèmes ---------- */
@@ -103,6 +120,14 @@
   --space-6: 48px;
   --space-7: 64px;
   --transition: 200ms ease;
+
+  /* [AJOUT — enrichissement UI] Animations d'apparition au défilement : plus lentes que
+     les transitions d'interface pour rester douces. Désactivées si le visiteur demande
+     moins de mouvement (prefers-reduced-motion). */
+  --transition-slow: 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  --reveal-distance: var(--space-4);
+  /* Décalage entre deux éléments d'une même grille (apparition en cascade). */
+  --reveal-stagger: 80ms;
 
   /* [AJOUT] Graisses autorisées (charte §1). */
   --font-weight-regular: 400;

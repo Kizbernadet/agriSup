@@ -15,7 +15,7 @@ export function ActualiteCard({ actualite }: { actualite: ActualiteSummary }) {
   };
 
   return (
-    <Card as="article" className={styles.card}>
+    <Card as="article" interactive className={styles.card}>
       {actualite.imagePath && (
         <div className={styles.media}>
           {/* Image décorative : le titre porte l'information. */}

@@ -151,6 +151,17 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **`@types/node` passé en v22** (exigé par Vitest 5 ; version LTS utilisée par Vercel).
 - `getClientIp` extrait dans `src/lib/client_ip.ts` pour être testable sans base de données.
 
+### Enrichissement UX/UI (demande de la cliente)
+
+- **Variables ajoutées** (`[AJOUT — enrichissement UI]` dans `tokens.css`) : `--color-action-soft` et `--color-accent-soft` (vert et or de la charte à 8–14 % d'opacité, pour les pastilles d'icônes et les halos), `--shadow-card-hover` (aucune ombre en sombre, conformément à la charte), `--transition-slow` (600 ms), `--reveal-distance`, `--reveal-stagger` (80 ms).
+- **Apparition au défilement par un script en ligne** (`reveal_script.tsx`, ≈ 1 Ko) et non par React : le contenu n'attend pas le chargement du JavaScript de l'application. Sans JavaScript ou avec « mouvement réduit », rien n'est masqué. Le bandeau d'accueil n'est jamais animé (premier affichage). Indicateur `data-js` sur `<html>` (et non une classe, que React pourrait réécrire).
+- **Compteurs animés** des chiffres clés : la valeur finale reste dans le HTML (référencement, lecteurs d'écran).
+- **Icônes SVG maison** (aucune bibliothèque) : une par domaine, étapes, sections. Toujours décoratives (`aria-hidden`), le sens est porté par le texte.
+- **Contenu ajouté** (`src/content/domains.ts`, à valider) : description générale de chaque domaine, exemples de métiers du secteur (affichés « à titre indicatif », distincts des débouchés de la formation qui restent `[À FOURNIR]`), description des étapes pédagogiques, section « secteur agricole » sans aucun chiffre.
+- **Accueil** : nouvelles sections « Nos domaines de formation » (lien direct vers le catalogue filtré `?domaine=`) et « Se former aux métiers d'un secteur essentiel » ; surtitres de sections ; bandeau final.
+- **Correctif de non-régression** : la lecture des paramètres d'URL (`?domaine=`, `?formation=`) se fait après le chargement et non via `useSearchParams`, qui empêchait le pré-rendu serveur du catalogue et du formulaire (contenu invisible sans JavaScript). Un test e2e le vérifie désormais.
+- **Audit axe en « mouvement réduit »** : l'audit porte sur l'état final des pages, sans éléments en cours d'apparition.
+
 ### Dépendances
 
 - **`npm audit`** signale 5 vulnérabilités « high » dans `micromatch`, via `eslint-config-next`. Ce sont des **outils de développement uniquement**, qui ne sont pas livrés en production. Je ne corrige pas avec `--force`, car cela casserait la configuration ESLint ; à revoir à la prochaine version de `eslint-config-next`.

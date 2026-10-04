@@ -9,3 +9,19 @@
   background-color: var(--color-surface);
   box-shadow: var(--shadow-card);
 }
+
+/* Carte interactive (lien) : légère élévation au survol. En sombre, pas d'ombre :
+   le relief passe par la bordure (charte §5). */
+.interactive {
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.interactive:hover,
+.interactive:focus-within {
+  transform: translateY(calc(-1 * var(--space-1)));
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-action);
+}

@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { CheckIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
-import { Steps } from "@/components/ui/steps";
+import { PedagogySteps } from "@/components/home/pedagogy_steps";
 import { Timeline } from "@/components/ui/timeline";
 import { ToProvide } from "@/components/ui/to_provide";
 import { INSTITUTION, INSTITUTION_DETAILS } from "@/content/placeholders";
@@ -102,7 +102,7 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
         title={tPage("pedagogy_title")}
         intro={tPage("pedagogy_intro")}
       >
-        <Steps items={INSTITUTION.pedagogy.map((step) => step[locale])} />
+        <PedagogySteps locale={locale} />
         <Card>
           <h3>{tPage("infrastructures_title")}</h3>
           <ToProvide />

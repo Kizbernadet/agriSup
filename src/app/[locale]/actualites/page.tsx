@@ -6,6 +6,7 @@ import { Pagination } from "@/components/ui/pagination";
 import { Section } from "@/components/ui/section";
 import { toAppLocale } from "@/i18n/locale";
 import { listActualites } from "@/lib/data/actualites";
+import { revealProps } from "@/lib/reveal";
 import styles from "./actualites.module.css";
 
 export async function generateMetadata({
@@ -46,8 +47,8 @@ export default async function ActualitesPage({
           <p>{tPage("empty")}</p>
         ) : (
           <ul className={styles.grid}>
-            {result.items.map((actualite) => (
-              <li key={actualite.slug}>
+            {result.items.map((actualite, index) => (
+              <li key={actualite.slug} {...revealProps(index % 3)}>
                 <ActualiteCard actualite={actualite} />
               </li>
             ))}

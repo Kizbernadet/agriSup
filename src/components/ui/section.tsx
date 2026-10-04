@@ -1,9 +1,13 @@
 import type { ReactNode } from "react";
+import { revealProps } from "@/lib/reveal";
 import { Container } from "./container";
+import { Eyebrow } from "./eyebrow";
 import styles from "./section.module.css";
 
 type SectionProps = {
   id?: string;
+  // Surtitre court au-dessus du titre (ex. « Pédagogie »).
+  eyebrow?: string;
   title?: string;
   intro?: ReactNode;
   // "surface" alterne le fond pour séparer visuellement deux sections consécutives.
@@ -11,7 +15,14 @@ type SectionProps = {
   children: ReactNode;
 };
 
-export function Section({ id, title, intro, tone = "default", children }: SectionProps) {
+export function Section({
+  id,
+  eyebrow,
+  title,
+  intro,
+  tone = "default",
+  children,
+}: SectionProps) {
   const titleId = id ? `${id}_titre` : undefined;
 
   return (
@@ -24,7 +35,8 @@ export function Section({ id, title, intro, tone = "default", children }: Sectio
     >
       <Container className={styles.inner}>
         {(title || intro) && (
-          <header className={styles.header}>
+          <header className={styles.header} {...revealProps()}>
+            {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
             {title && <h2 id={titleId}>{title}</h2>}
             {intro && <div className={styles.intro}>{intro}</div>}
           </header>

@@ -22,6 +22,9 @@ const PAGES = [
 for (const theme of ["light", "dark"] as const) {
   test.describe(`Accessibilité — thème ${theme === "light" ? "clair" : "sombre"}`, () => {
     test.beforeEach(async ({ page }) => {
+      // Mouvement réduit : aucun élément n'est masqué en attente d'apparition, l'audit
+      // porte donc sur l'état final de chaque page.
+      await page.emulateMedia({ reducedMotion: "reduce" });
       await page.addInitScript((value) => {
         localStorage.setItem("agrisup_theme", value);
       }, theme);

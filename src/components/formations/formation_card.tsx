@@ -1,8 +1,10 @@
 import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
-import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { ArrowRightIcon } from "@/components/ui/icons";
+import { Link } from "@/i18n/navigation";
 import type { FormationSummary } from "@/lib/data/formations";
+import { DomainIcon } from "./domain_icon";
 import { FormationMeta } from "./formation_meta";
 import styles from "./formation_card.module.css";
 
@@ -19,19 +21,26 @@ export function FormationCard({
   const t = useTranslations("formation");
 
   return (
-    <Card as="article" className={styles.card}>
-      <Badge>{t(`level.${formation.level}`)}</Badge>
-      <Heading className={styles.title}>{formation.name}</Heading>
+    <Card as="article" interactive className={styles.card}>
+      <div className={styles.top}>
+        <DomainIcon domain={formation.domain} />
+        <Badge>{t(`level.${formation.level}`)}</Badge>
+      </div>
+      <Heading className={styles.title}>
+        {/* Toute la carte est cliquable via ce lien (pseudo-élément étendu). */}
+        <Link
+          href={{ pathname: "/formations/[slug]", params: { slug: formation.slug } }}
+          className={styles.link}
+        >
+          {formation.name}
+        </Link>
+      </Heading>
       <FormationMeta {...formation} />
       <p className={styles.summary}>{formation.summary}</p>
-      <ButtonLink
-        href={{ pathname: "/formations/[slug]", params: { slug: formation.slug } }}
-        variant="secondary"
-        className={styles.link}
-      >
+      <span className={styles.more} aria-hidden="true">
         {t("view")}
-        <span className="visually_hidden"> : {formation.name}</span>
-      </ButtonLink>
+        <ArrowRightIcon />
+      </span>
     </Card>
   );
 }
