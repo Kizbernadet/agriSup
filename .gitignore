@@ -45,3 +45,7 @@ next-env.d.ts
 
 # client Prisma généré (recréé par `prisma generate`, lancé à l installation)
 /src/generated/
+
+# rapports de tests Playwright
+/test-results/
+/playwright-report/

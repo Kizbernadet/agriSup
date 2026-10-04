@@ -8,12 +8,6 @@ const MAX_REQUESTS = 5;
 
 export type RateLimitResult = { allowed: true } | { allowed: false; retryAfter: number };
 
-// Sur Vercel, l'IP du visiteur est la première valeur de x-forwarded-for.
-export function getClientIp(headers: Headers): string {
-  const forwarded = headers.get("x-forwarded-for")?.split(",")[0]?.trim();
-  return forwarded || headers.get("x-real-ip") || "unknown";
-}
-
 // L'IP n'est jamais stockée : on conserve une empreinte HMAC avec une clé secrète,
 // impossible à inverser sans cette clé (un simple SHA-256 se « casse » en testant
 // les 4 milliards d'adresses IPv4).

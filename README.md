@@ -29,18 +29,21 @@ npm run db:studio   # explorer les données dans le navigateur
 
 ## Scripts
 
-| Commande                          | Rôle                                                         |
-| --------------------------------- | ------------------------------------------------------------ |
-| `npm run dev`                     | Serveur de développement                                     |
-| `npm run build`                   | Build de production                                          |
-| `npm run start`                   | Lance le build de production                                 |
-| `npm run lint`                    | ESLint                                                       |
-| `npm run typecheck`               | Vérification TypeScript (génère d'abord les types de routes) |
-| `npm run format` / `format:check` | Mise en forme Prettier                                       |
-| `npm run db:migrate`              | Crée une migration après modification du schéma (dev)        |
-| `npm run db:deploy`               | Applique les migrations (Neon, production)                   |
-| `npm run db:seed`                 | Charge les données de test                                   |
-| `npm run db:studio`               | Interface web d'exploration des données                      |
+| Commande                          | Rôle                                                            |
+| --------------------------------- | --------------------------------------------------------------- |
+| `npm run dev`                     | Serveur de développement                                        |
+| `npm run build`                   | Build de production                                             |
+| `npm run start`                   | Lance le build de production                                    |
+| `npm run lint`                    | ESLint                                                          |
+| `npm run typecheck`               | Vérification TypeScript (génère d'abord les types de routes)    |
+| `npm run format` / `format:check` | Mise en forme Prettier                                          |
+| `npm test`                        | Tests unitaires (Vitest)                                        |
+| `npm run test:e2e`                | Tests de bout en bout + accessibilité (Playwright, après build) |
+| `npm run test:cleanup`            | Supprime les données créées par les tests                       |
+| `npm run db:migrate`              | Crée une migration après modification du schéma (dev)           |
+| `npm run db:deploy`               | Applique les migrations (Neon, production)                      |
+| `npm run db:seed`                 | Charge les données de test                                      |
+| `npm run db:studio`               | Interface web d'exploration des données                         |
 
 ## Organisation
 

@@ -1,7 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import type { z } from "zod";
 import { apiServerError } from "@/lib/api_response";
-import { checkRateLimit, getClientIp } from "@/lib/rate_limit";
+import { getClientIp } from "@/lib/client_ip";
+import { checkRateLimit } from "@/lib/rate_limit";
 import {
   HONEYPOT_FIELD,
   toFieldErrors,

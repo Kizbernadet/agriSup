@@ -34,8 +34,9 @@ export function optionalText(max: number) {
     .transform((value) => value || undefined);
 }
 
-// 8 à 15 chiffres (norme E.164), avec +, espaces, points, tirets ou parenthèses.
-const PHONE_PATTERN = /^\+?[\d\s().-]+$/;
+// 8 à 15 chiffres (norme E.164), avec indicatif « + » ou « (+ », espaces, points, tirets
+// ou parenthèses.
+const PHONE_PATTERN = /^\(?\+?[\d\s().-]+$/;
 function isPhone(value: string) {
   const digits = value.replace(/\D/g, "").length;
   return PHONE_PATTERN.test(value) && digits >= 8 && digits <= 15;

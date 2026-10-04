@@ -142,6 +142,15 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Mentions légales et confidentialité** : texte provisoire (avertissement visible), référence à la loi malienne n° 2013-015 et à l'APDP, liste des cookies et traceurs (langue, thème, YouTube et Maps au clic). Hébergeur : informations publiques de Vercel, à revérifier.
 - **Formulaire de contact** : la règle « email ou téléphone » utilise l'option `when` de zod 4 pour s'afficher en même temps que les autres erreurs.
 
+### Tests automatisés
+
+- **Vitest** (`npm test`) : 40 tests unitaires sur la validation des formulaires, les années académiques, les liens WhatsApp, les traductions de secours et les paramètres d'API. A révélé un vrai défaut : le format `(+223) 66-72-43-89` était refusé (corrigé).
+- **Playwright** (`npm run test:e2e`, après `npm run build`) : 46 tests dans le Chrome installé (pas de téléchargement de navigateur) — navigation, langues, thème, menu mobile, filtres, formulaires réels, API, limitation de débit.
+- **axe-core** : audit WCAG 2.1 A/AA de 12 pages × 2 thèmes, **0 violation**. Ne remplace pas un test manuel au clavier et au lecteur d'écran.
+- Les tests qui écrivent en base utilisent le préfixe « TEST-AUTO » et des IP fictives ; `scripts/cleanup_test_data.ts` (`npm run test:cleanup`) les supprime automatiquement en fin de suite.
+- **`@types/node` passé en v22** (exigé par Vitest 5 ; version LTS utilisée par Vercel).
+- `getClientIp` extrait dans `src/lib/client_ip.ts` pour être testable sans base de données.
+
 ### Dépendances
 
 - **`npm audit`** signale 5 vulnérabilités « high » dans `micromatch`, via `eslint-config-next`. Ce sont des **outils de développement uniquement**, qui ne sont pas livrés en production. Je ne corrige pas avec `--force`, car cela casserait la configuration ESLint ; à revoir à la prochaine version de `eslint-config-next`.
