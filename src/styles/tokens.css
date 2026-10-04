@@ -58,6 +58,19 @@
   /* [AJOUT — enrichissement UI] Ombre des cartes au survol (même teinte que
      --shadow-card, plus diffuse). */
   --shadow-card-hover: 0 12px 28px rgba(17, 24, 39, 0.12);
+
+  /* [AJOUT — habillage] Bandeau coloré (chiffres clés, appels à l'action) : Bleu Académie
+     de la charte en fond, texte blanc cassé (13:1), or brillant pour les accents (6,8:1),
+     gris pour le texte secondaire (5,6:1). */
+  --color-band-bg: #1b2a47;
+  --color-on-band: #f3f4f6;
+  --color-band-accent: #d4af37;
+  --color-band-muted: #9ca3af;
+
+  /* [AJOUT — boutons] Reflet lumineux qui traverse le bouton au survol (20 % de blanc,
+     placé sous le texte) et ombre teintée du Vert Terrain. */
+  --button-sheen: rgba(255, 255, 255, 0.2);
+  --shadow-button-hover: 0 8px 20px rgba(42, 114, 79, 0.3);
 }
 
 /* ---------- Thème sombre ---------- */
@@ -100,6 +113,15 @@
 
   /* [AJOUT] Pas d'ombre en sombre (charte §5) : le survol passe par la bordure. */
   --shadow-card-hover: none;
+
+  /* [AJOUT] Bandeau : surface surélevée de la charte (#1F3328), texte 12:1, or 6,4:1. */
+  --color-band-bg: #1f3328;
+  --color-on-band: #f3f4f6;
+  --color-band-accent: #d4af37;
+  --color-band-muted: #9ca3af;
+
+  --button-sheen: rgba(255, 255, 255, 0.2);
+  --shadow-button-hover: none;
 }
 
 /* ---------- Valeurs communes aux deux thèmes ---------- */
@@ -180,6 +202,10 @@
     rgba(12, 20, 16, 0.6) 50%,
     rgba(12, 20, 16, 0) 100%
   );
+  /* [AJOUT — habillage] Voile uniforme sur une photo de fond ou derrière une visionneuse :
+     Vert Nuit à 82 %. Le texte --color-on-photo y garde un contraste ≥ 10:1. */
+  --photo-scrim: rgba(12, 20, 16, 0.82);
+
   /* [AJOUT] Couleur du texte sur photo : blanc cassé de la charte (#F3F4F6). */
   --color-on-photo: #f3f4f6;
 }

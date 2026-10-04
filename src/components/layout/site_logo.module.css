@@ -1,32 +1,28 @@
 .logo {
   display: inline-flex;
   flex-shrink: 0;
-  min-height: var(--tap-target);
+  align-items: center;
+  border-radius: var(--radius);
   text-decoration: none;
-  border-radius: var(--radius);
 }
 
-/* Largeur minimale de 120px imposée par la charte §7 pour le logo. */
-.placeholder {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: calc(var(--space-7) + var(--space-6) + var(--space-2));
+/* Hauteur fixe, largeur proportionnelle : jamais de déformation (charte §7). Largeur
+   obtenue ≥ 120 px (minimum de la charte). */
+.image {
+  width: auto;
+  height: 100%;
+}
+
+.header {
+  height: calc(var(--tap-target) + var(--space-3));
+}
+
+.footer {
+  height: calc(var(--space-7) + var(--space-3));
+}
+
+/* Thème sombre : plaque claire (zone de protection incluse) sous le logo. */
+[data-theme="dark"] .logo {
   padding: var(--space-1) var(--space-2);
-  border: var(--border-width) dashed var(--color-accent);
-  border-radius: var(--radius);
-}
-
-.name {
-  font-family: var(--font-heading);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-h4);
-  line-height: var(--line-height-h4);
-  color: var(--color-brand);
-}
-
-.notice {
-  font-size: var(--font-size-small);
-  line-height: var(--line-height-small);
-  color: var(--color-text-muted);
+  background-color: var(--color-brand);
 }

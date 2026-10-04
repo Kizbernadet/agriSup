@@ -5,7 +5,7 @@ import { MapEmbed } from "@/components/contact/map_embed";
 import { WhatsappButton } from "@/components/contact/whatsapp_button";
 import { ContactForm } from "@/components/forms/contact_form";
 import { Card } from "@/components/ui/card";
-import { ChatIcon, MailIcon, MapPinIcon, PhoneIcon } from "@/components/ui/icons";
+import { MailIcon, MapPinIcon, PhoneIcon, WhatsappIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
 import { ToProvide } from "@/components/ui/to_provide";
@@ -73,7 +73,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
             </InfoCard>
 
             {CONTACT.whatsappNumber && (
-              <InfoCard icon={<ChatIcon />} title={tPage("whatsapp")}>
+              <InfoCard icon={<WhatsappIcon />} title={tPage("whatsapp")}>
                 <p>{tPage("whatsapp_text")}</p>
                 <div>
                   <WhatsappButton />

@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { buttonClassName, type ButtonVariant } from "@/components/ui/button";
-import { ChatIcon } from "@/components/ui/icons";
+import { WhatsappIcon } from "@/components/ui/icons";
 import { CONTACT } from "@/content/placeholders";
 import { buildWhatsappLink } from "@/lib/whatsapp_link";
 import styles from "./whatsapp_button.module.css";
@@ -23,7 +23,7 @@ export function WhatsappButton({ message, variant = "secondary" }: WhatsappButto
       target="_blank"
       rel="noopener noreferrer"
     >
-      <ChatIcon />
+      <WhatsappIcon />
       {t("button")}
     </a>
   );
@@ -42,7 +42,7 @@ export function FloatingWhatsappButton() {
       rel="noopener noreferrer"
       aria-label={t("label")}
     >
-      <ChatIcon />
+      <WhatsappIcon />
     </a>
   );
 }

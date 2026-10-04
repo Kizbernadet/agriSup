@@ -10,8 +10,8 @@ type SectionProps = {
   eyebrow?: string;
   title?: string;
   intro?: ReactNode;
-  // "surface" alterne le fond pour séparer visuellement deux sections consécutives.
-  tone?: "default" | "surface";
+  // "surface" alterne le fond ; "band" : bandeau coloré (Bleu Académie) pour rythmer la page.
+  tone?: "default" | "surface" | "band";
   children: ReactNode;
 };
 
@@ -29,14 +29,14 @@ export function Section({
     <section
       id={id}
       aria-labelledby={title ? titleId : undefined}
-      className={[styles.section, tone === "surface" && styles.surface]
+      className={[styles.section, tone !== "default" && styles[tone]]
         .filter(Boolean)
         .join(" ")}
     >
       <Container className={styles.inner}>
         {(title || intro) && (
           <header className={styles.header} {...revealProps()}>
-            {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+            {eyebrow && <Eyebrow onBand={tone === "band"}>{eyebrow}</Eyebrow>}
             {title && <h2 id={titleId}>{title}</h2>}
             {intro && <div className={styles.intro}>{intro}</div>}
           </header>

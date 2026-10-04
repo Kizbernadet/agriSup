@@ -67,8 +67,7 @@
     "menu_close": "Close menu",
     "menu": "Menu",
     "cta_preinscription": "Pre-register",
-    "home_link": "AGRI'SUP Mali — home",
-    "logo_placeholder": "Temporary logo"
+    "home_link": "AGRI'SUP Mali — home"
   },
   "language": {
     "label": "Language selection",
@@ -360,6 +359,64 @@
     "cookies_maps": "Map: the Google Maps map is only loaded if you click \"Show the map\".",
     "cookies_none": "No advertising cookies are used.",
     "ip_title": "Intellectual property",
-    "ip_text": "The content of this website (texts, logo, visuals) belongs to AGRI'SUP unless otherwise stated. Any reproduction without permission is prohibited."
+    "ip_text": "The content of this website (texts, logo, visuals) belongs to AGRI'SUP unless otherwise stated. Any reproduction without permission is prohibited.",
+    "credits": "Icons: Heroicons (MIT licence) and Font Awesome Free (CC BY 4.0 licence, fontawesome.com). Carousel: Embla Carousel (MIT licence)."
+  },
+  "slider": {
+    "label": "AGRI'SUP at a glance",
+    "slide_label": "{index} of {total}",
+    "previous": "Previous slide",
+    "next": "Next slide",
+    "pause": "Pause the slideshow",
+    "play": "Resume the slideshow",
+    "go_to": "Go to slide {index}",
+    "s2_eyebrow": "Pre-registration",
+    "s2_title": "Pre-register online in just a few minutes",
+    "s2_text": "Choose your program and send your details: AGRI'SUP will contact you about the next steps.",
+    "s2_cta": "Admission requirements",
+    "s2_chip_1": "Online form",
+    "s2_chip_2": "Reply by phone or WhatsApp",
+    "s3_eyebrow": "Five fields",
+    "s3_title": "From crop production to agribusiness",
+    "s3_text": "Agriculture, livestock farming, aquaculture, agribusiness and agroforestry: find the program that suits you.",
+    "s3_cta": "Explore the fields",
+    "s3_chip": "{count} programs",
+    "alt_terrain": "A teacher shows ears of corn to students during a farm visit.",
+    "alt_etudiants": "A group of smiling students holding seedlings and vegetables in a field.",
+    "alt_agriculture": "Young farmer in front of a greenhouse and a tractor."
+  },
+  "gallery": {
+    "eyebrow": "In pictures",
+    "title": "AGRI'SUP in pictures",
+    "intro": "The school's roll-up banner and communication visuals about agricultural training.",
+    "open": "Enlarge image: {caption}",
+    "close": "Close",
+    "previous": "Previous image",
+    "next": "Next image",
+    "dialog_label": "Image viewer",
+    "counter": "{index} / {total}",
+    "kakemono": "AGRI'SUP's roll-up banner: LMD system and programs on offer",
+    "terrain": "In the field, close to the crops",
+    "etudiants": "Learning together",
+    "agriculture": "Modern agriculture"
+  },
+  "faq_bot": {
+    "launcher": "Questions?",
+    "open": "Open the FAQ assistant",
+    "close": "Close the assistant",
+    "title": "AGRI'SUP assistant",
+    "subtitle": "Automatic answers to frequent questions",
+    "greeting": "Hello! I answer frequent questions about AGRI'SUP. Choose a question or type your own.",
+    "suggestions": "Frequent questions",
+    "input_label": "Your question",
+    "placeholder": "E.g.: how do I pre-register?",
+    "send": "Send",
+    "typing": "The assistant is typing…",
+    "not_found": "I couldn't find an answer to this question. The AGRI'SUP team can answer you directly:",
+    "contact_link": "Contact form",
+    "more": "Other questions",
+    "you": "You",
+    "bot": "Assistant",
+    "disclaimer": "Automatic assistant: predefined answers, no artificial intelligence. No data is stored."
   }
 }

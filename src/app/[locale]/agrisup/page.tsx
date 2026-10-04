@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Alert } from "@/components/ui/alert";
 import { Card } from "@/components/ui/card";
@@ -10,6 +11,7 @@ import { Timeline } from "@/components/ui/timeline";
 import { ToProvide } from "@/components/ui/to_provide";
 import { INSTITUTION, INSTITUTION_DETAILS } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
+import kakemono from "../../../../public/images/galerie/kakemono_offre_formations.jpg";
 import styles from "./agrisup.module.css";
 
 export async function generateMetadata({
@@ -26,10 +28,11 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
 
-  const [t, tPage, tNav] = await Promise.all([
+  const [t, tPage, tNav, tGallery] = await Promise.all([
     getTranslations("pages.agrisup"),
     getTranslations("agrisup_page"),
     getTranslations("nav"),
+    getTranslations("gallery"),
   ]);
 
   const anchors = [
@@ -59,17 +62,31 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
       </PageHeader>
 
       <Section id="presentation" title={tPage("presentation_title")}>
-        <p className={styles.lead}>{INSTITUTION.presentation[locale]}</p>
-        <div className={styles.block}>
-          <h3>{tPage("fields_title")}</h3>
-          <ul className={styles.fields}>
-            {INSTITUTION_DETAILS.fields.map((field) => (
-              <li key={field.fr}>
-                <CheckIcon className={styles.check} />
-                {field[locale]}
-              </li>
-            ))}
-          </ul>
+        <div className={styles.presentation}>
+          <div className={styles.presentation_text}>
+            <p className={styles.lead}>{INSTITUTION.presentation[locale]}</p>
+            <div className={styles.block}>
+              <h3>{tPage("fields_title")}</h3>
+              <ul className={styles.fields}>
+                {INSTITUTION_DETAILS.fields.map((field) => (
+                  <li key={field.fr}>
+                    <CheckIcon className={styles.check} />
+                    {field[locale]}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <figure className={styles.kakemono}>
+            <Image
+              src={kakemono}
+              alt={tGallery("kakemono")}
+              sizes="(min-width: 1024px) 320px, 80vw"
+              className={styles.kakemono_image}
+              placeholder="blur"
+            />
+            <figcaption>{tGallery("kakemono")}</figcaption>
+          </figure>
         </div>
       </Section>
 

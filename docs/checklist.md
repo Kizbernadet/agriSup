@@ -28,6 +28,8 @@
 - [ ] Chiffres clés fictifs remplacés ou section masquée
 - [ ] Actualités de test supprimées
 - [ ] Vidéo de présentation fournie (ou section retirée) et image d'aperçu remplacée par un visuel réel
+- [ ] Vraies photos de l'école pour le carrousel et la galerie (les scènes actuelles sont générées par IA)
+- [ ] Logo : version inversée (thème sombre) et SVG officiels ; texte « Privée » à vérifier
 - [ ] Coordonnées de test remplacées par les officielles (téléphone, WhatsApp, email)
 - [ ] Liste, durées et conditions des formations validées par AGRI'SUP
 - [ ] Partenariats confirmés (et autorisation écrite pour leurs logos, le cas échéant)
@@ -36,7 +38,7 @@
 - [ ] Mentions légales validées (responsable de publication, immatriculation, durée de conservation, hébergeur)
 - [ ] Historique, vision, mission, direction et infrastructures fournis ou retirés
 - [ ] URL des réseaux sociaux et brochure PDF fournies
-- [ ] Réponses de la FAQ validées
+- [ ] Réponses de la FAQ et de l'assistant validées (`src/content/faq.ts`)
 - [ ] Contenus généraux validés : descriptions des domaines, exemples de métiers, étapes pédagogiques, section « secteur » (`src/content/domains.ts`)
 - [ ] Clé Resend + `RATE_LIMIT_SECRET` configurées sur Vercel
 - [ ] Domaine vérifié chez Resend, domaine personnalisé sur Vercel

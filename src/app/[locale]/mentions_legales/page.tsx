@@ -100,6 +100,7 @@ export default async function MentionsLegalesPage({
 
         <LegalSection id="propriete" title={tPage("ip_title")}>
           <p>{tPage("ip_text")}</p>
+          <p>{tPage("credits")}</p>
         </LegalSection>
       </Container>
     </>

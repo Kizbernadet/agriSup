@@ -1,78 +1,84 @@
 import { useTranslations } from "next-intl";
-import { WhatsappButton } from "@/components/contact/whatsapp_button";
-import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import {
-  ArrowRightIcon,
-  BriefcaseIcon,
-  FieldIcon,
-  GraduationIcon,
-  SproutIcon,
-} from "@/components/ui/icons";
-import { CONTACT, INSTITUTION } from "@/content/placeholders";
-import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
+import { CONTACT } from "@/content/placeholders";
+import slideAgriculture from "../../../public/images/slider/slide_agriculture.jpg";
+import slideEtudiants from "../../../public/images/slider/slide_etudiants.jpg";
+import slideTerrain from "../../../public/images/slider/slide_terrain.jpg";
+import { HeroSlider, type HeroSlide } from "./hero_slider";
 import styles from "./home_hero.module.css";
 
-// Une icône par axe (même ordre que INSTITUTION.axes).
-const AXIS_ICONS = [GraduationIcon, BriefcaseIcon, FieldIcon, SproutIcon];
-
-// Cahier §4.1 : AGRI'SUP, son domaine, son implantation, un message et les appels à l'action.
-// Pas de photo tant qu'aucune photo réelle de l'école n'est disponible : le relief vient
-// d'un motif décoratif (champs et soleil) dessiné avec les couleurs de la charte.
-// Rien n'est masqué ni animé ici : c'est le premier contenu affiché (performance).
-export function HomeHero({ locale }: { locale: AppLocale }) {
+// Cahier §4.1 : AGRI'SUP, son domaine, son implantation, un message et les appels à l'action,
+// présentés en carrousel (demande de la cliente). Images : scènes extraites des affiches
+// fournies (générées par IA), à remplacer par de vraies photos de l'école.
+export function HomeHero({ formationsCount }: { formationsCount: number }) {
   const t = useTranslations("home");
+  const tSlider = useTranslations("slider");
   const tCommon = useTranslations("common");
   const { address } = CONTACT;
 
+  const slides: HeroSlide[] = [
+    {
+      id: "formations",
+      image: slideTerrain,
+      imageAlt: tSlider("alt_terrain"),
+      eyebrow: `AGRI'SUP · ${address.street}, ${address.city} — ${address.country}`,
+      title: t("hero_title"),
+      text: t("hero_lead"),
+      actions: [
+        {
+          href: "/formations",
+          label: tCommon("discover_formations"),
+          variant: "primary",
+        },
+        {
+          href: "/preinscription",
+          label: tCommon("preinscription"),
+          variant: "secondary",
+        },
+      ],
+      chips: [t("hero_badge_levels"), t("hero_badge_lmd")],
+    },
+    {
+      id: "preinscription",
+      image: slideEtudiants,
+      imageAlt: tSlider("alt_etudiants"),
+      eyebrow: tSlider("s2_eyebrow"),
+      title: tSlider("s2_title"),
+      text: tSlider("s2_text"),
+      actions: [
+        { href: "/preinscription", label: tCommon("preinscription"), variant: "primary" },
+        { href: "/admission", label: tSlider("s2_cta"), variant: "secondary" },
+      ],
+      chips: [tSlider("s2_chip_1"), tSlider("s2_chip_2")],
+    },
+    {
+      id: "domaines",
+      image: slideAgriculture,
+      imageAlt: tSlider("alt_agriculture"),
+      eyebrow: tSlider("s3_eyebrow"),
+      title: tSlider("s3_title"),
+      text: tSlider("s3_text"),
+      actions: [
+        {
+          href: { pathname: "/", hash: "domaines" },
+          label: tSlider("s3_cta"),
+          variant: "primary",
+        },
+        {
+          href: "/formations",
+          label: tCommon("discover_formations"),
+          variant: "secondary",
+        },
+      ],
+      chips: [tSlider("s3_chip", { count: formationsCount }), t("hero_badge_lmd")],
+    },
+  ];
+
   return (
-    <section className={styles.hero} aria-labelledby="accueil_titre">
+    <section className={styles.hero}>
       <HeroPattern />
       <Container className={styles.inner}>
-        <div className={styles.text}>
-          <p className={styles.kicker}>
-            AGRI&apos;SUP · {address.street}, {address.city} — {address.country}
-          </p>
-          <h1 id="accueil_titre">{t("hero_title")}</h1>
-          <p className={styles.lead}>{t("hero_lead")}</p>
-          <ul className={styles.badges}>
-            <li>{t("hero_badge_levels")}</li>
-            <li>{t("hero_badge_lmd")}</li>
-          </ul>
-          <div className={styles.actions}>
-            <ButtonLink href="/formations">
-              {tCommon("discover_formations")}
-              <ArrowRightIcon />
-            </ButtonLink>
-            <ButtonLink href="/preinscription" variant="secondary">
-              {tCommon("preinscription")}
-            </ButtonLink>
-            <WhatsappButton />
-          </div>
-          <Link href="/contact" className={styles.contact_link}>
-            {tCommon("contact_us")}
-          </Link>
-        </div>
-
-        <aside className={styles.axes} aria-labelledby="axes_titre">
-          <h2 id="axes_titre" className={styles.axes_title}>
-            {t("axes_title")}
-          </h2>
-          <ul className={styles.axes_list}>
-            {INSTITUTION.axes.map((axis, index) => {
-              const Icon = AXIS_ICONS[index] ?? SproutIcon;
-              return (
-                <li key={axis.fr}>
-                  <span className={styles.axis_icon}>
-                    <Icon />
-                  </span>
-                  <span>{axis[locale]}</span>
-                </li>
-              );
-            })}
-          </ul>
-        </aside>
+        <HeroSlider slides={slides} />
       </Container>
     </section>
   );

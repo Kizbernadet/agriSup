@@ -1,4 +1,7 @@
 .button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -17,38 +20,95 @@
   cursor: pointer;
   transition:
     background-color var(--transition),
+    background-size var(--transition),
     border-color var(--transition),
-    color var(--transition);
-}
-
-.primary {
-  background-color: var(--color-action);
-  color: var(--color-on-action);
-}
-
-.primary:hover {
-  background-color: var(--color-action-hover);
-}
-
-.secondary {
-  background-color: transparent;
-  border-color: var(--color-action);
-  color: var(--color-action);
-}
-
-.secondary:hover {
-  border-color: var(--color-action-hover);
-  color: var(--color-action-hover);
-}
-
-.button:disabled,
-.button[aria-disabled="true"] {
-  opacity: var(--opacity-disabled);
-  cursor: not-allowed;
+    color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
 }
 
 .button svg {
   flex-shrink: 0;
   width: var(--space-4);
   height: var(--space-4);
+  transition: transform var(--transition);
+}
+
+/* La dernière icône (flèche) glisse vers la droite au survol. */
+.button:hover svg:last-child:not(:first-child) {
+  transform: translateX(var(--space-1));
+}
+
+/* Léger enfoncement au clic. */
+.button:active {
+  transform: scale(0.98);
+}
+
+/* ---------- Primaire : élévation + reflet lumineux ---------- */
+
+.primary {
+  background-color: var(--color-action);
+  color: var(--color-on-action);
+}
+
+/* Reflet : bande claire, sous le texte (z-index négatif), qui traverse le bouton. */
+.primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    var(--button-sheen) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform var(--transition-slow);
+}
+
+.primary:hover {
+  background-color: var(--color-action-hover);
+  box-shadow: var(--shadow-button-hover);
+  transform: translateY(calc(-1 * var(--space-1) / 2));
+}
+
+.primary:hover::before {
+  transform: translateX(100%);
+}
+
+/* ---------- Secondaire : remplissage progressif de gauche à droite ---------- */
+
+.secondary {
+  border-color: var(--color-action);
+  background-color: transparent;
+  background-image: linear-gradient(var(--color-action), var(--color-action));
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 0% 100%;
+  color: var(--color-action);
+}
+
+.secondary:hover {
+  background-size: 100% 100%;
+  color: var(--color-on-action);
+}
+
+/* ---------- Désactivé ---------- */
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.button:disabled::before {
+  display: none;
+}
+
+.secondary:disabled:hover {
+  background-size: 0% 100%;
+  color: var(--color-action);
 }

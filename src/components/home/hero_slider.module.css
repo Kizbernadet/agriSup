@@ -1,0 +1,309 @@
+.slider {
+  position: relative;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.viewport {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+/* ---------- Diapositive ---------- */
+
+.slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+  /* Marge intérieure : laisse la place au cadre décalé et aux pastilles flottantes,
+     qui débordent de l'image (la zone de défilement rogne tout ce qui dépasse). */
+  padding: var(--space-2) var(--space-3) var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .slide {
+    grid-template-columns: 6fr 5fr;
+    gap: var(--space-6);
+  }
+}
+
+.content {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+}
+
+/* Sur mobile, l'image passe avant le texte. */
+.media {
+  position: relative;
+  order: -1;
+  /* Place pour le cadre décalé en bas à droite. */
+  padding: 0 var(--space-3) var(--space-3) 0;
+}
+
+@media (min-width: 1024px) {
+  .media {
+    order: 0;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-accent-text);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: var(--space-5);
+  height: var(--focus-ring-width);
+  background-color: var(--color-accent);
+}
+
+.title {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+}
+
+.text {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* ---------- Image ---------- */
+
+/* Cadre décalé en or, derrière l'image : donne du relief sans photo de fond. */
+.media::before {
+  content: "";
+  position: absolute;
+  inset: var(--space-4) 0 0 var(--space-4);
+  border: var(--focus-ring-width) solid var(--color-accent);
+  border-radius: var(--radius);
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Léger assombrissement en thème sombre (charte §8). */
+.frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--photo-overlay);
+}
+
+/* Zoom lent sur la diapositive active (effet « Ken Burns »). */
+.image {
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform calc(var(--slide-delay) + var(--transition-slow) * 2) ease-out;
+}
+
+.slide[data-active] .image {
+  transform: scale(1.06);
+}
+
+/* Pastilles flottantes posées sur l'image. */
+.chip {
+  position: absolute;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: calc(100% - var(--space-6));
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface-raised);
+  box-shadow: var(--shadow-card-hover);
+  color: var(--color-brand);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  animation: float 6s ease-in-out infinite;
+}
+
+.chip svg {
+  flex-shrink: 0;
+  width: var(--space-4);
+  height: var(--space-4);
+  color: var(--color-accent-text);
+}
+
+.chip[data-position="0"] {
+  left: calc(-1 * var(--space-2));
+  bottom: var(--space-4);
+}
+
+.chip[data-position="1"] {
+  right: calc(-1 * var(--space-2));
+  top: var(--space-4);
+  animation-delay: -3s;
+}
+
+@media (min-width: 1024px) {
+  .chip[data-position="0"] {
+    left: calc(-1 * var(--space-5));
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(-1 * var(--space-2)));
+  }
+}
+
+/* ---------- Entrée du texte (après le premier changement de diapositive) ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .slider[data-animate] .slide[data-active] .content > * {
+    animation: rise var(--transition-slow) both;
+  }
+
+  .slider[data-animate] .slide[data-active] .content > :nth-child(2) {
+    animation-delay: var(--reveal-stagger);
+  }
+
+  .slider[data-animate] .slide[data-active] .content > :nth-child(3) {
+    animation-delay: calc(var(--reveal-stagger) * 2);
+  }
+
+  .slider[data-animate] .slide[data-active] .content > :nth-child(4) {
+    animation-delay: calc(var(--reveal-stagger) * 3);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Commandes ---------- */
+
+/* Commandes regroupées à gauche : la droite de l'écran accueille les boutons flottants. */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.dots {
+  display: flex;
+  gap: var(--space-1);
+}
+
+/* Zone cliquable de 44 px autour d'une barre fine. */
+.dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.dot_bar {
+  position: relative;
+  overflow: hidden;
+  width: var(--space-6);
+  height: var(--space-1);
+  border-radius: var(--radius);
+  background-color: var(--color-border);
+}
+
+.dot_bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-action);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.dot[aria-current] .dot_bar::after {
+  transform: scaleX(1);
+}
+
+/* Barre de progression pendant le défilement automatique. */
+.dot[aria-current][data-playing] .dot_bar::after {
+  animation: progress var(--slide-delay) linear;
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  color: var(--color-brand);
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.control:hover {
+  border-color: var(--color-action);
+  background-color: var(--color-action);
+  color: var(--color-on-action);
+}
+
+.control svg {
+  width: var(--space-4);
+  height: var(--space-4);
+}

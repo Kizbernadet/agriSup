@@ -67,8 +67,7 @@
     "menu_close": "Fermer le menu",
     "menu": "Menu",
     "cta_preinscription": "Se préinscrire",
-    "home_link": "AGRI'SUP Mali — accueil",
-    "logo_placeholder": "Logo provisoire"
+    "home_link": "AGRI'SUP Mali — accueil"
   },
   "language": {
     "label": "Choix de la langue",
@@ -360,6 +359,64 @@
     "cookies_maps": "Carte : la carte Google Maps n'est chargée que si vous cliquez sur « Afficher la carte ».",
     "cookies_none": "Aucun cookie publicitaire n'est utilisé.",
     "ip_title": "Propriété intellectuelle",
-    "ip_text": "Les contenus de ce site (textes, logo, visuels) sont la propriété d'AGRI'SUP, sauf mention contraire. Toute reproduction sans autorisation est interdite."
+    "ip_text": "Les contenus de ce site (textes, logo, visuels) sont la propriété d'AGRI'SUP, sauf mention contraire. Toute reproduction sans autorisation est interdite.",
+    "credits": "Icônes : Heroicons (licence MIT) et Font Awesome Free (licence CC BY 4.0, fontawesome.com). Carrousel : Embla Carousel (licence MIT)."
+  },
+  "slider": {
+    "label": "Présentation d'AGRI'SUP",
+    "slide_label": "{index} sur {total}",
+    "previous": "Diapositive précédente",
+    "next": "Diapositive suivante",
+    "pause": "Mettre en pause le défilement",
+    "play": "Reprendre le défilement",
+    "go_to": "Aller à la diapositive {index}",
+    "s2_eyebrow": "Préinscriptions",
+    "s2_title": "Préinscrivez-vous en ligne, en quelques minutes",
+    "s2_text": "Choisissez votre formation et transmettez vos informations : AGRI'SUP vous recontacte pour la suite de la procédure.",
+    "s2_cta": "Conditions d'admission",
+    "s2_chip_1": "Formulaire en ligne",
+    "s2_chip_2": "Réponse par téléphone ou WhatsApp",
+    "s3_eyebrow": "Cinq domaines",
+    "s3_title": "De la production végétale à l'agribusiness",
+    "s3_text": "Agriculture, élevage, aquaculture, agribusiness et agroforesterie : trouvez la formation qui vous correspond.",
+    "s3_cta": "Voir les domaines",
+    "s3_chip": "{count} formations",
+    "alt_terrain": "Un enseignant présente des épis de maïs à des étudiants lors d'une visite de ferme.",
+    "alt_etudiants": "Groupe d'étudiants souriants tenant des plants et des légumes dans un champ.",
+    "alt_agriculture": "Jeune agriculteur devant une serre et un tracteur."
+  },
+  "gallery": {
+    "eyebrow": "En images",
+    "title": "AGRI'SUP en images",
+    "intro": "Le kakémono de l'établissement et des visuels de communication sur la formation agricole.",
+    "open": "Agrandir l'image : {caption}",
+    "close": "Fermer",
+    "previous": "Image précédente",
+    "next": "Image suivante",
+    "dialog_label": "Visionneuse d'images",
+    "counter": "{index} / {total}",
+    "kakemono": "Le kakémono d'AGRI'SUP : système LMD et offre de formation",
+    "terrain": "Sur le terrain, au plus près des cultures",
+    "etudiants": "Apprendre ensemble",
+    "agriculture": "Une agriculture moderne"
+  },
+  "faq_bot": {
+    "launcher": "Questions ?",
+    "open": "Ouvrir l'assistant des questions fréquentes",
+    "close": "Fermer l'assistant",
+    "title": "Assistant AGRI'SUP",
+    "subtitle": "Réponses automatiques aux questions fréquentes",
+    "greeting": "Bonjour ! Je réponds aux questions fréquentes sur AGRI'SUP. Choisissez une question ou écrivez la vôtre.",
+    "suggestions": "Questions fréquentes",
+    "input_label": "Votre question",
+    "placeholder": "Ex. : comment se préinscrire ?",
+    "send": "Envoyer",
+    "typing": "L'assistant écrit…",
+    "not_found": "Je n'ai pas trouvé de réponse à cette question. L'équipe d'AGRI'SUP peut vous répondre directement :",
+    "contact_link": "Formulaire de contact",
+    "more": "Autres questions",
+    "you": "Vous",
+    "bot": "Assistant",
+    "disclaimer": "Assistant automatique : réponses prédéfinies, sans intelligence artificielle. Aucune donnée n'est enregistrée."
   }
 }

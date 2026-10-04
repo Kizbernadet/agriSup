@@ -162,6 +162,18 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Correctif de non-régression** : la lecture des paramètres d'URL (`?domaine=`, `?formation=`) se fait après le chargement et non via `useSearchParams`, qui empêchait le pré-rendu serveur du catalogue et du formulaire (contenu invisible sans JavaScript). Un test e2e le vérifie désormais.
 - **Audit axe en « mouvement réduit »** : l'audit porte sur l'état final des pages, sans éléments en cours d'apparition.
 
+### Version « plus vivante » (demande de la cliente)
+
+- **Logo `logo_1.jpg` intégré** (en-tête et pied de page) : marges blanches retirées par `scripts/prepare_images.ts` (`npm run images`), sans retouche du dessin. Icône d'onglet = emblème seul (charte §7). En thème sombre, faute de version inversée, le logo est posé sur une plaque claire. Rappel : le texte du logo omet « Privée ». À remplacer par les SVG officiels.
+- **Icônes** : Heroicons (MIT) pour l'interface ; Font Awesome Free (CC BY 4.0, attribution dans les mentions légales) pour le logo officiel WhatsApp et les icônes métier (vache, poisson, pousse, tracteur…). Les tracés Font Awesome sont dessinés directement en SVG : ni feuille de style ni composant React supplémentaire (`react-fontawesome` retiré). Le glyphe WhatsApp reprend la couleur d'action de la charte (pas le vert de la marque WhatsApp, absent de la charte).
+- **Carrousel du bandeau d'accueil (Embla, ≈ 7 Ko)** : 3 diapositives (formations, préinscription, domaines) avec appels à l'action, pastilles flottantes, zoom lent, barre de progression. Accessibilité : diapositives inactives `inert`, pause au survol/focus, bouton pause, pas d'autoplay en « mouvement réduit ». Performance : 1re diapositive rendue côté serveur, image prioritaire, pas d'animation au premier affichage ; un seul H1 (1re diapositive).
+- **Images** : scènes photographiques extraites des affiches (générées par IA), **sans leurs textes** — l'affiche « Formez-vous aujourd'hui » porte un numéro erroné (+223 91 91 34 78) et n'est jamais affichée en entier. Kakémono (seule photo réelle) recadré sur la bannière. À remplacer par de vraies photos.
+- **Assistant FAQ** (`src/components/faq_bot/`) : réponses prédéterminées issues de `src/content/faq.ts`, recherche par mots-clés (accents ignorés, fr/en), repli vers WhatsApp et le formulaire. **Pas d'IA, pas de service externe, aucune donnée enregistrée** : distinct du « chatbot IA » exclu du MVP. Panneau chargé uniquement à la première ouverture. Nouvelle question FAQ « frais de scolarité » (sans montant).
+- **Boutons** : reflet lumineux au survol (placé sous le texte), élévation et ombre teintée (aucune ombre en sombre), remplissage progressif du bouton secondaire, flèche qui glisse, enfoncement au clic. Arrondi de 8 px conservé (charte §5).
+- **Nouvelles sections** : bandeau bleu marine des chiffres clés, galerie « AGRI'SUP en images » (mosaïque + visionneuse `<dialog>` native), bandeau final sur photo voilée, axes de formation avec icônes, kakémono sur la page AGRI'SUP.
+- **Variables ajoutées** : `--color-band-*` (bandeau, contrastes 5,5 à 13:1), `--photo-scrim` (voile 82 %), `--button-sheen`, `--shadow-button-hover`.
+- **Tests** : 51 unitaires (dont la recherche de l'assistant), 52 de bout en bout (carrousel, assistant, galerie) ; axe 0 violation.
+
 ### Dépendances
 
 - **`npm audit`** signale 5 vulnérabilités « high » dans `micromatch`, via `eslint-config-next`. Ce sont des **outils de développement uniquement**, qui ne sont pas livrés en production. Je ne corrige pas avec `--force`, car cela casserait la configuration ESLint ; à revoir à la prochaine version de `eslint-config-next`.

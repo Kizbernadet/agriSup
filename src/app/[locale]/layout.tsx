@@ -3,7 +3,7 @@ import { Inter, Montserrat } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { FloatingWhatsappButton } from "@/components/contact/whatsapp_button";
+import { FloatingActions } from "@/components/layout/floating_actions";
 import { SiteFooter } from "@/components/layout/site_footer";
 import { SiteHeader } from "@/components/layout/site_header";
 import { RevealScript } from "@/components/layout/reveal_script";
@@ -77,7 +77,7 @@ export default async function LocaleLayout({
             {children}
           </main>
           <SiteFooter />
-          <FloatingWhatsappButton />
+          <FloatingActions />
         </NextIntlClientProvider>
       </body>
     </html>

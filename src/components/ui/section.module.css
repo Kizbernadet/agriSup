@@ -13,6 +13,24 @@
   background-color: var(--color-surface);
 }
 
+/* Bandeau coloré : textes et titres en clair (contrastes vérifiés dans tokens.css). */
+.band {
+  background-color: var(--color-band-bg);
+  color: var(--color-on-band);
+  background-image:
+    radial-gradient(circle at 100% 0%, var(--color-accent-soft), transparent 40%),
+    radial-gradient(circle at 0% 100%, var(--color-action-soft), transparent 45%);
+}
+
+.band h2,
+.band h3 {
+  color: var(--color-on-band);
+}
+
+.band .intro {
+  color: var(--color-band-muted);
+}
+
 .inner {
   display: grid;
   gap: var(--space-5);

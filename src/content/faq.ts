@@ -9,6 +9,8 @@ export type FaqItem = {
   answer: Localized;
   // Lien utile pour aller plus loin (optionnel).
   link?: { href: StaticPathname; label: Localized };
+  // Mots-clés (français et anglais, sans accents) utilisés par l'assistant FAQ.
+  keywords: readonly string[];
 };
 
 // Questions du cahier (§12). Les réponses s'appuient uniquement sur les informations
@@ -17,6 +19,22 @@ export type FaqItem = {
 export const FAQ_ITEMS: readonly FaqItem[] = [
   {
     id: "formations",
+    keywords: [
+      "formation",
+      "formations",
+      "programme",
+      "filiere",
+      "licence",
+      "dut",
+      "cursus",
+      "etudier",
+      "etude",
+      "diplome",
+      "program",
+      "course",
+      "study",
+      "degree",
+    ],
     question: {
       fr: "Quelles formations propose AGRI'SUP ?",
       en: "What programs does AGRI'SUP offer?",
@@ -32,6 +50,17 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
   },
   {
     id: "lmd",
+    keywords: [
+      "lmd",
+      "semestre",
+      "semestres",
+      "credit",
+      "credits",
+      "systeme",
+      "master",
+      "doctorat",
+      "semester",
+    ],
     question: {
       fr: "Qu'est-ce que le système LMD ?",
       en: "What is the LMD system?",
@@ -43,6 +72,23 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
   },
   {
     id: "localisation",
+    keywords: [
+      "situe",
+      "adresse",
+      "localisation",
+      "bamako",
+      "sotuba",
+      "trouver",
+      "lieu",
+      "campus",
+      "plan",
+      "carte",
+      "itineraire",
+      "address",
+      "location",
+      "where",
+      "map",
+    ],
     question: { fr: "Où se trouve AGRI'SUP ?", en: "Where is AGRI'SUP located?" },
     answer: {
       fr: "L'établissement se trouve à Sotuba ACI, Commune I, à Bamako (Mali).",
@@ -55,6 +101,22 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
   },
   {
     id: "conditions",
+    keywords: [
+      "condition",
+      "conditions",
+      "admission",
+      "admis",
+      "acces",
+      "requis",
+      "prerequis",
+      "bac",
+      "baccalaureat",
+      "niveau",
+      "entrer",
+      "requirement",
+      "requirements",
+      "eligible",
+    ],
     question: {
       fr: "Quelles sont les conditions d'admission ?",
       en: "What are the admission requirements?",
@@ -67,6 +129,20 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
   },
   {
     id: "documents",
+    keywords: [
+      "document",
+      "documents",
+      "dossier",
+      "piece",
+      "pieces",
+      "papier",
+      "papiers",
+      "fournir",
+      "releve",
+      "releves",
+      "papers",
+      "file",
+    ],
     question: {
       fr: "Quels documents faut-il fournir ?",
       en: "Which documents do I need to provide?",
@@ -78,6 +154,21 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
   },
   {
     id: "preinscription",
+    keywords: [
+      "preinscription",
+      "preinscrire",
+      "inscrire",
+      "inscription",
+      "formulaire",
+      "candidater",
+      "candidature",
+      "postuler",
+      "register",
+      "registration",
+      "apply",
+      "application",
+      "enroll",
+    ],
     question: { fr: "Comment se préinscrire ?", en: "How do I pre-register?" },
     answer: {
       fr: "Remplissez le formulaire de préinscription en ligne : vos coordonnées, la formation souhaitée et l'année visée. AGRI'SUP vous recontacte ensuite pour compléter votre dossier.",
@@ -90,6 +181,18 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
   },
   {
     id: "admission_definitive",
+    keywords: [
+      "definitive",
+      "definitif",
+      "valide",
+      "garanti",
+      "garantie",
+      "accepte",
+      "acceptation",
+      "admitted",
+      "guaranteed",
+      "final",
+    ],
     question: {
       fr: "La préinscription vaut-elle admission ?",
       en: "Does pre-registration mean I am admitted?",
@@ -101,6 +204,21 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
   },
   {
     id: "contact",
+    keywords: [
+      "contact",
+      "contacter",
+      "telephone",
+      "numero",
+      "appeler",
+      "whatsapp",
+      "email",
+      "mail",
+      "joindre",
+      "ecrire",
+      "phone",
+      "call",
+      "reach",
+    ],
     question: { fr: "Comment contacter AGRI'SUP ?", en: "How can I contact AGRI'SUP?" },
     answer: {
       fr: "Par téléphone, par WhatsApp ou via le formulaire de contact du site. Toutes les coordonnées sont réunies sur la page Contact.",
@@ -109,7 +227,39 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
     link: { href: "/contact", label: { fr: "Nous contacter", en: "Contact us" } },
   },
   {
+    id: "frais",
+    keywords: [
+      "frais",
+      "prix",
+      "cout",
+      "couts",
+      "tarif",
+      "tarifs",
+      "scolarite",
+      "payer",
+      "paiement",
+      "argent",
+      "fees",
+      "cost",
+      "price",
+      "tuition",
+    ],
+    question: {
+      fr: "Combien coûtent les études à AGRI'SUP ?",
+      en: "How much do studies at AGRI'SUP cost?",
+    },
+    answer: {
+      fr: "Les frais de scolarité dépendent de la formation. Ils vous sont communiqués directement par l'établissement : contactez AGRI'SUP pour les connaître.",
+      en: "Tuition fees depend on the program. The school provides them directly: contact AGRI'SUP to find out.",
+    },
+    link: {
+      href: "/contact",
+      label: { fr: "Demander les frais de scolarité", en: "Ask about tuition fees" },
+    },
+  },
+  {
     id: "brochure",
+    keywords: ["brochure", "plaquette", "pdf", "depliant", "catalogue", "flyer"],
     question: { fr: "Existe-t-il une brochure ?", en: "Is there a brochure?" },
     answer: {
       fr: "La brochure n'est pas encore disponible en ligne. Vous pouvez la demander à l'établissement via le formulaire de contact ou par WhatsApp.",
@@ -118,6 +268,18 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
   },
   {
     id: "formations_annee",
+    keywords: [
+      "ouverte",
+      "ouvertes",
+      "ouvert",
+      "rentree",
+      "disponible",
+      "disponibles",
+      "annee",
+      "open",
+      "year",
+      "available",
+    ],
     question: {
       fr: "Quelles formations sont ouvertes cette année ?",
       en: "Which programs are open this year?",

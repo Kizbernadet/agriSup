@@ -1,10 +1,11 @@
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
-import { ChatIcon, MailIcon, MapPinIcon, PhoneIcon } from "@/components/ui/icons";
+import { MailIcon, MapPinIcon, PhoneIcon, WhatsappIcon } from "@/components/ui/icons";
 import { CONTACT } from "@/content/placeholders";
 import { MAIN_NAV } from "@/content/site_config";
 import { Link } from "@/i18n/navigation";
 import { buildWhatsappLink } from "@/lib/whatsapp_link";
+import { SiteLogo } from "./site_logo";
 import styles from "./site_footer.module.css";
 
 export function SiteFooter() {
@@ -17,7 +18,7 @@ export function SiteFooter() {
     <footer className={styles.footer}>
       <Container className={styles.grid}>
         <div className={styles.column}>
-          <p className={styles.brand}>AGRI&apos;SUP</p>
+          <SiteLogo size="footer" />
           <p className={styles.muted}>{t("denomination")}</p>
         </div>
 
@@ -69,7 +70,7 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <ChatIcon className={styles.icon} />
+                  <WhatsappIcon className={styles.icon} />
                   <span>{tWhatsapp("button")}</span>
                 </a>
               </li>

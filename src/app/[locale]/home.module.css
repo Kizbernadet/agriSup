@@ -91,21 +91,76 @@
   color: var(--color-accent-text);
 }
 
-/* ---------- Bandeau final « Rejoindre AGRI'SUP » ---------- */
+/* ---------- Axes de formation ---------- */
+
+.axes {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .axes {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.axes li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: var(--font-weight-medium);
+}
+
+.axis_icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  border-radius: var(--radius);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-text);
+}
+
+.axis_icon svg {
+  width: var(--space-4);
+  height: var(--space-4);
+}
+
+/* ---------- Bandeau final « Rejoindre AGRI'SUP » : photo + voile ---------- */
 
 .cta_band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding-block: var(--space-6);
-  border-top: var(--border-width) solid var(--color-border);
-  background-color: var(--color-surface);
-  background-image:
-    radial-gradient(circle at 100% 0%, var(--color-accent-soft), transparent 40%),
-    radial-gradient(circle at 0% 100%, var(--color-action-soft), transparent 45%);
+  color: var(--color-on-photo);
 }
 
 @media (min-width: 1024px) {
   .cta_band {
     padding-block: var(--space-7);
   }
+}
+
+.cta_photo {
+  z-index: -2;
+  object-fit: cover;
+}
+
+.cta_band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--photo-scrim);
+}
+
+.cta_band h2 {
+  color: var(--color-on-photo);
 }
 
 .cta_inner {

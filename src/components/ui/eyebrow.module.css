@@ -16,3 +16,11 @@
   height: var(--focus-ring-width);
   background-color: var(--color-accent);
 }
+
+.on_band {
+  color: var(--color-band-accent);
+}
+
+.on_band::before {
+  background-color: var(--color-band-accent);
+}

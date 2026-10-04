@@ -11,14 +11,12 @@
   }
 }
 
+/* Affichés sur le bandeau coloré (Section tone="band"). */
 .figure {
   display: grid;
   gap: var(--space-1);
-  padding: var(--space-4);
-  border-top: var(--space-1) solid var(--color-accent);
-  border-radius: var(--radius);
-  background-color: var(--color-surface);
-  box-shadow: var(--shadow-card);
+  padding: var(--space-4) 0 0;
+  border-top: var(--focus-ring-width) solid var(--color-band-accent);
 }
 
 .value {
@@ -26,11 +24,11 @@
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-h1);
   line-height: var(--line-height-h1);
-  color: var(--color-brand);
+  color: var(--color-band-accent);
 }
 
 .label {
-  color: var(--color-text-muted);
+  color: var(--color-on-band);
   font-weight: var(--font-weight-medium);
 }
 
@@ -41,9 +39,9 @@
   width: var(--tap-target);
   height: var(--tap-target);
   margin-bottom: var(--space-2);
+  border: var(--border-width) solid var(--color-band-accent);
   border-radius: var(--radius);
-  background-color: var(--color-action-soft);
-  color: var(--color-action);
+  color: var(--color-band-accent);
 }
 
 .icon svg {
