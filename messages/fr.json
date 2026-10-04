@@ -156,7 +156,11 @@
     "cta_title": "Vous souhaitez rejoindre AGRI'SUP ?",
     "cta_step_1": "Découvrir les formations",
     "cta_step_2": "Vérifier les conditions",
-    "cta_step_3": "Se préinscrire"
+    "cta_step_3": "Se préinscrire",
+    "video_play": "Lire la vidéo de présentation d'AGRI'SUP",
+    "video_coming": "Vidéo de présentation à venir",
+    "video_iframe_title": "Vidéo de présentation d'AGRI'SUP",
+    "video_cover_alt": "Affiche AGRI'SUP « Sortie pédagogique » : un enseignant présente des épis de maïs à des étudiants lors d'une visite de ferme."
   },
   "admission_page": {
     "intro": "Qui peut candidater, quels documents fournir et comment faire la démarche.",

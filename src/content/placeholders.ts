@@ -83,3 +83,10 @@ export const INSTITUTION = {
     },
   ] satisfies { name: string; description: Localized }[],
 };
+
+// Vidéo de présentation : identifiant YouTube (ex. « dQw4w9WgXcQ » dans
+// youtube.com/watch?v=dQw4w9WgXcQ). null = vidéo pas encore fournie par AGRI'SUP :
+// la section affiche alors « Vidéo de présentation à venir ».
+export const PRESENTATION_VIDEO: { youtubeId: string | null } = {
+  youtubeId: null,
+};

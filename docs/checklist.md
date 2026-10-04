@@ -27,6 +27,7 @@
 ## Avant mise en ligne (bloquant)
 - [ ] Chiffres clés fictifs remplacés ou section masquée
 - [ ] Actualités de test supprimées
+- [ ] Vidéo de présentation fournie (ou section retirée) et image d'aperçu remplacée par un visuel réel
 - [ ] Coordonnées de test remplacées par les officielles (téléphone, WhatsApp, email)
 - [ ] Liste, durées et conditions des formations validées par AGRI'SUP
 - [ ] Partenariats confirmés (et autorisation écrite pour leurs logos, le cas échéant)

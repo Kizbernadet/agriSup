@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { FormationGrid } from "@/components/formations/formation_grid";
 import { HomeHero } from "@/components/home/home_hero";
 import { KeyFigures } from "@/components/home/key_figures";
+import { PresentationVideo } from "@/components/home/presentation_video";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
@@ -43,12 +44,18 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
     <>
       <HomeHero locale={locale} />
 
-      <Section id="presentation" title={t("intro_title")}>
-        <p className={styles.presentation}>{INSTITUTION.presentation[locale]}</p>
-        <div>
-          <ButtonLink href="/agrisup" variant="secondary">
-            {t("intro_more")}
-          </ButtonLink>
+      <Section id="presentation">
+        <div className={styles.intro}>
+          <div className={styles.intro_text}>
+            <h2>{t("intro_title")}</h2>
+            <p className={styles.presentation}>{INSTITUTION.presentation[locale]}</p>
+            <div>
+              <ButtonLink href="/agrisup" variant="secondary">
+                {t("intro_more")}
+              </ButtonLink>
+            </div>
+          </div>
+          <PresentationVideo />
         </div>
       </Section>
 

@@ -156,7 +156,11 @@
     "cta_title": "Would you like to join AGRI'SUP?",
     "cta_step_1": "Explore the programs",
     "cta_step_2": "Check the requirements",
-    "cta_step_3": "Pre-register"
+    "cta_step_3": "Pre-register",
+    "video_play": "Play the AGRI'SUP presentation video",
+    "video_coming": "Presentation video coming soon",
+    "video_iframe_title": "AGRI'SUP presentation video",
+    "video_cover_alt": "AGRI'SUP \"Field trip\" poster: a teacher shows ears of corn to students during a farm visit."
   },
   "admission_page": {
     "intro": "Who can apply, which documents to provide and how to apply.",

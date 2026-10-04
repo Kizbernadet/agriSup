@@ -40,7 +40,7 @@
 | 5 | Pages, première partie | Accueil, Formations (filtres et détail), Admission | Parcours du cahier (§25) jusqu'au bouton Préinscription |
 | 6 | Formulaires | Contact et Préinscription : zod, honeypot, rate limiting, notification Resend, confirmation avec lien WhatsApp | Envoi valide ou invalide, honeypot, réponse 429 en cas d'abus, ligne en base, email reçu |
 | 7 | Pages, seconde partie | AGRI'SUP, Actualités (pagination), FAQ, Contact (carte chargée au clic, tel, mailto, réseaux, brochure), Mentions légales et confidentialité | Tous les liens fonctionnent ; liste des `[À FOURNIR]` à jour |
-| 8 | Images, performance, SEO | Script `sharp` (`assets/` → WebP/AVIF avec `srcset`), métadonnées, `hreflang`, sitemap, robots, Open Graph, JSON-LD `EducationalOrganization`, Vercel Analytics | Lighthouse mobile avec connexion bridée : ≥ 90 en performance et en accessibilité |
+| 8 | Images, performance, SEO | Images via `next/image` (AVIF/WebP, `srcset`, chargement différé), métadonnées, `hreflang`, sitemap, robots, Open Graph, JSON-LD `EducationalOrganization`, Vercel Analytics | Lighthouse mobile avec connexion bridée : ≥ 90 en performance et en accessibilité |
 | 9 | Accessibilité et tests | axe via Playwright, tests Vitest des schémas et des API, passage avec le lecteur d'écran NVDA | Rapport axe sans erreur, tests au vert |
 | 10 | Mise en ligne | Base Neon, variables d'environnement Vercel, domaine et HTTPS, Resend, sauvegardes | Checklist « avant mise en ligne » de `checklist.md` cochée |
 

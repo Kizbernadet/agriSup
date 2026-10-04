@@ -1,3 +1,21 @@
+.intro {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .intro {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.intro_text {
+  display: grid;
+  gap: var(--space-4);
+}
+
 .presentation {
   font-size: var(--font-size-h4);
   line-height: var(--line-height-body);

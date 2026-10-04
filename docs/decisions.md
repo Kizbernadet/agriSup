@@ -115,6 +115,13 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Textes longs en paragraphes simples** (séparés par une ligne vide) et non en Markdown : aucun contenu formaté n'existe encore, inutile d'ajouter une bibliothèque.
 - **`sslmode=verify-full`** dans la chaîne Neon : même comportement que `require` avec le pilote actuel, mais explicite (supprime l'avertissement du pilote).
 
+### Ajout : vidéo de présentation (demande de la cliente)
+
+- **Vidéo chargée au clic plutôt qu'un carrousel** : un carrousel pénalise la performance mobile et demande des photos réelles (absentes). La façade ne charge aucune ressource YouTube (environ 1 Mo) avant le clic ; domaine `youtube-nocookie.com`. À mentionner dans la politique de confidentialité (cookies YouTube après lecture).
+- **Vidéo non fournie** : `PRESENTATION_VIDEO.youtubeId = null` dans `placeholders.ts` ; la section affiche « Vidéo de présentation à venir ». Il suffira de renseigner l'identifiant YouTube.
+- **Image d'aperçu : affiche « Sortie pédagogique »**, choisie par la cliente malgré les réserves (image générée par IA, personnes fictives). Recadrée en 16:9 par CSS sur la scène centrale. À remplacer par une vraie photo ou la miniature de la vidéo officielle.
+- **`next/image` au lieu d'un script `sharp` maison** (prévu en phase 8) : AVIF/WebP, `srcset` (8 tailles) et chargement différé automatiques. Mesure : 356 Ko (JPG) → 70 Ko (AVIF, 640 px).
+
 ### Dépendances
 
 - **`npm audit`** signale 5 vulnérabilités « high » dans `micromatch`, via `eslint-config-next`. Ce sont des **outils de développement uniquement**, qui ne sont pas livrés en production. Je ne corrige pas avec `--force`, car cela casserait la configuration ESLint ; à revoir à la prochaine version de `eslint-config-next`.
