@@ -34,7 +34,10 @@ const SLIDES: { source: string; output: string; crop: Crop }[] = [
 async function prepareLogo() {
   mkdirSync("public/logo", { recursive: true });
   // Retire le fond blanc autour du logo (seuil bas pour garder l'anti-crénelage).
-  const trimmed = sharp("assets/logo/logo_1.jpg").trim({ background: "#ffffff", threshold: 12 });
+  const trimmed = sharp("assets/logo/logo_1.jpg").trim({
+    background: "#ffffff",
+    threshold: 12,
+  });
   const { data, info } = await trimmed.png().toBuffer({ resolveWithObject: true });
   await sharp(data).toFile("public/logo/logo_agrisup.png");
 
@@ -44,7 +47,9 @@ async function prepareLogo() {
     .resize(512, 512, { fit: "contain", background: "#ffffff" })
     .png()
     .toFile("public/logo/emblem_agrisup.png");
-  await sharp("public/logo/emblem_agrisup.png").resize(180, 180).toFile("src/app/apple-icon.png");
+  await sharp("public/logo/emblem_agrisup.png")
+    .resize(180, 180)
+    .toFile("src/app/apple-icon.png");
   await sharp("public/logo/emblem_agrisup.png").resize(64, 64).toFile("src/app/icon.png");
   console.log(`Logo : ${info.width}×${info.height} px après recadrage.`);
 }
@@ -52,7 +57,10 @@ async function prepareLogo() {
 async function prepareSlides() {
   mkdirSync("public/images/slider", { recursive: true });
   for (const slide of SLIDES) {
-    await sharp(slide.source).extract(slide.crop).jpeg({ quality: 88 }).toFile(slide.output);
+    await sharp(slide.source)
+      .extract(slide.crop)
+      .jpeg({ quality: 88 })
+      .toFile(slide.output);
     console.log(`Diaporama : ${slide.output}`);
   }
 }
