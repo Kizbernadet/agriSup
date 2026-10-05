@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import { ChatIcon, CloseIcon } from "@/components/ui/icons";
@@ -33,7 +34,13 @@ export function FaqBot() {
 
   return (
     <>
-      {mounted && <FaqBotPanel id={PANEL_ID} open={open} onClose={close} />}
+      {/* Rendu à la racine du document : le conteneur des boutons flottants est placé
+          sous l'en-tête du site, le panneau doit pouvoir le recouvrir. */}
+      {mounted &&
+        createPortal(
+          <FaqBotPanel id={PANEL_ID} open={open} onClose={close} />,
+          document.body,
+        )}
       <button
         ref={launcherRef}
         type="button"

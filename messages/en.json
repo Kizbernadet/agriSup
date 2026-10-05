@@ -432,6 +432,10 @@
     "more": "Other questions",
     "you": "You",
     "bot": "Assistant",
-    "disclaimer": "Automatic assistant: predefined answers, no artificial intelligence. No data is stored."
+    "disclaimer": "Automatic assistant: predefined answers, no artificial intelligence. No data is stored.",
+    "restart": "Restart the conversation",
+    "show_all": "Show all questions",
+    "reply_greeting": "Hello! Choose a question below or type your own.",
+    "reply_thanks": "You're welcome! Do you have another question?"
   }
 }

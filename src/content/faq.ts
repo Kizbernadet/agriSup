@@ -22,6 +22,18 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
     keywords: [
       "formation",
       "formations",
+      "elevage",
+      "aquaculture",
+      "pisciculture",
+      "agronomie",
+      "agronome",
+      "agriculture",
+      "agricole",
+      "vegetale",
+      "agribusiness",
+      "zootechnie",
+      "livestock",
+      "farming",
       "programme",
       "filiere",
       "licence",
@@ -73,6 +85,8 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
   {
     id: "localisation",
     keywords: [
+      // « où » : seul mot court accepté par l'assistant (voir SHORT_KEYWORDS).
+      "ou",
       "situe",
       "adresse",
       "localisation",
@@ -294,3 +308,21 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
     },
   },
 ];
+
+// Questions proposées par l'assistant : sélection courte pour la démonstration (moins de
+// 10). La page FAQ, elle, affiche toutes les questions de FAQ_ITEMS.
+const BOT_QUESTION_IDS = new Set([
+  "formations",
+  "lmd",
+  "localisation",
+  "conditions",
+  "documents",
+  "preinscription",
+  "admission_definitive",
+  "contact",
+  "frais",
+]);
+
+export const FAQ_BOT_ITEMS: readonly FaqItem[] = FAQ_ITEMS.filter((item) =>
+  BOT_QUESTION_IDS.has(item.id),
+);

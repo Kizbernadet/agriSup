@@ -432,6 +432,10 @@
     "more": "Autres questions",
     "you": "Vous",
     "bot": "Assistant",
-    "disclaimer": "Assistant automatique : réponses prédéfinies, sans intelligence artificielle. Aucune donnée n'est enregistrée."
+    "disclaimer": "Assistant automatique : réponses prédéfinies, sans intelligence artificielle. Aucune donnée n'est enregistrée.",
+    "restart": "Recommencer la conversation",
+    "show_all": "Voir toutes les questions",
+    "reply_greeting": "Bonjour ! Choisissez une question ci-dessous ou écrivez la vôtre.",
+    "reply_thanks": "Avec plaisir ! Avez-vous une autre question ?"
   }
 }

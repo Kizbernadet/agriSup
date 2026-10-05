@@ -58,15 +58,21 @@ export function normalize(text: string): string {
   );
 }
 
+// Mots de deux lettres conservés malgré leur longueur (« où » → « ou »).
+const SHORT_KEYWORDS = new Set(["ou"]);
+
 function tokens(text: string): string[] {
   return normalize(text)
     .split(" ")
-    .filter((word) => word.length > 2 && !STOP_WORDS.has(word));
+    .filter(
+      (word) => (word.length > 2 || SHORT_KEYWORDS.has(word)) && !STOP_WORDS.has(word),
+    );
 }
 
 // Un mot de la question correspond à un mot-clé s'ils partagent leur début
 // (« inscrire » ↔ « inscription », « frais » ↔ « frais »).
 function matches(word: string, keyword: string): boolean {
+  if (SHORT_KEYWORDS.has(keyword)) return word === keyword;
   const length = Math.min(word.length, keyword.length, 6);
   return length >= 3 && word.slice(0, length) === keyword.slice(0, length);
 }
@@ -92,4 +98,25 @@ export function findFaqAnswer(
     if (score > (best?.score ?? 0)) best = { item, score };
   }
   return best && best.score >= 2 ? best.item : null;
+}
+
+const GREETINGS = new Set([
+  "bonjour",
+  "bonsoir",
+  "salut",
+  "coucou",
+  "hello",
+  "hi",
+  "hey",
+]);
+const THANKS = new Set(["merci", "thanks", "thank"]);
+
+// Formules de politesse seules (« Bonjour ! », « merci beaucoup ») : l'assistant répond
+// poliment au lieu d'afficher « réponse introuvable ». À appeler si aucune FAQ ne convient.
+export function detectSmallTalk(question: string): "greeting" | "thanks" | null {
+  const words = normalize(question).split(" ").filter(Boolean);
+  if (words.length === 0 || words.length > 4) return null;
+  if (words.some((word) => THANKS.has(word))) return "thanks";
+  if (words.some((word) => GREETINGS.has(word))) return "greeting";
+  return null;
 }

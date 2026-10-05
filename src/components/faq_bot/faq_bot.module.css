@@ -44,22 +44,40 @@
 
 /* ---------- Panneau ---------- */
 
+/* Mobile : plein écran, la conversation dispose de toute la hauteur. */
 .panel {
   position: fixed;
-  right: calc(var(--space-3) + env(safe-area-inset-right));
-  bottom: calc(var(--tap-target) * 3 + var(--space-5) + env(safe-area-inset-bottom));
+  inset: 0;
   z-index: 60;
   display: flex;
   flex-direction: column;
-  width: min(calc(100vw - var(--space-5)), calc(var(--space-7) * 6.5));
-  /* Laisse visibles l'en-tête du site (en haut) et les boutons flottants (en bas). */
-  max-height: calc(100dvh - var(--tap-target) * 4 - var(--space-7) * 2);
   overflow: hidden;
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--radius);
+  padding-bottom: env(safe-area-inset-bottom);
   background-color: var(--color-surface);
-  box-shadow: var(--shadow-card-hover);
   animation: panel-in var(--transition) ease-out;
+}
+
+/* À partir de 640px : fenêtre flottante au-dessus des boutons flottants, sur presque
+   toute la hauteur disponible (plafonnée pour les très grands écrans). */
+@media (min-width: 640px) {
+  .panel {
+    --panel-bottom: calc(
+      var(--tap-target) * 3 + var(--space-5) + env(safe-area-inset-bottom)
+    );
+
+    inset: auto;
+    right: calc(var(--space-3) + env(safe-area-inset-right));
+    bottom: var(--panel-bottom);
+    width: min(calc(100vw - var(--space-5)), calc(var(--space-7) * 7.5));
+    height: min(
+      calc(100dvh - var(--panel-bottom) - var(--space-5)),
+      calc(var(--space-7) * 12)
+    );
+    padding-bottom: 0;
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card-hover);
+  }
 }
 
 .panel[hidden] {
@@ -79,9 +97,11 @@
 
 .header {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   gap: var(--space-3);
   padding: var(--space-3);
+  padding-top: calc(var(--space-3) + env(safe-area-inset-top));
   --color-focus: var(--color-band-accent);
   background-color: var(--color-band-bg);
   color: var(--color-on-band);
@@ -116,13 +136,19 @@
   color: var(--color-band-muted);
 }
 
-.close {
+.header_actions {
+  display: flex;
+  gap: var(--space-1);
+  margin-left: auto;
+}
+
+.icon_button {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   width: var(--tap-target);
   height: var(--tap-target);
-  margin-left: auto;
   border: none;
   border-radius: var(--radius);
   background: transparent;
@@ -130,22 +156,39 @@
   cursor: pointer;
 }
 
-.close svg {
+.icon_button:hover:not(:disabled) {
+  color: var(--color-band-accent);
+}
+
+.icon_button:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+
+.icon_button svg {
   width: var(--space-4);
   height: var(--space-4);
 }
 
 /* ---------- Conversation ---------- */
 
+/* Zone défilante : conversation puis suggestions. */
+.body {
+  display: grid;
+  flex: 1 1 auto;
+  align-content: start;
+  gap: var(--space-4);
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-3);
+  background-color: var(--color-bg);
+}
+
 .log {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  flex: 1 1 auto;
-  min-height: calc(var(--space-7) * 2);
-  overflow-y: auto;
-  padding: var(--space-3);
-  background-color: var(--color-bg);
 }
 
 .bubble {
@@ -232,12 +275,12 @@
 /* ---------- Suggestions ---------- */
 
 .suggestions {
-  padding: var(--space-2) var(--space-3);
-  border-top: var(--border-width) solid var(--color-border);
+  display: grid;
+  justify-items: start;
+  gap: var(--space-2);
 }
 
 .suggestions_title {
-  margin-bottom: var(--space-1);
   color: var(--color-text-muted);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-semibold);
@@ -245,27 +288,22 @@
 
 .suggestions ul {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-2);
-  overflow-x: auto;
   list-style: none;
-  padding: 0 0 var(--space-1);
-}
-
-.suggestions li {
-  flex-shrink: 0;
+  padding: 0;
 }
 
 .suggestion {
-  width: calc(var(--space-7) * 3);
-  height: 100%;
   min-height: var(--tap-target);
   padding: var(--space-1) var(--space-3);
   border: var(--border-width) solid var(--color-action);
   border-radius: var(--radius);
-  background-color: transparent;
+  background-color: var(--color-surface);
   color: var(--color-action);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-small);
   text-align: left;
   cursor: pointer;
   transition:
@@ -273,20 +311,31 @@
     color var(--transition);
 }
 
-.suggestion:hover:not(:disabled) {
-  background-color: var(--color-action);
-  color: var(--color-on-action);
+/* Survol réservé aux souris : sur écran tactile, l'état resterait affiché après le toucher. */
+@media (hover: hover) {
+  .suggestion:hover {
+    background-color: var(--color-action);
+    color: var(--color-on-action);
+  }
 }
 
-.suggestion:disabled {
-  opacity: var(--opacity-disabled);
-  cursor: not-allowed;
+.show_all {
+  min-height: var(--tap-target);
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-action);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* ---------- Saisie ---------- */
 
 .form {
   display: flex;
+  flex-shrink: 0;
   gap: var(--space-2);
   padding: var(--space-3);
   border-top: var(--border-width) solid var(--color-border);
@@ -331,7 +380,6 @@
 }
 
 .disclaimer {
-  padding: 0 var(--space-3) var(--space-3);
   color: var(--color-text-muted);
   font-size: var(--font-size-small);
   line-height: var(--line-height-small);

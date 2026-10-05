@@ -20,6 +20,7 @@ import { faWheatAwn } from "@fortawesome/free-solid-svg-icons/faWheatAwn";
  */
 export {
   AcademicCapIcon as GraduationIcon,
+  ArrowPathIcon as RestartIcon,
   ArrowRightIcon,
   Bars3Icon as MenuIcon,
   BeakerIcon as FlaskIcon,
