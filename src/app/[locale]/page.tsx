@@ -5,6 +5,7 @@ import { HomeHero } from "@/components/home/home_hero";
 import { PartnerCarousel } from "@/components/home/partner_carousel";
 import { PhotoGallery } from "@/components/home/photo_gallery";
 import { PresentationVideo } from "@/components/home/presentation_video";
+import type { ComponentProps } from "react";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
@@ -14,17 +15,13 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import {
   ArrowRightIcon,
   BriefcaseIcon,
-  ClipboardIcon,
   FieldIcon,
   GlobeIcon,
   GraduationIcon,
-  SearchIcon,
-  SendIcon,
   SproutIcon,
   UsersIcon,
 } from "@/components/ui/icons";
 import { Section } from "@/components/ui/section";
-import { Steps } from "@/components/ui/steps";
 import { PedagogySteps } from "@/components/home/pedagogy_steps";
 import { SECTOR_POINTS } from "@/content/domains";
 import { INSTITUTION } from "@/content/placeholders";
@@ -57,12 +54,35 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
 
-  const [t, tCommon, tGallery, formations] = await Promise.all([
+  const [t, tCommon, tGallery, tAdmission, formations] = await Promise.all([
     getTranslations("home"),
     getTranslations("common"),
     getTranslations("gallery"),
+    getTranslations("admission_page"),
     listFormations({ locale }),
   ]);
+
+  const joinSteps = [
+    {
+      href: "/formations",
+      label: t("cta_step_1"),
+      description: tAdmission("step_1_description"),
+    },
+    {
+      href: { pathname: "/admission", hash: "conditions" },
+      label: t("cta_step_2"),
+      description: tAdmission("step_2_description"),
+    },
+    {
+      href: "/preinscription",
+      label: t("cta_step_3"),
+      description: tAdmission("step_3_description"),
+    },
+  ] satisfies {
+    href: ComponentProps<typeof Link>["href"];
+    label: string;
+    description: string;
+  }[];
 
   return (
     <>
@@ -214,26 +234,19 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
             <Eyebrow onBand>{t("eyebrow_join")}</Eyebrow>
             <h2 id="rejoindre_titre">{t("cta_title")}</h2>
           </div>
-          <Steps
-            items={[
-              {
-                label: <Link href="/formations">{t("cta_step_1")}</Link>,
-                icon: <SearchIcon />,
-              },
-              {
-                label: (
-                  <Link href={{ pathname: "/admission", hash: "conditions" }}>
-                    {t("cta_step_2")}
-                  </Link>
-                ),
-                icon: <ClipboardIcon />,
-              },
-              {
-                label: <Link href="/preinscription">{t("cta_step_3")}</Link>,
-                icon: <SendIcon />,
-              },
-            ]}
-          />
+          <ol className={styles.admission_steps}>
+            {joinSteps.map((step, index) => (
+              <li key={step.label} className={styles.admission_step}>
+                <span className={styles.admission_number} aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className={styles.admission_step_text}>
+                  <Link href={step.href}>{step.label}</Link>
+                  <p>{step.description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
           <div className={styles.cta_action}>
             <ButtonLink href="/preinscription">
               {tCommon("preinscription")}

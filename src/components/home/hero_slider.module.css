@@ -25,6 +25,8 @@
   min-width: 0;
   min-height: 100svh;
   overflow: hidden;
+  /* Fond photo sombre : contour de focus or, visible dans les deux thèmes. */
+  --color-focus: var(--color-band-accent);
   background-color: var(--color-band-bg);
 }
 

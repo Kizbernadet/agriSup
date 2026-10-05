@@ -82,6 +82,7 @@
   align-items: center;
   gap: var(--space-3);
   padding: var(--space-3);
+  --color-focus: var(--color-band-accent);
   background-color: var(--color-band-bg);
   color: var(--color-on-band);
 }

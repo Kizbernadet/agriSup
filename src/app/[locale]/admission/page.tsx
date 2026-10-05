@@ -4,6 +4,7 @@ import { WhatsappButton } from "@/components/contact/whatsapp_button";
 import { Alert } from "@/components/ui/alert";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { ClipboardIcon, UsersIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
 import { Steps } from "@/components/ui/steps";
@@ -47,11 +48,14 @@ export default async function AdmissionPage({
         title={tPage("conditions_title")}
         intro={tPage("conditions_intro")}
       >
-        <Card className={styles.guidance_card}>
-          <p>{tPage("conditions_guidance")}</p>
-          <ButtonLink href="/contact" variant="secondary">
-            {tCommon("contact_us")}
-          </ButtonLink>
+        <Card className={`${styles.guidance_card} ${styles.conditions_card}`}>
+          <span className={styles.conditions_visual} aria-hidden="true">
+            <UsersIcon />
+          </span>
+          <div className={styles.guidance_content}>
+            <p>{tPage("conditions_guidance")}</p>
+            <ButtonLink href="/contact">{tCommon("contact_us")}</ButtonLink>
+          </div>
         </Card>
       </Section>
 
@@ -62,11 +66,16 @@ export default async function AdmissionPage({
         title={tPage("documents_title")}
         intro={tPage("documents_intro")}
       >
-        <Card className={styles.guidance_card}>
-          <p>{tPage("documents_guidance")}</p>
-          <ButtonLink href="/contact" variant="secondary">
-            {tCommon("contact_us")}
-          </ButtonLink>
+        <Card className={`${styles.guidance_card} ${styles.documents_card}`}>
+          <div className={styles.guidance_content}>
+            <p>{tPage("documents_guidance")}</p>
+            <ButtonLink href="/contact" variant="secondary">
+              {tCommon("contact_us")}
+            </ButtonLink>
+          </div>
+          <span className={styles.documents_visual} aria-hidden="true">
+            <ClipboardIcon />
+          </span>
         </Card>
       </Section>
 

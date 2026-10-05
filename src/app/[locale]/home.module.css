@@ -138,7 +138,85 @@
   gap: var(--space-5);
 }
 
+.admission_steps {
+  display: grid;
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+}
+
+.admission_step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: calc(var(--space-7) * 1.5);
+  padding: var(--space-4);
+  border: var(--border-width) solid var(--color-accent);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.admission_step:hover,
+.admission_step:focus-within {
+  transform: translateY(calc(-1 * var(--space-1)));
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-action);
+}
+
+.admission_number {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
+  border: var(--focus-ring-width) solid var(--color-accent);
+  border-radius: var(--radius);
+  color: var(--color-accent-text);
+  background-color: var(--color-accent-soft);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+}
+
+.admission_step_text {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.admission_step_text a {
+  color: var(--color-brand);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}
+
+/* Lien étendu : toute la carte est cliquable (cible ≥ 44px), le focus reste sur le titre. */
+.admission_step_text a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+}
+
+.admission_step:hover a {
+  color: var(--color-accent-text);
+}
+
+.admission_step_text p {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
 .cta_action {
+  /* Bouton posé sur la photo sombre : contour de focus or, visible dans les deux thèmes.
+     Les cartes d'étapes (fond surface) gardent le focus par défaut. */
+  --color-focus: var(--color-band-accent);
   display: grid;
   justify-items: start;
   gap: var(--space-2);
@@ -155,4 +233,14 @@
 
 .cta_inner a:hover svg {
   transform: translateX(var(--space-1));
+}
+
+@media (min-width: 640px) {
+  .admission_steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .admission_step {
+    flex-direction: column;
+  }
 }

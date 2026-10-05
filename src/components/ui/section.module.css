@@ -15,6 +15,8 @@
 
 /* Bandeau coloré : textes et titres en clair (contrastes vérifiés dans tokens.css). */
 .band {
+  /* Le focus bleu nuit du thème clair disparaîtrait sur ce fond : contour or. */
+  --color-focus: var(--color-band-accent);
   background-color: var(--color-band-bg);
   color: var(--color-on-band);
   background-image:

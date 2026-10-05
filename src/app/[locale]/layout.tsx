@@ -10,6 +10,7 @@ import { RevealScript } from "@/components/layout/reveal_script";
 import { MAIN_CONTENT_ID, SkipLink } from "@/components/layout/skip_link";
 import { ThemeScript } from "@/components/layout/theme_script";
 import { routing } from "@/i18n/routing";
+import { isIndexingEnabled } from "@/lib/indexing";
 import "@/styles/tokens.css";
 import "@/styles/base.css";
 import "@/styles/typography.css";
@@ -43,6 +44,7 @@ export async function generateMetadata({
   return {
     title: { default: t("title"), template: `%s | ${t("site_name")}` },
     description: t("description"),
+    robots: isIndexingEnabled() ? undefined : { index: false, follow: false },
   };
 }
 

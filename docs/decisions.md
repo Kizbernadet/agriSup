@@ -213,3 +213,9 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Carrousel partenaires** : cartes compactées sur mobile et desktop ; descriptions raccourcies et visuel réduit pour limiter la hauteur sans sacrifier la lisibilité.
 - **Contenus manquants** : les sections ou coordonnées non disponibles sont désormais omises plutôt qu'affichées sous forme de marqueurs. Les mentions légales conservent leur avertissement de validation ; aucune donnée officielle absente n'est inventée.
 - **Admission** : les listes de conditions et pièces non confirmées sont remplacées par des indications pratiques et un lien de contact.
+
+### 2026-10-05 — Préparation du premier déploiement
+
+- **Focus visible sur fonds sombres** : en thème clair, le contour de focus (bleu nuit) se confondait avec le fond des bandeaux et des photos. Il passe localement à l'or du bandeau (`--color-band-accent`, déjà dans la charte) sur le hero, le bouton du bandeau final, la carte « Conditions », l'en-tête de l'assistant FAQ et les sections `band`.
+- **Étapes « Rejoindre » de l'accueil** : générées depuis un tableau ; toute la carte est cliquable (lien étendu) pour garantir une cible ≥ 44px, avec élévation au survol et au focus.
+- **Indexation bloquée par défaut** : tant que des coordonnées et contenus de test sont en ligne, `robots.txt` interdit l'exploration et chaque page porte `noindex`. Variable `SITE_INDEXING=enabled` à poser au lancement officiel (phase 8 / SEO).

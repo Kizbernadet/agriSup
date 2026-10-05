@@ -4,11 +4,92 @@
   gap: var(--space-3);
 }
 
-.guidance_card {
-  min-height: calc(var(--space-7) * 2.5);
-  justify-content: space-between;
+/* Classe doublée : la spécificité passe devant le `display: flex` de Card,
+   quel que soit l'ordre de chargement des feuilles CSS Modules. */
+.guidance_card.guidance_card {
+  min-height: calc(var(--space-7) * 2);
 }
 
-.guidance_card > a {
-  align-self: flex-start;
+.conditions_card.conditions_card {
+  /* Fond bleu nuit : le focus bleu nuit du thème clair y serait invisible. */
+  --color-focus: var(--color-band-accent);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-4);
+  border-color: var(--color-band-bg);
+  background-color: var(--color-band-bg);
+  color: var(--color-on-band);
+  background-image:
+    radial-gradient(circle at 100% 0%, var(--color-accent-soft), transparent 45%),
+    radial-gradient(circle at 0% 100%, var(--color-action-soft), transparent 50%);
+}
+
+.conditions_visual {
+  display: grid;
+  width: calc(var(--space-6) + var(--space-4));
+  aspect-ratio: 1;
+  place-items: center;
+  border: var(--border-width) solid var(--color-band-accent);
+  border-radius: var(--radius);
+  background-color: var(--color-action-soft);
+  color: var(--color-band-accent);
+}
+
+.conditions_visual svg {
+  width: var(--space-5);
+  height: var(--space-5);
+}
+
+.guidance_content {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3);
+}
+
+.conditions_card .guidance_content > p {
+  color: var(--color-on-band);
+}
+
+.documents_card.documents_card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-4);
+  border-style: dashed;
+  border-top: var(--space-1) solid var(--color-action);
+  background-image: linear-gradient(
+    135deg,
+    var(--color-surface),
+    var(--color-action-soft)
+  );
+}
+
+.documents_visual {
+  display: grid;
+  width: calc(var(--space-6) + var(--space-4));
+  aspect-ratio: 1;
+  place-items: center;
+  border: var(--border-width) dashed var(--color-accent-text);
+  border-radius: var(--radius);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-text);
+}
+
+.documents_visual svg {
+  width: var(--space-5);
+  height: var(--space-5);
+}
+
+@media (max-width: 639px) {
+  .guidance_card.guidance_card {
+    min-height: 0;
+    gap: var(--space-3);
+    padding: var(--space-3);
+  }
+
+  .conditions_visual,
+  .documents_visual {
+    width: var(--space-6);
+  }
 }
