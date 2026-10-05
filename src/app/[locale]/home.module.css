@@ -61,36 +61,6 @@
   height: var(--space-5);
 }
 
-/* ---------- Partenaires ---------- */
-
-.partners {
-  display: grid;
-  gap: var(--space-4);
-  list-style: none;
-  padding: 0;
-}
-
-@media (min-width: 640px) {
-  .partners {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Initiale décorative en attendant les logos officiels (autorisation requise). */
-.partner_monogram {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--space-6);
-  height: var(--space-6);
-  border: var(--focus-ring-width) solid var(--color-accent);
-  border-radius: var(--radius);
-  font-family: var(--font-heading);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-h4);
-  color: var(--color-accent-text);
-}
-
 /* ---------- Axes de formation ---------- */
 
 .axes {
@@ -166,6 +136,17 @@
 .cta_inner {
   display: grid;
   gap: var(--space-5);
+}
+
+.cta_action {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-2);
+}
+
+.cta_note {
+  color: var(--color-on-photo);
+  font-size: var(--font-size-small);
 }
 
 .cta_inner a svg {

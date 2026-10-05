@@ -9,9 +9,25 @@ export type StepItem = {
 };
 
 // Liste ordonnée d'étapes numérotées (procédure, parcours pédagogique…).
-export function Steps({ items }: { items: readonly StepItem[] }) {
+export function Steps({
+  items,
+  layout = "default",
+  showConnectors = true,
+}: {
+  items: readonly StepItem[];
+  layout?: "default" | "wrapped";
+  showConnectors?: boolean;
+}) {
   return (
-    <ol className={styles.steps}>
+    <ol
+      className={[
+        styles.steps,
+        layout === "wrapped" ? styles.wrapped : "",
+        showConnectors ? "" : styles.without_connectors,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       {items.map((item, index) => (
         <li key={index} className={styles.step} {...revealProps(index)}>
           <div className={styles.marker}>

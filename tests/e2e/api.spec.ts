@@ -24,6 +24,21 @@ test.describe("API en lecture", () => {
     const duts = await (await request.get("/api/formations?level=DUT&locale=en")).json();
     expect(all.data.length).toBeGreaterThan(duts.data.length);
     expect(duts.data.every((f: { level: string }) => f.level === "DUT")).toBe(true);
+    expect(
+      all.data
+        .filter((formation: { verified: boolean }) => !formation.verified)
+        .every(
+          (formation: { durationSemesters: number | null; credits: number | null }) =>
+            formation.durationSemesters === null && formation.credits === null,
+        ),
+    ).toBe(true);
+    const detail = await (
+      await request.get("/api/formations/licence-pro-agronomie")
+    ).json();
+    if (!detail.data.verified) {
+      expect(detail.data.durationSemesters).toBeNull();
+      expect(detail.data.credits).toBeNull();
+    }
   });
 
   test("refuse les paramètres invalides et les identifiants inconnus", async ({
@@ -37,6 +52,17 @@ test.describe("API en lecture", () => {
   test("expose un cache CDN", async ({ request }) => {
     const response = await request.get("/api/actualites");
     expect(response.headers()["cache-control"]).toContain("s-maxage=300");
+  });
+
+  test("ne publie que les actualités vérifiées", async ({ request }) => {
+    const response = await request.get("/api/actualites");
+    const body = await response.json();
+    expect(
+      body.data.items.every((actualite: { verified: boolean }) => actualite.verified),
+    ).toBe(true);
+    expect(
+      (await request.get("/api/actualites/sortie-pedagogique-visite-de-ferme")).status(),
+    ).toBe(404);
   });
 });
 

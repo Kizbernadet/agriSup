@@ -6,8 +6,26 @@ test.describe("Formations", () => {
   }) => {
     const catalog = await (await request.get("/fr/formations")).text();
     expect(catalog.match(/<article/g)?.length ?? 0).toBeGreaterThan(0);
+    expect(catalog).not.toMatch(/\[(?:À FOURNIR|TO BE PROVIDED)\]/);
     const form = await (await request.get("/fr/preinscription")).text();
     expect(form).toContain('name="formation"');
+  });
+
+  test("les pages publiques ne présentent pas de marqueurs de contenu manquant", async ({
+    page,
+  }) => {
+    for (const path of [
+      "/fr/admission",
+      "/fr/agrisup",
+      "/fr/contact",
+      "/fr/mentions-legales",
+      "/fr/formations/licence-pro-agronomie",
+    ]) {
+      await page.goto(path);
+      await expect(page.locator("body")).not.toContainText(
+        /\[(?:À FOURNIR|TO BE PROVIDED)\]/,
+      );
+    }
   });
 
   test("un lien ?domaine= présélectionne le filtre", async ({ page }) => {

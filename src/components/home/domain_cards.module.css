@@ -52,11 +52,6 @@
   border-top: var(--border-width) solid var(--color-border);
 }
 
-.count {
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-brand);
-}
-
 .more {
   display: inline-flex;
   align-items: center;

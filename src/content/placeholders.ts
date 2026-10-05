@@ -63,23 +63,21 @@ export const INSTITUTION = {
     { fr: "Professionnalisation", en: "Professional readiness" },
   ] satisfies Localized[],
 
-  // Source : presentation_projet.md §10. Noms seulement : nature des partenariats et
-  // autorisation d'utiliser les logos à obtenir (presentation_projet.md §11).
+  // Noms issus des éléments fournis ; la nature de toute collaboration reste à confirmer.
   partners: [
     {
       name: "IPR/IFRA de Katibougou",
       description: {
-        fr: "Institut de formation et de recherche dans le domaine agricole",
-        en: "Agricultural training and research institute",
+        fr: "Formation agricole ; partenariat à confirmer.",
+        en: "Agricultural training; partnership to be confirmed.",
       },
     },
     {
-      name: "IER",
-      description: { fr: "Institut d'Économie Rurale", en: "Institute of Rural Economy" },
-    },
-    {
-      name: "Ordre des vétérinaires du Mali",
-      description: { fr: "Organisation professionnelle", en: "Professional body" },
+      name: "AFG Bank",
+      description: {
+        fr: "Banque ; partenariat à confirmer.",
+        en: "Bank; partnership to be confirmed.",
+      },
     },
   ] satisfies { name: string; description: Localized }[],
 };

@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { ButtonLink } from "@/components/ui/button";
 import { CloseIcon, MenuIcon } from "@/components/ui/icons";
 import { LanguageSwitcher } from "./language_switcher";
 import { MainNav } from "./main_nav";
@@ -10,7 +9,7 @@ import styles from "./mobile_nav.module.css";
 
 const PANEL_ID = "menu_mobile";
 
-// Menu des écrans < 1024px : panneau déroulant sous le header.
+// Menu des écrans < 1024px : panneau déroulant sous la barre de marque.
 // Se ferme avec Échap, au clic à l'extérieur ou en choisissant un lien.
 export function MobileNav() {
   const t = useTranslations("header");
@@ -58,13 +57,15 @@ export function MobileNav() {
         </span>
       </button>
 
-      <div id={PANEL_ID} className={styles.panel} hidden={!open}>
+      <div
+        id={PANEL_ID}
+        className={`${styles.panel} ${open ? styles.panel_open : styles.panel_closed}`}
+        aria-hidden={!open}
+        inert={!open}
+      >
         <MainNav orientation="vertical" onNavigate={close} />
         <div className={styles.panel_footer}>
           <LanguageSwitcher />
-          <ButtonLink href="/preinscription" className={styles.cta} onClick={close}>
-            {t("cta_preinscription")}
-          </ButtonLink>
         </div>
       </div>
     </div>

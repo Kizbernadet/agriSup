@@ -13,7 +13,6 @@ const PAGES = [
   "/fr/admission",
   "/fr/preinscription",
   "/fr/actualites",
-  "/fr/actualites/sortie-pedagogique-visite-de-ferme",
   "/fr/faq",
   "/fr/contact",
   "/fr/mentions-legales",

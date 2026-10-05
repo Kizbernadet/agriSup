@@ -1,22 +1,21 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("Carrousel de l'accueil", () => {
-  test("se pilote avec les boutons et peut être mis en pause", async ({ page }) => {
+  test("se pilote avec des indicateurs accessibles, sans défilement automatique", async ({
+    page,
+  }) => {
     await page.goto("/fr");
+    // Attendre le chargement du JavaScript : avant, les indicateurs sont inactifs.
+    await page.waitForLoadState("networkidle");
     const carousel = page.getByRole("region", { name: "Présentation d'AGRI'SUP" });
     const current = carousel.locator("[aria-roledescription=diapositive]:not([inert])");
-    await expect(current).toHaveAttribute("aria-label", "1 sur 3");
-
-    await carousel.getByRole("button", { name: "Diapositive suivante" }).click();
-    await expect(current).toHaveAttribute("aria-label", "2 sur 3");
+    await expect(current).toHaveAttribute("aria-label", "1 sur 4");
 
     await carousel.getByRole("button", { name: "Aller à la diapositive 3" }).click();
-    await expect(current).toHaveAttribute("aria-label", "3 sur 3");
-
-    const toggle = carousel.getByRole("button", { name: /défilement/ });
-    await toggle.click();
+    await expect(current).toHaveAttribute("aria-label", "3 sur 4");
+    await expect(carousel.getByRole("button", { name: /défilement/ })).toHaveCount(0);
     await expect(
-      carousel.getByRole("button", { name: "Reprendre le défilement" }),
+      carousel.getByRole("button", { name: "Aller à la diapositive 4" }),
     ).toBeVisible();
   });
 
@@ -27,6 +26,66 @@ test.describe("Carrousel de l'accueil", () => {
     const hiddenLinks = page.locator("[aria-roledescription=diapositive][inert] a");
     expect(await hiddenLinks.count()).toBeGreaterThan(0);
     await expect(page.locator("h1")).toHaveCount(1);
+  });
+});
+
+test.describe("Carrousel des partenaires", () => {
+  test("avance automatiquement en boucle, sans IER, et peut être mis en pause", async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await page.goto("/fr");
+    const carousel = page.getByRole("region", {
+      name: "Carrousel des partenaires cités",
+    });
+    await carousel.scrollIntoViewIfNeeded();
+
+    const activeSlide = carousel.locator('[aria-current="true"]');
+    const initialSlide = "Organisation 1 sur 2";
+    await expect(activeSlide).toHaveAttribute("aria-label", initialSlide);
+    // Seule commande : le bouton pause (WCAG 2.2.2).
+    await expect(carousel.getByRole("button")).toHaveCount(1);
+    await expect(carousel).not.toContainText("IER");
+    await expect
+      .poll(
+        async () => carousel.locator('[aria-current="true"]').getAttribute("aria-label"),
+        { timeout: 9000 },
+      )
+      .not.toBe(initialSlide);
+    await expect
+      .poll(
+        async () => carousel.locator('[aria-current="true"]').getAttribute("aria-label"),
+        { timeout: 9000 },
+      )
+      .toBe(initialSlide);
+
+    // Après une pause, plus aucun défilement.
+    await page.mouse.move(0, 0);
+    await carousel.getByRole("button", { name: /Mettre en pause/ }).click();
+    await page.mouse.move(0, 0);
+    await carousel.blur();
+    const pausedAt = await activeSlide.getAttribute("aria-label");
+    await page.waitForTimeout(8000);
+    expect(
+      await carousel.locator('[aria-current="true"]').getAttribute("aria-label"),
+    ).toBe(pausedAt);
+    await expect(carousel.getByRole("button", { name: /Reprendre/ })).toBeVisible();
+  });
+
+  test("ne lance pas le défilement si le mouvement réduit est demandé", async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/fr");
+    const carousel = page.getByRole("region", {
+      name: "Carrousel des partenaires cités",
+    });
+    await carousel.scrollIntoViewIfNeeded();
+    await expect(carousel.getByRole("button")).toHaveCount(0);
+    await expect(carousel.locator('[aria-current="true"]')).toHaveAttribute(
+      "aria-label",
+      "Organisation 1 sur 2",
+    );
   });
 });
 
@@ -45,7 +104,7 @@ test.describe("Assistant FAQ", () => {
       .getByRole("button", { name: "Quelles formations propose AGRI'SUP ?" })
       .click();
     await expect(panel.getByRole("log")).toContainText(
-      "DUT et des licences professionnelles",
+      "Les intitulés, niveaux et ouvertures du catalogue restent à valider",
     );
 
     await panel.getByLabel("Votre question").fill("combien coûtent les études ?");

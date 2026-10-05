@@ -12,7 +12,6 @@ import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page_header";
 import { Paragraphs } from "@/components/ui/paragraphs";
-import { ToProvide } from "@/components/ui/to_provide";
 import { DOMAINS } from "@/content/domains";
 import { toAppLocale } from "@/i18n/locale";
 import { getFormationBySlug, listPublishedFormationSlugs } from "@/lib/data/formations";
@@ -55,6 +54,7 @@ export default async function FormationDetailPage({
     pathname: "/preinscription" as const,
     query: { formation: formation.slug },
   };
+  const domainContent = DOMAINS[formation.domain];
 
   return (
     <>
@@ -80,27 +80,42 @@ export default async function FormationDetailPage({
       <Container className={styles.body}>
         {!formation.verified && <Alert variant="info">{t("unverified")}</Alert>}
 
-        <DetailSection id="presentation" title={tDetail("presentation")}>
-          <Paragraphs text={formation.description} />
-        </DetailSection>
-        <DetailSection id="objectifs" title={tDetail("objectives")}>
-          <BulletList items={formation.objectives} />
-        </DetailSection>
-        <DetailSection id="competences" title={tDetail("skills")}>
-          <BulletList items={formation.skills} />
-        </DetailSection>
-        <DetailSection id="programme" title={tDetail("program")}>
-          <Paragraphs text={formation.program} />
-        </DetailSection>
-        <DetailSection id="debouches" title={tDetail("careers")}>
-          <BulletList items={formation.careerOpportunities} />
-        </DetailSection>
-        <DetailSection id="conditions" title={tDetail("admission")}>
-          <BulletList items={formation.admissionRequirements} />
-        </DetailSection>
-        <DetailSection id="documents" title={tDetail("documents")}>
-          <BulletList items={formation.requiredDocuments} />
-        </DetailSection>
+        {formation.description?.trim() && (
+          <DetailSection id="presentation" title={tDetail("presentation")}>
+            <Paragraphs text={formation.description} />
+          </DetailSection>
+        )}
+        {formation.objectives.length > 0 && (
+          <DetailSection id="objectifs" title={tDetail("objectives")}>
+            <BulletList items={formation.objectives} />
+          </DetailSection>
+        )}
+        {formation.skills.length > 0 && (
+          <DetailSection id="competences" title={tDetail("skills")}>
+            <BulletList items={formation.skills} />
+          </DetailSection>
+        )}
+        {formation.program?.trim() && (
+          <DetailSection id="programme" title={tDetail("program")}>
+            <Paragraphs text={formation.program} />
+          </DetailSection>
+        )}
+        {formation.careerOpportunities.length > 0 && (
+          <DetailSection id="debouches" title={tDetail("careers")}>
+            <BulletList items={formation.careerOpportunities} />
+            <p className={styles.note}>{tDetail("careers_specific_note")}</p>
+          </DetailSection>
+        )}
+        {formation.admissionRequirements.length > 0 && (
+          <DetailSection id="conditions" title={tDetail("admission")}>
+            <BulletList items={formation.admissionRequirements} />
+          </DetailSection>
+        )}
+        {formation.requiredDocuments.length > 0 && (
+          <DetailSection id="documents" title={tDetail("documents")}>
+            <BulletList items={formation.requiredDocuments} />
+          </DetailSection>
+        )}
 
         <aside className={styles.domain} aria-labelledby="domaine_titre">
           <div className={styles.domain_heading}>
@@ -110,13 +125,28 @@ export default async function FormationDetailPage({
               <p className={styles.domain_name}>{t(`domain.${formation.domain}`)}</p>
             </div>
           </div>
-          <p>{DOMAINS[formation.domain].description[locale]}</p>
+          <p>{domainContent.description[locale]}</p>
           <h3 className={styles.careers_title}>{tDetail("careers_examples")}</h3>
           <ul className={styles.careers}>
-            {DOMAINS[formation.domain].careers.map((career) => (
+            {domainContent.careers.map((career) => (
               <li key={career.fr}>{career[locale]}</li>
             ))}
           </ul>
+          <h3 className={styles.careers_title}>{tDetail("sectors_mali")}</h3>
+          <ul className={styles.careers}>
+            {domainContent.sectorsMali.map((sector) => (
+              <li key={sector.fr}>{sector[locale]}</li>
+            ))}
+          </ul>
+          <h3 className={styles.careers_title}>{tDetail("sectors_global")}</h3>
+          <ul className={styles.careers}>
+            {domainContent.sectorsGlobal.map((sector) => (
+              <li key={sector.fr}>{sector[locale]}</li>
+            ))}
+          </ul>
+          {domainContent.regulatoryNote && (
+            <p className={styles.note}>{domainContent.regulatoryNote[locale]}</p>
+          )}
           <p className={styles.note}>{tDetail("careers_note")}</p>
         </aside>
 
@@ -154,7 +184,6 @@ function DetailSection({
 }
 
 function BulletList({ items }: { items: readonly string[] }) {
-  if (items.length === 0) return <ToProvide />;
   return (
     <ul className={styles.list}>
       {items.map((item) => (

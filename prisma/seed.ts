@@ -4,7 +4,8 @@
  * ⚠️ AUCUNE de ces données n'est validée par AGRI'SUP (verified = false partout).
  * - Formations : noms relevés sur le kakémono (assets/photos/kakemono_offre_formations.jpg),
  *   domaines = regroupement proposé, durée des licences = presentation_projet.md §7
- *   (« 6 semestres / 180 crédits », à vérifier). Tout le reste est [À FOURNIR].
+ *   (« 6 semestres / 180 crédits », à vérifier). Les résumés reprennent la
+ *   présentation générale des domaines ; les détails de chaque formation restent à valider.
  * - Actualités : FICTIVES, inspirées des affiches de assets/annonces/.
  *   À supprimer avant la mise en ligne.
  * - Traductions anglaises : rédigées à partir du français, à faire relire.
@@ -17,6 +18,7 @@ import type {
   FormationDomain,
   FormationLevel,
 } from "../src/generated/prisma/enums";
+import { DOMAINS } from "../src/content/domains";
 
 loadEnvConfig(process.cwd());
 
@@ -25,11 +27,6 @@ if (!connectionString) {
   throw new Error("DATABASE_URL manquante : voir .env.example.");
 }
 const db = new PrismaClient({ adapter: new PrismaPg({ connectionString }) });
-
-const TO_PROVIDE = {
-  fr: "[À FOURNIR] Présentation de la formation à compléter avec AGRI'SUP.",
-  en: "[TO BE PROVIDED] Program description to be completed with AGRI'SUP.",
-};
 
 type FormationSeed = {
   slug: string;
@@ -127,7 +124,7 @@ type ActualiteSeed = {
   en: { title: string; excerpt: string; content: string };
 };
 
-// FICTIF : actualités de démonstration.
+// FICTIF : actualités de démonstration, conservées en brouillon.
 const ACTUALITES: ActualiteSeed[] = [
   {
     slug: "preinscriptions-en-ligne-ouvertes",
@@ -203,7 +200,7 @@ async function seedFormations() {
     const translations = (["fr", "en"] as const).map((locale) => ({
       locale,
       name: formation.name[locale],
-      summary: TO_PROVIDE[locale],
+      summary: DOMAINS[formation.domain].description[locale],
     }));
 
     await db.formation.upsert({
@@ -219,7 +216,7 @@ async function seedActualites() {
     const data = {
       category: actualite.category,
       imagePath: actualite.imagePath,
-      published: true,
+      published: false,
       publishedAt: actualite.publishedAt,
       verified: false,
     };

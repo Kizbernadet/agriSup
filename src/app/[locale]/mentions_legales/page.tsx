@@ -4,7 +4,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Alert } from "@/components/ui/alert";
 import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page_header";
-import { ToProvide } from "@/components/ui/to_provide";
 import { CONTACT, LEGAL } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
 import styles from "./mentions_legales.module.css";
@@ -53,12 +52,12 @@ export default async function MentionsLegalesPage({
             <Fact label={tPage("editor_phone")}>
               {CONTACT.phones.map((phone) => phone.display).join(" / ")}
             </Fact>
-            <Fact label={tPage("editor_manager")}>
-              {LEGAL.publicationManager ?? <ToProvide />}
-            </Fact>
-            <Fact label={tPage("editor_registration")}>
-              {LEGAL.registration ?? <ToProvide />}
-            </Fact>
+            {LEGAL.publicationManager && (
+              <Fact label={tPage("editor_manager")}>{LEGAL.publicationManager}</Fact>
+            )}
+            {LEGAL.registration && (
+              <Fact label={tPage("editor_registration")}>{LEGAL.registration}</Fact>
+            )}
           </dl>
         </LegalSection>
 
@@ -78,9 +77,11 @@ export default async function MentionsLegalesPage({
           <p>{tPage("data_purpose")}</p>
           <p>{tPage("data_basis")}</p>
           <p>{tPage("data_recipients")}</p>
-          <p>
-            {tPage("data_retention")} {LEGAL.retentionPeriod ?? <ToProvide />}
-          </p>
+          {LEGAL.retentionPeriod && (
+            <p>
+              {tPage("data_retention")} {LEGAL.retentionPeriod}
+            </p>
+          )}
           <p>{tPage("data_security")}</p>
         </LegalSection>
 

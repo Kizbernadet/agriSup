@@ -21,4 +21,10 @@
   align-items: center;
   min-height: var(--tap-target);
   color: var(--color-link);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.link:hover {
+  color: var(--color-action);
 }

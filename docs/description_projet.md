@@ -199,6 +199,9 @@ Cette section peut présenter, si les éléments sont officiellement confirmés 
 ## 4.6 Partenaires
 
 Afficher les partenaires officiellement validés.
+- IPR / IFRA  de kalibougou 
+- IER (Institut d'Economie Rurale)
+- AFG Bank 
 
 Prévoir une validation avant d'utiliser leurs logos.
 
@@ -1206,3 +1209,11 @@ Le projet doit privilégier :
 **MVP fonctionnel > application surdimensionnée**
 
 Le meilleur résultat pour cette première version est un site qui donne confiance, explique clairement les formations et facilite immédiatement le contact ou la préinscription.
+
+
+Contenu supplementaires 
+
+liens vers articles sur l'université : 
+
+- https://www.youtube.com/shorts/zj5jnrRIw4c
+- 

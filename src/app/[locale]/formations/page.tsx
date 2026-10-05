@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { FormationCatalog } from "@/components/formations/formation_catalog";
+import { Alert } from "@/components/ui/alert";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
 import { toAppLocale } from "@/i18n/locale";
@@ -38,6 +39,9 @@ export default async function FormationsPage({
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
       />
       <Section>
+        {formations.some((formation) => !formation.verified) && (
+          <Alert variant="info">{tPage("verification_notice")}</Alert>
+        )}
         <FormationCatalog formations={formations} />
       </Section>
     </>

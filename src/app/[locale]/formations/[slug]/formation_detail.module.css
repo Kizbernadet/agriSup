@@ -52,6 +52,12 @@
   border-left: var(--space-1) solid var(--color-accent);
   border-radius: var(--radius);
   background-color: var(--color-surface);
+  background-image: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-surface) 88%, var(--color-action)),
+    var(--color-surface) 52%,
+    color-mix(in srgb, var(--color-surface) 92%, var(--color-accent))
+  );
 }
 
 .domain_heading {

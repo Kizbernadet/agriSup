@@ -28,9 +28,9 @@ export type ActualitesPage = {
   pageCount: number;
 };
 
-// Publiée et dont la date de publication est passée (permet de programmer une actualité).
+// Publiée, vérifiée et dont la date est passée (permet de programmer une actualité).
 function visibleNow(): Prisma.ActualiteWhereInput {
-  return { published: true, publishedAt: { lte: new Date() } };
+  return { published: true, verified: true, publishedAt: { lte: new Date() } };
 }
 
 export async function listActualites({

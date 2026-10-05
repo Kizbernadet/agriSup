@@ -32,6 +32,13 @@
   color: var(--color-text-muted);
 }
 
+.status {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+}
+
 .more {
   display: inline-flex;
   align-items: center;

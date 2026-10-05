@@ -40,8 +40,8 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
       en: "What programs does AGRI'SUP offer?",
     },
     answer: {
-      fr: "AGRI'SUP propose des DUT et des licences professionnelles en sciences et technologies agricoles : production végétale et agronomie, élevage et santé animale, aquaculture, agribusiness et agroforesterie.",
-      en: "AGRI'SUP offers DUT diplomas and professional bachelor's degrees in agricultural sciences and technologies: crop production and agronomy, livestock and animal health, aquaculture, agribusiness and agroforestry.",
+      fr: "Les documents communiqués mentionnent des formations dans les sciences et technologies agricoles, dont la production végétale, l'élevage, l'aquaculture et l'agribusiness. Les intitulés, niveaux et ouvertures du catalogue restent à valider par l'établissement.",
+      en: "The materials provided mention programs in agricultural sciences and technologies, including crop production, livestock, aquaculture and agribusiness. Program titles, levels and availability in the catalogue still need to be validated by the school.",
     },
     link: {
       href: "/formations",
@@ -66,8 +66,8 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
       en: "What is the LMD system?",
     },
     answer: {
-      fr: "Le système LMD (Licence – Master – Doctorat) organise les études supérieures en semestres et en crédits. AGRI'SUP inscrit ses formations dans ce système. La durée et le nombre de crédits de chaque formation sont indiqués sur sa page.",
-      en: "The LMD system (Bachelor – Master – Doctorate) organises higher education into semesters and credits. AGRI'SUP's programs follow this system. The duration and credits of each program are shown on its page.",
+      fr: "Le système LMD (Licence – Master – Doctorat) est un cadre d'organisation des études supérieures. L'application de ce système, les durées et les crédits propres aux formations d'AGRI'SUP doivent être confirmés par l'établissement.",
+      en: "The LMD system (Bachelor – Master – Doctorate) is a framework for organising higher education. Whether it applies to AGRI'SUP programs, and their duration and credits, must be confirmed by the school.",
     },
   },
   {
@@ -122,8 +122,8 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
       en: "What are the admission requirements?",
     },
     answer: {
-      fr: "Les conditions d'accès dépendent du niveau de la formation (DUT ou licence professionnelle). Elles sont en cours de publication : contactez l'établissement pour connaître celles qui s'appliquent à votre situation.",
-      en: "Admission requirements depend on the program level (DUT or professional bachelor's). They are being published: contact the school to find out which apply to you.",
+      fr: "Les conditions officielles d'accès aux formations sont à confirmer auprès de l'établissement. Contactez AGRI'SUP pour connaître les critères applicables à votre situation.",
+      en: "Official entry requirements for the programs must be confirmed with the school. Contact AGRI'SUP to learn which criteria apply to you.",
     },
     link: { href: "/admission", label: { fr: "Page Admission", en: "Admissions page" } },
   },

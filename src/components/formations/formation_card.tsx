@@ -35,6 +35,7 @@ export function FormationCard({
           {formation.name}
         </Link>
       </Heading>
+      {!formation.verified && <p className={styles.status}>{t("unverified_short")}</p>}
       <FormationMeta {...formation} />
       <p className={styles.summary}>{formation.summary}</p>
       <span className={styles.more} aria-hidden="true">

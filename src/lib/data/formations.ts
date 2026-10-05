@@ -1,6 +1,14 @@
 import type { FormationDomain, FormationLevel, Locale } from "@/generated/prisma/enums";
+import { DOMAINS } from "@/content/domains";
 import { db } from "@/lib/db";
 import { localesToLoad, pickTranslation } from "./translations";
+
+function formationSummary(summary: string, domain: FormationDomain, locale: Locale) {
+  if (!summary.trim() || /^\s*\[(?:à fournir|to be provided)\]/i.test(summary)) {
+    return DOMAINS[domain].description[locale];
+  }
+  return summary;
+}
 
 export type FormationSummary = {
   slug: string;
@@ -50,11 +58,11 @@ export async function listFormations({
         slug: formation.slug,
         level: formation.level,
         domain: formation.domain,
-        durationSemesters: formation.durationSemesters,
-        credits: formation.credits,
+        durationSemesters: formation.verified ? formation.durationSemesters : null,
+        credits: formation.verified ? formation.credits : null,
         verified: formation.verified,
         name: translation.name,
-        summary: translation.summary,
+        summary: formationSummary(translation.summary, formation.domain, locale),
       },
     ];
   });
@@ -86,12 +94,12 @@ export async function getFormationBySlug(
     slug: formation.slug,
     level: formation.level,
     domain: formation.domain,
-    durationSemesters: formation.durationSemesters,
-    credits: formation.credits,
+    durationSemesters: formation.verified ? formation.durationSemesters : null,
+    credits: formation.verified ? formation.credits : null,
     verified: formation.verified,
     locale: translation.locale,
     name: translation.name,
-    summary: translation.summary,
+    summary: formationSummary(translation.summary, formation.domain, locale),
     description: translation.description,
     program: translation.program,
     objectives: translation.objectives,

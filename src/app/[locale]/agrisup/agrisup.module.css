@@ -59,17 +59,6 @@
   color: var(--color-accent-text);
 }
 
-.cards {
-  display: grid;
-  gap: var(--space-4);
-}
-
-@media (min-width: 640px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 /* Présentation + kakémono (seule photo réelle fournie). */
 .presentation {
   display: grid;

@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Alert } from "@/components/ui/alert";
-import { Card } from "@/components/ui/card";
 import { CheckIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
 import { PedagogySteps } from "@/components/home/pedagogy_steps";
 import { Timeline } from "@/components/ui/timeline";
-import { ToProvide } from "@/components/ui/to_provide";
 import { INSTITUTION, INSTITUTION_DETAILS } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
 import kakemono from "../../../../public/images/galerie/kakemono_offre_formations.jpg";
@@ -38,9 +36,7 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
   const anchors = [
     { id: "presentation", label: tPage("presentation_title") },
     { id: "histoire", label: tPage("history_title") },
-    { id: "vision-mission", label: tPage("vision_mission_title") },
     { id: "pedagogie", label: tPage("pedagogy_title") },
-    { id: "direction", label: tPage("direction_title") },
   ];
 
   return (
@@ -62,6 +58,7 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
       </PageHeader>
 
       <Section id="presentation" title={tPage("presentation_title")}>
+        <Alert variant="info">{tPage("overview_unverified")}</Alert>
         <div className={styles.presentation}>
           <div className={styles.presentation_text}>
             <p className={styles.lead}>{INSTITUTION.presentation[locale]}</p>
@@ -100,19 +97,6 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
         />
       </Section>
 
-      <Section id="vision-mission" title={tPage("vision_mission_title")}>
-        <div className={styles.cards}>
-          <Card>
-            <h3>{tPage("vision_title")}</h3>
-            <ToProvide />
-          </Card>
-          <Card>
-            <h3>{tPage("mission_title")}</h3>
-            <ToProvide />
-          </Card>
-        </div>
-      </Section>
-
       <Section
         id="pedagogie"
         tone="surface"
@@ -120,17 +104,6 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
         intro={tPage("pedagogy_intro")}
       >
         <PedagogySteps locale={locale} />
-        <Card>
-          <h3>{tPage("infrastructures_title")}</h3>
-          <ToProvide />
-        </Card>
-      </Section>
-
-      <Section id="direction" title={tPage("direction_title")}>
-        <p>{tPage("direction_text")}</p>
-        <div>
-          <ToProvide />
-        </div>
       </Section>
     </>
   );

@@ -2,17 +2,17 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { FormationGrid } from "@/components/formations/formation_grid";
 import { DomainCards } from "@/components/home/domain_cards";
 import { HomeHero } from "@/components/home/home_hero";
-import { KeyFigures } from "@/components/home/key_figures";
+import { PartnerCarousel } from "@/components/home/partner_carousel";
 import { PhotoGallery } from "@/components/home/photo_gallery";
 import { PresentationVideo } from "@/components/home/presentation_video";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
+import { Alert } from "@/components/ui/alert";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import {
   ArrowRightIcon,
-  BookIcon,
   BriefcaseIcon,
   ClipboardIcon,
   FieldIcon,
@@ -28,7 +28,6 @@ import { Steps } from "@/components/ui/steps";
 import { PedagogySteps } from "@/components/home/pedagogy_steps";
 import { SECTOR_POINTS } from "@/content/domains";
 import { INSTITUTION } from "@/content/placeholders";
-import type { FormationDomain } from "@/generated/prisma/enums";
 import { toAppLocale } from "@/i18n/locale";
 import { Link } from "@/i18n/navigation";
 import { listFormations, type FormationSummary } from "@/lib/data/formations";
@@ -54,14 +53,6 @@ function pickFeatured(formations: FormationSummary[]): FormationSummary[] {
   );
 }
 
-function countByDomain(formations: FormationSummary[]) {
-  const counts: Partial<Record<FormationDomain, number>> = {};
-  for (const formation of formations) {
-    counts[formation.domain] = (counts[formation.domain] ?? 0) + 1;
-  }
-  return counts;
-}
-
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
@@ -73,34 +64,16 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
     listFormations({ locale }),
   ]);
 
-  const domainCounts = countByDomain(formations);
-  const figures = [
-    {
-      value: formations.length,
-      label: t("figures_formations"),
-      icon: <GraduationIcon />,
-    },
-    {
-      value: new Set(formations.map((f) => f.level)).size,
-      label: t("figures_levels"),
-      icon: <BookIcon />,
-    },
-    {
-      value: Object.keys(domainCounts).length,
-      label: t("figures_domains"),
-      icon: <SproutIcon />,
-    },
-  ];
-
   return (
     <>
-      <HomeHero formationsCount={formations.length} />
+      <HomeHero />
 
       <Section id="presentation">
         <div className={styles.intro}>
           <div className={styles.intro_text} {...revealProps()}>
             <Eyebrow>{t("eyebrow_about")}</Eyebrow>
             <h2>{t("intro_title")}</h2>
+            <Alert variant="info">{t("content_validation_note")}</Alert>
             <p className={styles.presentation}>{INSTITUTION.presentation[locale]}</p>
             <ul className={styles.axes} aria-label={t("axes_title")}>
               {INSTITUTION.axes.map((axis, index) => {
@@ -128,21 +101,12 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       </Section>
 
       <Section
-        id="chiffres"
-        tone="band"
-        eyebrow={t("eyebrow_figures")}
-        title={t("figures_title")}
-      >
-        <KeyFigures figures={figures} />
-      </Section>
-
-      <Section
         id="domaines"
         eyebrow={t("eyebrow_domains")}
         title={t("domains_title")}
         intro={t("domains_intro")}
       >
-        <DomainCards locale={locale} counts={domainCounts} />
+        <DomainCards locale={locale} />
       </Section>
 
       <Section
@@ -229,17 +193,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         title={t("partners_title")}
         intro={t("partners_intro")}
       >
-        <ul className={styles.partners}>
-          {INSTITUTION.partners.map((partner, index) => (
-            <Card as="li" key={partner.name} {...revealProps(index)}>
-              <span className={styles.partner_monogram} aria-hidden="true">
-                {partner.name.slice(0, 1)}
-              </span>
-              <h3 className={styles.card_title}>{partner.name}</h3>
-              <p className={styles.muted}>{partner.description[locale]}</p>
-            </Card>
-          ))}
-        </ul>
+        <PartnerCarousel locale={locale} />
       </Section>
 
       <section
@@ -280,11 +234,12 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
               },
             ]}
           />
-          <div>
+          <div className={styles.cta_action}>
             <ButtonLink href="/preinscription">
               {tCommon("preinscription")}
               <ArrowRightIcon />
             </ButtonLink>
+            <p className={styles.cta_note}>{t("cta_note")}</p>
           </div>
         </Container>
       </section>

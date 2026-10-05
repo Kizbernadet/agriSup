@@ -174,6 +174,42 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Variables ajoutées** : `--color-band-*` (bandeau, contrastes 5,5 à 13:1), `--photo-scrim` (voile 82 %), `--button-sheen`, `--shadow-button-hover`.
 - **Tests** : 51 unitaires (dont la recherche de l'assistant), 52 de bout en bout (carrousel, assistant, galerie) ; axe 0 violation.
 
+### Refonte du bandeau d'accueil et de la navigation (lot 1)
+
+- **Accueil uniquement** : le bandeau plein écran utilise une photo en fond, avec le logo dans une barre supérieure transparente et la navigation sur une surface adaptée au thème. Les pages internes gardent un en-tête thématique classique.
+- **Carrousel manuel** : retrait des flèches, du bouton pause et des pastilles flottantes. Les indicateurs de diapositives restent accessibles ; sans commande de pause, le carrousel ne défile pas automatiquement.
+- **Contenu des diapositives** : une diapositive par contexte (présentation, pratique, admissions et écosystème), avec un appel à l'action cohérent ; la préinscription est proposée dans la diapositive Admissions. Les détails des collaborations restent à confirmer malgré l'autorisation d'afficher les noms et logos communiquée par la cliente.
+- **Menu mobile** : le panneau reprend les surfaces, bordures et couleurs du thème actif, et reste contenu dans la largeur de l'écran.
+- **Vérification du lot** : lint, TypeScript, build de production ; 51 tests unitaires, 4 tests E2E des interactions d'accueil et 4 audits axe de l'accueil (fr/en, thèmes clair/sombre).
+
+### 2026-10-04 — Enrichissement éditorial et fiabilisation (lot 2)
+
+- **Pas de chiffres de catalogue sur l'accueil** tant que les fiches ne sont pas validées ; les domaines sont présentés sans nombres de formations.
+- **Fiches formation provisoires** : les contenus non vérifiés restent explicitement signalés ; durée et crédits ne s'affichent et ne sont servis par l'API que lorsqu'ils sont vérifiés. Les exemples de métiers et de secteurs au Mali et à l'international sont généraux, non des débouchés garantis. Les actes vétérinaires restent soumis à la réglementation.
+- **Actualités** : une actualité doit être publiée, datée et vérifiée pour être accessible sur le site et l'API. Les actualités fictives du seed restent en brouillon.
+- **Contenu institutionnel** : les éléments non confirmés (offre, admission, domaines, coordonnées, partenaires et collaborations) sont présentés comme provisoires ou renvoyés à l'établissement. L'ancienne section de chiffres clés est retirée plutôt que de communiquer des valeurs issues du catalogue provisoire.
+- **Validation** : lint, TypeScript, build de production, Prettier, 51 tests unitaires, 35 tests E2E ciblés (accessibilité, API, accueil) et 5 tests E2E du catalogue réussis.
+
 ### Dépendances
 
 - **`npm audit`** signale 5 vulnérabilités « high » dans `micromatch`, via `eslint-config-next`. Ce sont des **outils de développement uniquement**, qui ne sont pas livrés en production. Je ne corrige pas avec `--force`, car cela casserait la configuration ESLint ; à revoir à la prochaine version de `eslint-config-next`.
+
+### 2026-10-04 — Finition de la navigation et partenaires
+
+- **Navigation** : icônes décoratives, apparition gauche→droite des liens sur desktop et panneau mobile animé à l'ouverture/fermeture. Le menu conserve la fermeture par Échap, clic extérieur et navigation, ainsi que le focus visible et le support de `prefers-reduced-motion`.
+- **Partenaires** : carrousel Embla en boucle avec lecture automatique, commandes précédente/suivante et pause/lecture ; le mouvement automatique est désactivé quand le visiteur demande une réduction des animations. Les descriptions continuent de préciser que les relations doivent être confirmées ; seul le logo réellement fourni est affiché, sans substituer de visuel inventé à l'IER.
+- **Admission** : descriptions des étapes limitées au parcours déjà présenté et aux réserves officielles ; mise en grille adaptative pour éviter cinq colonnes trop étroites.
+- **Style** : les liens du fil d'Ariane n'ont plus de soulignement (ce n'est pas un lien de prose) ; l'encadré « Le domaine en bref », le support du logo et la topbar sombre utilisent des dégradés dérivés des variables existantes, sans ajout de couleur à la charte.
+
+### 2026-10-04 — Ajustements de finition visuelle
+
+- **Navigation sombre** : texte et icône partagent la même couleur ; l'état actif, le survol et le focus passent à l'or de la charte.
+- **CTA des diapositives** : contour et texte clairs au repos, fond or au survol avec texte sombre pour conserver le contraste. Les autres boutons ne changent pas.
+- **Cartes Admission et Pédagogie** : conservation des cartes numérotées, retrait des icônes et traits de liaison décoratifs.
+- **Partenaires** : texte à gauche et logo à droite ; retrait du libellé « Lire » tout en gardant un contrôle pause/reprise accessible et le respect de `prefers-reduced-motion`.
+
+### 2026-10-04 — Compaction du carrousel et contenus sans champs vides
+
+- **Carrousel partenaires** : cartes compactées sur mobile et desktop ; descriptions raccourcies et visuel réduit pour limiter la hauteur sans sacrifier la lisibilité.
+- **Contenus manquants** : les sections ou coordonnées non disponibles sont désormais omises plutôt qu'affichées sous forme de marqueurs. Les mentions légales conservent leur avertissement de validation ; aucune donnée officielle absente n'est inventée.
+- **Admission** : les listes de conditions et pièces non confirmées sont remplacées par des indications pratiques et un lien de contact.

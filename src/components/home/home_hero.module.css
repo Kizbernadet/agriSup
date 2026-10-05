@@ -1,61 +1,6 @@
 .hero {
   position: relative;
+  min-height: 100svh;
   overflow: hidden;
-  padding-block: var(--space-5);
-  border-bottom: var(--border-width) solid var(--color-border);
-  background-color: var(--color-surface);
-  /* Halo décoratif : teintes douces de la charte (or et vert). */
-  background-image:
-    radial-gradient(circle at 85% 15%, var(--color-accent-soft), transparent 45%),
-    radial-gradient(circle at 0% 100%, var(--color-action-soft), transparent 40%);
-}
-
-@media (min-width: 1024px) {
-  .hero {
-    padding-block: var(--space-6);
-  }
-}
-
-.inner {
-  position: relative;
-}
-
-/* ---------- Motif décoratif ---------- */
-
-.pattern {
-  position: absolute;
-  inset: auto 0 0 auto;
-  width: 100%;
-  height: 50%;
-  pointer-events: none;
-  /* Fondu sur le bord gauche : le motif se fond dans le fond, sans arête visible. */
-  mask-image: linear-gradient(to right, transparent, black 40%);
-}
-
-@media (min-width: 1024px) {
-  .pattern {
-    width: 60%;
-    height: 90%;
-  }
-}
-
-.sun {
-  fill: var(--color-accent-soft);
-}
-
-.sun_ring {
-  fill: none;
-  stroke: var(--color-accent-soft);
-  stroke-width: 12;
-}
-
-.field,
-.field_back {
-  fill: var(--color-action-soft);
-}
-
-.furrows path {
-  fill: none;
-  stroke: var(--color-accent-soft);
-  stroke-width: 3;
+  background-color: var(--color-band-bg);
 }

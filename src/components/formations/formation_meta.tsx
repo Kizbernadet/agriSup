@@ -4,7 +4,7 @@ import styles from "./formation_meta.module.css";
 
 type FormationMetaProps = Pick<
   FormationSummary,
-  "domain" | "durationSemesters" | "credits"
+  "domain" | "durationSemesters" | "credits" | "verified"
 >;
 
 // Domaine et durée d'une formation (carte et page détail).
@@ -12,6 +12,7 @@ export function FormationMeta({
   domain,
   durationSemesters,
   credits,
+  verified,
 }: FormationMetaProps) {
   const t = useTranslations("formation");
 
@@ -24,7 +25,7 @@ export function FormationMeta({
       <div className={styles.row}>
         <dt>{t("duration_label")}</dt>
         <dd>
-          {durationSemesters && credits
+          {verified && durationSemesters && credits
             ? t("duration", { semesters: durationSemesters, credits })
             : t("duration_unknown")}
         </dd>

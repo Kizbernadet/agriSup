@@ -5,10 +5,10 @@ import { MapEmbed } from "@/components/contact/map_embed";
 import { WhatsappButton } from "@/components/contact/whatsapp_button";
 import { ContactForm } from "@/components/forms/contact_form";
 import { Card } from "@/components/ui/card";
+import { Alert } from "@/components/ui/alert";
 import { MailIcon, MapPinIcon, PhoneIcon, WhatsappIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
-import { ToProvide } from "@/components/ui/to_provide";
 import { BROCHURE_PATH, CONTACT, SOCIAL_LINKS } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
 import { directionsUrl } from "@/lib/maps";
@@ -47,6 +47,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
       />
 
       <Section id="coordonnees" title={tPage("info_title")}>
+        <Alert variant="info">{tPage("details_unverified")}</Alert>
         <div className={styles.info_layout}>
           <ul className={styles.info_list}>
             <InfoCard icon={<MapPinIcon />} title={tPage("address")}>
@@ -81,37 +82,31 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
               </InfoCard>
             )}
 
-            <InfoCard icon={<MailIcon />} title={tPage("email")}>
-              {CONTACT.email ? (
+            {CONTACT.email && (
+              <InfoCard icon={<MailIcon />} title={tPage("email")}>
                 <a href={`mailto:${CONTACT.email}`} className={styles.strong_link}>
                   {CONTACT.email}
                 </a>
-              ) : (
-                <ToProvide />
-              )}
-            </InfoCard>
+              </InfoCard>
+            )}
 
-            <InfoCard title={tPage("social_title")}>
-              {socialLinks.length > 0 ? (
-                socialLinks.map(([network, url]) => (
+            {socialLinks.length > 0 && (
+              <InfoCard title={tPage("social_title")}>
+                {socialLinks.map(([network, url]) => (
                   <a key={network} href={url} target="_blank" rel="noopener noreferrer">
                     {network}
                   </a>
-                ))
-              ) : (
-                <ToProvide />
-              )}
-            </InfoCard>
+                ))}
+              </InfoCard>
+            )}
 
-            <InfoCard title={tPage("brochure_title")}>
-              {BROCHURE_PATH ? (
+            {BROCHURE_PATH && (
+              <InfoCard title={tPage("brochure_title")}>
                 <a href={BROCHURE_PATH} download>
                   {tPage("brochure_download")}
                 </a>
-              ) : (
-                <ToProvide />
-              )}
-            </InfoCard>
+              </InfoCard>
+            )}
           </ul>
 
           <div className={styles.map}>

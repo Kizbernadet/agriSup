@@ -4,18 +4,9 @@ import { WhatsappButton } from "@/components/contact/whatsapp_button";
 import { Alert } from "@/components/ui/alert";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import {
-  ClipboardIcon,
-  GraduationIcon,
-  PhoneIcon,
-  SearchIcon,
-  SendIcon,
-} from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
 import { Steps } from "@/components/ui/steps";
-import { ToProvide } from "@/components/ui/to_provide";
-import { FormationLevel } from "@/generated/prisma/enums";
 import { toAppLocale } from "@/i18n/locale";
 import styles from "./admission.module.css";
 
@@ -35,11 +26,10 @@ export default async function AdmissionPage({
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
 
-  const [t, tPage, tNav, tFormation, tCommon] = await Promise.all([
+  const [t, tPage, tNav, tCommon] = await Promise.all([
     getTranslations("pages.admission"),
     getTranslations("admission_page"),
     getTranslations("nav"),
-    getTranslations("formation"),
     getTranslations("common"),
   ]);
 
@@ -57,14 +47,12 @@ export default async function AdmissionPage({
         title={tPage("conditions_title")}
         intro={tPage("conditions_intro")}
       >
-        <ul className={styles.levels}>
-          {Object.values(FormationLevel).map((level) => (
-            <Card as="li" key={level}>
-              <h3>{tFormation(`level.${level}`)}</h3>
-              <ToProvide />
-            </Card>
-          ))}
-        </ul>
+        <Card className={styles.guidance_card}>
+          <p>{tPage("conditions_guidance")}</p>
+          <ButtonLink href="/contact" variant="secondary">
+            {tCommon("contact_us")}
+          </ButtonLink>
+        </Card>
       </Section>
 
       <Section
@@ -74,9 +62,12 @@ export default async function AdmissionPage({
         title={tPage("documents_title")}
         intro={tPage("documents_intro")}
       >
-        <div>
-          <ToProvide />
-        </div>
+        <Card className={styles.guidance_card}>
+          <p>{tPage("documents_guidance")}</p>
+          <ButtonLink href="/contact" variant="secondary">
+            {tCommon("contact_us")}
+          </ButtonLink>
+        </Card>
       </Section>
 
       <Section
@@ -85,12 +76,29 @@ export default async function AdmissionPage({
         title={tPage("procedure_title")}
       >
         <Steps
+          layout="wrapped"
+          showConnectors={false}
           items={[
-            { label: tPage("step_1"), icon: <SearchIcon /> },
-            { label: tPage("step_2"), icon: <ClipboardIcon /> },
-            { label: tPage("step_3"), icon: <SendIcon /> },
-            { label: tPage("step_4"), icon: <PhoneIcon /> },
-            { label: tPage("step_5"), icon: <GraduationIcon /> },
+            {
+              label: tPage("step_1"),
+              description: tPage("step_1_description"),
+            },
+            {
+              label: tPage("step_2"),
+              description: tPage("step_2_description"),
+            },
+            {
+              label: tPage("step_3"),
+              description: tPage("step_3_description"),
+            },
+            {
+              label: tPage("step_4"),
+              description: tPage("step_4_description"),
+            },
+            {
+              label: tPage("step_5"),
+              description: tPage("step_5_description"),
+            },
           ]}
         />
         <Alert variant="info">{tPage("disclaimer")}</Alert>
