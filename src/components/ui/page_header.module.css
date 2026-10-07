@@ -3,9 +3,12 @@
   background-color: var(--color-surface);
   border-bottom: var(--border-width) solid var(--color-border);
   /* Halo décoratif, mêmes teintes douces que le bandeau d'accueil. */
+  /* Halos de couleur puis motif du thème (tuile de 480px affichée à 384px). */
   background-image:
     radial-gradient(circle at 92% 10%, var(--color-accent-soft), transparent 35%),
-    radial-gradient(circle at 70% 120%, var(--color-action-soft), transparent 40%);
+    radial-gradient(circle at 70% 120%, var(--color-action-soft), transparent 40%),
+    var(--pattern-image);
+  background-size: auto, auto, calc(var(--space-7) * 6);
 }
 
 .inner {
@@ -29,4 +32,22 @@
   line-height: var(--line-height-h4);
   color: var(--color-text-muted);
   max-width: var(--line-length);
+}
+
+/* Variante avec visuel : texte puis visuel sur mobile, deux colonnes sur ordinateur. */
+.with_aside {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 1024px) {
+  .with_aside {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: var(--space-6);
+  }
+}
+
+.aside {
+  min-width: 0;
 }

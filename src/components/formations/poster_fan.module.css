@@ -1,0 +1,47 @@
+/* Trois pièces empilées dans une même case de grille. Largeurs choisies pour rester
+   sous la résolution des fichiers (affiche LMD : 590px) tout en occupant la colonne. */
+.fan {
+  display: grid;
+  grid-template-areas: "stack";
+  place-items: center;
+  padding-block: var(--space-4);
+  list-style: none;
+  padding-inline: 0;
+}
+
+.poster {
+  grid-area: stack;
+  width: 46%;
+  transition: transform var(--transition);
+}
+
+.poster:nth-child(1) {
+  transform: translateX(-58%) rotate(-7deg);
+}
+
+.poster:nth-child(2) {
+  z-index: 1;
+  width: 54%;
+}
+
+.poster:nth-child(3) {
+  transform: translateX(58%) rotate(6deg);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card-hover);
+  transition: transform var(--transition);
+}
+
+/* Survol : la pièce passe devant, se soulève et grandit légèrement. */
+.poster:hover {
+  z-index: 2;
+}
+
+.poster:hover .image {
+  transform: translateY(calc(-1 * var(--space-2))) scale(1.04);
+}

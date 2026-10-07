@@ -420,7 +420,9 @@
     "embleme": "The school emblem at the entrance",
     "salle_cours": "A classroom",
     "microscopes": "Microscopes and stereo microscopes",
-    "pratique": "Practical work in animal husbandry"
+    "pratique": "Practical work in animal husbandry",
+    "affiche_inscriptions": "“Enrolment open” poster: LMD system and AGRI'SUP programs",
+    "affiche_lmd": "AGRI'SUP poster: LMD system and contact details"
   },
   "faq_bot": {
     "launcher": "Questions?",

@@ -420,7 +420,9 @@
     "embleme": "L'emblème de l'école à l'entrée",
     "salle_cours": "Une salle de cours",
     "microscopes": "Microscopes et loupes binoculaires",
-    "pratique": "Travaux pratiques en élevage"
+    "pratique": "Travaux pratiques en élevage",
+    "affiche_inscriptions": "Affiche « Inscriptions ouvertes » : système LMD et filières d'AGRI'SUP",
+    "affiche_lmd": "Affiche d'AGRI'SUP : système LMD et coordonnées de l'établissement"
   },
   "faq_bot": {
     "launcher": "Questions ?",

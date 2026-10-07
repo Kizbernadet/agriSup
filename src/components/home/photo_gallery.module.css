@@ -174,6 +174,8 @@
 /* ---------- Visionneuse ---------- */
 
 .dialog {
+  /* La remise à zéro des marges (base.css) annule le centrage natif du <dialog>. */
+  margin: auto;
   width: min(100% - var(--space-5), var(--container-max));
   max-height: calc(100vh - var(--space-5));
   padding: var(--space-3);
