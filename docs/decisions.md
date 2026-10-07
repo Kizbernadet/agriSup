@@ -254,3 +254,9 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Motif au sceau** : `npm run motifs` génère aussi `motif_logo_<thème>` (tuile PNG 960px à afficher à 480px, version transparente, visuel 1920 × 1080), sceau monochrome façon tampon, vert et or de la charte.
 - **Motif du site** : le motif au sceau remplace le motif à icônes pour `--pattern-image` (tuiles transparentes WebP de 960px, environ 94 Ko, affichées à 384px). Le motif à icônes reste disponible dans `assets/motifs/` et `public/images/motifs/`.
 
+### 2026-10-07 — Déploiement : un seul projet Vercel
+
+- **Projet retenu** : `agri-sup-bbj9` (https://agri-sup-bbj9.vercel.app), relié au dépôt GitHub `Kizbernadet/agriSup` ; chaque envoi sur `main` déploie en production.
+- **Doublon supprimé** : un ancien projet `agri-sup`, relié au même dépôt et sans variables d'environnement, échouait à chaque envoi. Supprimé par la cliente le 2026-10-07.
+- **Variables d'environnement** (Vercel > Settings > Environment Variables) : `DATABASE_URL`, `RATE_LIMIT_SECRET`, `NEXT_PUBLIC_WHATSAPP_NUMBER` (numéro de test), `FORMS_NOTIFICATION_EMAIL`, `NEXT_PUBLIC_SITE_URL` ; `RESEND_API_KEY` à ajouter pour l'envoi des emails ; `SITE_INDEXING` absente tant que l'indexation doit rester bloquée.
+
