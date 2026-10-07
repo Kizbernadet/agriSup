@@ -1,6 +1,6 @@
+/* Décalage des ancres sous l'en-tête : géré globalement (scroll-padding-top, base.css). */
 .section {
   padding-block: var(--space-6);
-  scroll-margin-top: var(--space-7);
 }
 
 @media (min-width: 1024px) {

@@ -67,4 +67,21 @@ test.describe("Menu mobile", () => {
     await expect(toggle).toBeFocused();
     await expect(toggle).toHaveAttribute("aria-expanded", "false");
   });
+
+  for (const path of ["/fr", "/fr/formations"]) {
+    test(`la barre et le bouton du menu restent visibles au défilement (${path})`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      await page.mouse.wheel(0, 2000);
+      const header = page.locator("header").first();
+      await expect.poll(async () => (await header.boundingBox())?.y ?? -1).toBe(0);
+      const toggle = page.getByRole("button", { name: "Ouvrir le menu" });
+      await expect(toggle).toBeInViewport();
+      // Menu ouvert pendant le défilement : il reste utilisable.
+      await toggle.click();
+      await page.mouse.wheel(0, 600);
+      await expect(page.getByRole("link", { name: "Contact" }).first()).toBeInViewport();
+    });
+  }
 });

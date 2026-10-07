@@ -4,12 +4,27 @@
   z-index: 50;
 }
 
+/* Accueil : l'en-tête est posé sur le hero (fixe, donc toujours visible au défilement,
+   y compris le bouton du menu mobile). Transparent en haut de page, fond plein dès que
+   la page défile (data-scrolled, posé par site_header.tsx). */
 .header[data-home] {
-  position: absolute;
+  position: fixed;
   inset: 0 0 auto;
 }
 
+/* Repère de défilement observé par site_header.tsx. */
+.sentinel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* Encoche iOS (viewport-fit=cover) : le contenu de l'en-tête reste sous la barre d'état. */
 .topbar {
+  padding-top: env(safe-area-inset-top, 0px);
   background-color: var(--color-header-bg);
   border-bottom: var(--border-width) solid var(--color-border);
 }
@@ -17,6 +32,9 @@
 .header[data-home] .topbar {
   border-bottom: 0;
   background-color: transparent;
+  transition:
+    background-color var(--transition),
+    box-shadow var(--transition);
 }
 
 [data-theme="dark"] .header[data-home] .topbar {
@@ -26,6 +44,13 @@
     color-mix(in srgb, var(--color-bg) 91%, var(--color-accent)) 55%,
     color-mix(in srgb, var(--color-bg) 72%, transparent)
   );
+}
+
+[data-theme="dark"] .header[data-home][data-scrolled] .topbar,
+.header[data-home][data-scrolled] .topbar {
+  border-bottom: var(--border-width) solid var(--color-border);
+  background: var(--color-header-bg);
+  box-shadow: var(--shadow-card);
 }
 
 .topbar_inner {
@@ -91,7 +116,7 @@
 
   /* Accueil : l'en-tête est posé sur le hero bleu nuit. Les couleurs du menu, du
      sélecteur de langue et du bouton de thème passent aux teintes « bandeau ». */
-  .header[data-home] .topbar_inner {
+  .header[data-home]:not([data-scrolled]) .topbar_inner {
     --color-text: var(--color-on-band);
     --color-text-muted: var(--color-band-muted);
     --color-brand: var(--color-on-band);

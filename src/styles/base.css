@@ -13,6 +13,10 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Hauteur de l'en-tête (toujours visible) + marge, pour les liens d'ancre. */
+  scroll-padding-top: calc(
+    var(--space-7) + var(--space-4) + env(safe-area-inset-top, 0px)
+  );
 }
 
 body {

@@ -260,3 +260,8 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Doublon supprimé** : un ancien projet `agri-sup`, relié au même dépôt et sans variables d'environnement, échouait à chaque envoi. Supprimé par la cliente le 2026-10-07.
 - **Variables d'environnement** (Vercel > Settings > Environment Variables) : `DATABASE_URL`, `RATE_LIMIT_SECRET`, `NEXT_PUBLIC_WHATSAPP_NUMBER` (numéro de test), `FORMS_NOTIFICATION_EMAIL`, `NEXT_PUBLIC_SITE_URL` ; `RESEND_API_KEY` à ajouter pour l'envoi des emails ; `SITE_INDEXING` absente tant que l'indexation doit rester bloquée.
 
+### 2026-10-07 — Sprint « opérationnel pour samedi »
+
+- **Périmètre validé par la cliente** : page Domaines (nouvelle page), PWA installable (exception assumée au « hors périmètre : appli mobile » : même site, rendu installable, pas d'application native), icône d'application = sceau sur fond vert. Photos aquaculture, agroforesterie et agribusiness : fournies par la cliente.
+- **Bug menu mobile** : sur l'accueil, l'en-tête était en `position: absolute` (posé sur le hero) et disparaissait au défilement. Il est désormais `fixed`, transparent en haut de page puis à fond plein dès que la page défile (sentinelle observée par `IntersectionObserver`, sans écouteur de défilement). Ajouts : `viewport-fit=cover` et marge `safe-area-inset-top` (encoche iOS), page bloquée quand le menu est ouvert, hauteur du panneau en `dvh`, décalage des ancres centralisé (`scroll-padding-top`). Vérifié sur WebKit (iPhone SE, iPhone 14, iPad mini) et Chrome Android (Pixel 7, 320px).
+

@@ -32,9 +32,15 @@ export function MobileNav() {
       if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
     };
 
+    // Menu ouvert : la page derrière ne défile plus (le panneau garde son propre défilement).
+    const root = document.documentElement;
+    const previousOverflow = root.style.overflow;
+    root.style.overflow = "hidden";
+
     document.addEventListener("keydown", onKeyDown);
     document.addEventListener("pointerdown", onPointerDown);
     return () => {
+      root.style.overflow = previousOverflow;
       document.removeEventListener("keydown", onKeyDown);
       document.removeEventListener("pointerdown", onPointerDown);
     };
