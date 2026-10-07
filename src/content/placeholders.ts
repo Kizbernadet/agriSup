@@ -39,14 +39,14 @@ export const CONTACT = {
 type Localized = { fr: string; en: string };
 
 export const INSTITUTION = {
-  // Source : presentation_projet.md §13, « formulation de travail volontairement
-  // générale », à remplacer par la présentation officielle d'AGRI'SUP.
+  // Rédigée à partir du kakémono (offre de formation, système LMD) et des photos de
+  // l'établissement (laboratoire, salle informatique, champ d'expérimentation).
   presentation: {
-    fr: "AGRI'SUP est une école supérieure privée spécialisée dans les sciences et technologies agricoles. Implantée à Sotuba ACI à Bamako, elle s'inscrit dans une démarche de formation de professionnels dans les domaines liés à l'agriculture, à l'élevage et aux autres secteurs des sciences agricoles.",
-    en: "AGRI'SUP is a private higher school specialising in agricultural sciences and technologies. Based in Sotuba ACI, Bamako, it trains professionals in agriculture, livestock farming and other agricultural science sectors.",
+    fr: "AGRI'SUP est une école supérieure privée spécialisée dans les sciences et technologies agricoles, implantée à Sotuba ACI, à Bamako. Organisée selon le système LMD, elle propose six licences professionnelles et six DUT en production végétale, élevage et santé animale, aquaculture, agribusiness et agroforesterie. Laboratoire, salle informatique et champ d'expérimentation permettent aux étudiants d'apprendre en pratiquant.",
+    en: "AGRI'SUP is a private higher school specialising in agricultural sciences and technologies, based in Sotuba ACI, Bamako. Organised within the LMD system, it offers six professional bachelor's degrees and six technology diplomas (DUT) in crop production, livestock and animal health, aquaculture, agribusiness and agroforestry. A laboratory, a computer room and an experimental field let students learn by doing.",
   } satisfies Localized,
 
-  // Source : presentation_projet.md §18 (« positionnement recommandé »). À confirmer.
+  // Source : presentation_projet.md §18 (positionnement de l'établissement).
   axes: [
     { fr: "Formation supérieure agricole", en: "Higher agricultural education" },
     { fr: "Professionnalisation", en: "Professional training" },
@@ -57,7 +57,7 @@ export const INSTITUTION = {
     },
   ] satisfies Localized[],
 
-  // Source : presentation_projet.md §6 (parcours pédagogique conceptuel). À confirmer.
+  // Source : presentation_projet.md §6 (parcours pédagogique).
   pedagogy: [
     { fr: "Connaissances théoriques", en: "Theoretical knowledge" },
     { fr: "Mise en pratique", en: "Hands-on practice" },
@@ -68,20 +68,21 @@ export const INSTITUTION = {
     { fr: "Professionnalisation", en: "Professional readiness" },
   ] satisfies Localized[],
 
-  // Noms issus des éléments fournis ; la nature de toute collaboration reste à confirmer.
+  // Partenaires cités dans les documents fournis par la cliente ; descriptions limitées
+  // à des informations publiques sur chaque organisation.
   partners: [
     {
       name: "IPR/IFRA de Katibougou",
       description: {
-        fr: "Formation agricole ; partenariat à confirmer.",
-        en: "Agricultural training; partnership to be confirmed.",
+        fr: "Institut polytechnique rural de formation et de recherche appliquée, référence de l'enseignement agricole au Mali.",
+        en: "Rural Polytechnic Institute for Training and Applied Research, a leading name in agricultural education in Mali.",
       },
     },
     {
       name: "AFG Bank",
       description: {
-        fr: "Banque ; partenariat à confirmer.",
-        en: "Bank; partnership to be confirmed.",
+        fr: "Établissement bancaire présent au Mali, acteur du financement de l'économie.",
+        en: "A bank operating in Mali that helps finance the economy.",
       },
     },
   ] satisfies { name: string; description: Localized }[],
@@ -95,14 +96,17 @@ export const PRESENTATION_VIDEO: { youtubeId: string | null } = {
 };
 
 export const INSTITUTION_DETAILS = {
-  // Source : presentation_projet.md §2. « La liste définitive des domaines doit être
-  // confirmée par AGRI'SUP. »
+  // Domaines de l'offre de formation (kakémono officiel).
   fields: [
-    { fr: "Agriculture", en: "Agriculture" },
-    { fr: "Élevage", en: "Livestock farming" },
-    { fr: "Production animale", en: "Animal production" },
+    { fr: "Agronomie et production végétale", en: "Agronomy and crop production" },
+    { fr: "Zootechnie et productions animales", en: "Animal science and production" },
+    {
+      fr: "Médecine vétérinaire et santé animale",
+      en: "Veterinary medicine and animal health",
+    },
     { fr: "Aquaculture", en: "Aquaculture" },
-    { fr: "Autres sciences agricoles", en: "Other agricultural sciences" },
+    { fr: "Agribusiness", en: "Agribusiness" },
+    { fr: "Agroforesterie", en: "Agroforestry" },
   ] satisfies Localized[],
 
   // Source : presentation_projet.md §3. Historique NON VALIDÉ : la page l'affiche avec

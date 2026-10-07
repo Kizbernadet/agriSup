@@ -81,9 +81,7 @@ test.describe("Assistant FAQ", () => {
     await panel
       .getByRole("button", { name: "Quelles formations propose AGRI'SUP ?" })
       .click();
-    await expect(panel.getByRole("log")).toContainText(
-      "Les intitulés, niveaux et ouvertures du catalogue restent à valider",
-    );
+    await expect(panel.getByRole("log")).toContainText("six licences professionnelles");
 
     await panel.getByLabel("Votre question").fill("combien coûtent les études ?");
     await panel.getByRole("button", { name: "Envoyer" }).click();

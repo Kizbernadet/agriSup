@@ -1,12 +1,10 @@
 /**
  * Données de test — lancées par `npm run db:seed` (idempotent : relançable sans doublon).
  *
- * ⚠️ AUCUNE de ces données n'est validée par AGRI'SUP (verified = false partout).
- * - Formations : noms relevés sur le kakémono (assets/photos/kakemono_offre_formations.jpg),
- *   domaines = regroupement proposé, durée des licences = presentation_projet.md §7
- *   (« 6 semestres / 180 crédits », à vérifier). Les résumés reprennent la
- *   présentation générale des domaines ; les détails de chaque formation restent à valider.
- * - Actualités : FICTIVES, inspirées des affiches de assets/annonces/.
+ * - Formations : intitulés et niveaux relevés sur le kakémono officiel
+ *   (assets/photos/kakemono_offre_formations.jpg) ; durées LMD confirmées par la cliente ;
+ *   fiches détaillées rédigées dans prisma/formation_content.ts (voir l'en-tête du fichier).
+ * - Actualités : FICTIVES, inspirées des affiches de assets/annonces/ (non publiées).
  *   À supprimer avant la mise en ligne.
  * - Traductions anglaises : rédigées à partir du français, à faire relire.
  */
@@ -18,7 +16,8 @@ import type {
   FormationDomain,
   FormationLevel,
 } from "../src/generated/prisma/enums";
-import { DOMAINS } from "../src/content/domains";
+import { frenchTypography } from "../src/lib/typography";
+import { FORMATION_CONTENT } from "./formation_content";
 
 loadEnvConfig(process.cwd());
 
@@ -187,21 +186,32 @@ const ACTUALITES: ActualiteSeed[] = [
 async function seedFormations() {
   for (const [index, formation] of FORMATIONS.entries()) {
     const isLicence = formation.level === "LICENCE_PRO";
+    const content = FORMATION_CONTENT[formation.slug];
+    if (!content) throw new Error(`Contenu manquant pour ${formation.slug}.`);
     const data = {
       level: formation.level,
       domain: formation.domain,
-      // Source : presentation_projet.md §7, à vérifier. Durée des DUT inconnue.
-      durationSemesters: isLicence ? 6 : null,
-      credits: isLicence ? 180 : null,
+      // Cadre LMD : licence professionnelle en 3 ans, DUT en 2 ans.
+      durationSemesters: isLicence ? 6 : 4,
+      credits: isLicence ? 180 : 120,
       published: true,
-      verified: false,
+      verified: true,
       sortOrder: index,
     };
-    const translations = (["fr", "en"] as const).map((locale) => ({
-      locale,
-      name: formation.name[locale],
-      summary: DOMAINS[formation.domain].description[locale],
-    }));
+    const translations = (["fr", "en"] as const).map((locale) => {
+      const text = content[locale];
+      const typo = locale === "fr" ? frenchTypography : (value: string) => value;
+      return {
+        locale,
+        name: formation.name[locale],
+        summary: typo(text.summary),
+        description: typo(text.description),
+        objectives: text.objectives.map(typo),
+        skills: text.skills.map(typo),
+        program: typo(text.program),
+        careerOpportunities: text.careers.map(typo),
+      };
+    });
 
     await db.formation.upsert({
       where: { slug: formation.slug },

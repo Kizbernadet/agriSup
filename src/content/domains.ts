@@ -254,7 +254,7 @@ export const SECTOR_POINTS: { title: Localized; text: Localized }[] = [
   {
     title: { fr: "Des parcours variés", en: "A range of pathways" },
     text: {
-      fr: "Les activités mobilisent des compétences techniques, commerciales et de gestion ; les recrutements dépendent des besoins et qualifications de chaque poste.",
+      fr: "Les activités mobilisent des compétences techniques, commerciales et de gestion ; les recrutements dépendent des besoins et qualifications de chaque poste.",
       en: "The sector uses technical, commercial and management skills; hiring depends on each role's needs and qualifications.",
     },
   },

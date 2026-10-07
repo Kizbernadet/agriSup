@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Alert } from "@/components/ui/alert";
+import { Card } from "@/components/ui/card";
 import { CheckIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
@@ -9,7 +10,11 @@ import { PedagogySteps } from "@/components/home/pedagogy_steps";
 import { Timeline } from "@/components/ui/timeline";
 import { INSTITUTION, INSTITUTION_DETAILS } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
+import fieldPhoto from "../../../../assets/photos/etudiants_3.webp";
 import kakemono from "../../../../assets/photos/kakemono_offre_formations.jpg";
+import labPhoto from "../../../../assets/photos/labo_1.jpeg";
+import classroomPhoto from "../../../../assets/photos/salle_cours_1.jpeg";
+import computerPhoto from "../../../../assets/photos/salle_informatique_2.jpeg";
 import styles from "./agrisup.module.css";
 
 export async function generateMetadata({
@@ -37,7 +42,16 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
     { id: "presentation", label: tPage("presentation_title") },
     { id: "histoire", label: tPage("history_title") },
     { id: "pedagogie", label: tPage("pedagogy_title") },
+    { id: "infrastructures", label: tPage("infrastructures_title") },
   ];
+
+  // Photos réelles de l'établissement (assets/photos).
+  const facilities = [
+    { id: "lab", image: labPhoto },
+    { id: "computer", image: computerPhoto },
+    { id: "classroom", image: classroomPhoto },
+    { id: "field", image: fieldPhoto },
+  ] as const;
 
   return (
     <>
@@ -58,7 +72,6 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
       </PageHeader>
 
       <Section id="presentation" title={tPage("presentation_title")}>
-        <Alert variant="info">{tPage("overview_unverified")}</Alert>
         <div className={styles.presentation}>
           <div className={styles.presentation_text}>
             <p className={styles.lead}>{INSTITUTION.presentation[locale]}</p>
@@ -99,11 +112,34 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
 
       <Section
         id="pedagogie"
-        tone="surface"
         title={tPage("pedagogy_title")}
         intro={tPage("pedagogy_intro")}
       >
         <PedagogySteps locale={locale} />
+      </Section>
+
+      <Section
+        id="infrastructures"
+        tone="surface"
+        title={tPage("infrastructures_title")}
+        intro={tPage("infrastructures_intro")}
+      >
+        <ul className={styles.facilities}>
+          {facilities.map((facility) => (
+            <Card as="li" key={facility.id} className={styles.facility}>
+              <Image
+                src={facility.image}
+                alt=""
+                sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw"
+                quality={90}
+                className={styles.facility_image}
+                placeholder="blur"
+              />
+              <h3>{tPage(`infra_${facility.id}_title`)}</h3>
+              <p>{tPage(`infra_${facility.id}_text`)}</p>
+            </Card>
+          ))}
+        </ul>
       </Section>
     </>
   );

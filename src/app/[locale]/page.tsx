@@ -8,7 +8,6 @@ import { PresentationVideo } from "@/components/home/presentation_video";
 import type { ComponentProps } from "react";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
-import { Alert } from "@/components/ui/alert";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -98,7 +97,6 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           <div className={styles.intro_text} {...revealProps()}>
             <Eyebrow>{t("eyebrow_about")}</Eyebrow>
             <h2>{t("intro_title")}</h2>
-            <Alert variant="info">{t("content_validation_note")}</Alert>
             <p className={styles.presentation}>{INSTITUTION.presentation[locale]}</p>
             <ul className={styles.axes} aria-label={t("axes_title")}>
               {INSTITUTION.axes.map((axis, index) => {

@@ -239,3 +239,10 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Hero** : version en dégradé essayée puis abandonnée à la demande de la cliente ; retour au cadre or décalé. Photos agrandies au maximum net : colonne photo élargie (1,1 fr), hauteur jusqu'à 76 % de l'écran ; sur mobile, proportions d'origine (aucun recadrage des photos horizontales).
 - **Galerie « puzzle »** : zones nommées par photo (`grid-template-areas`), formes adaptées au format de chaque image, disposition asymétrique sur 2, 6 et 12 colonnes ; légère inclinaison et coins irréguliers. Les légendes permanentes et les loupes sont remplacées par un voile dégradé, une pastille « agrandir » et la légende, révélés au survol ou au focus (la légende reste le nom accessible du bouton).
 
+### 2026-10-07 — Lot 2 : contenus
+
+- **Fiches formations** : 12 fiches complètes (présentation, objectifs, compétences, programme indicatif par année, débouchés) dans `prisma/formation_content.ts`, appliquées en base par `npm run db:seed`. Intitulés et niveaux : kakémono officiel. Durées LMD confirmées par la cliente : licence professionnelle 6 semestres / 180 crédits, DUT 4 semestres / 120 crédits. Textes rédigés pour le site, validés pour la démonstration par la cliente ; `verified = true` (badges « à confirmer » retirés). Conditions d'admission et pièces par formation non rédigées (information institutionnelle).
+- **Mentions « à confirmer » retirées** là où l'information est sûre (offre de formation, durées, coordonnées, infrastructures visibles sur les photos). Conservées : repères historiques (non vérifiés), brouillon des mentions légales, rappel que la préinscription ne vaut pas admission.
+- **Typographie française** : espaces insécables avant « : ; ? ! » et dans les guillemets, appliquées aux messages FR, aux contenus FR (`src/content`) et au seed (`frenchTypography`, `src/lib/typography.ts`).
+- **Page AGRI'SUP** : nouvelle section « Infrastructures » illustrée (laboratoire, salle informatique, salles de cours, champ d'expérimentation et matériel).
+

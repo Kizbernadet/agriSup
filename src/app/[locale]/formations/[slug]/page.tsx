@@ -98,6 +98,7 @@ export default async function FormationDetailPage({
         {formation.program?.trim() && (
           <DetailSection id="programme" title={tDetail("program")}>
             <Paragraphs text={formation.program} />
+            <p className={styles.note}>{tDetail("program_note")}</p>
           </DetailSection>
         )}
         {formation.careerOpportunities.length > 0 && (

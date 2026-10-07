@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { academicYearOptions } from "@/lib/academic_year";
 import { pickTranslation } from "@/lib/data/translations";
 import { getClientIp } from "@/lib/client_ip";
+import { frenchTypography } from "@/lib/typography";
 import {
   actualitesQuerySchema,
   formationsQuerySchema,
@@ -82,5 +83,18 @@ describe("adresse IP du visiteur", () => {
 
   it("utilise une valeur de repli sans en-tête", () => {
     expect(getClientIp(new Headers())).toBe("unknown");
+  });
+});
+
+describe("typographie française", () => {
+  it("place les espaces insécables avant la ponctuation haute et dans les guillemets", () => {
+    expect(frenchTypography("Pourquoi ? Voici : « oui » ; non !")).toBe(
+      "Pourquoi\u202f? Voici\u00a0: «\u00a0oui\u00a0»\u202f; non\u202f!",
+    );
+  });
+
+  it("ne modifie pas un texte déjà correct", () => {
+    const text = "Déjà\u00a0: bon\u202f?";
+    expect(frenchTypography(text)).toBe(text);
   });
 });

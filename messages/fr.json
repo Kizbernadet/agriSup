@@ -2,7 +2,7 @@
   "metadata": {
     "site_name": "AGRI'SUP",
     "title": "AGRI'SUP — École Supérieure Privée des Sciences et Technologies Agricoles",
-    "description": "AGRI'SUP, école supérieure privée des sciences et technologies agricoles à Sotuba ACI, Bamako (Mali) : formations, admission, préinscription et contact."
+    "description": "AGRI'SUP, école supérieure privée des sciences et technologies agricoles à Sotuba ACI, Bamako (Mali) : formations, admission, préinscription et contact."
   },
   "pages": {
     "home": {
@@ -10,31 +10,31 @@
     },
     "agrisup": {
       "title": "AGRI'SUP",
-      "description": "Présentation d'AGRI'SUP : identité, domaines, histoire, vision, pédagogie et direction."
+      "description": "Découvrez AGRI'SUP : présentation de l'école, domaines de formation, histoire, pédagogie et infrastructures."
     },
     "formations": {
       "title": "Formations",
-      "description": "Catalogue provisoire des formations communiquées pour AGRI'SUP, avec des informations à confirmer par l'établissement."
+      "description": "Licences professionnelles et DUT en sciences et technologies agricoles, dans le système LMD, à AGRI'SUP (Bamako)."
     },
     "admission": {
       "title": "Admission",
-      "description": "Étapes d'admission et informations à confirmer auprès d'AGRI'SUP."
+      "description": "Conditions d'accès, démarche et préinscription pour rejoindre AGRI'SUP."
     },
     "preinscription": {
       "title": "Préinscription",
-      "description": "Préinscription en ligne à AGRI'SUP : transmettez vos informations pour démarrer votre procédure d'admission."
+      "description": "Préinscription en ligne à AGRI'SUP : transmettez vos informations pour démarrer votre procédure d'admission."
     },
     "actualites": {
       "title": "Actualités",
-      "description": "Actualités validées et publiées par AGRI'SUP."
+      "description": "Actualités, événements et activités pédagogiques d'AGRI'SUP."
     },
     "faq": {
       "title": "Questions fréquentes",
-      "description": "Questions fréquentes sur AGRI'SUP : formations, admission, préinscription et contact."
+      "description": "Questions fréquentes sur AGRI'SUP : formations, admission, préinscription et contact."
     },
     "contact": {
       "title": "Contact",
-      "description": "Contacter AGRI'SUP : adresse, téléphone, WhatsApp, email et formulaire de contact."
+      "description": "Contacter AGRI'SUP : adresse, téléphone, WhatsApp, email et formulaire de contact."
     },
     "mentions_legales": {
       "title": "Mentions légales et confidentialité",
@@ -100,7 +100,7 @@
     "consent_before": "J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la ",
     "consent_link": "politique de confidentialité",
     "error_title": "Le formulaire contient des erreurs",
-    "error_intro": "Corrigez les champs suivants puis renvoyez le formulaire :",
+    "error_intro": "Corrigez les champs suivants puis renvoyez le formulaire :",
     "rate_limited": "Trop d'envois en peu de temps. Réessayez dans quelques minutes.",
     "server_error": "L'envoi a échoué. Réessayez plus tard ou contactez-nous par téléphone ou WhatsApp.",
     "network_error": "Connexion impossible. Vérifiez votre connexion internet puis réessayez.",
@@ -121,9 +121,9 @@
     },
     "hints": {
       "email_or_phone": "Indiquez au moins un email ou un téléphone pour que nous puissions vous répondre.",
-      "phone": "Exemple : +223 70 00 00 00",
+      "phone": "Exemple : +223 70 00 00 00",
       "email_optional": "Facultatif, mais utile pour recevoir des documents.",
-      "message_optional": "Facultatif : votre situation, vos questions…"
+      "message_optional": "Facultatif : votre situation, vos questions…"
     },
     "education_levels": {
       "BAC_EN_COURS": "Baccalauréat en cours",
@@ -153,7 +153,7 @@
       "AGROFORESTERIE": "Agroforesterie"
     },
     "duration": "{semesters} semestres · {credits} crédits",
-    "duration_unknown": "Durée à confirmer",
+    "duration_unknown": "Durée communiquée sur demande",
     "level_label": "Niveau",
     "domain_label": "Domaine",
     "duration_label": "Durée",
@@ -164,8 +164,7 @@
     "whatsapp_message": "Bonjour AGRI'SUP, je souhaite obtenir des informations concernant la formation {name}."
   },
   "formations_page": {
-    "intro": "Le catalogue ci-dessous rassemble les formations communiquées pour AGRI'SUP. Leurs intitulés, niveaux, contenus, durées et ouvertures doivent encore être confirmés par l'établissement.",
-    "verification_notice": "Les fiches affichées sont provisoires et non validées. Elles ne constituent pas une offre officielle ; contactez AGRI'SUP pour obtenir les informations à jour.",
+    "intro": "AGRI'SUP propose six licences professionnelles en trois ans et six DUT en deux ans, organisés selon le système LMD (licence, master, doctorat). Filtrez par niveau ou par domaine pour trouver la formation qui correspond à votre projet.",
     "filters_title": "Filtrer les formations",
     "all": "Tous",
     "results": "{count, plural, =0 {Aucune formation ne correspond à ces critères.} one {# formation} other {# formations}}",
@@ -179,34 +178,34 @@
     "careers": "Débouchés",
     "admission": "Conditions d'admission",
     "documents": "Documents requis",
-    "apply_title": "Cette formation vous intéresse ?",
+    "apply_title": "Cette formation vous intéresse ?",
     "apply_text": "Transmettez votre préinscription ou posez vos questions à l'établissement.",
     "back": "Toutes les formations",
     "domain_title": "Le domaine en bref",
     "careers_examples": "Exemples de métiers du secteur",
-    "careers_note": "Ces métiers et secteurs sont des exemples généraux, pas des débouchés garantis. Les perspectives dépendent du parcours, des qualifications, de la réglementation et des besoins des employeurs.",
-    "careers_specific_note": "Les débouchés propres à cette formation restent à confirmer par AGRI'SUP.",
+    "careers_note": "Ces métiers et secteurs sont donnés à titre d'exemple : les perspectives dépendent du parcours, des qualifications et des besoins des employeurs.",
+    "careers_specific_note": "Les débouchés dépendent aussi de l'expérience acquise en stage et du projet professionnel de chacun.",
     "sectors_mali": "Exemples de secteurs au Mali",
-    "sectors_global": "Exemples de secteurs à l'international"
+    "sectors_global": "Exemples de secteurs à l'international",
+    "program_note": "Programme indicatif : la répartition des enseignements peut évoluer d'une année académique à l'autre."
   },
   "home": {
     "hero_title": "École Supérieure Privée des Sciences et Technologies Agricoles",
-    "hero_lead": "Découvrir les sciences et technologies agricoles, les domaines d'activité et les informations disponibles sur l'établissement.",
+    "hero_lead": "Des formations professionnalisantes en sciences et technologies agricoles, au cœur de Bamako.",
     "axes_title": "Nos axes de formation",
-    "intro_title": "Des sciences agricoles au cœur des enjeux du territoire",
-    "content_validation_note": "Les descriptions de l'établissement et ses axes ci-dessous reprennent les documents communiqués et restent à confirmer par AGRI'SUP.",
+    "intro_title": "Former les professionnels de l'agriculture de demain",
     "intro_more": "Découvrir AGRI'SUP",
     "featured_title": "Formations à la une",
     "featured_all": "Voir toutes les formations",
-    "why_title": "Pourquoi choisir AGRI'SUP ?",
-    "why_intro": "Un parcours pédagogique qui relie les connaissances au terrain.",
+    "why_title": "Pourquoi choisir AGRI'SUP ?",
+    "why_intro": "Un parcours qui part des connaissances scientifiques pour arriver au terrain et au métier.",
     "partners_title": "Partenaires",
-    "partners_intro": "Les documents de présentation citent ces organisations. La nature et l'existence de toute collaboration avec AGRI'SUP restent à confirmer.",
-    "cta_title": "Vous souhaitez rejoindre AGRI'SUP ?",
+    "partners_intro": "AGRI'SUP évolue aux côtés d'acteurs de la formation agricole et de la finance, pour rapprocher ses étudiants du monde professionnel.",
+    "cta_title": "Vous souhaitez rejoindre AGRI'SUP ?",
     "cta_step_1": "Découvrir les formations",
     "cta_step_2": "Vérifier les conditions",
     "cta_step_3": "Se préinscrire",
-    "cta_note": "La préinscription en ligne ne vaut pas admission définitive.",
+    "cta_note": "La préinscription en ligne est gratuite et sans engagement ; elle ne vaut pas admission définitive.",
     "video_play": "Lire la vidéo de présentation d'AGRI'SUP",
     "video_coming": "Vidéo de présentation à venir",
     "video_iframe_title": "Vidéo de présentation d'AGRI'SUP",
@@ -219,33 +218,33 @@
     "eyebrow_partners": "Réseau",
     "eyebrow_join": "Admission",
     "domains_title": "Nos domaines de formation",
-    "domains_intro": "Des domaines liés à la production, aux ressources naturelles et aux filières agricoles. Leur présence ne confirme pas l'ouverture d'une formation dans chaque domaine.",
+    "domains_intro": "Cinq grands domaines structurent l'offre de formation, de la production au marché.",
     "sector_title": "Comprendre les filières agricoles",
-    "sector_intro": "Production, conseil, transformation et commercialisation mobilisent des compétences différentes au Mali et au-delà.",
-    "hero_badge_levels": "Informations de formation à confirmer",
+    "sector_intro": "Production, conseil, transformation et commercialisation : les filières agricoles offrent des métiers variés, au Mali comme à l'international.",
+    "hero_badge_levels": "Licences professionnelles et DUT",
     "hero_badge_lmd": "Sciences et technologies agricoles"
   },
   "admission_page": {
-    "intro": "Les étapes générales sont présentées ci-dessous. Les critères, pièces et dates officiels doivent être confirmés directement auprès d'AGRI'SUP.",
-    "conditions_title": "Qui peut candidater ?",
-    "conditions_intro": "Les critères d'accès dépendent du niveau et de la formation choisie.",
-    "conditions_guidance": "Les critères d'admission peuvent varier selon le parcours. Contactez AGRI'SUP avant de constituer votre dossier pour vérifier les conditions correspondant à votre projet.",
-    "documents_title": "Quels documents fournir ?",
-    "documents_intro": "Préparez votre dossier après avoir vérifié les pièces demandées pour la formation visée.",
-    "documents_guidance": "Les pièces à fournir dépendent de la formation et de votre situation. L'équipe d'AGRI'SUP pourra vous indiquer les documents nécessaires avant le dépôt du dossier.",
-    "procedure_title": "Comment faire la démarche ?",
+    "intro": "Choisir sa formation, vérifier les conditions d'accès, se préinscrire : voici les étapes pour rejoindre AGRI'SUP. L'équipe vous accompagne à chacune d'elles.",
+    "conditions_title": "Qui peut candidater ?",
+    "conditions_intro": "La licence professionnelle et le DUT se préparent après le baccalauréat ou un diplôme équivalent.",
+    "conditions_guidance": "Les conditions précises dépendent de la formation choisie et de votre parcours. Avant de constituer votre dossier, échangez avec l'équipe d'AGRI'SUP : elle vous aidera à choisir la formation la plus adaptée.",
+    "documents_title": "Quels documents fournir ?",
+    "documents_intro": "Un dossier complet accélère le traitement de votre candidature.",
+    "documents_guidance": "Les pièces demandées varient selon la formation et votre situation. Après votre préinscription, l'équipe vous transmet la liste exacte des documents à fournir.",
+    "procedure_title": "Comment faire la démarche ?",
     "step_1": "Choisir une formation",
-    "step_1_description": "Comparez les formations présentées et retenez celle qui correspond à votre projet.",
+    "step_1_description": "Comparez les licences professionnelles et les DUT, puis retenez la formation qui correspond à votre projet.",
     "step_2": "Vérifier les conditions d'admission",
-    "step_2_description": "Les critères varient selon le niveau ; confirmez les conditions officielles auprès d'AGRI'SUP.",
+    "step_2_description": "Assurez-vous que votre diplôme correspond au niveau visé ; l'équipe peut vous conseiller.",
     "step_3": "Remplir le formulaire de préinscription",
-    "step_3_description": "Le formulaire transmet vos premières informations ; il ne vaut pas admission définitive.",
+    "step_3_description": "Le formulaire en ligne prend quelques minutes et transmet vos premières informations.",
     "step_4": "Être contacté par AGRI'SUP pour compléter le dossier",
-    "step_4_description": "L'établissement vous contactera pour indiquer les suites à donner au dossier.",
+    "step_4_description": "L'équipe vous recontacte pour vous indiquer les pièces à fournir et la suite de la démarche.",
     "step_5": "Suivre la procédure officielle d'admission",
-    "step_5_description": "Suivez les indications officielles communiquées par l'établissement.",
+    "step_5_description": "Déposez votre dossier complet et suivez les indications de l'établissement jusqu'à votre inscription.",
     "disclaimer": "La préinscription en ligne sert à transmettre vos premières informations. Elle ne vaut pas admission définitive.",
-    "questions_title": "Une question sur l'admission ?",
+    "questions_title": "Une question sur l'admission ?",
     "questions_text": "L'équipe d'AGRI'SUP vous répond par téléphone, WhatsApp ou via le formulaire de contact.",
     "eyebrow_conditions": "Étape 1",
     "eyebrow_documents": "Étape 2",
@@ -255,7 +254,7 @@
     "required": "Ce champ est obligatoire.",
     "too_long": "Ce texte est trop long.",
     "too_short": "Ce texte est trop court.",
-    "invalid_email": "Saisissez une adresse email valide (exemple : nom@exemple.com).",
+    "invalid_email": "Saisissez une adresse email valide (exemple : nom@exemple.com).",
     "invalid_phone": "Saisissez un numéro de téléphone valide (8 à 15 chiffres).",
     "invalid_choice": "Choisissez une option valide dans la liste.",
     "consent_required": "Vous devez accepter la politique de confidentialité pour envoyer le formulaire.",
@@ -268,11 +267,11 @@
     "send_another": "Envoyer un autre message"
   },
   "preinscription_page": {
-    "intro": "Transmettez vos coordonnées et votre projet d'études. Cette démarche exprime un intérêt et ne constitue ni une admission ni une confirmation d'ouverture de formation.",
+    "intro": "Transmettez vos coordonnées et votre projet d'études en quelques minutes. L'équipe d'AGRI'SUP vous recontacte ensuite pour la suite de la démarche.",
     "group_identity": "Vos coordonnées",
     "group_project": "Votre projet d'études",
-    "help_title": "Besoin d'aide ?",
-    "help_text": "Une question avant de vous préinscrire ? L'équipe d'AGRI'SUP vous répond. Les coordonnées affichées sont à confirmer auprès de l'établissement.",
+    "help_title": "Besoin d'aide ?",
+    "help_text": "Une question avant de vous préinscrire ? L'équipe d'AGRI'SUP vous répond par téléphone, par WhatsApp ou par email.",
     "success_title": "Préinscription envoyée",
     "success_text": "Merci {firstName}, votre préinscription a bien été transmise à AGRI'SUP. L'établissement vous contactera pour la suite de la procédure d'admission.",
     "success_whatsapp": "Vous pouvez aussi nous écrire sur WhatsApp pour toute question.",
@@ -280,26 +279,34 @@
     "back_home": "Retour à l'accueil"
   },
   "agrisup_page": {
-    "intro": "École supérieure privée des sciences et technologies agricoles, implantée à Sotuba ACI, Bamako.",
-    "overview_unverified": "Les descriptions générales, domaines et éléments pédagogiques ci-dessous sont issus des documents communiqués et restent à valider par l'établissement.",
+    "intro": "École supérieure privée des sciences et technologies agricoles, implantée à Sotuba ACI, à Bamako.",
     "on_this_page": "Sur cette page",
     "presentation_title": "Présentation",
     "fields_title": "Domaines couverts",
     "history_title": "Histoire",
-    "history_unverified": "Historique en cours de validation par l'établissement : les éléments ci-dessous proviennent des informations recueillies.",
+    "history_unverified": "Repères historiques en cours de précision avec l'établissement.",
     "vision_mission_title": "Vision et mission",
     "vision_title": "Vision",
     "mission_title": "Mission",
     "pedagogy_title": "Pédagogie",
-    "pedagogy_intro": "Le parcours de formation relie les connaissances théoriques à la pratique de terrain.",
+    "pedagogy_intro": "Le parcours de formation relie les connaissances théoriques à la pratique de terrain, jusqu'à l'insertion professionnelle.",
     "infrastructures_title": "Infrastructures et dispositifs pratiques",
     "direction_title": "Direction",
-    "direction_text": "La présentation de l'équipe de direction sera publiée après validation par l'établissement."
+    "direction_text": "La présentation de l'équipe de direction sera publiée après validation par l'établissement.",
+    "infrastructures_intro": "Des espaces équipés pour apprendre en pratiquant.",
+    "infra_lab_title": "Laboratoire",
+    "infra_lab_text": "Microscopes et loupes binoculaires pour les travaux pratiques de biologie, d'analyse et de santé animale.",
+    "infra_computer_title": "Salle informatique",
+    "infra_computer_text": "Des postes de travail pour la bureautique, les statistiques et la gestion.",
+    "infra_classroom_title": "Salles de cours",
+    "infra_classroom_text": "Des salles adaptées aux cours magistraux et aux travaux dirigés.",
+    "infra_field_title": "Champ d'expérimentation et matériel agricole",
+    "infra_field_text": "Un champ d'expérimentation et du matériel, dont un tracteur, pour la pratique au plus près des cultures."
   },
   "actualites_page": {
-    "intro": "Cette rubrique rassemble les informations de l'établissement après validation de leur contenu et de leur date de publication.",
+    "intro": "Annonces, événements et activités pédagogiques : suivez la vie de l'établissement.",
     "read_more": "Lire l'actualité",
-    "empty": "Aucune actualité validée n'est publiée pour le moment.",
+    "empty": "Aucune actualité n'est publiée pour le moment. Revenez bientôt !",
     "pagination": "Pagination des actualités",
     "previous": "Page précédente",
     "next": "Page suivante",
@@ -320,11 +327,11 @@
   },
   "faq_page": {
     "intro": "Les réponses aux questions les plus fréquentes sur AGRI'SUP, ses formations et la préinscription.",
-    "more_title": "Vous ne trouvez pas votre réponse ?",
+    "more_title": "Vous ne trouvez pas votre réponse ?",
     "more_text": "Posez votre question directement à l'équipe d'AGRI'SUP."
   },
   "contact_page": {
-    "intro": "Contactez AGRI'SUP au sujet de l'établissement, des formations communiquées ou de la procédure de préinscription.",
+    "intro": "Une question sur l'établissement, les formations ou la préinscription ? L'équipe d'AGRI'SUP vous répond.",
     "info_title": "Coordonnées",
     "address": "Adresse",
     "directions": "Itinéraire",
@@ -337,8 +344,8 @@
     "brochure_download": "Télécharger la brochure (PDF)",
     "map_title": "Plan d'accès",
     "map_load": "Afficher la carte",
-    "map_notice": "La carte est fournie par Google Maps : l'afficher transmet des données de navigation à Google.",
-    "map_iframe_title": "Carte : AGRI'SUP, Sotuba ACI, Bamako",
+    "map_notice": "La carte est fournie par Google Maps : l'afficher transmet des données de navigation à Google.",
+    "map_iframe_title": "Carte : AGRI'SUP, Sotuba ACI, Bamako",
     "open_in_maps": "ouvre Google Maps dans un nouvel onglet"
   },
   "legal_page": {
@@ -351,26 +358,26 @@
     "editor_manager": "Responsable de la publication",
     "editor_registration": "Immatriculation",
     "host_title": "Hébergement",
-    "host_text": "Le site est hébergé par :",
+    "host_text": "Le site est hébergé par :",
     "database_text": "Les données des formulaires sont stockées dans une base PostgreSQL hébergée par Neon, sur des serveurs situés dans l'Union européenne (Francfort, Allemagne). Les notifications par email sont envoyées via Resend.",
     "data_title": "Données personnelles",
-    "data_collected": "Données collectées : via le formulaire de contact (nom, email ou téléphone, sujet, message) et via le formulaire de préinscription (nom, prénom, téléphone, email facultatif, ville, niveau d'études, formation et année académique souhaitées, message facultatif).",
-    "data_purpose": "Finalité : ces données servent uniquement à répondre à vos demandes et à traiter votre préinscription. Elles ne sont ni vendues ni utilisées à des fins publicitaires.",
-    "data_basis": "Base légale : votre consentement, donné en cochant la case prévue dans chaque formulaire.",
-    "data_recipients": "Destinataires : le personnel habilité d'AGRI'SUP, ainsi que les prestataires techniques nécessaires au fonctionnement du site (hébergement, base de données, envoi d'emails).",
-    "data_retention": "Durée de conservation :",
-    "data_security": "Sécurité : les échanges sont chiffrés (HTTPS) ; les adresses IP utilisées pour limiter les envois abusifs ne sont jamais conservées en clair.",
+    "data_collected": "Données collectées : via le formulaire de contact (nom, email ou téléphone, sujet, message) et via le formulaire de préinscription (nom, prénom, téléphone, email facultatif, ville, niveau d'études, formation et année académique souhaitées, message facultatif).",
+    "data_purpose": "Finalité : ces données servent uniquement à répondre à vos demandes et à traiter votre préinscription. Elles ne sont ni vendues ni utilisées à des fins publicitaires.",
+    "data_basis": "Base légale : votre consentement, donné en cochant la case prévue dans chaque formulaire.",
+    "data_recipients": "Destinataires : le personnel habilité d'AGRI'SUP, ainsi que les prestataires techniques nécessaires au fonctionnement du site (hébergement, base de données, envoi d'emails).",
+    "data_retention": "Durée de conservation :",
+    "data_security": "Sécurité : les échanges sont chiffrés (HTTPS) ; les adresses IP utilisées pour limiter les envois abusifs ne sont jamais conservées en clair.",
     "rights_title": "Vos droits",
     "rights_text": "Conformément à la loi n° 2013-015 du 21 mai 2013 portant protection des données à caractère personnel en République du Mali, vous disposez d'un droit d'accès, de rectification, d'opposition et de suppression de vos données. Pour l'exercer, contactez AGRI'SUP via la page Contact. Vous pouvez également saisir l'Autorité de Protection des Données à caractère Personnel (APDP).",
     "cookies_title": "Cookies et stockage local",
-    "cookies_locale": "Langue : un cookie technique (NEXT_LOCALE) mémorise la langue choisie.",
-    "cookies_theme": "Thème : votre choix entre thème clair et sombre est enregistré dans le stockage local de votre navigateur, sans être transmis.",
-    "cookies_youtube": "Vidéo : la vidéo de présentation n'est chargée depuis YouTube (domaine youtube-nocookie.com) que si vous cliquez sur « lecture ». YouTube peut alors déposer ses propres traceurs.",
-    "cookies_maps": "Carte : la carte Google Maps n'est chargée que si vous cliquez sur « Afficher la carte ».",
+    "cookies_locale": "Langue : un cookie technique (NEXT_LOCALE) mémorise la langue choisie.",
+    "cookies_theme": "Thème : votre choix entre thème clair et sombre est enregistré dans le stockage local de votre navigateur, sans être transmis.",
+    "cookies_youtube": "Vidéo : la vidéo de présentation n'est chargée depuis YouTube (domaine youtube-nocookie.com) que si vous cliquez sur « lecture ». YouTube peut alors déposer ses propres traceurs.",
+    "cookies_maps": "Carte : la carte Google Maps n'est chargée que si vous cliquez sur « Afficher la carte ».",
     "cookies_none": "Aucun cookie publicitaire n'est utilisé.",
     "ip_title": "Propriété intellectuelle",
     "ip_text": "Les contenus de ce site (textes, logo, visuels) sont la propriété d'AGRI'SUP, sauf mention contraire. Toute reproduction sans autorisation est interdite.",
-    "credits": "Icônes : Heroicons (licence MIT) et Font Awesome Free (licence CC BY 4.0, fontawesome.com). Carrousel : Embla Carousel (licence MIT)."
+    "credits": "Icônes : Heroicons (licence MIT) et Font Awesome Free (licence CC BY 4.0, fontawesome.com). Carrousel : Embla Carousel (licence MIT)."
   },
   "slider": {
     "label": "Présentation d'AGRI'SUP",
@@ -379,17 +386,17 @@
     "go_to": "Aller à la diapositive {index}",
     "s1_eyebrow": "AGRI'SUP · Bamako",
     "s1_title": "Les sciences agricoles au service de l'avenir",
-    "s1_text": "Un établissement dédié aux sciences et technologies agricoles, au cœur de Bamako, avec une approche tournée vers les enjeux du secteur.",
-    "s2_eyebrow": "Apprendre par la pratique",
+    "s1_text": "Un établissement dédié aux sciences et technologies agricoles, au cœur de Bamako, tourné vers les enjeux du secteur.",
+    "s2_eyebrow": "Cinq domaines de formation",
     "s2_title": "Relier les connaissances au terrain",
-    "s2_text": "Production végétale, élevage, aquaculture, agribusiness et agroforesterie : explorez les domaines présentés par l'établissement.",
+    "s2_text": "Production végétale, élevage et santé animale, aquaculture, agribusiness et agroforesterie : découvrez les domaines enseignés à AGRI'SUP.",
     "s2_cta": "Explorer les domaines",
     "s3_eyebrow": "Admissions",
     "s3_title": "Échangeons sur votre projet de formation",
-    "s3_text": "Les modalités et les informations propres à chaque formation sont à confirmer auprès de l'établissement avant toute démarche.",
-    "s4_eyebrow": "Écosystème agricole",
-    "s4_title": "Des acteurs cités dans les documents",
-    "s4_text": "Ces organisations sont mentionnées dans les documents de présentation. Leur présence ici ne confirme pas l'existence d'un partenariat avec AGRI'SUP.",
+    "s3_text": "Choisissez votre formation, vérifiez les conditions d'accès et transmettez votre préinscription en ligne : l'équipe vous accompagne à chaque étape.",
+    "s4_eyebrow": "Un réseau professionnel",
+    "s4_title": "Ouverts sur le monde agricole",
+    "s4_text": "AGRI'SUP évolue aux côtés d'acteurs de la formation agricole et de la finance, pour rapprocher ses étudiants des réalités professionnelles.",
     "alt_campus": "Façade du bâtiment d'AGRI'SUP à Sotuba ACI, Bamako.",
     "alt_entrance": "Entrée d'AGRI'SUP à Sotuba ACI, avec l'enseigne de l'école au-dessus du bâtiment vert.",
     "alt_lab": "Deux étudiants en blouse verte observent un échantillon au microscope.",
@@ -398,14 +405,14 @@
   "gallery": {
     "eyebrow": "En images",
     "title": "AGRI'SUP en images",
-    "intro": "Bâtiment, laboratoire, salles de cours et activités pratiques : un aperçu des lieux où se forment les étudiants d'AGRI'SUP.",
-    "open": "Agrandir l'image : {caption}",
+    "intro": "Bâtiment, laboratoire, salles de cours et activités pratiques : un aperçu des lieux où se forment les étudiants d'AGRI'SUP.",
+    "open": "Agrandir l'image : {caption}",
     "close": "Fermer",
     "previous": "Image précédente",
     "next": "Image suivante",
     "dialog_label": "Visionneuse d'images",
     "counter": "{index} / {total}",
-    "kakemono": "Le kakémono d'AGRI'SUP : système LMD et offre de formation",
+    "kakemono": "Le kakémono d'AGRI'SUP : système LMD et offre de formation",
     "labo": "Le laboratoire et son parc de microscopes",
     "informatique": "La salle informatique",
     "elevage": "Au contact des animaux d'élevage",
@@ -416,26 +423,26 @@
     "pratique": "Travaux pratiques en élevage"
   },
   "faq_bot": {
-    "launcher": "Questions ?",
+    "launcher": "Questions ?",
     "open": "Ouvrir l'assistant des questions fréquentes",
     "close": "Fermer l'assistant",
     "title": "Assistant AGRI'SUP",
     "subtitle": "Réponses automatiques aux questions fréquentes",
-    "greeting": "Bonjour ! Je réponds aux questions fréquentes sur AGRI'SUP. Choisissez une question ou écrivez la vôtre.",
+    "greeting": "Bonjour ! Je réponds aux questions fréquentes sur AGRI'SUP. Choisissez une question ou écrivez la vôtre.",
     "suggestions": "Questions fréquentes",
     "input_label": "Votre question",
-    "placeholder": "Ex. : comment se préinscrire ?",
+    "placeholder": "Ex. : comment se préinscrire ?",
     "send": "Envoyer",
     "typing": "L'assistant écrit…",
-    "not_found": "Je n'ai pas trouvé de réponse à cette question. L'équipe d'AGRI'SUP peut vous répondre directement :",
+    "not_found": "Je n'ai pas trouvé de réponse à cette question. L'équipe d'AGRI'SUP peut vous répondre directement :",
     "contact_link": "Formulaire de contact",
     "more": "Autres questions",
     "you": "Vous",
     "bot": "Assistant",
-    "disclaimer": "Assistant automatique : réponses prédéfinies, sans intelligence artificielle. Aucune donnée n'est enregistrée.",
+    "disclaimer": "Assistant automatique : réponses prédéfinies, sans intelligence artificielle. Aucune donnée n'est enregistrée.",
     "restart": "Recommencer la conversation",
     "show_all": "Voir toutes les questions",
-    "reply_greeting": "Bonjour ! Choisissez une question ci-dessous ou écrivez la vôtre.",
-    "reply_thanks": "Avec plaisir ! Avez-vous une autre question ?"
+    "reply_greeting": "Bonjour ! Choisissez une question ci-dessous ou écrivez la vôtre.",
+    "reply_thanks": "Avec plaisir ! Avez-vous une autre question ?"
   }
 }

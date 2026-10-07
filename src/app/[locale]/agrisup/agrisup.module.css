@@ -95,3 +95,48 @@
   border-radius: var(--radius);
   box-shadow: var(--shadow-card-hover);
 }
+
+/* Infrastructures : 1 colonne, 2 dès 640px, 4 dès 1024px. */
+.facilities {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .facilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .facilities {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Classe doublée : passe devant le padding de Card. */
+.facility.facility {
+  overflow: hidden;
+  padding-top: 0;
+}
+
+/* Photo pleine largeur de la carte (marges de la carte annulées). */
+.facility_image {
+  width: calc(100% + var(--space-4) * 2);
+  max-width: none;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  margin-inline: calc(-1 * var(--space-4));
+  object-fit: cover;
+}
+
+.facility h3 {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+.facility p {
+  color: var(--color-text-muted);
+}
