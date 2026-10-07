@@ -1,8 +1,8 @@
 import { useTranslations } from "next-intl";
 import bankLogo from "../../../assets/photos/afg_bank_logo_2.png";
 import campusPhoto from "../../../assets/photos/batiment_1.jpg";
+import entrancePhoto from "../../../assets/photos/batiment_3.jpeg";
 import communityPhoto from "../../../assets/photos/etudiants_1.jpg";
-import fieldPhoto from "../../../assets/photos/etudiants_3.webp";
 import labPhoto from "../../../assets/photos/etudiants_2.jpg";
 import iprIfraLogo from "../../../assets/photos/ipr_ifra_logo.jpg";
 import { HeroSlider, type HeroSlide } from "./hero_slider";
@@ -24,8 +24,8 @@ export function HomeHero() {
     },
     {
       id: "terrain",
-      image: fieldPhoto,
-      imageAlt: tSlider("alt_field"),
+      image: entrancePhoto,
+      imageAlt: tSlider("alt_entrance"),
       eyebrow: tSlider("s2_eyebrow"),
       title: tSlider("s2_title"),
       text: tSlider("s2_text"),

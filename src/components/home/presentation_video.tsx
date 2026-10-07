@@ -4,9 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { PRESENTATION_VIDEO } from "@/content/placeholders";
-// Affiche fournie par la cliente (générée par IA, voir docs/decisions.md) utilisée comme
-// image d'aperçu en attendant une photo ou une vidéo réelle d'AGRI'SUP.
-import cover from "../../../assets/annonces/affiche_sortie_pedagogique.jpg";
+// Photo réelle d'une promotion au champ d'expérimentation, en image d'aperçu.
+import cover from "../../../assets/photos/etudiants_3.webp";
 import styles from "./presentation_video.module.css";
 
 // Façade « chargement au clic » : aucune ressource YouTube (≈ 1 Mo de scripts) n'est

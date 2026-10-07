@@ -21,6 +21,7 @@ import { faWheatAwn } from "@fortawesome/free-solid-svg-icons/faWheatAwn";
 export {
   AcademicCapIcon as GraduationIcon,
   ArrowPathIcon as RestartIcon,
+  ArrowsPointingOutIcon as ExpandIcon,
   ArrowRightIcon,
   Bars3Icon as MenuIcon,
   BeakerIcon as FlaskIcon,
@@ -40,9 +41,7 @@ export {
   MapPinIcon,
   MoonIcon,
   PaperAirplaneIcon as SendIcon,
-  PauseIcon,
   PhoneIcon,
-  PlayIcon,
   QuestionMarkCircleIcon as HelpIcon,
   SparklesIcon,
   SunIcon,

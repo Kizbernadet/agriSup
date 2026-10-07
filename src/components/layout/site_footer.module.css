@@ -84,6 +84,12 @@
   margin-top: 0;
 }
 
+/* Adresse sur plusieurs lignes : icône alignée sur la première ligne. */
+.address_link {
+  align-items: flex-start;
+  padding-block: var(--space-1);
+}
+
 .contact_link:hover,
 .nav_link:hover {
   color: var(--color-link);

@@ -7,7 +7,30 @@
 .horizontal {
   flex-direction: row;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-1);
+}
+
+/* Menu sur la ligne du logo : liens resserrés. Les icônes ne s'affichent que si le
+   cadre du menu est assez large pour les sept liens (requête de conteneur, déclarée
+   dans site_header.module.css). */
+.horizontal {
+  justify-content: space-evenly;
+}
+
+.horizontal .link {
+  gap: var(--space-1);
+  padding-inline: var(--space-1);
+}
+
+.horizontal .link::after {
+  right: var(--space-1);
+  left: var(--space-1);
+}
+
+@container main-nav (max-width: 47rem) {
+  .horizontal .icon {
+    display: none;
+  }
 }
 
 .vertical {

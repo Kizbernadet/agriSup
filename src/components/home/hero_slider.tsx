@@ -70,41 +70,45 @@ export function HeroSlider({ slides }: { slides: HeroSlide[] }) {
                 data-active={active ? "" : undefined}
                 inert={!active}
               >
-                <Image
-                  src={slide.image}
-                  alt={slide.imageAlt}
-                  fill
-                  sizes="100vw"
-                  className={styles.image}
-                  priority={index === 0}
-                  placeholder="blur"
-                />
-                <div className={styles.content}>
-                  <p className={styles.eyebrow}>{slide.eyebrow}</p>
-                  <Heading className={styles.title}>{slide.title}</Heading>
-                  <p className={styles.text}>{slide.text}</p>
-                  {slide.partners && (
-                    <ul className={styles.partners}>
-                      {slide.partners.map((partner) => (
-                        <li key={partner.name} className={styles.partner}>
-                          {partner.logo && (
-                            <Image
-                              src={partner.logo}
-                              alt=""
-                              className={styles.partner_logo}
-                              sizes="(min-width: 1024px) 180px, 120px"
-                            />
-                          )}
-                          <span>{partner.name}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {slide.action && (
-                    <ButtonLink href={slide.action.href} className={styles.action}>
-                      {slide.action.label}
-                    </ButtonLink>
-                  )}
+                <div className={styles.inner}>
+                  <div className={styles.content}>
+                    <p className={styles.eyebrow}>{slide.eyebrow}</p>
+                    <Heading className={styles.title}>{slide.title}</Heading>
+                    <p className={styles.text}>{slide.text}</p>
+                    {slide.partners && (
+                      <ul className={styles.partners}>
+                        {slide.partners.map((partner) => (
+                          <li key={partner.name} className={styles.partner}>
+                            {partner.logo && (
+                              <Image
+                                src={partner.logo}
+                                alt=""
+                                className={styles.partner_logo}
+                                sizes="(min-width: 1024px) 180px, 120px"
+                              />
+                            )}
+                            <span>{partner.name}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {slide.action && (
+                      <ButtonLink href={slide.action.href} className={styles.action}>
+                        {slide.action.label}
+                      </ButtonLink>
+                    )}
+                  </div>
+                  <div className={styles.media}>
+                    <Image
+                      src={slide.image}
+                      alt={slide.imageAlt}
+                      sizes="(min-width: 1024px) 680px, 100vw"
+                      quality={90}
+                      className={styles.photo}
+                      priority={index === 0}
+                      placeholder="blur"
+                    />
+                  </div>
                 </div>
               </div>
             );

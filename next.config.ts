@@ -8,7 +8,8 @@ const nextConfig: NextConfig = {
   images: {
     // AVIF en priorité (plus léger), WebP sinon : important sur connexions lentes.
     formats: ["image/avif", "image/webp"],
-    qualities: [75],
+    // 90 pour les photos mises en avant (hero, galerie) : netteté avant légèreté.
+    qualities: [75, 90],
   },
 };
 

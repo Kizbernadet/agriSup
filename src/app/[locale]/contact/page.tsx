@@ -5,7 +5,6 @@ import { MapEmbed } from "@/components/contact/map_embed";
 import { WhatsappButton } from "@/components/contact/whatsapp_button";
 import { ContactForm } from "@/components/forms/contact_form";
 import { Card } from "@/components/ui/card";
-import { Alert } from "@/components/ui/alert";
 import { MailIcon, MapPinIcon, PhoneIcon, WhatsappIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
@@ -47,14 +46,23 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
       />
 
       <Section id="coordonnees" title={tPage("info_title")}>
-        <Alert variant="info">{tPage("details_unverified")}</Alert>
         <div className={styles.info_layout}>
           <ul className={styles.info_list}>
             <InfoCard icon={<MapPinIcon />} title={tPage("address")}>
               <address className={styles.address}>
-                {address.street}, {address.district}
+                <a
+                  href={directionsUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.strong_link}
+                >
+                  {address.street}, {address.district}
+                  <br />
+                  {address.city}, {address.country}
+                  <span className="visually_hidden"> ({tPage("open_in_maps")})</span>
+                </a>
                 <br />
-                {address.city}, {address.country}
+                {address.landmark[locale]}
               </address>
               <a href={directionsUrl()} target="_blank" rel="noopener noreferrer">
                 {tPage("directions")} ↗

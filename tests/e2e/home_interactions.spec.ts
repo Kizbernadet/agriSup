@@ -29,63 +29,41 @@ test.describe("Carrousel de l'accueil", () => {
   });
 });
 
-test.describe("Carrousel des partenaires", () => {
-  test("avance automatiquement en boucle, sans IER, et peut être mis en pause", async ({
+test.describe("Ruban des partenaires", () => {
+  test("défile en continu, sans bouton, et ne lit chaque partenaire qu'une fois", async ({
     page,
   }) => {
     await page.emulateMedia({ reducedMotion: "no-preference" });
     await page.goto("/fr");
-    const carousel = page.getByRole("region", {
-      name: "Carrousel des partenaires cités",
-    });
-    await carousel.scrollIntoViewIfNeeded();
+    const section = page.locator("#partenaires");
+    await section.scrollIntoViewIfNeeded();
 
-    const activeSlide = carousel.locator('[aria-current="true"]');
-    const initialSlide = "Organisation 1 sur 2";
-    await expect(activeSlide).toHaveAttribute("aria-label", initialSlide);
-    // Seule commande : le bouton pause (WCAG 2.2.2).
-    await expect(carousel.getByRole("button")).toHaveCount(1);
-    await expect(carousel).not.toContainText("IER");
-    await expect
-      .poll(
-        async () => carousel.locator('[aria-current="true"]').getAttribute("aria-label"),
-        { timeout: 9000 },
-      )
-      .not.toBe(initialSlide);
-    await expect
-      .poll(
-        async () => carousel.locator('[aria-current="true"]').getAttribute("aria-label"),
-        { timeout: 9000 },
-      )
-      .toBe(initialSlide);
+    await expect(section.getByRole("button")).toHaveCount(0);
+    await expect(section).not.toContainText("IER");
+    // Doublons du ruban masqués aux lecteurs d'écran : 2 partenaires exposés.
+    await expect(section.getByRole("listitem")).toHaveCount(2);
+    await expect(section.getByRole("heading", { level: 3 })).toHaveText([
+      "IPR/IFRA de Katibougou",
+      "AFG Bank",
+    ]);
 
-    // Après une pause, plus aucun défilement.
-    await page.mouse.move(0, 0);
-    await carousel.getByRole("button", { name: /Mettre en pause/ }).click();
-    await page.mouse.move(0, 0);
-    await carousel.blur();
-    const pausedAt = await activeSlide.getAttribute("aria-label");
-    await page.waitForTimeout(8000);
-    expect(
-      await carousel.locator('[aria-current="true"]').getAttribute("aria-label"),
-    ).toBe(pausedAt);
-    await expect(carousel.getByRole("button", { name: /Reprendre/ })).toBeVisible();
+    const track = section.getByRole("list");
+    const position = () =>
+      track.evaluate((element) => new DOMMatrix(getComputedStyle(element).transform).m41);
+    const start = await position();
+    await expect.poll(position, { timeout: 5000 }).toBeLessThan(start);
   });
 
-  test("ne lance pas le défilement si le mouvement réduit est demandé", async ({
-    page,
-  }) => {
+  test("reste immobile si le mouvement réduit est demandé", async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/fr");
-    const carousel = page.getByRole("region", {
-      name: "Carrousel des partenaires cités",
-    });
-    await carousel.scrollIntoViewIfNeeded();
-    await expect(carousel.getByRole("button")).toHaveCount(0);
-    await expect(carousel.locator('[aria-current="true"]')).toHaveAttribute(
-      "aria-label",
-      "Organisation 1 sur 2",
-    );
+    const section = page.locator("#partenaires");
+    await section.scrollIntoViewIfNeeded();
+    const track = section.getByRole("list");
+    expect(
+      await track.evaluate((element) => getComputedStyle(element).animationName),
+    ).toBe("none");
+    await expect(section.locator("li:visible")).toHaveCount(2);
   });
 });
 
@@ -129,9 +107,9 @@ test.describe("Galerie", () => {
     await page.getByRole("button", { name: /Agrandir l'image : Le kakémono/ }).click();
     const dialog = page.getByRole("dialog", { name: "Visionneuse d'images" });
     await expect(dialog).toBeVisible();
-    await expect(dialog).toContainText("1 / 4");
+    await expect(dialog).toContainText("2 / 9");
     await dialog.getByRole("button", { name: "Image suivante" }).click();
-    await expect(dialog).toContainText("2 / 4");
+    await expect(dialog).toContainText("3 / 9");
     await page.keyboard.press("Escape");
     await expect(dialog).toBeHidden();
   });

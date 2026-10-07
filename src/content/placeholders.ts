@@ -7,12 +7,17 @@
  */
 
 export const CONTACT = {
-  // Source : presentation_projet.md §5, précisée par la cliente (Commune I). À confirmer.
+  // Source : presentation_projet.md §5, kakémono, affiche « Inscriptions ouvertes » et
+  // précisions de la cliente (quartier, repère, coordonnées GPS).
   address: {
     street: "Sotuba ACI",
     district: "Commune I",
     city: "Bamako",
     country: "Mali",
+    landmark: {
+      fr: "Près du terrain de football du Stade Malien",
+      en: "Near the Stade Malien football ground",
+    },
   },
 
   // Source : presentation_projet.md §12 et kakémono (assets/photos). À confirmer.
@@ -22,8 +27,8 @@ export const CONTACT = {
     { display: "+223 66 72 43 89", tel: "+22366724389" },
   ],
 
-  // TEST : adresse fournie pour les essais. L'email officiel reste à fournir.
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || null,
+  // Email officiel, affiché sur le kakémono de l'établissement.
+  email: "agrisup.bamako@yahoo.fr",
 
   // TEST : numéro WhatsApp d'essai (+34…). Officiel probable d'après le kakémono :
   // +223 66 72 43 89. À basculer avant la mise en ligne.

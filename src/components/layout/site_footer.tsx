@@ -1,9 +1,11 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { MailIcon, MapPinIcon, PhoneIcon, WhatsappIcon } from "@/components/ui/icons";
 import { CONTACT } from "@/content/placeholders";
 import { MAIN_NAV } from "@/content/site_config";
+import { toAppLocale } from "@/i18n/locale";
 import { Link } from "@/i18n/navigation";
+import { directionsUrl } from "@/lib/maps";
 import { buildWhatsappLink } from "@/lib/whatsapp_link";
 import { SiteLogo } from "./site_logo";
 import styles from "./site_footer.module.css";
@@ -12,6 +14,7 @@ export function SiteFooter() {
   const t = useTranslations("footer");
   const tNav = useTranslations("nav");
   const tWhatsapp = useTranslations("whatsapp");
+  const locale = toAppLocale(useLocale());
   const { address } = CONTACT;
 
   return (
@@ -25,12 +28,22 @@ export function SiteFooter() {
         <div className={styles.column}>
           <h2 className={styles.title}>{t("address_title")}</h2>
           <address className={styles.address}>
-            <MapPinIcon className={styles.icon} />
-            <span>
-              {address.street}, {address.district}
-              <br />
-              {address.city}, {address.country}
-            </span>
+            <a
+              href={directionsUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.contact_link} ${styles.address_link}`}
+            >
+              <MapPinIcon className={styles.icon} />
+              <span>
+                {address.street}, {address.district}
+                <br />
+                {address.city}, {address.country}
+                <br />
+                <span className={styles.muted}>{address.landmark[locale]}</span>
+                <span className="visually_hidden"> ({t("open_in_maps")})</span>
+              </span>
+            </a>
           </address>
         </div>
 

@@ -18,18 +18,18 @@ export function SiteHeader() {
       <div className={styles.topbar}>
         <Container className={styles.topbar_inner}>
           <SiteLogo />
-          <div className={styles.mobile_actions}>
-            <ThemeToggle />
-            <MobileNav />
+          {/* Ordinateur : menu sur la même ligne que le logo, dans un cadre transparent
+              de même hauteur. */}
+          <div className={styles.navigation}>
+            <MainNav orientation="horizontal" />
           </div>
-        </Container>
-      </div>
-      <div className={styles.navigation}>
-        <Container className={styles.navigation_inner}>
-          <MainNav orientation="horizontal" />
           <div className={styles.desktop_actions}>
             <LanguageSwitcher />
             <ThemeToggle />
+          </div>
+          <div className={styles.mobile_actions}>
+            <ThemeToggle />
+            <MobileNav />
           </div>
         </Container>
       </div>

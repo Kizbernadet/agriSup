@@ -82,7 +82,8 @@
     "phone": "Phone",
     "email": "Email",
     "legal": "Legal notice and privacy",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "open_in_maps": "opens Google Maps in a new tab"
   },
   "whatsapp": {
     "label": "Message us on WhatsApp",
@@ -201,10 +202,6 @@
     "why_intro": "A learning path that connects knowledge with the field.",
     "partners_title": "Partners",
     "partners_intro": "These organisations are mentioned in the presentation materials. The existence and nature of any collaboration with AGRI'SUP remain to be confirmed.",
-    "partners_carousel_label": "Carousel of cited organisations",
-    "partners_carousel_role": "carousel",
-    "partners_slide_role": "slide",
-    "partners_slide_label": "Organisation {index} of {total}",
     "cta_title": "Would you like to join AGRI'SUP?",
     "cta_step_1": "Explore the programs",
     "cta_step_2": "Check the requirements",
@@ -213,7 +210,7 @@
     "video_play": "Play the AGRI'SUP presentation video",
     "video_coming": "Presentation video coming soon",
     "video_iframe_title": "AGRI'SUP presentation video",
-    "video_cover_alt": "AGRI'SUP \"Field trip\" poster: a teacher shows ears of corn to students during a farm visit.",
+    "video_cover_alt": "A class of students in green lab coats at the AGRI'SUP experimental field.",
     "eyebrow_about": "About",
     "eyebrow_domains": "Fields",
     "eyebrow_featured": "Programs",
@@ -226,9 +223,7 @@
     "sector_title": "Understanding agricultural value chains",
     "sector_intro": "Production, advisory work, processing and marketing require different skills in Mali and beyond.",
     "hero_badge_levels": "Program information to be confirmed",
-    "hero_badge_lmd": "Agricultural sciences and technologies",
-    "partners_pause": "Pause the partners slideshow",
-    "partners_play": "Resume the partners slideshow"
+    "hero_badge_lmd": "Agricultural sciences and technologies"
   },
   "admission_page": {
     "intro": "The general steps are outlined below. Official criteria, required documents and dates must be confirmed directly with AGRI'SUP.",
@@ -330,7 +325,6 @@
   },
   "contact_page": {
     "intro": "Contact AGRI'SUP about the school, the programs communicated or the pre-registration process.",
-    "details_unverified": "The address and phone numbers come from the supplied materials and should be confirmed with the school before travelling or sending documents. The WhatsApp number depends on the site's test configuration.",
     "info_title": "Contact details",
     "address": "Address",
     "directions": "Directions",
@@ -344,7 +338,8 @@
     "map_title": "Map",
     "map_load": "Show the map",
     "map_notice": "The map is provided by Google Maps: displaying it sends browsing data to Google.",
-    "map_iframe_title": "Map: AGRI'SUP, Sotuba ACI, Bamako"
+    "map_iframe_title": "Map: AGRI'SUP, Sotuba ACI, Bamako",
+    "open_in_maps": "opens Google Maps in a new tab"
   },
   "legal_page": {
     "intro": "Legal information about this website and how your personal data is processed.",
@@ -395,25 +390,30 @@
     "s4_eyebrow": "Agricultural ecosystem",
     "s4_title": "Organisations mentioned in the materials",
     "s4_text": "These organisations are mentioned in the presentation materials. Their appearance here does not confirm a partnership with AGRI'SUP.",
-    "alt_campus": "The AGRI'SUP building in Bamako.",
-    "alt_field": "Students gathered in an agricultural experimental field.",
-    "alt_lab": "Students taking part in a practical agricultural training activity.",
-    "alt_partners": "Students and professionals gathered outside an AGRI'SUP building."
+    "alt_campus": "Front of the AGRI'SUP building in Sotuba ACI, Bamako.",
+    "alt_entrance": "The AGRI'SUP entrance in Sotuba ACI, with the school sign above the green building.",
+    "alt_lab": "Two students in green lab coats examine a sample under a microscope.",
+    "alt_partners": "A class of students in green lab coats with their supervisors outside the AGRI'SUP building."
   },
   "gallery": {
     "eyebrow": "In pictures",
     "title": "AGRI'SUP in pictures",
-    "intro": "The school's roll-up banner and communication visuals about agricultural training.",
+    "intro": "Building, laboratory, classrooms and hands-on activities: a look at the places where AGRI'SUP students learn.",
     "open": "Enlarge image: {caption}",
     "close": "Close",
     "previous": "Previous image",
     "next": "Next image",
     "dialog_label": "Image viewer",
     "counter": "{index} / {total}",
-    "kakemono": "AGRI'SUP's roll-up banner: LMD system and programs on offer",
-    "terrain": "In the field, close to the crops",
-    "etudiants": "Learning together",
-    "agriculture": "Modern agriculture"
+    "kakemono": "The AGRI'SUP roll-up banner: LMD system and programs",
+    "labo": "The laboratory and its microscopes",
+    "informatique": "The computer room",
+    "elevage": "Working alongside livestock",
+    "tracteur": "The tractor used for practical work",
+    "embleme": "The school emblem at the entrance",
+    "salle_cours": "A classroom",
+    "microscopes": "Microscopes and stereo microscopes",
+    "pratique": "Practical work in animal husbandry"
   },
   "faq_bot": {
     "launcher": "Questions?",

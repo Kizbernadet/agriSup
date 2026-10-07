@@ -29,10 +29,15 @@ import { toAppLocale } from "@/i18n/locale";
 import { Link } from "@/i18n/navigation";
 import { listFormations, type FormationSummary } from "@/lib/data/formations";
 import { revealProps } from "@/lib/reveal";
-import kakemono from "../../../public/images/galerie/kakemono_offre_formations.jpg";
-import slideAgriculture from "../../../public/images/slider/slide_agriculture.jpg";
-import slideEtudiants from "../../../public/images/slider/slide_etudiants.jpg";
-import slideTerrain from "../../../public/images/slider/slide_terrain.jpg";
+import embleme from "../../../assets/photos/batiment_2.jpeg";
+import elevage from "../../../assets/photos/elevage_1.jpeg";
+import elevagePratique from "../../../assets/photos/elevage_2.jpeg";
+import tracteur from "../../../assets/photos/equipement_3.jpeg";
+import kakemono from "../../../assets/photos/kakemono_offre_formations.jpg";
+import labo1 from "../../../assets/photos/labo_1.jpeg";
+import labo3 from "../../../assets/photos/labo_3.jpeg";
+import salleCours from "../../../assets/photos/salle_cours_1.jpeg";
+import salleInformatique from "../../../assets/photos/salle_informatique_1.jpeg";
 import styles from "./home.module.css";
 
 export const revalidate = 3600;
@@ -176,22 +181,58 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         <PhotoGallery
           items={[
             {
+              id: "labo",
+              image: labo1,
+              caption: tGallery("labo"),
+              sizes: "(min-width: 1024px) 520px, (min-width: 640px) 66vw, 100vw",
+            },
+            {
               id: "kakemono",
               image: kakemono,
               caption: tGallery("kakemono"),
-              shape: "tall",
+              sizes: "(min-width: 1024px) 300px, (min-width: 640px) 33vw, 50vw",
             },
             {
-              id: "terrain",
-              image: slideTerrain,
-              caption: tGallery("terrain"),
-              shape: "wide",
+              id: "elevage",
+              image: elevage,
+              caption: tGallery("elevage"),
+              sizes: "(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw",
             },
-            { id: "etudiants", image: slideEtudiants, caption: tGallery("etudiants") },
             {
-              id: "agriculture",
-              image: slideAgriculture,
-              caption: tGallery("agriculture"),
+              id: "tracteur",
+              image: tracteur,
+              caption: tGallery("tracteur"),
+              sizes: "(min-width: 1024px) 300px, (min-width: 640px) 33vw, 50vw",
+            },
+            {
+              id: "embleme",
+              image: embleme,
+              caption: tGallery("embleme"),
+              sizes: "(min-width: 1024px) 300px, (min-width: 640px) 33vw, 50vw",
+            },
+            {
+              id: "informatique",
+              image: salleInformatique,
+              caption: tGallery("informatique"),
+              sizes: "(min-width: 1024px) 300px, (min-width: 640px) 33vw, 50vw",
+            },
+            {
+              id: "salle_cours",
+              image: salleCours,
+              caption: tGallery("salle_cours"),
+              sizes: "(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw",
+            },
+            {
+              id: "microscopes",
+              image: labo3,
+              caption: tGallery("microscopes"),
+              sizes: "(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw",
+            },
+            {
+              id: "pratique",
+              image: elevagePratique,
+              caption: tGallery("pratique"),
+              sizes: "(min-width: 1024px) 300px, (min-width: 640px) 33vw, 50vw",
             },
           ]}
         />
@@ -222,13 +263,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         className={styles.cta_band}
       >
         {/* Photo de fond décorative sous un voile sombre (texte lisible quelle que soit l'image). */}
-        <Image
-          src={slideAgriculture}
-          alt=""
-          fill
-          sizes="100vw"
-          className={styles.cta_photo}
-        />
+        <Image src={labo3} alt="" fill sizes="100vw" className={styles.cta_photo} />
         <Container className={styles.cta_inner}>
           <div {...revealProps()}>
             <Eyebrow onBand>{t("eyebrow_join")}</Eyebrow>

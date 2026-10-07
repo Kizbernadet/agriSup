@@ -9,7 +9,7 @@ import { PedagogySteps } from "@/components/home/pedagogy_steps";
 import { Timeline } from "@/components/ui/timeline";
 import { INSTITUTION, INSTITUTION_DETAILS } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
-import kakemono from "../../../../public/images/galerie/kakemono_offre_formations.jpg";
+import kakemono from "../../../../assets/photos/kakemono_offre_formations.jpg";
 import styles from "./agrisup.module.css";
 
 export async function generateMetadata({

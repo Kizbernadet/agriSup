@@ -7,17 +7,18 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   CloseIcon,
-  SearchIcon,
+  ExpandIcon,
 } from "@/components/ui/icons";
 import { revealProps } from "@/lib/reveal";
 import styles from "./photo_gallery.module.css";
 
 export type GalleryItem = {
+  // Sert aussi de nom de zone dans la grille « puzzle » (photo_gallery.module.css).
   id: string;
   image: StaticImageData;
   caption: string;
-  // "tall" : image portrait (occupe deux rangées de la mosaïque).
-  shape?: "tall" | "wide";
+  // Largeur maximale affichée de la case : le navigateur télécharge la bonne résolution.
+  sizes: string;
 };
 
 // Mosaïque + visionneuse. La visionneuse utilise l'élément natif <dialog> :
@@ -57,34 +58,42 @@ export function PhotoGallery({ items }: { items: GalleryItem[] }) {
   return (
     <>
       <ul className={styles.mosaic}>
-        {items.map((entry, index) => (
-          <li
-            key={entry.id}
-            className={styles.tile}
-            data-shape={entry.shape}
-            {...revealProps(index)}
-          >
-            <button
-              type="button"
-              className={styles.tile_button}
-              onClick={() => open(index)}
-              aria-label={t("open", { caption: entry.caption })}
+        {items.map((entry, index) => {
+          const reveal = revealProps(index);
+          return (
+            <li
+              key={entry.id}
+              className={styles.tile}
+              {...reveal}
+              style={{ ...reveal.style, gridArea: entry.id }}
             >
-              <Image
-                src={entry.image}
-                alt=""
-                fill
-                sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
-                className={styles.tile_image}
-                placeholder="blur"
-              />
-              <span className={styles.caption} aria-hidden="true">
-                <SearchIcon />
-                {entry.caption}
-              </span>
-            </button>
-          </li>
-        ))}
+              <button
+                type="button"
+                className={styles.tile_button}
+                onClick={() => open(index)}
+                aria-label={t("open", { caption: entry.caption })}
+              >
+                <Image
+                  src={entry.image}
+                  alt=""
+                  fill
+                  sizes={entry.sizes}
+                  quality={90}
+                  className={styles.tile_image}
+                  placeholder="blur"
+                />
+                {/* Révélé au survol ou au focus : voile dégradé, légende et pastille
+                  « agrandir ». Au repos, la photo reste nue. */}
+                <span className={styles.veil} aria-hidden="true">
+                  <span className={styles.expand}>
+                    <ExpandIcon />
+                  </span>
+                  <span className={styles.caption}>{entry.caption}</span>
+                </span>
+              </button>
+            </li>
+          );
+        })}
       </ul>
 
       <dialog
@@ -105,6 +114,7 @@ export function PhotoGallery({ items }: { items: GalleryItem[] }) {
                 alt={item.caption}
                 fill
                 sizes="90vw"
+                quality={90}
                 className={styles.viewer_image}
               />
             </div>

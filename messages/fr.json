@@ -82,7 +82,8 @@
     "phone": "Téléphone",
     "email": "Email",
     "legal": "Mentions légales et confidentialité",
-    "rights": "Tous droits réservés."
+    "rights": "Tous droits réservés.",
+    "open_in_maps": "ouvre Google Maps dans un nouvel onglet"
   },
   "whatsapp": {
     "label": "Nous écrire sur WhatsApp",
@@ -201,10 +202,6 @@
     "why_intro": "Un parcours pédagogique qui relie les connaissances au terrain.",
     "partners_title": "Partenaires",
     "partners_intro": "Les documents de présentation citent ces organisations. La nature et l'existence de toute collaboration avec AGRI'SUP restent à confirmer.",
-    "partners_carousel_label": "Carrousel des partenaires cités",
-    "partners_carousel_role": "carrousel",
-    "partners_slide_role": "diapositive",
-    "partners_slide_label": "Organisation {index} sur {total}",
     "cta_title": "Vous souhaitez rejoindre AGRI'SUP ?",
     "cta_step_1": "Découvrir les formations",
     "cta_step_2": "Vérifier les conditions",
@@ -213,7 +210,7 @@
     "video_play": "Lire la vidéo de présentation d'AGRI'SUP",
     "video_coming": "Vidéo de présentation à venir",
     "video_iframe_title": "Vidéo de présentation d'AGRI'SUP",
-    "video_cover_alt": "Affiche AGRI'SUP « Sortie pédagogique » : un enseignant présente des épis de maïs à des étudiants lors d'une visite de ferme.",
+    "video_cover_alt": "Une promotion d'étudiants en blouse verte au champ d'expérimentation d'AGRI'SUP.",
     "eyebrow_about": "À propos",
     "eyebrow_domains": "Domaines",
     "eyebrow_featured": "Formations",
@@ -226,9 +223,7 @@
     "sector_title": "Comprendre les filières agricoles",
     "sector_intro": "Production, conseil, transformation et commercialisation mobilisent des compétences différentes au Mali et au-delà.",
     "hero_badge_levels": "Informations de formation à confirmer",
-    "hero_badge_lmd": "Sciences et technologies agricoles",
-    "partners_pause": "Mettre en pause le défilement des partenaires",
-    "partners_play": "Reprendre le défilement des partenaires"
+    "hero_badge_lmd": "Sciences et technologies agricoles"
   },
   "admission_page": {
     "intro": "Les étapes générales sont présentées ci-dessous. Les critères, pièces et dates officiels doivent être confirmés directement auprès d'AGRI'SUP.",
@@ -330,7 +325,6 @@
   },
   "contact_page": {
     "intro": "Contactez AGRI'SUP au sujet de l'établissement, des formations communiquées ou de la procédure de préinscription.",
-    "details_unverified": "Adresse et numéros issus des documents fournis, à confirmer auprès de l'établissement avant tout déplacement ou envoi de documents. Le numéro WhatsApp dépend de la configuration de test du site.",
     "info_title": "Coordonnées",
     "address": "Adresse",
     "directions": "Itinéraire",
@@ -344,7 +338,8 @@
     "map_title": "Plan d'accès",
     "map_load": "Afficher la carte",
     "map_notice": "La carte est fournie par Google Maps : l'afficher transmet des données de navigation à Google.",
-    "map_iframe_title": "Carte : AGRI'SUP, Sotuba ACI, Bamako"
+    "map_iframe_title": "Carte : AGRI'SUP, Sotuba ACI, Bamako",
+    "open_in_maps": "ouvre Google Maps dans un nouvel onglet"
   },
   "legal_page": {
     "intro": "Informations légales sur le site et sur le traitement de vos données personnelles.",
@@ -395,15 +390,15 @@
     "s4_eyebrow": "Écosystème agricole",
     "s4_title": "Des acteurs cités dans les documents",
     "s4_text": "Ces organisations sont mentionnées dans les documents de présentation. Leur présence ici ne confirme pas l'existence d'un partenariat avec AGRI'SUP.",
-    "alt_campus": "Façade du bâtiment d'AGRI'SUP à Bamako.",
-    "alt_field": "Étudiants réunis dans un champ d'expérimentation agricole.",
-    "alt_lab": "Étudiants participant à une activité pratique de formation agricole.",
-    "alt_partners": "Étudiants et professionnels réunis devant un bâtiment d'AGRI'SUP."
+    "alt_campus": "Façade du bâtiment d'AGRI'SUP à Sotuba ACI, Bamako.",
+    "alt_entrance": "Entrée d'AGRI'SUP à Sotuba ACI, avec l'enseigne de l'école au-dessus du bâtiment vert.",
+    "alt_lab": "Deux étudiants en blouse verte observent un échantillon au microscope.",
+    "alt_partners": "Promotion d'étudiants en blouse verte, accompagnés de leurs encadrants, devant le bâtiment d'AGRI'SUP."
   },
   "gallery": {
     "eyebrow": "En images",
     "title": "AGRI'SUP en images",
-    "intro": "Le kakémono de l'établissement et des visuels de communication sur la formation agricole.",
+    "intro": "Bâtiment, laboratoire, salles de cours et activités pratiques : un aperçu des lieux où se forment les étudiants d'AGRI'SUP.",
     "open": "Agrandir l'image : {caption}",
     "close": "Fermer",
     "previous": "Image précédente",
@@ -411,9 +406,14 @@
     "dialog_label": "Visionneuse d'images",
     "counter": "{index} / {total}",
     "kakemono": "Le kakémono d'AGRI'SUP : système LMD et offre de formation",
-    "terrain": "Sur le terrain, au plus près des cultures",
-    "etudiants": "Apprendre ensemble",
-    "agriculture": "Une agriculture moderne"
+    "labo": "Le laboratoire et son parc de microscopes",
+    "informatique": "La salle informatique",
+    "elevage": "Au contact des animaux d'élevage",
+    "tracteur": "Le tracteur utilisé pour les travaux pratiques",
+    "embleme": "L'emblème de l'école à l'entrée",
+    "salle_cours": "Une salle de cours",
+    "microscopes": "Microscopes et loupes binoculaires",
+    "pratique": "Travaux pratiques en élevage"
   },
   "faq_bot": {
     "launcher": "Questions ?",

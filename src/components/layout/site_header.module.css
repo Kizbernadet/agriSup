@@ -58,32 +58,46 @@
     background-color: var(--color-header-bg);
   }
 
-  .topbar {
-    border-bottom: 0;
-  }
-
-  .topbar_inner {
-    min-height: var(--space-7);
+  /* En-tête un peu plus large que le contenu (1200px + 2 × 64px), à la demande de la
+     cliente : le menu respire davantage. Classe doublée pour passer devant Container. */
+  .topbar_inner.topbar_inner {
+    justify-content: space-evenly;
+    gap: var(--space-4);
+    max-width: calc(var(--container-max) + var(--space-7) * 2);
   }
 
   .mobile_actions {
     display: none;
   }
 
+  /* Zone transparente du menu, à la hauteur du logo (même formule que site_logo) ;
+     les liens y sont répartis avec un espacement égal. */
   .navigation {
-    display: block;
-    border-block: var(--border-width) solid var(--color-border);
-    background-color: var(--color-header-bg);
+    container: main-nav / inline-size;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    min-height: calc(var(--tap-target) + var(--space-3));
+    background-color: transparent;
   }
 
-  .navigation_inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4);
+  .navigation > nav {
+    flex: 1 1 auto;
   }
 
   .desktop_actions {
     display: flex;
+  }
+
+  /* Accueil : l'en-tête est posé sur le hero bleu nuit. Les couleurs du menu, du
+     sélecteur de langue et du bouton de thème passent aux teintes « bandeau ». */
+  .header[data-home] .topbar_inner {
+    --color-text: var(--color-on-band);
+    --color-text-muted: var(--color-band-muted);
+    --color-brand: var(--color-on-band);
+    --color-action: var(--color-band-accent);
+    --color-focus: var(--color-band-accent);
+    --color-border: color-mix(in srgb, var(--color-on-band) 28%, transparent);
+    --color-surface-raised: color-mix(in srgb, var(--color-on-band) 12%, transparent);
   }
 }

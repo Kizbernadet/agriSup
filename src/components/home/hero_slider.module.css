@@ -18,74 +18,59 @@
   touch-action: pan-y pinch-zoom;
 }
 
+/* Diapositive : fond de la charte (pas de photo agrandie en arrière-plan). La photo est
+   affichée dans un cadre, jamais au-delà de sa taille réelle : elle reste nette. */
 .slide {
   position: relative;
   isolation: isolate;
+  display: flex;
   flex: 0 0 100%;
+  align-items: center;
   min-width: 0;
-  min-height: 100svh;
-  overflow: hidden;
-  /* Fond photo sombre : contour de focus or, visible dans les deux thèmes. */
+  /* Laisse la place à l'en-tête du site, posé sur le hero en page d'accueil. */
+  padding-top: calc(var(--space-7) + var(--space-4));
+  padding-bottom: var(--space-7);
+  /* Fond sombre : contour de focus or, visible dans les deux thèmes. */
   --color-focus: var(--color-band-accent);
   background-color: var(--color-band-bg);
+  background-image:
+    radial-gradient(circle at 90% 10%, var(--color-accent-soft), transparent 45%),
+    radial-gradient(circle at 0% 100%, var(--color-action-soft), transparent 50%);
+  color: var(--color-on-band);
 }
 
-.slide::after {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  background:
-    linear-gradient(var(--photo-overlay), var(--photo-overlay)),
-    var(--photo-text-gradient);
-  content: "";
-  pointer-events: none;
-}
-
-[data-theme="dark"] .slide::after {
-  background:
-    radial-gradient(
-      ellipse at 85% 20%,
-      color-mix(in srgb, var(--color-accent) 12%, transparent),
-      transparent 55%
-    ),
-    linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-bg) 42%, transparent),
-      color-mix(in srgb, var(--color-action) 13%, transparent)
-    ),
-    linear-gradient(var(--photo-overlay), var(--photo-overlay)),
-    var(--photo-text-gradient);
-}
-
-.image {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
+.inner {
+  display: grid;
+  gap: var(--space-5);
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.01);
-  transition: transform var(--transition-slow);
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
 }
 
-.slide[data-active] .image {
-  transform: scale(1.04);
+/* Mobile : la photo en premier, le texte dessous. Proportions d'origine (une photo
+   horizontale n'est pas recadrée, donc pas agrandie) ; les photos verticales sont
+   plafonnées en hauteur. */
+.media {
+  position: relative;
+  order: -1;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 52svh;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: var(--shadow-card-hover);
 }
 
 .content {
-  position: absolute;
-  z-index: 1;
-  inset: auto 0 0;
   display: grid;
   align-items: start;
   justify-items: start;
   gap: var(--space-3);
-  width: 100%;
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding: var(--space-6) var(--space-3)
-    calc(var(--space-7) + var(--space-7) + var(--space-4));
-  color: var(--color-on-photo);
 }
 
 .eyebrow {
@@ -107,22 +92,22 @@
 
 .title {
   max-width: var(--line-length);
-  color: var(--color-on-photo);
+  color: var(--color-on-band);
   font-size: var(--font-size-h1);
   line-height: var(--line-height-h1);
 }
 
 .text {
   max-width: var(--line-length);
-  color: var(--color-on-photo);
+  color: var(--color-on-band);
   font-size: var(--font-size-h4);
   line-height: var(--line-height-h4);
 }
 
 [data-theme="dark"] .action {
-  border-color: var(--color-on-photo);
+  border-color: var(--color-on-band);
   background-color: transparent;
-  color: var(--color-on-photo);
+  color: var(--color-on-band);
 }
 
 [data-theme="dark"] .action::before {
@@ -204,20 +189,52 @@
 }
 
 @media (min-width: 640px) {
-  .content {
+  .inner {
     padding-inline: var(--space-4);
   }
-}
 
-@media (min-width: 1024px) {
-  .content {
-    padding-inline: var(--space-5);
-    padding-bottom: var(--space-7);
+  .photo {
+    max-height: 60svh;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .image {
-    transform: none;
+/* Ordinateur : texte à gauche, photo à droite à ses proportions d'origine (aucun
+   recadrage). La colonne photo est la plus large et la hauteur va jusqu'à 76 % de
+   l'écran : les photos (1080 à 2048px) restent affichées sous leur résolution réelle. */
+@media (min-width: 1024px) {
+  .slide {
+    min-height: 100svh;
+    /* En-tête sur une seule ligne. */
+    padding-top: calc(var(--space-7) + var(--space-5));
+  }
+
+  .inner {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: var(--space-6);
+    padding-inline: var(--space-5);
+  }
+
+  .media {
+    order: 0;
+    justify-self: end;
+  }
+
+  /* Cadre or décalé, purement décoratif. */
+  .media::before {
+    position: absolute;
+    z-index: -1;
+    inset: var(--space-3) calc(-1 * var(--space-3)) calc(-1 * var(--space-3))
+      var(--space-3);
+    border: var(--border-width) solid var(--color-band-accent);
+    border-radius: var(--radius);
+    content: "";
+  }
+
+  .photo {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: min(76svh, calc(var(--space-7) * 12));
   }
 }

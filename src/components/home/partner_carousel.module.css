@@ -1,51 +1,30 @@
-.carousel {
-  position: relative;
-  display: grid;
-  gap: var(--space-2);
-  min-width: 0;
-}
-
-/* Bouton pause discret (WCAG 2.2.2), aligné à droite sous les cartes. */
-.pause {
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--tap-target);
-  height: var(--tap-target);
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--radius);
-  background-color: var(--color-surface);
-  color: var(--color-brand);
-  cursor: pointer;
-  transition:
-    background-color var(--transition),
-    color var(--transition);
-}
-
-.pause:hover {
-  background-color: var(--color-action);
-  color: var(--color-on-action);
-}
-
-.pause svg {
-  width: var(--space-4);
-  height: var(--space-4);
-}
-
-.viewport {
+/* Ruban de partenaires : deux moitiés identiques qui glissent de -50 %, d'où une boucle
+   sans à-coup. Les bords s'estompent (masque) pour suggérer la continuité. */
+.marquee {
   overflow: hidden;
-  border-radius: var(--radius);
+  padding-block: var(--space-2);
+  /* Le masque n'utilise que l'opacité : la couleur choisie est indifférente. */
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-text) var(--space-5),
+    var(--color-text) calc(100% - var(--space-5)),
+    transparent
+  );
 }
 
 .track {
   display: flex;
-  touch-action: pan-y pinch-zoom;
+  width: max-content;
+  list-style: none;
+  padding: 0;
 }
 
-.slide {
-  flex: 0 0 88%;
-  min-width: 0;
+/* Espacement porté par chaque élément (et non par « gap ») : les deux moitiés du ruban
+   ont ainsi exactement la même largeur. */
+.item {
+  flex: 0 0 auto;
+  width: 72vw;
   padding-inline-end: var(--space-3);
 }
 
@@ -53,9 +32,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-evenly;
   gap: var(--space-3);
   height: 100%;
-  min-height: calc(var(--space-7) * 2);
+  min-height: calc(var(--space-7) * 1.75);
   padding: var(--space-3);
   background-image: linear-gradient(
     135deg,
@@ -63,46 +43,50 @@
     var(--color-surface) 52%,
     color-mix(in srgb, var(--color-surface) 92%, var(--color-accent))
   );
+  transition: border-color var(--transition);
 }
 
-.slide[data-active] .card {
+.card.card:hover {
   border-color: var(--color-action);
 }
 
 .logo_frame {
-  position: relative;
   display: flex;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  height: calc(var(--space-7) * 1.25);
-  padding: var(--space-2);
-  border: var(--focus-ring-width) solid var(--color-border);
+  width: var(--space-7);
+  height: var(--space-7);
+  padding: var(--space-1);
+  border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius);
   background-color: var(--color-surface);
   overflow: hidden;
 }
 
 .logo {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
 .logo_fallback {
-  width: var(--space-6);
-  height: var(--space-6);
+  width: var(--space-5);
+  height: var(--space-5);
   color: var(--color-action);
 }
 
 .text {
   display: grid;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   gap: var(--space-1);
+  min-width: 0;
 }
 
 .text h3 {
   color: var(--color-brand);
-  font-size: var(--font-size-h4);
-  line-height: var(--line-height-h4);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
 }
 
 .text p {
@@ -112,14 +96,58 @@
 }
 
 @media (min-width: 640px) {
-  .card {
-    min-height: calc(var(--space-7) * 2);
+  .item {
+    width: 44vw;
+  }
+
+  .logo_frame {
+    width: calc(var(--space-7) * 1.5);
+    height: calc(var(--space-7) * 1.5);
+  }
+}
+
+/* Largeur plafonnée : la moitié de l'ancienne carte (88 % du contenu de 1200px). */
+@media (min-width: 1024px) {
+  .item {
+    width: calc(var(--container-max) * 0.44);
+  }
+
+  .card.card {
     padding: var(--space-3) var(--space-4);
   }
 }
 
-@media (max-width: 639px) {
-  .logo_frame {
-    height: var(--space-6);
+@media (prefers-reduced-motion: no-preference) {
+  .track {
+    animation: partners-scroll 40s linear infinite;
+  }
+
+  /* Pause pendant la lecture : survol à la souris ou focus au clavier. */
+  .marquee:hover .track,
+  .marquee:focus-within .track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes partners-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mouvement réduit : ruban immobile, chaque partenaire affiché une seule fois. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    mask-image: none;
+  }
+
+  .track {
+    flex-wrap: wrap;
+    width: auto;
+    row-gap: var(--space-3);
+  }
+
+  .item[data-duplicate] {
+    display: none;
   }
 }
