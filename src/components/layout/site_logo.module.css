@@ -1,35 +1,25 @@
+/* Sceau officiel rond, fond transparent hors du cercle : pas de plaque ni de bordure.
+   Proportions fixes (carré), aucune déformation (charte §7). */
 .logo {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
-  overflow: hidden;
-  padding: var(--space-1) var(--space-2);
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--radius);
-  background-color: var(--color-surface);
+  border-radius: 50%;
   text-decoration: none;
 }
 
-/* Hauteur fixe, largeur proportionnelle : jamais de déformation (charte §7). Largeur
-   obtenue ≥ 120 px (minimum de la charte). */
 .image {
   width: auto;
   height: 100%;
 }
 
+/* En-tête : 56px, comme l'ancien logo (choix de la cliente, en dessous des 120px de la
+   charte §7 : seul « AGRI'SUP » y reste lisible). */
 .header {
   height: calc(var(--tap-target) + var(--space-3));
 }
 
+/* Pied de page : 160px, tout le texte du sceau est lisible. */
 .footer {
-  height: calc(var(--space-7) + var(--space-3));
-}
-
-/* Thème sombre : plaque claire (zone de protection incluse) sous le logo. */
-[data-theme="dark"] .logo {
-  background-color: var(--color-brand);
-}
-
-[data-theme="dark"] .logo.header {
-  border-color: var(--color-accent);
+  height: calc(var(--space-7) * 2.5);
 }

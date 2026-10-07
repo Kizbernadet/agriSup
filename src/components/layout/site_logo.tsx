@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import logo from "../../../public/logo/logo_agrisup.png";
+import logo from "../../../public/logo/sceau_agrisup.png";
 import styles from "./site_logo.module.css";
 
 type SiteLogoProps = {
@@ -9,10 +9,7 @@ type SiteLogoProps = {
   size?: "header" | "footer";
 };
 
-// Logo fourni par la cliente (assets/logo/logo_1.jpg, recadré par scripts/prepare_images.ts).
-// Pas encore de version « inversée » pour le thème sombre (charte §7) : le logo est alors
-// posé sur une plaque claire, pour garder son contraste sans le recolorer.
-// À remplacer par les SVG officiels (logo_original.svg / logo_inverse.svg) dès réception.
+// Sceau officiel d'AGRI'SUP (assets/logo/agrisup_2.jpg, détouré par scripts/prepare_images.ts).
 export function SiteLogo({ size = "header" }: SiteLogoProps) {
   const t = useTranslations("header");
 
@@ -22,7 +19,7 @@ export function SiteLogo({ size = "header" }: SiteLogoProps) {
         src={logo}
         alt={t("home_link")}
         className={styles.image}
-        sizes={size === "header" ? "180px" : "260px"}
+        sizes={size === "header" ? "64px" : "160px"}
         priority={size === "header"}
       />
     </Link>

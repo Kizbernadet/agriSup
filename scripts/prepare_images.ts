@@ -3,6 +3,8 @@
  * Usage : npm run images
  *
  * - Logo : marges blanches retirées (aucune retouche du dessin).
+ * - Sceau officiel (assets/logo/agrisup_2.jpg) : détouré en cercle sur fond transparent,
+ *   logo du site depuis le 2026-10-07.
  * - Icône d'onglet : emblème seul (partie gauche du logo), comme le prévoit la charte §7.
  * - Diaporama : scènes photographiques extraites des affiches de assets/annonces/,
  *   SANS leurs textes (l'affiche « Formez-vous aujourd'hui » porte un numéro erroné).
@@ -54,6 +56,31 @@ async function prepareLogo() {
   console.log(`Logo : ${info.width}×${info.height} px après recadrage.`);
 }
 
+async function prepareSeal() {
+  mkdirSync("public/logo", { recursive: true });
+  // Recadrage sur le cercle (marges blanches retirées), puis masque circulaire : les
+  // coins blancs deviennent transparents, le dessin n'est pas retouché.
+  const { data, info } = await sharp("assets/logo/agrisup_2.jpg")
+    .trim({ background: "#ffffff", threshold: 12 })
+    .png()
+    .toBuffer({ resolveWithObject: true });
+  const diameter = Math.min(info.width, info.height);
+  const mask = Buffer.from(
+    `<svg width="${diameter}" height="${diameter}"><circle cx="${diameter / 2}" cy="${diameter / 2}" r="${diameter / 2}" fill="#fff"/></svg>`,
+  );
+  await sharp(data)
+    .extract({
+      left: Math.floor((info.width - diameter) / 2),
+      top: Math.floor((info.height - diameter) / 2),
+      width: diameter,
+      height: diameter,
+    })
+    .composite([{ input: mask, blend: "dest-in" }])
+    .png()
+    .toFile("public/logo/sceau_agrisup.png");
+  console.log(`Sceau : ${diameter}×${diameter} px.`);
+}
+
 async function prepareSlides() {
   mkdirSync("public/images/slider", { recursive: true });
   for (const slide of SLIDES) {
@@ -77,6 +104,7 @@ async function prepareGallery() {
 
 async function main() {
   await prepareLogo();
+  await prepareSeal();
   await prepareSlides();
   await prepareGallery();
 }

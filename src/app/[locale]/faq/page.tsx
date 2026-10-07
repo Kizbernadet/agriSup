@@ -56,7 +56,12 @@ export default async function FaqPage({ params }: PageProps<"/[locale]/faq">) {
           }))}
         />
       </Section>
-      <Section tone="surface" title={tPage("more_title")} intro={tPage("more_text")}>
+      <Section
+        tone="surface"
+        pattern
+        title={tPage("more_title")}
+        intro={tPage("more_text")}
+      >
         <div className={styles.actions}>
           <ButtonLink href="/contact">{tCommon("contact_us")}</ButtonLink>
           <WhatsappButton />

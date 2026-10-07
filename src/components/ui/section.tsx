@@ -12,6 +12,8 @@ type SectionProps = {
   intro?: ReactNode;
   // "surface" alterne le fond ; "band" : bandeau coloré (Bleu Académie) pour rythmer la page.
   tone?: "default" | "surface" | "band";
+  // Motif décoratif du thème en arrière-plan (appels à l'action).
+  pattern?: boolean;
   children: ReactNode;
 };
 
@@ -21,6 +23,7 @@ export function Section({
   title,
   intro,
   tone = "default",
+  pattern = false,
   children,
 }: SectionProps) {
   const titleId = id ? `${id}_titre` : undefined;
@@ -29,7 +32,11 @@ export function Section({
     <section
       id={id}
       aria-labelledby={title ? titleId : undefined}
-      className={[styles.section, tone !== "default" && styles[tone]]
+      className={[
+        styles.section,
+        tone !== "default" && styles[tone],
+        pattern && styles.pattern,
+      ]
         .filter(Boolean)
         .join(" ")}
     >

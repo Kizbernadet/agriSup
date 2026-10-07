@@ -50,3 +50,8 @@
 .intro {
   max-width: var(--line-length);
 }
+
+.pattern {
+  background-image: var(--pattern-image);
+  background-size: calc(var(--space-7) * 6);
+}

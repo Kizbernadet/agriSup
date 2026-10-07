@@ -71,6 +71,11 @@
      placé sous le texte) et ombre teintée du Vert Terrain. */
   --button-sheen: rgba(255, 255, 255, 0.2);
   --shadow-button-hover: 0 8px 20px rgba(42, 114, 79, 0.3);
+
+  /* [AJOUT — motifs] Motif décoratif du thème (npm run motifs) : sceau officiel en
+     filigrane, demandé par la cliente pour l'en-tête des pages, le pied de page et l'appel
+     à l'action de la FAQ. Faible opacité : le contraste du texte posé dessus est inchangé. */
+  --pattern-image: url("/images/motifs/motif_logo_clair.webp");
 }
 
 /* ---------- Thème sombre ---------- */
@@ -122,6 +127,8 @@
 
   --button-sheen: rgba(255, 255, 255, 0.2);
   --shadow-button-hover: none;
+
+  --pattern-image: url("/images/motifs/motif_logo_sombre.webp");
 }
 
 /* ---------- Valeurs communes aux deux thèmes ---------- */

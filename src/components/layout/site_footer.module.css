@@ -3,6 +3,8 @@
   padding-top: var(--space-6);
   border-top: var(--border-width) solid var(--color-border);
   background-color: var(--color-surface);
+  background-image: var(--pattern-image);
+  background-size: calc(var(--space-7) * 6);
   /* Laisse de la place au bouton WhatsApp flottant en bas de page. */
   padding-bottom: calc(var(--tap-target) + var(--space-5));
 }
