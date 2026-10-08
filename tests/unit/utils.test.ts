@@ -59,7 +59,7 @@ describe("paramètres des API publiques", () => {
   });
 
   it("refuse les valeurs inconnues", () => {
-    expect(formationsQuerySchema.safeParse({ level: "MASTER" }).success).toBe(false);
+    expect(formationsQuerySchema.safeParse({ level: "DOCTORAT" }).success).toBe(false);
     expect(actualitesQuerySchema.safeParse({ page: "0" }).success).toBe(false);
   });
 

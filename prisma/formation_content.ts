@@ -1,9 +1,9 @@
 /**
  * Contenu des fiches formations (seed).
  *
- * Intitulés et niveaux : kakémono officiel d'AGRI'SUP. Durées : cadre LMD confirmé par la
- * cliente (licence professionnelle : 6 semestres, 180 crédits ; DUT : 4 semestres,
- * 120 crédits). Présentations, objectifs, compétences, programmes indicatifs et
+ * Intitulés et niveaux : fiche « Filières AGRI'SUP » (docs/FILIERES AGRISUP.docx, 2026-10),
+ * qui remplace le kakémono. Durées : cadre LMD (licence professionnelle : 6 semestres,
+ * 180 crédits ; master : 4 semestres, 120 crédits ; DUT : 4 semestres, 120 crédits). Présentations, objectifs, compétences, programmes indicatifs et
  * débouchés : textes RÉDIGÉS pour le site (non fournis par AGRI'SUP), validés pour la
  * démonstration par la cliente le 2026-10-07 ; à relire par l'équipe pédagogique.
  * La typographie française (espaces insécables) est appliquée au moment du seed.
@@ -315,61 +315,350 @@ export const FORMATION_CONTENT: Record<string, { fr: FormationText; en: Formatio
       },
     },
 
-    "licence-pro-agroforesterie": {
+    "licence-pro-foresterie": {
       fr: {
         summary:
-          "Une licence professionnelle pour associer arbres, cultures et élevage au service d'une gestion durable des terres.",
+          "Une licence professionnelle pour gérer durablement les forêts, les plantations et les ressources naturelles.",
         description:
-          "La licence professionnelle en agroforesterie forme des spécialistes de la gestion durable des terres. Les étudiants apprennent à concevoir des systèmes qui associent arbres, cultures et élevage pour améliorer la fertilité des sols, diversifier les revenus et lutter contre la dégradation des terres.\n\nLa formation aborde la sylviculture, la pépinière, la conservation des eaux et des sols et l'adaptation au changement climatique, des enjeux majeurs pour les zones agricoles du Sahel.",
+          "La licence professionnelle en foresterie forme des cadres capables d'inventorier, d'aménager et de valoriser les espaces boisés. Les étudiants étudient la botanique, l'écologie forestière, la sylviculture, la production de plants et la gestion des ressources naturelles.\n\nFace à la déforestation et à la désertification, la formation prépare à conduire des projets de reboisement, de gestion communautaire des forêts et d'agroforesterie, en lien avec les populations rurales.",
         objectives: [
-          "Comprendre les interactions entre arbres, cultures, animaux et sols.",
-          "Concevoir des systèmes agroforestiers adaptés au milieu.",
-          "Restaurer des terres dégradées et préserver les ressources en eau.",
-          "Accompagner des projets de reboisement et de développement rural.",
+          "Comprendre le fonctionnement des écosystèmes forestiers et des savanes arborées.",
+          "Inventorier et aménager durablement un espace boisé.",
+          "Conduire des projets de reboisement et de restauration des terres.",
+          "Valoriser les produits forestiers ligneux et non ligneux.",
         ],
         skills: [
-          "Produire des plants en pépinière.",
-          "Planter et entretenir des haies, des brise-vent et des parcs arborés.",
-          "Mettre en œuvre des techniques de conservation des eaux et des sols.",
-          "Réaliser un inventaire forestier simple.",
-          "Animer des groupes de producteurs.",
+          "Réaliser un inventaire forestier et en exploiter les données.",
+          "Produire des plants en pépinière et planifier une plantation.",
+          "Élaborer un plan simple d'aménagement forestier.",
+          "Mettre en œuvre des techniques de lutte contre l'érosion et la désertification.",
+          "Animer des comités de gestion des ressources naturelles.",
         ],
         program:
-          "Première année (S1-S2) : biologie végétale, écologie, sciences du sol, botanique, statistiques, informatique.\n\nDeuxième année (S3-S4) : sylviculture, techniques de pépinière, agronomie, conservation des eaux et des sols, cartographie.\n\nTroisième année (S5-S6) : systèmes agroforestiers, gestion des ressources naturelles, changement climatique, gestion de projet, stage professionnel et mémoire de fin d'études.",
+          "Première année (S1-S2) : biologie végétale, botanique, écologie, sciences du sol, statistiques, informatique.\n\nDeuxième année (S3-S4) : dendrologie, sylviculture, techniques de pépinière, inventaire forestier, cartographie et SIG.\n\nTroisième année (S5-S6) : aménagement forestier, agroforesterie, produits forestiers non ligneux, changement climatique, gestion de projet, stage professionnel et mémoire de fin d'études.",
         careers: [
-          "Technicien agroforestier",
-          "Technicien en gestion des ressources naturelles",
-          "Responsable de pépinière",
-          "Animateur de projets de reboisement",
-          "Agent de projets d'adaptation au changement climatique",
+          "Technicien supérieur des eaux et forêts",
+          "Gestionnaire de pépinière ou de plantation",
+          "Chargé de projets de reboisement",
+          "Agent de gestion des ressources naturelles",
+          "Conseiller en agroforesterie",
         ],
       },
       en: {
         summary:
-          "A professional bachelor's degree combining trees, crops and livestock for sustainable land management.",
+          "A professional bachelor's degree to sustainably manage forests, plantations and natural resources.",
         description:
-          "The professional bachelor's degree in agroforestry trains specialists in sustainable land management. Students learn to design systems that combine trees, crops and livestock to improve soil fertility, diversify income and combat land degradation.\n\nThe program covers silviculture, nursery work, soil and water conservation and climate change adaptation, all major challenges for farming areas in the Sahel.",
+          "The professional bachelor's degree in forestry trains managers who can survey, develop and add value to wooded areas. Students study botany, forest ecology, silviculture, seedling production and natural resource management.\n\nIn the face of deforestation and desertification, the program prepares students to lead reforestation, community forest management and agroforestry projects alongside rural communities.",
         objectives: [
-          "Understand the interactions between trees, crops, animals and soils.",
-          "Design agroforestry systems suited to local conditions.",
-          "Restore degraded land and protect water resources.",
-          "Support reforestation and rural development projects.",
+          "Understand how forest and wooded savannah ecosystems work.",
+          "Survey and sustainably manage a wooded area.",
+          "Lead reforestation and land restoration projects.",
+          "Add value to timber and non-timber forest products.",
         ],
         skills: [
-          "Raise seedlings in a nursery.",
-          "Plant and maintain hedges, windbreaks and parkland trees.",
-          "Apply soil and water conservation techniques.",
-          "Carry out a simple forest inventory.",
-          "Lead farmer groups.",
+          "Carry out a forest inventory and use its data.",
+          "Raise seedlings in a nursery and plan a plantation.",
+          "Draw up a simple forest management plan.",
+          "Apply techniques against erosion and desertification.",
+          "Lead natural resource management committees.",
         ],
         program:
-          "First year (S1-S2): plant biology, ecology, soil science, botany, statistics, computing.\n\nSecond year (S3-S4): silviculture, nursery techniques, agronomy, soil and water conservation, mapping.\n\nThird year (S5-S6): agroforestry systems, natural resource management, climate change, project management, professional internship and final dissertation.",
+          "First year (S1-S2): plant biology, botany, ecology, soil science, statistics, computing.\n\nSecond year (S3-S4): dendrology, silviculture, nursery techniques, forest inventory, mapping and GIS.\n\nThird year (S5-S6): forest management, agroforestry, non-timber forest products, climate change, project management, professional internship and final dissertation.",
         careers: [
-          "Agroforestry technician",
-          "Natural resource management technician",
-          "Nursery manager",
-          "Reforestation project facilitator",
-          "Climate change adaptation project officer",
+          "Senior water and forestry technician",
+          "Nursery or plantation manager",
+          "Reforestation project officer",
+          "Natural resource management officer",
+          "Agroforestry advisor",
+        ],
+      },
+    },
+
+    "master-agronomie": {
+      fr: {
+        summary:
+          "Un master professionnel pour concevoir et piloter des systèmes de production végétale innovants et durables.",
+        description:
+          "Le master professionnel en agronomie s'adresse aux titulaires d'une licence qui souhaitent devenir ingénieurs en production végétale. Il approfondit l'agronomie des systèmes de culture, l'amélioration des plantes, la gestion intégrée de la fertilité et des ravageurs, ainsi que l'expérimentation.\n\nLa formation développe la capacité à concevoir des solutions adaptées aux exploitations, à conduire des essais et à piloter des projets de développement agricole.",
+        objectives: [
+          "Concevoir des systèmes de culture productifs et durables.",
+          "Maîtriser les méthodes d'expérimentation et d'analyse des données agronomiques.",
+          "Piloter des projets de développement et d'innovation agricoles.",
+          "Encadrer des équipes techniques et accompagner les producteurs.",
+        ],
+        skills: [
+          "Diagnostiquer une exploitation et proposer un plan d'amélioration.",
+          "Concevoir, conduire et analyser un dispositif expérimental.",
+          "Mettre en place une gestion intégrée de la fertilité et des ravageurs.",
+          "Monter, suivre et évaluer un projet agricole.",
+          "Rédiger des rapports techniques et scientifiques.",
+        ],
+        program:
+          "Première année (S1-S2) : systèmes de culture, amélioration des plantes, gestion intégrée des ravageurs, fertilité des sols, biostatistique et expérimentation, économie agricole.\n\nDeuxième année (S3-S4) : agroécologie, irrigation et gestion de l'eau, semences et biotechnologies, ingénierie de projet, management d'équipe, stage long et mémoire de master.",
+        careers: [
+          "Ingénieur agronome",
+          "Responsable de production ou d'exploitation",
+          "Chargé d'expérimentation et de recherche appliquée",
+          "Chef de projet de développement agricole",
+          "Consultant en production végétale",
+        ],
+      },
+      en: {
+        summary:
+          "A professional master's degree to design and manage innovative, sustainable crop production systems.",
+        description:
+          "The professional master's degree in agronomy is for bachelor's graduates who want to become crop production engineers. It deepens cropping systems agronomy, plant breeding, integrated fertility and pest management, and experimentation.\n\nThe program builds the ability to design solutions suited to farms, run trials and lead agricultural development projects.",
+        objectives: [
+          "Design productive and sustainable cropping systems.",
+          "Master experimental methods and agronomic data analysis.",
+          "Lead agricultural development and innovation projects.",
+          "Manage technical teams and support farmers.",
+        ],
+        skills: [
+          "Assess a farm and propose an improvement plan.",
+          "Design, run and analyse an experimental set-up.",
+          "Implement integrated fertility and pest management.",
+          "Design, monitor and evaluate an agricultural project.",
+          "Write technical and scientific reports.",
+        ],
+        program:
+          "First year (S1-S2): cropping systems, plant breeding, integrated pest management, soil fertility, biostatistics and experimentation, agricultural economics.\n\nSecond year (S3-S4): agroecology, irrigation and water management, seeds and biotechnology, project engineering, team management, long internship and master's dissertation.",
+        careers: [
+          "Agronomist engineer",
+          "Production or farm manager",
+          "Applied research and trials officer",
+          "Agricultural development project manager",
+          "Crop production consultant",
+        ],
+      },
+    },
+
+    "master-zootechnie": {
+      fr: {
+        summary:
+          "Un master professionnel pour piloter des élevages performants et des filières animales compétitives.",
+        description:
+          "Le master professionnel en zootechnie forme des ingénieurs des productions animales. Il approfondit la nutrition et l'alimentation, la génétique et l'amélioration des races, la reproduction, la santé des troupeaux et l'économie des filières lait, viande et volaille.\n\nLa formation prépare à concevoir et à diriger des unités d'élevage modernes, à conduire des programmes d'amélioration génétique et à accompagner le développement des filières animales.",
+        objectives: [
+          "Optimiser les performances techniques et économiques des élevages.",
+          "Concevoir des programmes d'alimentation et d'amélioration génétique.",
+          "Diriger une unité de production animale ou un projet de filière.",
+          "Contribuer à la sécurité sanitaire et à la qualité des produits animaux.",
+        ],
+        skills: [
+          "Formuler des aliments et des rations à moindre coût.",
+          "Concevoir et suivre un programme de sélection ou de croisement.",
+          "Organiser la conduite sanitaire et reproductive d'un troupeau.",
+          "Analyser la rentabilité d'un atelier d'élevage.",
+          "Encadrer des équipes et conseiller les éleveurs.",
+        ],
+        program:
+          "Première année (S1-S2) : nutrition et alimentation animales avancées, génétique quantitative, physiologie de la reproduction, santé des troupeaux, biostatistique, économie des filières.\n\nDeuxième année (S3-S4) : systèmes d'élevage, aviculture et production laitière intensives, qualité des produits animaux, ingénierie de projet, management, stage long et mémoire de master.",
+        careers: [
+          "Ingénieur zootechnicien",
+          "Directeur d'unité d'élevage ou de ferme avicole",
+          "Responsable technique en fabrication d'aliments",
+          "Chef de projet de développement de l'élevage",
+          "Consultant en productions animales",
+        ],
+      },
+      en: {
+        summary:
+          "A professional master's degree to run high-performing livestock farms and competitive animal value chains.",
+        description:
+          "The professional master's degree in animal science trains animal production engineers. It deepens nutrition and feeding, genetics and breed improvement, reproduction, herd health and the economics of the milk, meat and poultry value chains.\n\nThe program prepares students to design and run modern livestock units, lead genetic improvement programs and support the development of animal value chains.",
+        objectives: [
+          "Optimise the technical and economic performance of livestock farms.",
+          "Design feeding and genetic improvement programs.",
+          "Run an animal production unit or a value chain project.",
+          "Contribute to the safety and quality of animal products.",
+        ],
+        skills: [
+          "Formulate cost-effective feeds and rations.",
+          "Design and monitor a selection or crossbreeding program.",
+          "Organise herd health and breeding management.",
+          "Analyse the profitability of a livestock unit.",
+          "Manage teams and advise livestock farmers.",
+        ],
+        program:
+          "First year (S1-S2): advanced animal nutrition and feeding, quantitative genetics, reproductive physiology, herd health, biostatistics, value chain economics.\n\nSecond year (S3-S4): livestock systems, intensive poultry and dairy production, animal product quality, project engineering, management, long internship and master's dissertation.",
+        careers: [
+          "Animal science engineer",
+          "Livestock or poultry farm director",
+          "Technical manager in animal feed production",
+          "Livestock development project manager",
+          "Animal production consultant",
+        ],
+      },
+    },
+
+    "dut-production-fumure-organique": {
+      fr: {
+        summary:
+          "Un DUT en deux ans pour produire et valoriser compost, fumier et engrais organiques de qualité.",
+        description:
+          "Le DUT en production de fumure organique forme des techniciens capables de transformer les résidus de récolte, les déjections animales et les déchets organiques en fertilisants de qualité. Les étudiants apprennent le compostage, la gestion du fumier, le lombricompostage et la production de biofertilisants.\n\nCes techniques restaurent la fertilité des sols à moindre coût, réduisent la dépendance aux engrais chimiques et ouvrent des débouchés dans l'entrepreneuriat agricole.",
+        objectives: [
+          "Comprendre le rôle de la matière organique dans la fertilité des sols.",
+          "Produire du compost et des fertilisants organiques de qualité.",
+          "Conseiller les producteurs sur l'usage de la fumure organique.",
+          "Créer et gérer une unité de production de fertilisants organiques.",
+        ],
+        skills: [
+          "Conduire une plateforme de compostage et en contrôler la maturité.",
+          "Pratiquer le lombricompostage et produire des biofertilisants.",
+          "Calculer les doses d'apport selon les cultures et les sols.",
+          "Conditionner, stocker et commercialiser des fertilisants organiques.",
+          "Tenir la gestion technique et économique d'une unité de production.",
+        ],
+        program:
+          "Première année (S1-S2) : biologie des sols, chimie agricole, bases de l'agronomie, microbiologie, techniques de compostage, mathématiques appliquées, informatique.\n\nDeuxième année (S3-S4) : fertilisation organique des cultures, lombricompostage, biofertilisants, contrôle de qualité, entrepreneuriat et commercialisation, stage en exploitation ou en entreprise.",
+        careers: [
+          "Technicien en fertilisation organique",
+          "Responsable d'unité de compostage",
+          "Entrepreneur en fertilisants organiques",
+          "Conseiller en gestion de la fertilité des sols",
+        ],
+      },
+      en: {
+        summary:
+          "A two-year technology diploma to produce and market quality compost, manure and organic fertilisers.",
+        description:
+          "The technology diploma (DUT) in organic fertiliser production trains technicians who can turn crop residues, animal manure and organic waste into quality fertilisers. Students learn composting, manure management, vermicomposting and biofertiliser production.\n\nThese techniques restore soil fertility at low cost, reduce dependence on chemical fertilisers and open up opportunities in agricultural entrepreneurship.",
+        objectives: [
+          "Understand the role of organic matter in soil fertility.",
+          "Produce quality compost and organic fertilisers.",
+          "Advise farmers on using organic fertilisers.",
+          "Set up and run an organic fertiliser production unit.",
+        ],
+        skills: [
+          "Run a composting site and check compost maturity.",
+          "Practise vermicomposting and produce biofertilisers.",
+          "Calculate application rates for each crop and soil.",
+          "Package, store and sell organic fertilisers.",
+          "Manage the technical and financial side of a production unit.",
+        ],
+        program:
+          "First year (S1-S2): soil biology, agricultural chemistry, basic agronomy, microbiology, composting techniques, applied mathematics, computing.\n\nSecond year (S3-S4): organic crop fertilisation, vermicomposting, biofertilisers, quality control, entrepreneurship and marketing, farm or company internship.",
+        careers: [
+          "Organic fertilisation technician",
+          "Composting unit manager",
+          "Organic fertiliser entrepreneur",
+          "Soil fertility advisor",
+        ],
+      },
+    },
+
+    "dut-production-aviaire": {
+      fr: {
+        summary:
+          "Un DUT en deux ans pour conduire des élevages de poulets de chair et de poules pondeuses performants.",
+        description:
+          "Le DUT en production aviaire forme des techniciens spécialisés dans l'élevage des volailles. Les étudiants apprennent à installer un poulailler, à conduire des bandes de poulets de chair et de pondeuses, à maîtriser l'alimentation, l'incubation, la prophylaxie et la biosécurité.\n\nFilière à cycle court et à forte demande, l'aviculture offre de réelles possibilités d'emploi et de création d'entreprise.",
+        objectives: [
+          "Concevoir et équiper un bâtiment d'élevage avicole.",
+          "Conduire des bandes de poulets de chair et de poules pondeuses.",
+          "Prévenir les maladies grâce à la biosécurité et à la prophylaxie.",
+          "Gérer et commercialiser la production d'une ferme avicole.",
+        ],
+        skills: [
+          "Préparer le poulailler et réussir le démarrage des poussins.",
+          "Distribuer une alimentation adaptée à chaque stade.",
+          "Appliquer un programme de vaccination et des mesures de biosécurité.",
+          "Conduire l'incubation et suivre la ponte.",
+          "Calculer les coûts de production et les marges.",
+        ],
+        program:
+          "Première année (S1-S2) : biologie et anatomie des volailles, bases de l'élevage, alimentation animale, bâtiments et équipements avicoles, mathématiques appliquées, informatique.\n\nDeuxième année (S3-S4) : production de poulets de chair, production d'œufs, incubation, pathologies aviaires et biosécurité, gestion et commercialisation, stage en ferme avicole.",
+        careers: [
+          "Technicien avicole",
+          "Responsable de ferme avicole",
+          "Aviculteur entrepreneur",
+          "Technico-commercial en aliments et produits avicoles",
+        ],
+      },
+      en: {
+        summary:
+          "A two-year technology diploma to run high-performing broiler and laying hen farms.",
+        description:
+          "The technology diploma (DUT) in poultry production trains technicians specialising in poultry farming. Students learn to set up a poultry house, raise broilers and laying hens, and master feeding, incubation, disease prevention and biosecurity.\n\nWith short cycles and strong demand, poultry farming offers real job and business creation opportunities.",
+        objectives: [
+          "Design and equip a poultry house.",
+          "Raise broilers and laying hens.",
+          "Prevent diseases through biosecurity and vaccination.",
+          "Manage and market a poultry farm's output.",
+        ],
+        skills: [
+          "Prepare the poultry house and successfully start chicks.",
+          "Provide feed suited to each growth stage.",
+          "Apply a vaccination program and biosecurity measures.",
+          "Run incubation and monitor egg laying.",
+          "Calculate production costs and margins.",
+        ],
+        program:
+          "First year (S1-S2): poultry biology and anatomy, livestock basics, animal feeding, poultry housing and equipment, applied mathematics, computing.\n\nSecond year (S3-S4): broiler production, egg production, incubation, poultry diseases and biosecurity, management and marketing, poultry farm internship.",
+        careers: [
+          "Poultry technician",
+          "Poultry farm manager",
+          "Poultry entrepreneur",
+          "Sales technician for poultry feed and products",
+        ],
+      },
+    },
+
+    "dut-technico-commercial-agricole": {
+      fr: {
+        summary:
+          "Un DUT en deux ans qui associe connaissances agricoles et techniques de vente des intrants et des produits agricoles.",
+        description:
+          "Le DUT technico-commercial agricole forme des professionnels capables de conseiller et de vendre semences, engrais, produits phytosanitaires, aliments du bétail, produits vétérinaires et matériel agricole. Les étudiants acquièrent une solide base technique en production végétale et animale, ainsi que des compétences en vente, en négociation et en gestion commerciale.\n\nLa formation prépare à travailler au plus près des producteurs, dans les entreprises de distribution, les coopératives et les industries agroalimentaires.",
+        objectives: [
+          "Connaître les principaux intrants et produits agricoles et leur usage.",
+          "Conseiller les producteurs dans leurs choix techniques.",
+          "Vendre et promouvoir une gamme de produits agricoles.",
+          "Gérer un point de vente ou un portefeuille de clients.",
+        ],
+        skills: [
+          "Présenter un produit et ses conditions d'emploi en toute sécurité.",
+          "Conduire un entretien de vente et négocier.",
+          "Réaliser une étude de marché simple.",
+          "Gérer les stocks, les commandes et la logistique.",
+          "Assurer le suivi commercial d'une clientèle de producteurs.",
+        ],
+        program:
+          "Première année (S1-S2) : bases de la production végétale et animale, intrants agricoles, économie générale, mathématiques commerciales, comptabilité, informatique.\n\nDeuxième année (S3-S4) : techniques de vente et de négociation, marketing agricole, réglementation des intrants, gestion commerciale et logistique, entrepreneuriat, stage en entreprise.",
+        careers: [
+          "Technico-commercial en intrants agricoles",
+          "Délégué commercial en produits vétérinaires ou phytosanitaires",
+          "Gérant de point de vente agricole",
+          "Agent commercial en coopérative ou en industrie agroalimentaire",
+        ],
+      },
+      en: {
+        summary:
+          "A two-year technology diploma combining agricultural knowledge with sales techniques for farm inputs and products.",
+        description:
+          "The agricultural sales technician diploma (DUT) trains professionals who can advise on and sell seeds, fertilisers, crop protection products, animal feed, veterinary products and farm equipment. Students gain a solid technical grounding in crop and livestock production, along with sales, negotiation and business management skills.\n\nThe program prepares students to work closely with farmers, in distribution companies, cooperatives and the food industry.",
+        objectives: [
+          "Know the main farm inputs and products and how they are used.",
+          "Advise farmers on their technical choices.",
+          "Sell and promote a range of agricultural products.",
+          "Manage a sales outlet or a customer portfolio.",
+        ],
+        skills: [
+          "Present a product and its safe conditions of use.",
+          "Conduct a sales meeting and negotiate.",
+          "Carry out simple market research.",
+          "Manage stock, orders and logistics.",
+          "Follow up a portfolio of farmer customers.",
+        ],
+        program:
+          "First year (S1-S2): basics of crop and livestock production, farm inputs, general economics, business mathematics, accounting, computing.\n\nSecond year (S3-S4): sales and negotiation techniques, agricultural marketing, input regulations, sales and logistics management, entrepreneurship, company internship.",
+        careers: [
+          "Farm inputs sales technician",
+          "Sales representative for veterinary or crop protection products",
+          "Agricultural store manager",
+          "Sales agent in a cooperative or the food industry",
         ],
       },
     },
@@ -488,63 +777,6 @@ export const FORMATION_CONTENT: Record<string, { fr: FormationText; en: Formatio
           "Milk collection and processing officer",
           "Livestock entrepreneur",
           "Animal production advisor",
-        ],
-      },
-    },
-
-    "dut-technico-commercial-pharmacie-veterinaire": {
-      fr: {
-        summary:
-          "Un DUT en deux ans qui associe connaissances en santé animale et techniques de vente des produits vétérinaires.",
-        description:
-          "Ce DUT forme des technico-commerciaux capables de conseiller et de vendre des médicaments, des vaccins et des produits d'élevage. Les étudiants acquièrent les bases de la santé animale et de la pharmacologie, ainsi que des compétences en vente, en négociation et en gestion de stock.\n\nLa formation insiste sur le respect de la réglementation et sur l'usage responsable des médicaments vétérinaires.",
-        objectives: [
-          "Connaître les principaux produits vétérinaires et leur usage.",
-          "Conseiller les éleveurs dans le choix des produits.",
-          "Vendre et promouvoir une gamme de produits d'élevage.",
-          "Gérer un point de vente ou un portefeuille de clients.",
-        ],
-        skills: [
-          "Présenter un produit vétérinaire et ses conditions d'emploi.",
-          "Conduire un entretien de vente et négocier.",
-          "Gérer un stock en respectant la chaîne du froid.",
-          "Appliquer la réglementation sur la distribution des médicaments vétérinaires.",
-          "Assurer le suivi commercial d'une clientèle d'éleveurs.",
-        ],
-        program:
-          "Première année (S1-S2) : biologie et anatomie animales, bases de l'élevage, chimie, pharmacologie générale, mathématiques commerciales, informatique.\n\nDeuxième année (S3-S4) : pathologies animales, médicaments et vaccins vétérinaires, réglementation, techniques de vente, marketing, gestion de stock et stage en entreprise.",
-        careers: [
-          "Délégué ou technico-commercial en produits vétérinaires",
-          "Vendeur-conseil en produits vétérinaires",
-          "Conseiller en santé animale dans la distribution",
-          "Agent commercial en aliments et intrants d'élevage",
-        ],
-      },
-      en: {
-        summary:
-          "A two-year technology diploma combining animal health knowledge with sales techniques for veterinary products.",
-        description:
-          "This diploma trains sales technicians who can advise on and sell medicines, vaccines and livestock products. Students learn the basics of animal health and pharmacology, along with sales, negotiation and stock management skills.\n\nThe program emphasises compliance with regulations and the responsible use of veterinary medicines.",
-        objectives: [
-          "Know the main veterinary products and how they are used.",
-          "Advise livestock farmers on choosing products.",
-          "Sell and promote a range of livestock products.",
-          "Manage a sales outlet or a customer portfolio.",
-        ],
-        skills: [
-          "Present a veterinary product and its conditions of use.",
-          "Conduct a sales meeting and negotiate.",
-          "Manage stock while maintaining the cold chain.",
-          "Apply the regulations on the distribution of veterinary medicines.",
-          "Follow up a portfolio of livestock farmer customers.",
-        ],
-        program:
-          "First year (S1-S2): animal biology and anatomy, livestock basics, chemistry, general pharmacology, business mathematics, computing.\n\nSecond year (S3-S4): animal diseases, veterinary medicines and vaccines, regulations, sales techniques, marketing, stock management and company internship.",
-        careers: [
-          "Veterinary products sales representative",
-          "Veterinary products sales advisor",
-          "Animal health advisor in distribution",
-          "Sales agent for animal feed and livestock inputs",
         ],
       },
     },
@@ -670,7 +902,7 @@ export const FORMATION_CONTENT: Record<string, { fr: FormationText; en: Formatio
         summary:
           "Un DUT en deux ans pour produire des plants, planter et entretenir les arbres au service des cultures et des sols.",
         description:
-          "Le DUT en agroforesterie forme des techniciens de terrain capables de mettre en œuvre des pratiques agroforestières. Les étudiants apprennent à produire des plants en pépinière, à installer des haies vives, des brise-vent et des parcs arborés, et à appliquer les techniques de conservation des eaux et des sols.\n\nTrès orientée vers la pratique, la formation prépare à intervenir auprès des producteurs et dans les projets de reboisement.",
+          "Le DUT en agroforesterie forme des techniciens de terrain capables de mettre en œuvre des pratiques agroforestières. Les étudiants apprennent à produire des plants en pépinière, à installer des haies vives, des brise-vent et des parcs arborés, et à appliquer les techniques de conservation des eaux et des sols.\n\nLa formation intègre la synécoculture : une méthode qui associe de nombreuses espèces végétales en culture dense, sans labour ni intrants chimiques, pour reconstituer des écosystèmes productifs. Très orientée vers la pratique, elle prépare à intervenir auprès des producteurs et dans les projets de reboisement.",
         objectives: [
           "Produire des plants forestiers et fruitiers.",
           "Installer et entretenir des aménagements agroforestiers.",
@@ -685,7 +917,7 @@ export const FORMATION_CONTENT: Record<string, { fr: FormationText; en: Formatio
           "Animer des démonstrations auprès des producteurs.",
         ],
         program:
-          "Première année (S1-S2) : botanique, écologie, sciences du sol, bases de l'agronomie, techniques de pépinière, informatique.\n\nDeuxième année (S3-S4) : sylviculture, arboriculture fruitière, systèmes agroforestiers, conservation des eaux et des sols, vulgarisation, stage sur le terrain.",
+          "Première année (S1-S2) : botanique, écologie, sciences du sol, bases de l'agronomie, techniques de pépinière, informatique.\n\nDeuxième année (S3-S4) : sylviculture, arboriculture fruitière, systèmes agroforestiers et synécoculture, conservation des eaux et des sols, vulgarisation, stage sur le terrain.",
         careers: [
           "Technicien agroforestier",
           "Pépiniériste",
@@ -697,7 +929,7 @@ export const FORMATION_CONTENT: Record<string, { fr: FormationText; en: Formatio
         summary:
           "A two-year technology diploma to raise seedlings, plant and look after trees that benefit crops and soils.",
         description:
-          "The technology diploma (DUT) in agroforestry trains field technicians who can put agroforestry practices into action. Students learn to raise seedlings in a nursery, establish live hedges, windbreaks and parkland trees, and apply soil and water conservation techniques.\n\nThis very practical program prepares students to work with farmers and on reforestation projects.",
+          "The technology diploma (DUT) in agroforestry trains field technicians who can put agroforestry practices into action. Students learn to raise seedlings in a nursery, establish live hedges, windbreaks and parkland trees, and apply soil and water conservation techniques.\n\nThe program includes synecoculture: a method that grows many plant species together at high density, without tillage or chemical inputs, to rebuild productive ecosystems. Very practical, it prepares students to work with farmers and on reforestation projects.",
         objectives: [
           "Raise forest and fruit tree seedlings.",
           "Establish and maintain agroforestry features.",
@@ -712,7 +944,7 @@ export const FORMATION_CONTENT: Record<string, { fr: FormationText; en: Formatio
           "Run demonstrations for farmers.",
         ],
         program:
-          "First year (S1-S2): botany, ecology, soil science, basic agronomy, nursery techniques, computing.\n\nSecond year (S3-S4): silviculture, fruit tree growing, agroforestry systems, soil and water conservation, extension, field internship.",
+          "First year (S1-S2): botany, ecology, soil science, basic agronomy, nursery techniques, computing.\n\nSecond year (S3-S4): silviculture, fruit tree growing, agroforestry systems and synecoculture, soil and water conservation, extension, field internship.",
         careers: [
           "Agroforestry technician",
           "Nursery worker",

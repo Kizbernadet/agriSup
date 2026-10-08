@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { FloatingActions } from "@/components/layout/floating_actions";
 import { SiteFooter } from "@/components/layout/site_footer";
 import { SiteHeader } from "@/components/layout/site_header";
@@ -11,6 +11,7 @@ import { MAIN_CONTENT_ID, SkipLink } from "@/components/layout/skip_link";
 import { ThemeScript } from "@/components/layout/theme_script";
 import { routing } from "@/i18n/routing";
 import { isIndexingEnabled } from "@/lib/indexing";
+import { pickClientMessages } from "@/i18n/client_messages";
 import "@/styles/tokens.css";
 import "@/styles/base.css";
 import "@/styles/typography.css";
@@ -63,6 +64,7 @@ export default async function LocaleLayout({
     notFound();
   }
   setRequestLocale(locale);
+  const messages = pickClientMessages(await getMessages());
 
   return (
     // data-theme est posé par ThemeScript avant l'hydratation : l'écart avec le HTML
@@ -77,7 +79,7 @@ export default async function LocaleLayout({
         <RevealScript />
       </head>
       <body>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
           <SkipLink />
           <SiteHeader />
           {/* tabIndex -1 : le lien d'évitement peut y déplacer le focus. */}

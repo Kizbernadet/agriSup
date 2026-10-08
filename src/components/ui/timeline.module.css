@@ -32,3 +32,8 @@
   line-height: var(--line-height-h4);
   color: var(--color-accent-text);
 }
+
+.title {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}

@@ -20,7 +20,7 @@ export function SiteLogo({ size = "header" }: SiteLogoProps) {
         alt={t("home_link")}
         className={styles.image}
         sizes={size === "header" ? "64px" : "160px"}
-        priority={size === "header"}
+        loading={size === "header" ? "eager" : "lazy"}
       />
     </Link>
   );

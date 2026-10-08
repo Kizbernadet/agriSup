@@ -13,9 +13,9 @@ export type FaqItem = {
   keywords: readonly string[];
 };
 
-// Questions du cahier (§12). Les réponses s'appuient uniquement sur les informations
-// sourcées (kakémono, presentation_projet.md) ou sur le fonctionnement du site ;
-// tout le reste renvoie vers l'établissement. Réponses à faire valider par AGRI'SUP.
+// Questions du cahier (§12). Réponses fondées sur les documents officiels de l'établissement
+// (fiche des filières, conditions d'inscription et frais, avantages) et sur le
+// fonctionnement du site.
 export const FAQ_ITEMS: readonly FaqItem[] = [
   {
     id: "formations",
@@ -52,8 +52,8 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
       en: "What programs does AGRI'SUP offer?",
     },
     answer: {
-      fr: "AGRI'SUP propose six licences professionnelles (agronomie, agribusiness, zootechnie, médecine vétérinaire, aquaculture et agroforesterie) et six DUT (production maraîchère, production de lait et de viande, technico-commercial de pharmacie vétérinaire, production de semence agricole, insémination artificielle et agroforesterie).",
-      en: "AGRI'SUP offers six professional bachelor's degrees (agronomy, agribusiness, animal science, veterinary medicine, aquaculture and agroforestry) and six technology diplomas (market gardening, milk and meat production, veterinary pharmacy sales, agricultural seed production, artificial insemination and agroforestry).",
+      fr: "AGRI'SUP propose seize formations en système LMD : huit DUT en deux ans (production maraîchère, fumure organique, semences agricoles, lait et viande, production aviaire, technico-commercial agricole, agroforesterie, insémination artificielle), six licences professionnelles en trois ans (agronomie, agribusiness, zootechnie, médecine vétérinaire, aquaculture, foresterie) et deux masters professionnels (agronomie, zootechnie).",
+      en: "AGRI'SUP offers sixteen programs within the LMD system: eight two-year DUT programs (market gardening, organic fertiliser, agricultural seeds, milk and meat, poultry production, agricultural sales, agroforestry, artificial insemination), six three-year professional bachelor's degrees (agronomy, agribusiness, animal science, veterinary medicine, aquaculture, forestry) and two professional master's degrees (agronomy, animal science).",
     },
     link: {
       href: "/formations",
@@ -78,8 +78,8 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
       en: "What is the LMD system?",
     },
     answer: {
-      fr: "Le système LMD (licence, master, doctorat) organise les études supérieures en semestres et en crédits. À AGRI'SUP, la licence professionnelle se prépare en trois ans (6 semestres, 180 crédits) et le DUT en deux ans (4 semestres, 120 crédits). Le master (deux ans) et le doctorat (trois ans) sont des poursuites d'études possibles.",
-      en: "The LMD system (bachelor's, master's, doctorate) organises higher education into semesters and credits. At AGRI'SUP, the professional bachelor's degree takes three years (6 semesters, 180 credits) and the DUT two years (4 semesters, 120 credits). A master's (two years) and a doctorate (three years) are possible further studies.",
+      fr: "Le système LMD (licence, master, doctorat) organise les études supérieures en semestres et en crédits. À AGRI'SUP : le DUT se prépare en deux ans (4 semestres, 120 crédits), la licence professionnelle en trois ans (6 semestres, 180 crédits), ou en un an après un DUT, et le master professionnel en deux ans après la licence (4 semestres, 120 crédits). Le doctorat (trois ans) est une poursuite d'études possible.",
+      en: "The LMD system (bachelor's, master's, doctorate) organises higher education into semesters and credits. At AGRI'SUP, the DUT takes two years (4 semesters, 120 credits), the professional bachelor's degree three years (6 semesters, 180 credits), or one year after a DUT, and the professional master's degree two years after the bachelor's (4 semesters, 120 credits). A doctorate (three years) is a possible further step.",
     },
   },
   {
@@ -136,8 +136,8 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
       en: "What are the admission requirements?",
     },
     answer: {
-      fr: "La licence professionnelle et le DUT sont accessibles après le baccalauréat ou un diplôme équivalent. Les conditions précises dépendent de la formation : l'équipe d'AGRI'SUP vous conseille avant votre candidature.",
-      en: "The professional bachelor's degree and the DUT are open to holders of the baccalaureate or an equivalent qualification. Exact requirements depend on the program: the AGRI'SUP team will advise you before you apply.",
+      fr: "Le DUT et la licence professionnelle sont accessibles avec le baccalauréat ou un diplôme équivalent ; les titulaires du brevet de technicien (BT) sont admis au même titre que les bacheliers. Avec un DUT, la licence se prépare en un an ; avec une licence professionnelle, vous pouvez poursuivre en master.",
+      en: "The DUT and the professional bachelor's degree are open to holders of the baccalaureate or an equivalent qualification; holders of the technician certificate (BT) are admitted on the same basis. With a DUT, the bachelor's degree takes one year; with a professional bachelor's degree, you can continue to a master's.",
     },
     link: { href: "/admission", label: { fr: "Page Admission", en: "Admissions page" } },
   },
@@ -162,8 +162,8 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
       en: "Which documents do I need to provide?",
     },
     answer: {
-      fr: "La liste officielle des pièces du dossier est communiquée par AGRI'SUP lors de la procédure d'admission. Après votre préinscription, l'établissement vous indique les documents à préparer.",
-      en: "The official list of application documents is provided by AGRI'SUP during the admission process. After your pre-registration, the school will tell you which documents to prepare.",
+      fr: "Prévoyez : une copie certifiée du baccalauréat (ou équivalent) et du relevé de notes, une copie de l'acte de naissance, un certificat de nationalité, trois photos d'identité, le formulaire de demande d'inscription rempli et le reçu de paiement des frais d'inscription.",
+      en: "Please provide: a certified copy of the baccalaureate (or equivalent) and its transcript, a copy of your birth certificate, a certificate of nationality, three passport photos, the completed enrolment form and the enrolment fee receipt.",
     },
   },
   {
@@ -263,12 +263,40 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
       en: "How much do studies at AGRI'SUP cost?",
     },
     answer: {
-      fr: "Les frais de scolarité dépendent de la formation. Ils vous sont communiqués directement par l'établissement : contactez AGRI'SUP pour les connaître.",
-      en: "Tuition fees depend on the program. The school provides them directly: contact AGRI'SUP to find out.",
+      fr: "À titre indicatif, par année académique : pour le DUT et la licence, 50 000 FCFA d'inscription, 50 000 FCFA de dossier et 450 000 FCFA de formation (en deux tranches) ; pour le master, 50 000 + 50 000 FCFA et 1 000 000 FCFA de formation. Le détail figure sur la page Admission.",
+      en: "As a guide, per academic year: for the DUT and bachelor's degree, 50,000 FCFA enrolment, 50,000 FCFA application and 450,000 FCFA tuition (in two instalments); for the master's, 50,000 + 50,000 FCFA and 1,000,000 FCFA tuition. Full details are on the Admissions page.",
     },
     link: {
-      href: "/contact",
-      label: { fr: "Demander les frais de scolarité", en: "Ask about tuition fees" },
+      href: "/admission",
+      label: { fr: "Voir le détail des frais", en: "See fee details" },
+    },
+  },
+  {
+    id: "avantages",
+    keywords: [
+      "bourse",
+      "bourses",
+      "avantage",
+      "avantages",
+      "stage",
+      "stages",
+      "kit",
+      "financement",
+      "scholarship",
+      "grant",
+      "benefits",
+    ],
+    question: {
+      fr: "Y a-t-il des bourses ou des avantages pour les étudiants ?",
+      en: "Are there scholarships or benefits for students?",
+    },
+    answer: {
+      fr: "Oui : un kit est offert à l'inscription (blouse, clé USB, cahier, stylos), des bourses de stage de fin de cycle existent dans certaines filières, et nos coopérations internationales ouvrent l'accès à des bourses d'excellence. Des partenaires financent aussi des kits de démarrage d'activité.",
+      en: "Yes: a starter kit is provided at enrolment (work coat, USB stick, notebook, pens), final internship grants exist in some programs, and our international partnerships give access to excellence scholarships. Partners also fund business start-up kits.",
+    },
+    link: {
+      href: "/admission",
+      label: { fr: "Voir les avantages", en: "See the benefits" },
     },
   },
   {
@@ -299,8 +327,8 @@ export const FAQ_ITEMS: readonly FaqItem[] = [
       en: "Which programs are open this year?",
     },
     answer: {
-      fr: "Pour connaître les formations ouvertes à la prochaine rentrée, contactez AGRI'SUP : l'équipe vous renseigne sur le calendrier et les places disponibles.",
-      en: "To find out which programs open at the next intake, contact AGRI'SUP: the team will tell you about the calendar and available places.",
+      fr: "Les inscriptions sont ouvertes. Pour connaître le calendrier de la prochaine rentrée et les places disponibles dans chaque formation, contactez AGRI'SUP.",
+      en: "Enrolment is open. To find out the next intake calendar and the places available in each program, contact AGRI'SUP.",
     },
     link: {
       href: "/contact",
@@ -318,7 +346,7 @@ const BOT_QUESTION_IDS = new Set([
   "conditions",
   "documents",
   "preinscription",
-  "admission_definitive",
+  "avantages",
   "contact",
   "frais",
 ]);

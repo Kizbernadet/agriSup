@@ -1,0 +1,61 @@
+/* Tableau de données (système LMD, frais de scolarité) : défilement horizontal sur
+   petit écran, en-têtes teintés, première colonne en titre de ligne. */
+.wrapper {
+  overflow-x: auto;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+}
+
+.table {
+  width: 100%;
+  min-width: calc(var(--space-7) * 8);
+  border-collapse: collapse;
+}
+
+.table caption {
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-brand);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-width) solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.table thead th {
+  background-color: var(--color-action-soft);
+  color: var(--color-brand);
+  font-size: var(--font-size-small);
+  text-transform: uppercase;
+}
+
+.table tbody th,
+.table tfoot th {
+  color: var(--color-brand);
+  font-family: var(--font-heading);
+}
+
+.table tfoot > tr > * {
+  border-bottom: 0;
+  background-color: var(--color-accent-soft);
+  font-weight: var(--font-weight-bold);
+}
+
+.table tbody tr:last-child > * {
+  border-bottom-color: var(--color-border);
+}
+
+/* Montants alignés à droite, chiffres de même largeur. */
+.amount {
+  text-align: right !important;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}

@@ -14,7 +14,7 @@ export type Poster = {
 export function PosterFan({ posters }: { posters: readonly Poster[] }) {
   return (
     <ul className={styles.fan}>
-      {posters.map((poster) => (
+      {posters.map((poster, index) => (
         <li key={poster.id} className={styles.poster}>
           <Image
             src={poster.image}
@@ -23,7 +23,9 @@ export function PosterFan({ posters }: { posters: readonly Poster[] }) {
             quality={90}
             className={styles.image}
             placeholder="blur"
-            priority
+            loading="eager"
+            // Affiche centrale (la plus grande) : élément principal de l'en-tête.
+            fetchPriority={index === 1 ? "high" : "auto"}
           />
         </li>
       ))}

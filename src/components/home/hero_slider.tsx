@@ -105,7 +105,9 @@ export function HeroSlider({ slides }: { slides: HeroSlide[] }) {
                       sizes="(min-width: 1024px) 680px, 100vw"
                       quality={90}
                       className={styles.photo}
-                      priority={index === 0}
+                      // Première diapositive : image principale (LCP), chargée en priorité.
+                      loading={index === 0 ? "eager" : "lazy"}
+                      fetchPriority={index === 0 ? "high" : "auto"}
                       placeholder="blur"
                     />
                   </div>

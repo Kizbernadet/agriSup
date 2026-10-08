@@ -44,7 +44,7 @@ test.describe("API en lecture", () => {
   test("refuse les paramètres invalides et les identifiants inconnus", async ({
     request,
   }) => {
-    expect((await request.get("/api/formations?level=MASTER")).status()).toBe(400);
+    expect((await request.get("/api/formations?level=DOCTORAT")).status()).toBe(400);
     expect((await request.get("/api/formations/inconnue")).status()).toBe(404);
     expect((await request.get("/api/actualites?page=0")).status()).toBe(400);
   });

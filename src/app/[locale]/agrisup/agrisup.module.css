@@ -54,6 +54,7 @@
 }
 
 .check {
+  flex-shrink: 0;
   width: var(--space-4);
   height: var(--space-4);
   color: var(--color-accent-text);
@@ -139,4 +140,190 @@
 
 .facility p {
   color: var(--color-text-muted);
+}
+
+/* ---------- Reconnaissance officielle et devise ---------- */
+
+.recognition {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-left: var(--space-1) solid var(--color-action);
+  border-radius: var(--radius);
+  background-color: var(--color-action-soft);
+}
+
+.recognition_icon {
+  flex-shrink: 0;
+  width: var(--space-5);
+  height: var(--space-5);
+  color: var(--color-action);
+}
+
+.motto {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding-left: var(--space-4);
+  border-left: var(--space-1) solid var(--color-accent);
+}
+
+.motto p {
+  color: var(--color-brand);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-h4);
+}
+
+.motto footer {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+}
+
+/* ---------- Valeurs ---------- */
+
+.values {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .values {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.value {
+  position: relative;
+  overflow: hidden;
+}
+
+.value h3 {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+.value p {
+  color: var(--color-text-muted);
+}
+
+/* Grand numéro décoratif en filigrane. */
+.value_number {
+  color: var(--color-accent-text);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+
+.seal_motto {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  color: var(--color-text-muted);
+}
+
+.seal_motto strong {
+  color: var(--color-brand);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h4);
+}
+
+/* ---------- Expertise ---------- */
+
+.expertise {
+  display: grid;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .expertise {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.expertise_text {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.campus ul {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+}
+
+.campus li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+/* ---------- Partenariats ---------- */
+
+.partnerships {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 1024px) {
+  .partnerships {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+}
+
+.partner_group {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+}
+
+.partner_group h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+.group_icon {
+  width: var(--space-5);
+  height: var(--space-5);
+  color: var(--color-action);
+}
+
+.partner_group ul {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+}
+
+.partner_group li {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+}
+
+.partner_group li span {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
 }

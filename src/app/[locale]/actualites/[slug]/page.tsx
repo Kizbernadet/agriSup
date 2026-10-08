@@ -74,7 +74,8 @@ export default async function ActualiteDetailPage({
                 fill
                 sizes="(min-width: 1024px) 480px, 100vw"
                 className={styles.image}
-                priority
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
           )}

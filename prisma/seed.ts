@@ -34,7 +34,7 @@ type FormationSeed = {
   name: { fr: string; en: string };
 };
 
-// Ordre d'affichage = ordre du kakémono (licences puis DUT).
+// Ordre d'affichage : licences, masters puis DUT (fiche « Filières AGRI'SUP », 2026-10).
 const FORMATIONS: FormationSeed[] = [
   {
     slug: "licence-pro-agronomie",
@@ -67,10 +67,22 @@ const FORMATIONS: FormationSeed[] = [
     name: { fr: "Aquaculture", en: "Aquaculture" },
   },
   {
-    slug: "licence-pro-agroforesterie",
+    slug: "licence-pro-foresterie",
     level: "LICENCE_PRO",
     domain: "AGROFORESTERIE",
-    name: { fr: "Agroforesterie", en: "Agroforestry" },
+    name: { fr: "Foresterie", en: "Forestry" },
+  },
+  {
+    slug: "master-agronomie",
+    level: "MASTER",
+    domain: "PRODUCTION_VEGETALE",
+    name: { fr: "Agronomie", en: "Agronomy" },
+  },
+  {
+    slug: "master-zootechnie",
+    level: "MASTER",
+    domain: "ELEVAGE_SANTE_ANIMALE",
+    name: { fr: "Zootechnie", en: "Animal Science" },
   },
   {
     slug: "dut-production-maraichere",
@@ -79,38 +91,60 @@ const FORMATIONS: FormationSeed[] = [
     name: { fr: "Production maraîchère", en: "Market Gardening" },
   },
   {
+    slug: "dut-production-fumure-organique",
+    level: "DUT",
+    domain: "PRODUCTION_VEGETALE",
+    name: { fr: "Production de fumure organique", en: "Organic Fertiliser Production" },
+  },
+  {
+    slug: "dut-production-semence-agricole",
+    level: "DUT",
+    domain: "PRODUCTION_VEGETALE",
+    name: { fr: "Production de semences agricoles", en: "Agricultural Seed Production" },
+  },
+  {
     slug: "dut-production-lait-viande",
     level: "DUT",
     domain: "ELEVAGE_SANTE_ANIMALE",
     name: { fr: "Production de lait et de viande", en: "Milk and Meat Production" },
   },
   {
-    slug: "dut-technico-commercial-pharmacie-veterinaire",
+    slug: "dut-production-aviaire",
     level: "DUT",
     domain: "ELEVAGE_SANTE_ANIMALE",
     name: {
-      fr: "Technico-commercial de pharmacie vétérinaire",
-      en: "Veterinary Pharmacy Sales",
+      fr: "Production aviaire (poulets de chair et pondeuses)",
+      en: "Poultry Production (Broilers and Layers)",
     },
   },
   {
-    slug: "dut-production-semence-agricole",
+    slug: "dut-technico-commercial-agricole",
     level: "DUT",
-    domain: "PRODUCTION_VEGETALE",
-    name: { fr: "Production de semence agricole", en: "Agricultural Seed Production" },
-  },
-  {
-    slug: "dut-insemination-artificielle",
-    level: "DUT",
-    domain: "ELEVAGE_SANTE_ANIMALE",
-    name: { fr: "Insémination artificielle", en: "Artificial Insemination" },
+    domain: "AGRIBUSINESS",
+    name: { fr: "Technico-commercial agricole", en: "Agricultural Sales Technician" },
   },
   {
     slug: "dut-agroforesterie",
     level: "DUT",
     domain: "AGROFORESTERIE",
-    name: { fr: "Agroforesterie", en: "Agroforestry" },
+    name: { fr: "Agroforesterie (synécoculture)", en: "Agroforestry (Synecoculture)" },
   },
+  {
+    slug: "dut-insemination-artificielle",
+    level: "DUT",
+    domain: "ELEVAGE_SANTE_ANIMALE",
+    name: {
+      fr: "Insémination artificielle animale",
+      en: "Animal Artificial Insemination",
+    },
+  },
+];
+
+// Anciennes formations (kakémono), remplacées par la fiche des filières : dépubliées et non
+// supprimées, car des préinscriptions peuvent y être rattachées.
+const RETIRED_SLUGS = [
+  "licence-pro-agroforesterie",
+  "dut-technico-commercial-pharmacie-veterinaire",
 ];
 
 type ActualiteSeed = {
@@ -183,17 +217,22 @@ const ACTUALITES: ActualiteSeed[] = [
   },
 ];
 
+const DURATIONS: Record<FormationLevel, { durationSemesters: number; credits: number }> =
+  {
+    DUT: { durationSemesters: 4, credits: 120 },
+    LICENCE_PRO: { durationSemesters: 6, credits: 180 },
+    MASTER: { durationSemesters: 4, credits: 120 },
+  };
+
 async function seedFormations() {
   for (const [index, formation] of FORMATIONS.entries()) {
-    const isLicence = formation.level === "LICENCE_PRO";
     const content = FORMATION_CONTENT[formation.slug];
     if (!content) throw new Error(`Contenu manquant pour ${formation.slug}.`);
     const data = {
       level: formation.level,
       domain: formation.domain,
-      // Cadre LMD : licence professionnelle en 3 ans, DUT en 2 ans.
-      durationSemesters: isLicence ? 6 : 4,
-      credits: isLicence ? 180 : 120,
+      // Cadre LMD : licence professionnelle en 3 ans, master et DUT en 2 ans.
+      ...DURATIONS[formation.level],
       published: true,
       verified: true,
       sortOrder: index,
@@ -219,6 +258,11 @@ async function seedFormations() {
       update: { ...data, translations: { deleteMany: {}, create: translations } },
     });
   }
+
+  await db.formation.updateMany({
+    where: { slug: { in: RETIRED_SLUGS } },
+    data: { published: false },
+  });
 }
 
 async function seedActualites() {

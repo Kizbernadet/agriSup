@@ -61,7 +61,8 @@ test.describe("Formations", () => {
 
   test("la page détail propose une préinscription présélectionnée", async ({ page }) => {
     await page.goto("/fr/formations");
-    await page.getByRole("link", { name: "Agronomie", exact: true }).click();
+    // Deux formations portent ce nom (licence et master) : on ouvre la licence.
+    await page.locator('a[href$="/formations/licence-pro-agronomie"]').click();
     await expect(page.locator("h1")).toHaveText("Agronomie");
 
     await page.getByRole("link", { name: "Se préinscrire" }).last().click();

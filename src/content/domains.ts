@@ -22,8 +22,8 @@ export const DOMAINS: Record<FormationDomain, DomainContent> = {
   PRODUCTION_VEGETALE: {
     anchor: "production-vegetale",
     overview: {
-      fr: "La production végétale rassemble tout ce qui permet de faire pousser des cultures saines et productives : connaissance des sols, choix des semences, fertilisation, irrigation et protection des plantes. Au Mali, elle concerne aussi bien les céréales que les cultures maraîchères et les cultures de rente.\n\nÀ AGRI'SUP, ce domaine se découvre au laboratoire et au champ d'expérimentation, avec la licence professionnelle en agronomie et les DUT en production maraîchère et en production de semence agricole.",
-      en: "Crop production covers everything needed to grow healthy, productive crops: soil knowledge, seed selection, fertilisation, irrigation and plant protection. In Mali, it includes cereals as well as vegetable and cash crops.\n\nAt AGRI'SUP, this field is explored in the laboratory and the experimental field, through the professional bachelor's degree in agronomy and the DUT programs in market gardening and agricultural seed production.",
+      fr: "La production végétale rassemble tout ce qui permet de faire pousser des cultures saines et productives : connaissance des sols, choix des semences, fertilisation, irrigation et protection des plantes. Au Mali, elle concerne aussi bien les céréales que les cultures maraîchères et les cultures de rente.\n\nÀ AGRI'SUP, ce domaine se découvre au laboratoire et au champ d'expérimentation, avec la licence professionnelle et le master en agronomie, ainsi que les DUT en production maraîchère, en production de fumure organique et en production de semences agricoles.",
+      en: "Crop production covers everything needed to grow healthy, productive crops: soil knowledge, seed selection, fertilisation, irrigation and plant protection. In Mali, it includes cereals as well as vegetable and cash crops.\n\nAt AGRI'SUP, this field is explored in the laboratory and the experimental field, through the professional bachelor's and master's degrees in agronomy and the DUT programs in market gardening, organic fertiliser production and agricultural seed production.",
     },
     description: {
       fr: "Cultures vivrières et maraîchères, sols, semences et techniques de production végétale.",
@@ -64,8 +64,8 @@ export const DOMAINS: Record<FormationDomain, DomainContent> = {
   ELEVAGE_SANTE_ANIMALE: {
     anchor: "elevage-sante-animale",
     overview: {
-      fr: "L'élevage et la santé animale couvrent la conduite des troupeaux, leur alimentation, leur reproduction et la prévention des maladies. Bovins, ovins, caprins et volailles fournissent le lait, la viande et les œufs, et font vivre de nombreuses familles.\n\nCe domaine regroupe les licences professionnelles en zootechnie et en médecine vétérinaire, ainsi que les DUT en production de lait et de viande, en technico-commercial de pharmacie vétérinaire et en insémination artificielle.",
-      en: "Livestock and animal health cover herd management, feeding, reproduction and disease prevention. Cattle, sheep, goats and poultry provide milk, meat and eggs, and support many families.\n\nThis field includes the professional bachelor's degrees in animal science and veterinary medicine, as well as the DUT programs in milk and meat production, veterinary pharmacy sales and artificial insemination.",
+      fr: "L'élevage et la santé animale couvrent la conduite des troupeaux, leur alimentation, leur reproduction et la prévention des maladies. Bovins, ovins, caprins et volailles fournissent le lait, la viande et les œufs, et font vivre de nombreuses familles.\n\nCe domaine regroupe la licence professionnelle et le master en zootechnie, la licence professionnelle en médecine vétérinaire, ainsi que les DUT en production de lait et de viande, en production aviaire et en insémination artificielle animale.",
+      en: "Livestock and animal health cover herd management, feeding, reproduction and disease prevention. Cattle, sheep, goats and poultry provide milk, meat and eggs, and support many families.\n\nThis field includes the professional bachelor's and master's degrees in animal science, the professional bachelor's degree in veterinary medicine, and the DUT programs in milk and meat production, poultry production and animal artificial insemination.",
     },
     description: {
       fr: "Conduite des élevages, alimentation, reproduction et santé des animaux.",
@@ -151,8 +151,8 @@ export const DOMAINS: Record<FormationDomain, DomainContent> = {
   AGRIBUSINESS: {
     anchor: "agribusiness",
     overview: {
-      fr: "L'agribusiness s'intéresse à l'économie des filières agricoles : approvisionnement, transformation, financement, commercialisation et gestion des entreprises et des coopératives. C'est le domaine des projets, des marchés et de l'entrepreneuriat.\n\nLa licence professionnelle en agribusiness forme des gestionnaires capables de relier la production au marché et de faire grandir une activité agricole.",
-      en: "Agribusiness focuses on the economics of agricultural value chains: procurement, processing, financing, marketing and the management of businesses and cooperatives. It is the field of projects, markets and entrepreneurship.\n\nThe professional bachelor's degree in agribusiness trains managers who can connect production to markets and grow an agricultural business.",
+      fr: "L'agribusiness s'intéresse à l'économie des filières agricoles : approvisionnement, transformation, financement, commercialisation et gestion des entreprises et des coopératives. C'est le domaine des projets, des marchés et de l'entrepreneuriat.\n\nLa licence professionnelle en agribusiness forme des gestionnaires capables de relier la production au marché, et le DUT technico-commercial agricole des professionnels de la vente des intrants et des produits agricoles.",
+      en: "Agribusiness focuses on the economics of agricultural value chains: procurement, processing, financing, marketing and the management of businesses and cooperatives. It is the field of projects, markets and entrepreneurship.\n\nThe professional bachelor's degree in agribusiness trains managers who can connect production to markets, and the agricultural sales technician DUT trains professionals in selling farm inputs and products.",
     },
     description: {
       fr: "Gestion, commercialisation et entrepreneuriat dans les filières agricoles.",
@@ -195,8 +195,8 @@ export const DOMAINS: Record<FormationDomain, DomainContent> = {
   AGROFORESTERIE: {
     anchor: "agroforesterie",
     overview: {
-      fr: "L'agroforesterie associe les arbres aux cultures et à l'élevage. Bien conduits, ces systèmes enrichissent les sols, protègent les parcelles du vent et de l'érosion, diversifient les revenus et aident à faire face au changement climatique.\n\nLa licence professionnelle et le DUT en agroforesterie forment des techniciens capables de produire des plants, d'aménager les parcelles et d'accompagner les producteurs.",
-      en: "Agroforestry combines trees with crops and livestock. Well managed, these systems enrich soils, protect plots from wind and erosion, diversify income and help farmers cope with climate change.\n\nThe professional bachelor's degree and the DUT in agroforestry train technicians who can raise seedlings, develop plots and support farmers.",
+      fr: "L'agroforesterie associe les arbres aux cultures et à l'élevage. Bien conduits, ces systèmes enrichissent les sols, protègent les parcelles du vent et de l'érosion, diversifient les revenus et aident à faire face au changement climatique.\n\nLa licence professionnelle en foresterie forme des gestionnaires des forêts et des ressources naturelles, et le DUT en agroforesterie, ouvert à la synécoculture, des techniciens capables de produire des plants, d'aménager les parcelles et d'accompagner les producteurs.",
+      en: "Agroforestry combines trees with crops and livestock. Well managed, these systems enrich soils, protect plots from wind and erosion, diversify income and help farmers cope with climate change.\n\nThe professional bachelor's degree in forestry trains forest and natural resource managers, and the DUT in agroforestry, which includes synecoculture, trains technicians who can raise seedlings, develop plots and support farmers.",
     },
     description: {
       fr: "Association des arbres, des cultures et de l'élevage pour une gestion durable des terres.",

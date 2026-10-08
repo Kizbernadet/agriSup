@@ -29,6 +29,8 @@ export const CONTACT = {
 
   // Email officiel, affiché sur le kakémono de l'établissement.
   email: "agrisup.bamako@yahoo.fr",
+  // Second contact (dépliant et fiche des filières, 2026-10).
+  secondaryEmail: "konegilles@yahoo.fr",
 
   // TEST : numéro WhatsApp d'essai (+34…). Officiel probable d'après le kakémono :
   // +223 66 72 43 89. À basculer avant la mise en ligne.
@@ -42,19 +44,22 @@ export const INSTITUTION = {
   // Rédigée à partir du kakémono (offre de formation, système LMD) et des photos de
   // l'établissement (laboratoire, salle informatique, champ d'expérimentation).
   presentation: {
-    fr: "AGRI'SUP est une école supérieure privée spécialisée dans les sciences et technologies agricoles, implantée à Sotuba ACI, à Bamako. Organisée selon le système LMD, elle propose six licences professionnelles et six DUT en production végétale, élevage et santé animale, aquaculture, agribusiness et agroforesterie. Laboratoire, salle informatique et champ d'expérimentation permettent aux étudiants d'apprendre en pratiquant.",
-    en: "AGRI'SUP is a private higher school specialising in agricultural sciences and technologies, based in Sotuba ACI, Bamako. Organised within the LMD system, it offers six professional bachelor's degrees and six technology diplomas (DUT) in crop production, livestock and animal health, aquaculture, agribusiness and agroforestry. A laboratory, a computer room and an experimental field let students learn by doing.",
+    fr: "AGRI'SUP est une école supérieure privée entièrement dédiée aux sciences et technologies agricoles, implantée à Sotuba ACI, à Bamako, et reconnue par l'État malien. Héritière d'une expérience de formation agropastorale née à Ségou en 2006, elle propose seize formations en système LMD, du DUT au master, en production végétale, élevage et santé animale, aquaculture, agribusiness, foresterie et agroforesterie. Sa devise résume son projet : une formation agricole axée sur la pratique, pour un avenir certain.",
+    en: "AGRI'SUP is a private higher school entirely dedicated to agricultural sciences and technologies, based in Sotuba ACI, Bamako, and recognised by the Malian State. Building on agropastoral training experience that began in Ségou in 2006, it offers sixteen programs within the LMD system, from DUT to master's level, in crop production, livestock and animal health, aquaculture, agribusiness, forestry and agroforestry. Its motto sums up its mission: practice-based agricultural training for a secure future.",
   } satisfies Localized,
 
-  // Source : presentation_projet.md §18 (positionnement de l'établissement).
+  // Source : document « Mots clés à afficher », reformulé.
   axes: [
-    { fr: "Formation supérieure agricole", en: "Higher agricultural education" },
-    { fr: "Professionnalisation", en: "Professional training" },
-    { fr: "Pratique et terrain", en: "Hands-on fieldwork" },
     {
-      fr: "Orientation vers les métiers agricoles",
-      en: "Preparation for agricultural careers",
+      fr: "Formation pratique et entrepreneuriale",
+      en: "Practical, entrepreneurial training",
     },
+    {
+      fr: "Système LMD de standard international",
+      en: "International-standard LMD system",
+    },
+    { fr: "Enseignants qualifiés et confirmés", en: "Qualified, experienced teachers" },
+    { fr: "Campus moderne et connecté", en: "Modern, connected campus" },
   ] satisfies Localized[],
 
   // Source : presentation_projet.md §6 (parcours pédagogique).
@@ -68,21 +73,71 @@ export const INSTITUTION = {
     { fr: "Professionnalisation", en: "Professional readiness" },
   ] satisfies Localized[],
 
-  // Partenaires cités dans les documents fournis par la cliente ; descriptions limitées
-  // à des informations publiques sur chaque organisation.
+  // Partenaires du ruban de l'accueil : sélection du document « Partenariats et
+  // coopération » (liste complète : src/content/agrisup.ts), plus AFG Bank, cité dans les
+  // premiers documents de la cliente.
   partners: [
     {
       name: "IPR/IFRA de Katibougou",
       description: {
-        fr: "Institut polytechnique rural de formation et de recherche appliquée, référence de l'enseignement agricole au Mali.",
-        en: "Rural Polytechnic Institute for Training and Applied Research, a leading name in agricultural education in Mali.",
+        fr: "Référence de l'enseignement supérieur agricole au Mali. Convention signée en 2026.",
+        en: "A reference in agricultural higher education in Mali. Agreement signed in 2026.",
+      },
+    },
+    {
+      name: "IER",
+      description: {
+        fr: "Institut d'économie rurale, référence de la recherche agricole.",
+        en: "Institute of Rural Economy, a reference in agricultural research.",
+      },
+    },
+    {
+      name: "Purdue University",
+      description: {
+        fr: "Université agricole de référence mondiale (États-Unis).",
+        en: "A world-leading agricultural university (United States).",
+      },
+    },
+    {
+      name: "CNIA",
+      description: {
+        fr: "Centre national d'insémination artificielle.",
+        en: "National artificial insemination centre.",
+      },
+    },
+    {
+      name: "CARFS",
+      description: {
+        fr: "Recherche et formation en synécoculture (Burkina Faso).",
+        en: "Research and training in synecoculture (Burkina Faso).",
+      },
+    },
+    {
+      name: "Sahel Veto",
+      description: {
+        fr: "Établissement vétérinaire pharmaceutique.",
+        en: "Veterinary pharmaceutical company.",
+      },
+    },
+    {
+      name: "KISAMEN",
+      description: {
+        fr: "Production de semences bovines (Pays-Bas).",
+        en: "Bovine semen production (Netherlands).",
+      },
+    },
+    {
+      name: "Tambaroua Business Farming",
+      description: {
+        fr: "Ferme partenaire à Samaya, Bamako.",
+        en: "Partner farm in Samaya, Bamako.",
       },
     },
     {
       name: "AFG Bank",
       description: {
-        fr: "Établissement bancaire présent au Mali, acteur du financement de l'économie.",
-        en: "A bank operating in Mali that helps finance the economy.",
+        fr: "Établissement bancaire présent au Mali.",
+        en: "A bank operating in Mali.",
       },
     },
   ] satisfies { name: string; description: Localized }[],
@@ -106,41 +161,8 @@ export const INSTITUTION_DETAILS = {
     },
     { fr: "Aquaculture", en: "Aquaculture" },
     { fr: "Agribusiness", en: "Agribusiness" },
-    { fr: "Agroforesterie", en: "Agroforestry" },
+    { fr: "Foresterie et agroforesterie", en: "Forestry and agroforestry" },
   ] satisfies Localized[],
-
-  // Source : presentation_projet.md §3. Historique NON VALIDÉ : la page l'affiche avec
-  // un avertissement. Le cahier (§5.2) exige une validation avant publication.
-  history: [
-    {
-      label: { fr: "Origines", en: "Origins" },
-      text: {
-        fr: "Les informations recueillies situent les origines d'AGRI'SUP à Ségou.",
-        en: "The information gathered places AGRI'SUP's origins in Ségou.",
-      },
-    },
-    {
-      label: { fr: "2006", en: "2006" },
-      text: {
-        fr: "Date mentionnée comme repère historique de l'établissement.",
-        en: "Date mentioned as a historical milestone for the school.",
-      },
-    },
-    {
-      label: { fr: "Évolution", en: "Growth" },
-      text: {
-        fr: "L'activité a évolué progressivement vers l'enseignement supérieur.",
-        en: "Its activity gradually developed towards higher education.",
-      },
-    },
-    {
-      label: { fr: "Aujourd'hui", en: "Today" },
-      text: {
-        fr: "L'établissement est implanté à Sotuba ACI, Bamako.",
-        en: "The school is based in Sotuba ACI, Bamako.",
-      },
-    },
-  ] satisfies { label: Localized; text: Localized }[],
 };
 
 // Réseaux sociaux : aucune URL fournie. Le kakémono mentionne une page Facebook
@@ -162,7 +184,8 @@ export const BROCHURE_PATH: string | null = null;
 // vercel.com/legal avant mise en ligne). Éditeur : à compléter par AGRI'SUP.
 export const LEGAL = {
   publicationManager: null as string | null,
-  registration: null as string | null,
+  registration: "Décision de création n° 2026-000976/MESRS-SG du 1er juillet 2026" as
+    string | null,
   host: {
     name: "Vercel Inc.",
     address: "440 N Barranca Ave #4133, Covina, CA 91723, USA",

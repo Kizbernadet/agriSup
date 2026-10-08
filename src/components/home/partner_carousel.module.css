@@ -70,10 +70,12 @@
   object-fit: contain;
 }
 
+/* Partenaire sans logo : initiales aux couleurs de la charte. */
 .logo_fallback {
-  width: var(--space-5);
-  height: var(--space-5);
   color: var(--color-action);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
 }
 
 .text {

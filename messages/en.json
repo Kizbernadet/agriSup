@@ -2,7 +2,7 @@
   "metadata": {
     "site_name": "AGRI'SUP",
     "title": "AGRI'SUP — Private Higher School of Agricultural Sciences and Technologies",
-    "description": "AGRI'SUP, a private higher school of agricultural sciences and technologies in Sotuba ACI, Bamako (Mali): programs, admissions, pre-registration and contact."
+    "description": "AGRI'SUP, a State-recognised private higher school of agricultural sciences and technologies in Sotuba ACI, Bamako (Mali): DUT, bachelor's and master's degrees within the LMD system, admissions, fees and online pre-registration."
   },
   "pages": {
     "home": {
@@ -10,11 +10,11 @@
     },
     "agrisup": {
       "title": "About AGRI'SUP",
-      "description": "Discover AGRI'SUP: the school, its fields of study, history, teaching approach and facilities."
+      "description": "AGRI'SUP, a State-recognised private higher school of agricultural sciences and technologies: history since 2006, values, LMD system, international expertise, partnerships and facilities."
     },
     "formations": {
       "title": "Programs",
-      "description": "Professional bachelor's degrees and technology diplomas (DUT) in agricultural sciences and technologies, within the LMD system, at AGRI'SUP (Bamako)."
+      "description": "Technology diplomas (DUT), professional bachelor's and master's degrees in agricultural sciences and technologies, within the LMD system, at AGRI'SUP (Bamako)."
     },
     "admission": {
       "title": "Admissions",
@@ -148,14 +148,15 @@
   "formation": {
     "level": {
       "DUT": "DUT",
-      "LICENCE_PRO": "Professional Bachelor's"
+      "LICENCE_PRO": "Professional Bachelor's",
+      "MASTER": "Professional master's degree"
     },
     "domain": {
       "PRODUCTION_VEGETALE": "Crop production and agronomy",
       "ELEVAGE_SANTE_ANIMALE": "Livestock and animal health",
       "AQUACULTURE": "Aquaculture",
       "AGRIBUSINESS": "Agribusiness",
-      "AGROFORESTERIE": "Agroforestry"
+      "AGROFORESTERIE": "Forestry and agroforestry"
     },
     "duration": "{semesters} semesters · {credits} credits",
     "duration_unknown": "Duration available on request",
@@ -169,7 +170,7 @@
     "whatsapp_message": "Hello AGRI'SUP, I would like information about the {name} program."
   },
   "formations_page": {
-    "intro": "AGRI'SUP offers six three-year professional bachelor's degrees and six two-year technology diplomas (DUT), organised within the LMD system (bachelor's, master's, doctorate). Filter by level or field to find the program that suits your plans.",
+    "intro": "Sixteen programs within the LMD system: eight two-year technology diplomas (DUT) to become a senior technician, six three-year professional bachelor's degrees and two professional master's degrees up to engineer level. Filter by level or field to find yours.",
     "filters_title": "Filter programs",
     "all": "All",
     "results": "{count, plural, =0 {No program matches these criteria.} one {# program} other {# programs}}",
@@ -205,7 +206,7 @@
     "why_title": "Why choose AGRI'SUP?",
     "why_intro": "A learning path that starts with scientific knowledge and leads to the field and to a career.",
     "partners_title": "Partners",
-    "partners_intro": "AGRI'SUP works alongside players in agricultural education and finance, bringing its students closer to the professional world.",
+    "partners_intro": "Training and research institutions, farms, companies and foreign universities: AGRI'SUP relies on a network of partners in Mali and abroad.",
     "cta_title": "Would you like to join AGRI'SUP?",
     "cta_step_1": "Explore the programs",
     "cta_step_2": "Check the requirements",
@@ -226,17 +227,17 @@
     "domains_intro": "Five main fields shape the program offer, from production to market.",
     "sector_title": "Understanding agricultural value chains",
     "sector_intro": "Production, advisory work, processing and marketing: agricultural value chains offer a wide range of careers, in Mali and internationally.",
-    "hero_badge_levels": "Professional bachelor's degrees and DUT",
+    "hero_badge_levels": "DUT, bachelor's and master's degrees",
     "hero_badge_lmd": "Agricultural sciences and technologies"
   },
   "admission_page": {
-    "intro": "Choose your program, check the entry requirements, pre-register: here are the steps to join AGRI'SUP. The team supports you at every stage.",
+    "intro": "Choose your program, check the entry requirements, prepare your application: here is everything you need to know to join AGRI'SUP. The team supports you at every step.",
     "conditions_title": "Who can apply?",
-    "conditions_intro": "The professional bachelor's degree and the DUT are open to holders of the baccalaureate or an equivalent qualification.",
-    "conditions_guidance": "Exact requirements depend on the program and your background. Before preparing your application, talk to the AGRI'SUP team: they will help you choose the most suitable program.",
-    "documents_title": "Which documents should I provide?",
-    "documents_intro": "A complete application is processed faster.",
-    "documents_guidance": "Required documents vary with the program and your situation. After you pre-register, the team sends you the exact list of documents to provide.",
+    "conditions_intro": "Your entry point depends on your qualification: baccalaureate, BT, DUT or bachelor's degree.",
+    "conditions_guidance": "Not sure which program or level suits you? Talk to the AGRI'SUP team before preparing your application: their guidance is free.",
+    "documents_title": "Preparing your application",
+    "documents_intro": "Documents to gather for your enrolment:",
+    "documents_guidance": "The enrolment form is provided by the school. Start with the online pre-registration: the team will contact you to complete your application.",
     "procedure_title": "How do I apply?",
     "step_1": "Choose a program",
     "step_1_description": "Compare the professional bachelor's degrees and DUT programs, then choose the one that matches your plans.",
@@ -253,7 +254,17 @@
     "questions_text": "The AGRI'SUP team can answer by phone, WhatsApp or through the contact form.",
     "eyebrow_conditions": "Step 1",
     "eyebrow_documents": "Step 2",
-    "eyebrow_procedure": "Step 3"
+    "eyebrow_procedure": "Step 3",
+    "fees_title": "Tuition fees",
+    "fees_intro": "Amounts per academic year, in CFA francs.",
+    "fees_col_item": "Item",
+    "fees_col_amount": "Amount (FCFA)",
+    "fees_col_terms": "Payment terms",
+    "fees_total": "Total per year",
+    "advantages_title": "The AGRI'SUP advantages",
+    "advantages_intro": "Studying at AGRI'SUP also means practical support, from enrolment to your first job.",
+    "eyebrow_fees": "Budget",
+    "eyebrow_advantages": "Your benefits"
   },
   "form_errors": {
     "required": "This field is required.",
@@ -284,20 +295,17 @@
     "back_home": "Back to home"
   },
   "agrisup_page": {
-    "intro": "A private higher school of agricultural sciences and technologies, based in Sotuba ACI, Bamako.",
+    "intro": "A private higher school of agricultural sciences and technologies in Sotuba ACI, Bamako, building on nearly twenty years of experience in agropastoral training.",
     "on_this_page": "On this page",
     "presentation_title": "Overview",
     "fields_title": "Fields covered",
-    "history_title": "History",
-    "history_unverified": "Historical milestones are being clarified with the school.",
+    "history_title": "Our history",
     "vision_mission_title": "Vision and mission",
     "vision_title": "Vision",
     "mission_title": "Mission",
     "pedagogy_title": "Teaching approach",
     "pedagogy_intro": "The learning path connects theoretical knowledge with fieldwork, all the way to employment.",
     "infrastructures_title": "Facilities and practical training",
-    "direction_title": "Leadership",
-    "direction_text": "The leadership team will be presented after validation by the school.",
     "infrastructures_intro": "Equipped spaces for learning by doing.",
     "infra_lab_title": "Laboratory",
     "infra_lab_text": "Microscopes and stereo microscopes for practical work in biology, analysis and animal health.",
@@ -306,7 +314,22 @@
     "infra_classroom_title": "Classrooms",
     "infra_classroom_text": "Rooms suited to lectures and tutorials.",
     "infra_field_title": "Experimental field and farm equipment",
-    "infra_field_text": "An experimental field and equipment, including a tractor, for hands-on practice close to the crops."
+    "infra_field_text": "An experimental field and equipment, including a tractor, for hands-on practice close to the crops.",
+    "recognition_label": "Official recognition.",
+    "motto_label": "Our motto",
+    "values_title": "Motivation and values",
+    "seal_motto_label": "Inscribed on our seal:",
+    "lmd_title": "The LMD system",
+    "lmd_intro": "AGRI'SUP follows the LMD system (bachelor's, master's, doctorate), an international-standard higher education model organised in semesters and based on accumulating credits. Three degree levels are offered after the baccalaureate.",
+    "lmd_col_level": "Program",
+    "lmd_col_duration": "Duration",
+    "lmd_col_goal": "Purpose",
+    "expertise_title": "International expertise",
+    "campus_title": "Good conditions for studying",
+    "partners_title": "Partnerships and cooperation",
+    "partners_intro": "To ensure quality training and help our graduates find work, AGRI'SUP relies on leading partners in Mali and abroad: internships, field visits, technical expertise and scholarship opportunities.",
+    "partners_national": "In Mali",
+    "partners_international": "International"
   },
   "actualites_page": {
     "intro": "Announcements, events and teaching activities: follow life at the school.",
@@ -351,7 +374,8 @@
     "map_load": "Show the map",
     "map_notice": "The map is provided by Google Maps: displaying it sends browsing data to Google.",
     "map_iframe_title": "Map: AGRI'SUP, Sotuba ACI, Bamako",
-    "open_in_maps": "opens Google Maps in a new tab"
+    "open_in_maps": "opens Google Maps in a new tab",
+    "email_secondary": "Other contact:"
   },
   "legal_page": {
     "intro": "Legal information about this website and how your personal data is processed.",
@@ -391,7 +415,7 @@
     "go_to": "Go to slide {index}",
     "s1_eyebrow": "AGRI'SUP · Bamako",
     "s1_title": "Agricultural sciences for the future",
-    "s1_text": "An institution dedicated to agricultural sciences and technologies in the heart of Bamako, focused on the challenges facing the sector.",
+    "s1_text": "Practice-based agricultural training for a secure future: DUT, bachelor's and master's degrees in agricultural sciences and technologies, in the heart of Bamako.",
     "s2_eyebrow": "Five fields of study",
     "s2_title": "Connecting knowledge with the field",
     "s2_text": "Crop production, livestock and animal health, aquaculture, agribusiness and agroforestry: discover the fields taught at AGRI'SUP.",
@@ -400,8 +424,8 @@
     "s3_title": "Let's discuss your study plans",
     "s3_text": "Choose your program, check the entry requirements and send your pre-registration online: the team supports you at every step.",
     "s4_eyebrow": "A professional network",
-    "s4_title": "Open to the agricultural world",
-    "s4_text": "AGRI'SUP works alongside players in agricultural education and finance, bringing its students closer to professional realities.",
+    "s4_title": "Partners in Mali and around the world",
+    "s4_text": "IPR/IFRA Katibougou, IER, Purdue University and many more: our partnerships give students access to internships, field visits and scholarship opportunities.",
     "alt_campus": "Front of the AGRI'SUP building in Sotuba ACI, Bamako.",
     "alt_entrance": "The AGRI'SUP entrance in Sotuba ACI, with the school sign above the green building.",
     "alt_lab": "Two students in green lab coats examine a sample under a microscope.",

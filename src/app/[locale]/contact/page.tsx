@@ -95,6 +95,12 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
                 <a href={`mailto:${CONTACT.email}`} className={styles.strong_link}>
                   {CONTACT.email}
                 </a>
+                <p className={styles.secondary}>
+                  {tPage("email_secondary")}{" "}
+                  <a href={`mailto:${CONTACT.secondaryEmail}`}>
+                    {CONTACT.secondaryEmail}
+                  </a>
+                </p>
               </InfoCard>
             )}
 

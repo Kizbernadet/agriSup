@@ -49,7 +49,8 @@ export function DomainCover({
               fill
               sizes={sizes}
               quality={90}
-              priority={priority}
+              loading={priority ? "eager" : "lazy"}
+              fetchPriority={priority ? "high" : "auto"}
               placeholder="blur"
               className={styles.image}
             />

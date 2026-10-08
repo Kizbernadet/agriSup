@@ -19,9 +19,11 @@ enum Locale {
   en
 }
 
+// Ordre d'affichage des filtres : du plus court au plus long (DUT, Licence, Master).
 enum FormationLevel {
   DUT
   LICENCE_PRO
+  MASTER
 }
 
 // Regroupement proposé d'après le kakémono, validé par la cliente pour les filtres.
