@@ -11,6 +11,7 @@ import {
   HomeIcon,
   InstitutionIcon,
   NewsIcon,
+  SproutIcon,
 } from "@/components/ui/icons";
 import styles from "./main_nav.module.css";
 
@@ -22,6 +23,7 @@ type MainNavProps = {
 const NAV_ICONS = {
   home: HomeIcon,
   agrisup: InstitutionIcon,
+  domaines: SproutIcon,
   formations: BookIcon,
   admission: ClipboardIcon,
   actualites: NewsIcon,

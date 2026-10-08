@@ -5,13 +5,21 @@ type StaticPathname = Exclude<keyof typeof routing.pathnames, `${string}[${strin
 export type NavItem = {
   href: StaticPathname;
   labelKey:
-    "home" | "agrisup" | "formations" | "admission" | "actualites" | "faq" | "contact";
+    | "home"
+    | "agrisup"
+    | "domaines"
+    | "formations"
+    | "admission"
+    | "actualites"
+    | "faq"
+    | "contact";
 };
 
 // Menu principal du cahier de cadrage (§20) : court, dans l'ordre du parcours visiteur.
 export const MAIN_NAV: readonly NavItem[] = [
   { href: "/", labelKey: "home" },
   { href: "/agrisup", labelKey: "agrisup" },
+  { href: "/domaines", labelKey: "domaines" },
   { href: "/formations", labelKey: "formations" },
   { href: "/admission", labelKey: "admission" },
   { href: "/actualites", labelKey: "actualites" },

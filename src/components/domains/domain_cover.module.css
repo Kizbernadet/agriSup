@@ -1,0 +1,92 @@
+.cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--color-band-bg);
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  transition: transform var(--transition-slow);
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Voile en dégradé : fond de la photo assombri, pour le relief et les pastilles posées
+   dessus. */
+.veil {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    180deg,
+    transparent 40%,
+    color-mix(in srgb, var(--color-band-bg) 55%, transparent)
+  );
+}
+
+/* Illustration en attendant une photo : dégradé de la charte, motif au sceau et grande
+   icône du domaine. */
+.illustrated {
+  display: grid;
+  place-items: center;
+  background-image:
+    var(--pattern-image),
+    radial-gradient(circle at 80% 15%, var(--color-accent-soft), transparent 45%),
+    linear-gradient(
+      135deg,
+      var(--color-band-bg),
+      color-mix(in srgb, var(--color-band-bg) 55%, var(--color-action))
+    );
+  background-size: calc(var(--space-7) * 4), auto, auto;
+}
+
+.emblem {
+  display: grid;
+  place-items: center;
+  width: 38%;
+  aspect-ratio: 1;
+  border: var(--border-width) solid
+    color-mix(in srgb, var(--color-band-accent) 60%, transparent);
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--color-band-bg) 70%, transparent);
+  color: var(--color-band-accent);
+  transition: transform var(--transition-slow);
+}
+
+.emblem svg {
+  width: 50%;
+  height: 50%;
+}
+
+/* Zoom au survol ou au focus du parent (carte cliquable). */
+:hover > .zoomable .layer,
+:focus-within > .zoomable .layer,
+:hover > .zoomable .emblem,
+:focus-within > .zoomable .emblem {
+  transform: scale(1.05);
+}
+
+/* Profondeur au défilement : la photo, plus haute que son cadre, glisse légèrement.
+   Animation pilotée par le défilement (CSS seul) ; ignorée par les navigateurs qui ne
+   la gèrent pas et désactivée si le visiteur demande moins d'animations. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .parallax .layer {
+      inset: -8% 0;
+      animation: cover-parallax linear both;
+      animation-timeline: view();
+    }
+  }
+}
+
+@keyframes cover-parallax {
+  from {
+    transform: translateY(-6%);
+  }
+  to {
+    transform: translateY(6%);
+  }
+}

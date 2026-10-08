@@ -1,8 +1,10 @@
 import { useTranslations } from "next-intl";
+import { DomainCover } from "@/components/domains/domain_cover";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { ArrowRightIcon } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
+import { formationPhoto } from "@/content/visuals";
 import type { FormationSummary } from "@/lib/data/formations";
 import { DomainIcon } from "./domain_icon";
 import { FormationMeta } from "./formation_meta";
@@ -22,10 +24,21 @@ export function FormationCard({
 
   return (
     <Card as="article" interactive className={styles.card}>
-      <div className={styles.top}>
-        <DomainIcon domain={formation.domain} />
-        <Badge>{t(`level.${formation.level}`)}</Badge>
+      <div className={styles.media}>
+        <DomainCover
+          domain={formation.domain}
+          photo={formationPhoto(formation.slug, formation.domain)}
+          sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+          zoomOnHover
+          className={styles.cover}
+        />
+        <span className={styles.level}>
+          <Badge>{t(`level.${formation.level}`)}</Badge>
+        </span>
       </div>
+      <span className={styles.icon}>
+        <DomainIcon domain={formation.domain} />
+      </span>
       <Heading className={styles.title}>
         {/* Toute la carte est cliquable via ce lien (pseudo-élément étendu). */}
         <Link

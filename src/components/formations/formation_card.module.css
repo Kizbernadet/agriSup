@@ -1,13 +1,47 @@
-.card {
+/* Classe doublée : passe devant le padding de Card (couverture jusqu'aux bords). */
+.card.card {
   position: relative;
   height: 100%;
+  overflow: hidden;
+  padding-top: 0;
 }
 
-.top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2);
+/* Couverture pleine largeur, au ratio 16/9. */
+.media {
+  position: relative;
+  margin-inline: calc(-1 * var(--space-4));
+}
+
+.cover {
+  aspect-ratio: 16 / 9;
+}
+
+/* Niveau posé sur la photo. */
+.level {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+/* Pastille du domaine à cheval entre la photo et le texte. */
+.icon {
+  position: relative;
+  z-index: 1;
+  align-self: flex-start;
+  margin-top: calc(-1 * var(--space-6) / 2 - var(--space-3));
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition);
+}
+
+.card:hover .icon,
+.card:focus-within .icon {
+  transform: translateY(calc(-1 * var(--space-1)));
 }
 
 .title {

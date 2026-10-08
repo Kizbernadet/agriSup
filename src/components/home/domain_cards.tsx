@@ -27,7 +27,7 @@ export function DomainCards({ locale }: { locale: AppLocale }) {
           <h3 className={styles.title}>
             {/* Toute la carte est cliquable via ce lien (pseudo-élément étendu). */}
             <Link
-              href={{ pathname: "/formations", query: { domaine: domain } }}
+              href={{ pathname: "/domaines", hash: DOMAINS[domain].anchor }}
               className={styles.link}
             >
               {tFormation(`domain.${domain}`)}

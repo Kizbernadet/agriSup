@@ -11,6 +11,7 @@ const PAGES = [
   "/fr/formations",
   "/fr/formations/licence-pro-agronomie",
   "/fr/admission",
+  "/fr/domaines",
   "/fr/preinscription",
   "/fr/actualites",
   "/fr/faq",

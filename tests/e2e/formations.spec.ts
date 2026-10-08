@@ -43,13 +43,14 @@ test.describe("Formations", () => {
     const total = await cards.count();
     expect(total).toBeGreaterThan(0);
 
+    // Filtres actifs une fois la page hydratée.
+    await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "DUT", exact: true }).click();
-    const dutCount = await cards.count();
-    expect(dutCount).toBeLessThan(total);
     await expect(page.getByRole("button", { name: "DUT", exact: true })).toHaveAttribute(
       "aria-pressed",
       "true",
     );
+    await expect.poll(() => cards.count()).toBeLessThan(total);
 
     await page.getByRole("button", { name: "Aquaculture" }).click();
     await expect(count).toHaveText("Aucune formation ne correspond à ces critères.");

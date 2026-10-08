@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { WhatsappButton } from "@/components/contact/whatsapp_button";
+import { DomainCover } from "@/components/domains/domain_cover";
 import { DomainIcon } from "@/components/formations/domain_icon";
 import { FormationMeta } from "@/components/formations/formation_meta";
 import { Alert } from "@/components/ui/alert";
@@ -13,6 +14,7 @@ import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page_header";
 import { Paragraphs } from "@/components/ui/paragraphs";
 import { DOMAINS } from "@/content/domains";
+import { formationPhoto } from "@/content/visuals";
 import { toAppLocale } from "@/i18n/locale";
 import { getFormationBySlug, listPublishedFormationSlugs } from "@/lib/data/formations";
 import styles from "./formation_detail.module.css";
@@ -65,6 +67,15 @@ export default async function FormationDetailPage({
           { label: tNav("formations"), href: "/formations" },
           { label: formation.name },
         ]}
+        aside={
+          <DomainCover
+            domain={formation.domain}
+            photo={formationPhoto(formation.slug, formation.domain)}
+            sizes="(min-width: 1024px) 560px, 100vw"
+            priority
+            className={styles.cover}
+          />
+        }
       >
         <div className={styles.identity}>
           <DomainIcon domain={formation.domain} />

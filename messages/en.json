@@ -39,6 +39,10 @@
     "mentions_legales": {
       "title": "Legal notice and privacy",
       "description": "Legal notice and privacy policy of the AGRI'SUP website."
+    },
+    "domaines": {
+      "title": "Fields of study",
+      "description": "AGRI'SUP's five fields of study: crop production, livestock and animal health, aquaculture, agribusiness and agroforestry."
     }
   },
   "not_found": {
@@ -59,7 +63,8 @@
     "faq": "FAQ",
     "contact": "Contact",
     "main_label": "Main navigation",
-    "footer_label": "Footer navigation"
+    "footer_label": "Footer navigation",
+    "domaines": "Fields"
   },
   "header": {
     "skip_link": "Skip to content",
@@ -158,7 +163,7 @@
     "domain_label": "Field",
     "duration_label": "Duration",
     "view": "View program",
-    "domain_explore": "Explore this field",
+    "domain_explore": "Discover this field",
     "unverified_short": "Information to be confirmed",
     "unverified": "The information for this program is being validated by AGRI'SUP.",
     "whatsapp_message": "Hello AGRI'SUP, I would like information about the {name} program."
@@ -446,5 +451,13 @@
     "show_all": "Show all questions",
     "reply_greeting": "Hello! Choose a question below or type your own.",
     "reply_thanks": "You're welcome! Do you have another question?"
+  },
+  "domaines_page": {
+    "intro": "From field to market, five fields shape AGRI'SUP's program offer. Discover what each one covers, the careers it prepares for and the programs it includes.",
+    "on_this_page": "On this page",
+    "counter": "Field {index} of {total}",
+    "careers_title": "Example careers",
+    "formations_title": "Programs in this field",
+    "see_catalog": "See these programs in the catalogue"
   }
 }
