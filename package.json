@@ -21,7 +21,8 @@
     "test:e2e": "playwright test",
     "test:cleanup": "tsx scripts/cleanup_test_data.ts",
     "images": "tsx scripts/prepare_images.ts",
-    "motifs": "tsx scripts/generate_motifs.ts"
+    "motifs": "tsx scripts/generate_motifs.ts",
+    "photos": "tsx scripts/prepare_photos.ts"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^7.3.1",

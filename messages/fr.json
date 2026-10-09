@@ -216,7 +216,7 @@
     "video_play": "Lire la vidéo de présentation d'AGRI'SUP",
     "video_coming": "Vidéo de présentation à venir",
     "video_iframe_title": "Vidéo de présentation d'AGRI'SUP",
-    "video_cover_alt": "Une promotion d'étudiants en blouse verte au champ d'expérimentation d'AGRI'SUP.",
+    "video_cover_alt": "Une promotion d'étudiants en blouse verte et leurs encadrants devant le bâtiment d'AGRI'SUP.",
     "eyebrow_about": "À propos",
     "eyebrow_domains": "Domaines",
     "eyebrow_featured": "Formations",
@@ -330,7 +330,11 @@
     "partners_title": "Partenariats et coopération",
     "partners_intro": "Pour garantir une formation de qualité et faciliter l'insertion de nos diplômés, AGRI'SUP s'appuie sur des **partenaires de référence**, au Mali comme à l'international : stages, visites de terrain, expertise technique et possibilités de bourses.",
     "partners_national": "Au Mali",
-    "partners_international": "À l'international"
+    "partners_international": "À l'international",
+    "infra_library_title": "Bibliothèque",
+    "infra_library_text": "Un espace de lecture et de travail personnel, avec des ouvrages et des postes informatiques.",
+    "infra_bus_title": "Bus de l'école",
+    "infra_bus_text": "Un bus aux couleurs d'AGRI'SUP pour les sorties pédagogiques et les visites de terrain."
   },
   "actualites_page": {
     "intro": "Annonces, événements et activités pédagogiques : suivez la vie de l'établissement.",
@@ -444,12 +448,12 @@
     "counter": "{index} / {total}",
     "kakemono": "Le kakémono d'AGRI'SUP : système LMD et offre de formation",
     "labo": "Le laboratoire et son parc de microscopes",
-    "informatique": "La salle informatique",
+    "informatique": "Cours en salle informatique",
     "elevage": "Au contact des animaux d'élevage",
     "tracteur": "Le tracteur utilisé pour les travaux pratiques",
     "embleme": "L'emblème de l'école à l'entrée",
     "salle_cours": "Une salle de cours",
-    "microscopes": "Microscopes et loupes binoculaires",
+    "microscopes": "Travaux pratiques au microscope",
     "pratique": "Travaux pratiques en élevage",
     "affiche_inscriptions": "Affiche « Inscriptions ouvertes » : système LMD et filières d'AGRI'SUP",
     "affiche_lmd": "Affiche d'AGRI'SUP : système LMD et coordonnées de l'établissement"

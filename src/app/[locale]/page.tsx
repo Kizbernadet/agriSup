@@ -29,15 +29,16 @@ import { toAppLocale } from "@/i18n/locale";
 import { Link } from "@/i18n/navigation";
 import { listFormations, type FormationSummary } from "@/lib/data/formations";
 import { revealProps } from "@/lib/reveal";
-import embleme from "../../../assets/photos/batiments/batiment_2.jpeg";
-import elevage from "../../../assets/photos/activites/elevage_1.jpeg";
-import elevagePratique from "../../../assets/photos/etudiants/elevage_2.jpeg";
-import tracteur from "../../../assets/photos/equipements/equipement_3.jpeg";
 import kakemono from "../../../assets/photos/non_classes/kakemono_offre_formations.jpg";
-import labo1 from "../../../assets/photos/equipements/labo_1.jpeg";
-import labo3 from "../../../assets/photos/equipements/labo_3.jpeg";
-import salleCours from "../../../assets/photos/non_classes/salle_cours_1.jpeg";
-import salleInformatique from "../../../assets/photos/non_classes/salle_informatique_1.jpeg";
+import embleme from "../../../assets/site/campus/enseigne_entree.jpg";
+import elevage from "../../../assets/site/domaines/elevage_bovins.jpg";
+import elevagePratique from "../../../assets/site/domaines/elevage_travaux_pratiques.jpg";
+import tracteur from "../../../assets/site/domaines/tracteur_champ.jpg";
+import photoGroupe from "../../../assets/site/etudiants/photo_groupe_entree.jpg";
+import travauxPratiques from "../../../assets/site/etudiants/tp_microscopes_salle.jpg";
+import salleInformatique from "../../../assets/site/etudiants/salle_informatique_cours.jpg";
+import labo1 from "../../../assets/site/salles/laboratoire_microscopes.jpg";
+import salleCours from "../../../assets/site/salles/salle_cours.jpg";
 import styles from "./home.module.css";
 
 export const revalidate = 3600;
@@ -227,7 +228,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
             },
             {
               id: "microscopes",
-              image: labo3,
+              image: travauxPratiques,
               caption: tGallery("microscopes"),
               sizes: "(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw",
             },
@@ -267,7 +268,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       >
         {/* Photo de fond décorative sous un voile sombre (texte lisible quelle que soit l'image). */}
         <Image
-          src={labo3}
+          src={photoGroupe}
           alt=""
           fill
           sizes="100vw"

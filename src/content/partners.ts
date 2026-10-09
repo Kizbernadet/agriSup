@@ -1,6 +1,8 @@
 import type { StaticImageData } from "next/image";
-import afgBankLogo from "../../assets/photos/partenaires/afg_bank_logo_2.png";
-import iprIfraLogo from "../../assets/photos/partenaires/ipr_ifra_logo.jpg";
+import afgBankLogo from "../../assets/site/partenaires/afg_bank.png";
+import carfsLogo from "../../assets/site/partenaires/carfs.png";
+import ierLogo from "../../assets/site/partenaires/ier.png";
+import iprIfraLogo from "../../assets/site/partenaires/ipr_ifra.png";
 
 /**
  * Partenaires d'AGRI'SUP : source unique du ruban de l'accueil et du mur de la page
@@ -8,7 +10,8 @@ import iprIfraLogo from "../../assets/photos/partenaires/ipr_ifra_logo.jpg";
  * IPR/IFRA du 10 février 2026) et premiers documents de la cliente (AFG Bank).
  *
  * Pour compléter un partenaire :
- * - logo : déposer l'image dans assets/photos/partenaires/ (PNG ou SVG sur fond clair
+ * - logo : déposer l'image dans assets/photos/partenaires/, l'ajouter à LOGOS dans
+ *   scripts/prepare_photos.ts puis lancer npm run photos (PNG sur fond clair
  *   de préférence), l'importer en haut de ce fichier, puis l'indiquer dans « logo » ;
  * - lien : indiquer l'adresse complète du site officiel dans « url » (https://…).
  * Sans logo, un monogramme aux couleurs de la charte est affiché ; sans lien, aucun
@@ -72,6 +75,7 @@ export const PARTNERS: Partner[] = [
       fr: "Institut d'économie rurale, référence malienne et sous-régionale de la recherche agricole.",
       en: "Institute of Rural Economy, a Malian and regional reference in agricultural research.",
     },
+    logo: ierLogo,
     featured: true,
   },
   {
@@ -101,6 +105,7 @@ export const PARTNERS: Partner[] = [
       fr: "Centre africain de recherche et de formation en synécoculture.",
       en: "African centre for research and training in synecoculture.",
     },
+    logo: carfsLogo,
     featured: true,
   },
   {

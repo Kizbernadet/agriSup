@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { PRESENTATION_VIDEO } from "@/content/placeholders";
 // Photo réelle d'une promotion au champ d'expérimentation, en image d'aperçu.
-import cover from "../../../assets/photos/etudiants/etudiants_3.jpg";
+import cover from "../../../assets/site/etudiants/promotion_encadrants.jpg";
 import styles from "./presentation_video.module.css";
 
 // Façade « chargement au clic » : aucune ressource YouTube (≈ 1 Mo de scripts) n'est

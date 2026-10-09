@@ -1,10 +1,10 @@
 import { useTranslations } from "next-intl";
-import bankLogo from "../../../assets/photos/partenaires/afg_bank_logo_2.png";
-import campusPhoto from "../../../assets/photos/batiments/batiment_1.jpg";
-import entrancePhoto from "../../../assets/photos/batiments/batiment_3.jpeg";
-import communityPhoto from "../../../assets/photos/etudiants/etudiants_1.png";
-import labPhoto from "../../../assets/photos/etudiants/etudiants_2.jpg";
-import iprIfraLogo from "../../../assets/photos/partenaires/ipr_ifra_logo.jpg";
+import campusPhoto from "../../../assets/site/campus/batiment_facade.jpg";
+import entrancePhoto from "../../../assets/site/campus/batiment_entree.jpg";
+import communityPhoto from "../../../assets/site/etudiants/promotion_campus.jpg";
+import labPhoto from "../../../assets/site/etudiants/tp_microscope_binome.jpg";
+import bankLogo from "../../../assets/site/partenaires/afg_bank.png";
+import iprIfraLogo from "../../../assets/site/partenaires/ipr_ifra.png";
 import { HeroSlider, type HeroSlide } from "./hero_slider";
 import styles from "./home_hero.module.css";
 

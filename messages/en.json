@@ -216,7 +216,7 @@
     "video_play": "Play the AGRI'SUP presentation video",
     "video_coming": "Presentation video coming soon",
     "video_iframe_title": "AGRI'SUP presentation video",
-    "video_cover_alt": "A class of students in green lab coats at the AGRI'SUP experimental field.",
+    "video_cover_alt": "A class of students in green lab coats with their supervisors in front of the AGRI'SUP building.",
     "eyebrow_about": "About",
     "eyebrow_domains": "Fields",
     "eyebrow_featured": "Programs",
@@ -330,7 +330,11 @@
     "partners_title": "Partnerships and cooperation",
     "partners_intro": "To ensure quality training and help our graduates find work, AGRI'SUP relies on **leading partners** in Mali and abroad: internships, field visits, technical expertise and scholarship opportunities.",
     "partners_national": "In Mali",
-    "partners_international": "International"
+    "partners_international": "International",
+    "infra_library_title": "Library",
+    "infra_library_text": "A space for reading and independent study, with books and computers.",
+    "infra_bus_title": "School bus",
+    "infra_bus_text": "A bus in AGRI'SUP colours for educational trips and field visits."
   },
   "actualites_page": {
     "intro": "Announcements, events and teaching activities: follow life at the school.",
@@ -444,12 +448,12 @@
     "counter": "{index} / {total}",
     "kakemono": "The AGRI'SUP roll-up banner: LMD system and programs",
     "labo": "The laboratory and its microscopes",
-    "informatique": "The computer room",
+    "informatique": "Class in the computer room",
     "elevage": "Working alongside livestock",
     "tracteur": "The tractor used for practical work",
     "embleme": "The school emblem at the entrance",
     "salle_cours": "A classroom",
-    "microscopes": "Microscopes and stereo microscopes",
+    "microscopes": "Practical work with microscopes",
     "pratique": "Practical work in animal husbandry",
     "affiche_inscriptions": "“Enrolment open” poster: LMD system and AGRI'SUP programs",
     "affiche_lmd": "AGRI'SUP poster: LMD system and contact details"

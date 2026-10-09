@@ -5,8 +5,11 @@ import { useTranslations } from "next-intl";
 import { ArrowUpIcon } from "@/components/ui/icons";
 import styles from "./back_to_top.module.css";
 
-// Le bouton apparaît après trois quarts d'écran de défilement.
+// Le bouton apparaît après trois quarts d'écran de défilement, ou plus tôt sur les pages
+// courtes (40 % de la distance de défilement) : il est ainsi présent sur toutes les pages
+// qui défilent.
 const SHOW_AFTER_VIEWPORTS = 0.75;
+const SHOW_AFTER_SHARE = 0.4;
 
 // Bouton « Haut de page », en bas à gauche (les actions WhatsApp et FAQ occupent la
 // droite). Une barre or indique la progression de la lecture (CSS seul, back_to_top.module.css).
@@ -15,11 +18,21 @@ export function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const update = () =>
-      setVisible(window.scrollY > window.innerHeight * SHOW_AFTER_VIEWPORTS);
+    const update = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const threshold = Math.min(
+        window.innerHeight * SHOW_AFTER_VIEWPORTS,
+        scrollable * SHOW_AFTER_SHARE,
+      );
+      setVisible(scrollable > 0 && window.scrollY > threshold);
+    };
     update();
     window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
   function scrollToTop(event: MouseEvent<HTMLButtonElement>) {

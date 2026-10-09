@@ -24,11 +24,13 @@ import { PARTNERS } from "@/content/partners";
 import { INSTITUTION, INSTITUTION_DETAILS } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
 import { revealProps } from "@/lib/reveal";
-import fieldPhoto from "../../../../assets/photos/etudiants/etudiants_3.jpg";
 import kakemono from "../../../../assets/photos/non_classes/kakemono_offre_formations.jpg";
-import labPhoto from "../../../../assets/photos/equipements/labo_1.jpeg";
-import classroomPhoto from "../../../../assets/photos/non_classes/salle_cours_1.jpeg";
-import computerPhoto from "../../../../assets/photos/non_classes/salle_informatique_2.jpeg";
+import busPhoto from "../../../../assets/site/campus/bus_ecole.jpg";
+import libraryPhoto from "../../../../assets/site/campus/bibliotheque.jpg";
+import fieldPhoto from "../../../../assets/site/domaines/tracteur_champ.jpg";
+import labPhoto from "../../../../assets/site/salles/laboratoire_microscopes.jpg";
+import classroomPhoto from "../../../../assets/site/salles/salle_cours.jpg";
+import computerPhoto from "../../../../assets/site/salles/salle_informatique.jpg";
 import table from "@/components/ui/data_table.module.css";
 import { RichText } from "@/components/ui/rich_text";
 import styles from "./agrisup.module.css";
@@ -64,12 +66,14 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
     { id: "infrastructures", label: tPage("infrastructures_title") },
   ];
 
-  // Photos réelles de l'établissement (assets/photos).
+  // Photos réelles de l'établissement (assets/site, préparées par npm run photos).
   const facilities = [
     { id: "lab", image: labPhoto },
     { id: "computer", image: computerPhoto },
     { id: "classroom", image: classroomPhoto },
     { id: "field", image: fieldPhoto },
+    { id: "library", image: libraryPhoto },
+    { id: "bus", image: busPhoto },
   ] as const;
 
   return (
@@ -250,7 +254,7 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
               <Image
                 src={facility.image}
                 alt=""
-                sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw"
+                sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
                 quality={90}
                 className={styles.facility_image}
                 placeholder="blur"
