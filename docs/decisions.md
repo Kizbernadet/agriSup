@@ -298,3 +298,12 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Répartition par thème** : les cinq domaines ont désormais une photo réelle (aquaculture : bassins ; agribusiness : chambre froide ; agroforesterie : sortie de terrain le long d'une haie ; production végétale : maraîchage) ; 11 formations ont une photo propre (compostage pour la fumure organique, couveuse pour l'aviculture, unité de transformation pour le technico-commercial agricole, etc.). Galerie, couverture vidéo (photo horizontale adaptée au cadre 16/9) et bandeau « Rejoindre » (photo de groupe) renouvelés. Infrastructures : bibliothèque et bus de l'école ajoutés (six cartes, trois colonnes).
 - **Logos partenaires** : IER et CARFS ajoutés (fournis par la cliente).
 - **À valider par la cliente** : association photos / formations, légendes de la bibliothèque et du bus.
+
+### 2026-10-09 — Icône d'onglet et application installable (PWA)
+
+- **Icônes** (`npm run icons`, `scripts/generate_app_icons.ts`) : le sceau officiel remplace l'ancien emblème dans l'onglet (`src/app/icon.png`, fond transparent). Icônes d'application (192, 512, maskable dans la zone sûre de 80 %) et icône iOS : sceau cerclé de blanc sur fond Vert Terrain, choix de la cliente. `npm run images` n'écrase plus ces icônes.
+- **Manifeste** (`src/app/manifest.ts`, lié automatiquement par Next.js) : nom, couleurs de la charte, affichage `standalone`, raccourcis Formations, Préinscription et Contact. Manifeste unique en français ; `start_url` « / » redirige vers la langue du navigateur.
+- **Service worker écrit à la main** (`public/sw.js`, aucune dépendance) : pages en réseau d'abord (contenu toujours à jour, dernière version consultée hors ligne), fichiers de Next.js en cache d'abord, images en cache puis mise à jour ; API, formulaires et autres origines jamais mis en cache ; caches versionnés et plafonnés. Servi sans cache navigateur (`next.config.ts`). Enregistré en production uniquement.
+- **Page hors ligne** (`public/offline.html`) : autonome (aucune ressource du site n'est accessible hors connexion), couleurs de la charte recopiées, thème clair ou sombre, français ou anglais selon l'adresse, numéros officiels cliquables.
+- **Mises à jour** : une nouvelle version attend le clic du visiteur sur « Mettre à jour » (avis en haut de l'écran) au lieu de recharger la page en pleine lecture.
+- **Hors périmètre, non fait** : notifications push (serveur, clés VAPID et consentement nécessaires).

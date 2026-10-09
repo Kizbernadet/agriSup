@@ -19,6 +19,7 @@ const CLIENT_NAMESPACES = [
   "nav",
   "partners",
   "preinscription_page",
+  "pwa",
   "slider",
   "theme",
   "whatsapp",

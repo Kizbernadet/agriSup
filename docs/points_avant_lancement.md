@@ -50,11 +50,7 @@
 ## 4. Technique (Dev)
 
 - [ ] **Performance** : mesurer avec PageSpeed Insights sur le site en ligne (objectif : 90 ou plus sur mobile) et corriger.
-- [ ] **Application installable (PWA)**, validée par AGRI'SUP :
-  - manifeste ;
-  - icônes (sceau sur fond vert) ;
-  - mode hors ligne ;
-  - avis de mise à jour.
+- [x] **Application installable (PWA)** : manifeste, icônes (sceau sur fond vert), pages consultées disponibles hors ligne, page hors ligne, avis de mise à jour. Reste à tester l'installation sur un vrai téléphone Android et iPhone.
 - [ ] **Test au lecteur d'écran** (NVDA) des pages principales et des formulaires. Les tests automatiques d'accessibilité passent déjà.
 - [ ] **Dépôt** :
   - exclure les photos HEIC et les originaux non utilisés (`.gitignore`) ;

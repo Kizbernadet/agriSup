@@ -512,5 +512,10 @@
     "website": "Website",
     "new_tab": "of {name} (new tab)",
     "see_all": "See all our partners"
+  },
+  "pwa": {
+    "update_available": "A new version of the site is available.",
+    "update_action": "Update",
+    "dismiss": "Close"
   }
 }

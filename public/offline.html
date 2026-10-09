@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex" />
+    <title>Hors ligne — AGRI'SUP</title>
+    <!--
+      Page affichée par le service worker (public/sw.js) quand une page n'est pas
+      disponible sans connexion. Autonome : aucune feuille de style ni police du site
+      n'est accessible hors ligne. Couleurs recopiées de la charte §3 (tokens.css) ;
+      polices de secours de la charte. Langue : anglais si l'adresse commence par /en.
+    -->
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var theme = null;
+        try {
+          theme = localStorage.getItem("agrisup_theme");
+        } catch (error) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        root.setAttribute("data-theme", theme);
+        if (location.pathname.indexOf("/en") === 0) {
+          root.setAttribute("lang", "en");
+          document.title = "Offline — AGRI'SUP";
+        }
+      })();
+    </script>
+    <style>
+      :root,
+      [data-theme="light"] {
+        color-scheme: light;
+        --color-bg: #f9fafb;
+        --color-surface: #ffffff;
+        --color-text: #1f2937;
+        --color-text-muted: #4b5563;
+        --color-border: #e5e7eb;
+        --color-brand: #1b2a47;
+        --color-action: #2a724f;
+        --color-action-hover: #215c3f;
+        --color-on-action: #ffffff;
+        --color-accent: #c59b2e;
+        --color-link: #2a724f;
+        --color-focus: #1b2a47;
+      }
+
+      [data-theme="dark"] {
+        color-scheme: dark;
+        --color-bg: #0c1410;
+        --color-surface: #16261e;
+        --color-text: #e5e7eb;
+        --color-text-muted: #9ca3af;
+        --color-border: #2a3d33;
+        --color-brand: #f3f4f6;
+        --color-action: #2ecc71;
+        --color-action-hover: #58d68d;
+        --color-on-action: #0c1410;
+        --color-accent: #d4af37;
+        --color-link: #d4af37;
+        --color-focus: #d4af37;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        padding: 24px 16px;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      main {
+        display: grid;
+        justify-items: center;
+        gap: 16px;
+        width: 100%;
+        max-width: 32rem;
+        padding: 32px 24px;
+        border: 1px solid var(--color-border);
+        border-top: 4px solid var(--color-accent);
+        border-radius: 8px;
+        background-color: var(--color-surface);
+        text-align: center;
+      }
+
+      img {
+        width: 96px;
+        height: 96px;
+      }
+
+      h1 {
+        color: var(--color-brand);
+        font-family: "Segoe UI", Arial, sans-serif;
+        font-size: 1.625rem;
+        line-height: 1.25;
+      }
+
+      p {
+        color: var(--color-text-muted);
+      }
+
+      button {
+        min-height: 2.75rem;
+        padding: 8px 24px;
+        border: 0;
+        border-radius: 8px;
+        background-color: var(--color-action);
+        color: var(--color-on-action);
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: var(--color-action-hover);
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--color-focus);
+        outline-offset: 2px;
+      }
+
+      ul {
+        display: grid;
+        gap: 4px;
+        padding: 0;
+        list-style: none;
+      }
+
+      a {
+        display: inline-block;
+        min-height: 2.75rem;
+        padding-block: 8px;
+        color: var(--color-link);
+        font-weight: 600;
+      }
+
+      [lang="fr"] [data-lang="en"],
+      [lang="en"] [data-lang="fr"] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="/logo/sceau_agrisup.png" alt="" width="96" height="96" />
+      <div data-lang="fr">
+        <h1>Vous êtes hors ligne</h1>
+        <p>
+          Cette page n'est pas disponible sans connexion. Les pages déjà consultées restent
+          accessibles. Vérifiez votre connexion puis réessayez.
+        </p>
+      </div>
+      <div data-lang="en">
+        <h1>You are offline</h1>
+        <p>
+          This page is not available without a connection. Pages you have already visited
+          remain available. Check your connection and try again.
+        </p>
+      </div>
+      <button type="button" onclick="location.reload()">
+        <span data-lang="fr">Réessayer</span><span data-lang="en">Try again</span>
+      </button>
+      <p>
+        <span data-lang="fr">Pour nous joindre en attendant&nbsp;:</span
+        ><span data-lang="en">To reach us in the meantime:</span>
+      </p>
+      <ul>
+        <li><a href="tel:+22374987447">+223 74 98 74 47</a></li>
+        <li><a href="tel:+22366724389">+223 66 72 43 89</a></li>
+      </ul>
+    </main>
+  </body>
+</html>

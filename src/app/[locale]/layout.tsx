@@ -6,6 +6,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { BackToTop } from "@/components/layout/back_to_top";
 import { FloatingActions } from "@/components/layout/floating_actions";
 import { PageTransition } from "@/components/layout/page_transition";
+import { ServiceWorkerRegistrar } from "@/components/layout/service_worker_registrar";
 import { SiteFooter } from "@/components/layout/site_footer";
 import { SiteHeader } from "@/components/layout/site_header";
 import { RevealScript } from "@/components/layout/reveal_script";
@@ -42,6 +43,11 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  // Barre du navigateur et de l'application installée : fond de l'en-tête (charte §3).
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#16261e" },
+  ],
 };
 
 export async function generateMetadata({
@@ -53,6 +59,8 @@ export async function generateMetadata({
   return {
     title: { default: t("title"), template: `%s | ${t("site_name")}` },
     description: t("description"),
+    // Écran d'accueil iOS (le manifeste, src/app/manifest.ts, est lié automatiquement).
+    appleWebApp: { capable: true, title: t("site_name"), statusBarStyle: "default" },
     robots: isIndexingEnabled() ? undefined : { index: false, follow: false },
   };
 }
@@ -93,6 +101,7 @@ export default async function LocaleLayout({
           <SiteFooter />
           <BackToTop />
           <FloatingActions />
+          <ServiceWorkerRegistrar />
         </NextIntlClientProvider>
       </body>
     </html>

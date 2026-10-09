@@ -512,5 +512,10 @@
     "website": "Site web",
     "new_tab": "de {name} (nouvel onglet)",
     "see_all": "Voir tous nos partenaires"
+  },
+  "pwa": {
+    "update_available": "Une nouvelle version du site est disponible.",
+    "update_action": "Mettre à jour",
+    "dismiss": "Fermer"
   }
 }

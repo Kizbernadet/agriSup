@@ -5,7 +5,8 @@
  * - Logo : marges blanches retirées (aucune retouche du dessin).
  * - Sceau officiel (assets/logo/agrisup_2.jpg) : détouré en cercle sur fond transparent,
  *   logo du site depuis le 2026-10-07.
- * - Icône d'onglet : emblème seul (partie gauche du logo), comme le prévoit la charte §7.
+ * - Emblème seul (partie gauche du logo) ; les icônes d'onglet et d'application
+ *   viennent désormais du sceau (npm run icons).
  * - Diaporama : scènes photographiques extraites des affiches de assets/annonces/,
  *   SANS leurs textes (l'affiche « Formez-vous aujourd'hui » porte un numéro erroné).
  *   Images générées par IA, fournies par la cliente : à remplacer par de vraies photos.
@@ -49,10 +50,7 @@ async function prepareLogo() {
     .resize(512, 512, { fit: "contain", background: "#ffffff" })
     .png()
     .toFile("public/logo/emblem_agrisup.png");
-  await sharp("public/logo/emblem_agrisup.png")
-    .resize(180, 180)
-    .toFile("src/app/apple-icon.png");
-  await sharp("public/logo/emblem_agrisup.png").resize(64, 64).toFile("src/app/icon.png");
+  // Icônes d'onglet et d'application : npm run icons (sceau officiel, 2026-10-09).
   console.log(`Logo : ${info.width}×${info.height} px après recadrage.`);
 }
 
