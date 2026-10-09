@@ -1,3 +1,8 @@
+.wrapper {
+  display: grid;
+  gap: var(--space-4);
+}
+
 /* Ruban de partenaires : deux moitiés identiques qui glissent de -50 %, d'où une boucle
    sans à-coup. Les bords s'estompent (masque) pour suggérer la continuité. */
 .marquee {
@@ -64,10 +69,22 @@
   overflow: hidden;
 }
 
+/* Logos en gris au repos, en couleur au survol ou au focus de la carte. */
 .logo {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.85;
+  transition:
+    filter var(--transition-slow),
+    opacity var(--transition-slow);
+}
+
+.card:hover .logo,
+.card:focus-within .logo {
+  filter: none;
+  opacity: 1;
 }
 
 /* Partenaire sans logo : initiales aux couleurs de la charte. */
@@ -152,4 +169,36 @@
   .item[data-duplicate] {
     display: none;
   }
+}
+
+/* Nom cliquable vers le site du partenaire (quand il est renseigné). */
+.link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: var(--space-1);
+}
+
+.link:hover {
+  color: var(--color-action);
+}
+
+/* Lien vers le mur complet (page AGRI'SUP). */
+.see_all {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  justify-self: center;
+  min-height: var(--tap-target);
+  font-weight: var(--font-weight-semibold);
+}
+
+.see_all svg {
+  width: var(--space-4);
+  height: var(--space-4);
+  transition: transform var(--transition);
+}
+
+.see_all:hover svg {
+  transform: translateX(var(--space-1));
 }

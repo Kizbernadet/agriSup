@@ -3,7 +3,9 @@ import { Inter, Montserrat } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { BackToTop } from "@/components/layout/back_to_top";
 import { FloatingActions } from "@/components/layout/floating_actions";
+import { PageTransition } from "@/components/layout/page_transition";
 import { SiteFooter } from "@/components/layout/site_footer";
 import { SiteHeader } from "@/components/layout/site_header";
 import { RevealScript } from "@/components/layout/reveal_script";
@@ -72,6 +74,8 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       className={`${montserrat.variable} ${inter.variable}`}
+      // Défilement doux pour les ancres, neutralisé par Next.js lors des changements de page.
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>
@@ -84,9 +88,10 @@ export default async function LocaleLayout({
           <SiteHeader />
           {/* tabIndex -1 : le lien d'évitement peut y déplacer le focus. */}
           <main id={MAIN_CONTENT_ID} tabIndex={-1}>
-            {children}
+            <PageTransition>{children}</PageTransition>
           </main>
           <SiteFooter />
+          <BackToTop />
           <FloatingActions />
         </NextIntlClientProvider>
       </body>

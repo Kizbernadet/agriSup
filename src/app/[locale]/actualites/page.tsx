@@ -4,6 +4,7 @@ import { ActualiteCard } from "@/components/actualites/actualite_card";
 import { PageHeader } from "@/components/ui/page_header";
 import { Pagination } from "@/components/ui/pagination";
 import { Section } from "@/components/ui/section";
+import { RichText } from "@/components/ui/rich_text";
 import { toAppLocale } from "@/i18n/locale";
 import { listActualites } from "@/lib/data/actualites";
 import { revealProps } from "@/lib/reveal";
@@ -39,7 +40,9 @@ export default async function ActualitesPage({
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>{tPage("intro")}</p>}
+        intro={<p>
+            <RichText text={tPage("intro")} />
+          </p>}
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
       />
       <Section>

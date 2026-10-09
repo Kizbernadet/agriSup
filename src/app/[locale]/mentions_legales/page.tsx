@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Alert } from "@/components/ui/alert";
 import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/ui/page_header";
+import { RichText } from "@/components/ui/rich_text";
 import { CONTACT, LEGAL } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
 import styles from "./mentions_legales.module.css";
@@ -35,7 +36,9 @@ export default async function MentionsLegalesPage({
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>{tPage("intro")}</p>}
+        intro={<p>
+            <RichText text={tPage("intro")} />
+          </p>}
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
       />
       <Container className={styles.body}>

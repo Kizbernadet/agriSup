@@ -4,11 +4,12 @@ import { FormationCatalog } from "@/components/formations/formation_catalog";
 import { PosterFan } from "@/components/formations/poster_fan";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
+import { RichText } from "@/components/ui/rich_text";
 import { toAppLocale } from "@/i18n/locale";
 import { listFormations } from "@/lib/data/formations";
-import affichesInscriptions from "../../../../assets/photos/annonce_1.jpeg";
-import kakemono from "../../../../assets/photos/kakemono_offre_formations.jpg";
-import afficheLmd from "../../../../assets/photos/poster_2.jpg";
+import affichesInscriptions from "../../../../assets/photos/flyers/annonce_1.jpeg";
+import kakemono from "../../../../assets/photos/non_classes/kakemono_offre_formations.jpg";
+import afficheLmd from "../../../../assets/photos/flyers/poster_2.jpg";
 
 // Page statique régénérée au plus toutes les heures (modifications en base).
 export const revalidate = 3600;
@@ -39,7 +40,9 @@ export default async function FormationsPage({
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>{tPage("intro")}</p>}
+        intro={<p>
+            <RichText text={tPage("intro")} />
+          </p>}
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
         aside={
           <PosterFan

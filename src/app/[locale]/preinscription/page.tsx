@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { PhoneIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
+import { RichText } from "@/components/ui/rich_text";
 import { CONTACT } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
 import { academicYearOptions } from "@/lib/academic_year";
@@ -52,7 +53,9 @@ export default async function PreinscriptionPage({
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>{tPage("intro")}</p>}
+        intro={<p>
+            <RichText text={tPage("intro")} />
+          </p>}
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
       />
       <Container className={styles.layout}>

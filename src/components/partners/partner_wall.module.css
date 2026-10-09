@@ -1,0 +1,256 @@
+.wall {
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* ---------- Chiffres clés ---------- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+}
+
+/* Chiffre au-dessus du libellé (ordre du code : libellé puis valeur, pour les lecteurs
+   d'écran). */
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-2);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.stat dd {
+  margin: 0;
+  color: var(--color-accent-text);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+
+.stat dt {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+}
+
+/* ---------- Filtres ---------- */
+
+.filters {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+}
+
+@media (min-width: 1024px) {
+  .filters {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+.count {
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ---------- Cartes ---------- */
+
+.grid {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Teinte de la carte selon le domaine du partenaire. */
+.card {
+  --tone: var(--color-action);
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: var(--border-width) solid var(--color-border);
+  border-top: var(--space-1) solid var(--tone);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.card[data-category="formation"] {
+  --tone: var(--color-brand);
+}
+
+.card[data-category="farm"] {
+  --tone: var(--color-accent-text);
+}
+
+.card[data-category="finance"] {
+  --tone: var(--color-text-muted);
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(calc(-1 * var(--space-1)));
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Logo sur plaque claire (fond des logos), ou monogramme sur dégradé de la charte. */
+.visual {
+  display: grid;
+  place-items: center;
+  height: calc(var(--space-7) * 2);
+  border-bottom: var(--border-width) solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+[data-theme="dark"] .visual:has(.logo) {
+  background-color: var(--color-brand);
+}
+
+.visual:has(.monogram) {
+  background-image:
+    var(--pattern-image),
+    linear-gradient(
+      135deg,
+      var(--color-band-bg),
+      color-mix(in srgb, var(--color-band-bg) 60%, var(--color-action))
+    );
+  background-size: calc(var(--space-7) * 4), auto;
+}
+
+/* Logos en gris au repos, en couleur au survol ou au focus de la carte. */
+.logo {
+  width: auto;
+  max-width: 70%;
+  height: auto;
+  max-height: 70%;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.85;
+  transition:
+    filter var(--transition-slow),
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
+}
+
+.card:hover .logo,
+.card:focus-within .logo {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.monogram {
+  display: grid;
+  place-items: center;
+  min-width: var(--space-7);
+  height: var(--space-7);
+  padding-inline: var(--space-3);
+  border: var(--border-width) solid
+    color-mix(in srgb, var(--color-band-accent) 60%, transparent);
+  border-radius: var(--radius);
+  background-color: color-mix(in srgb, var(--color-band-bg) 70%, transparent);
+  color: var(--color-band-accent);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .monogram,
+.card:focus-within .monogram {
+  transform: rotate(-4deg) scale(1.05);
+}
+
+.body {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-small);
+}
+
+.category {
+  padding: 0 var(--space-2);
+  border: var(--border-width) solid var(--tone);
+  border-radius: var(--radius);
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+}
+
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-text-muted);
+}
+
+.location svg {
+  width: var(--space-4);
+  height: var(--space-4);
+  color: var(--color-accent-text);
+}
+
+.name {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+.description {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  justify-self: start;
+  min-height: var(--tap-target);
+  font-weight: var(--font-weight-semibold);
+}
+
+.link svg {
+  width: var(--space-4);
+  height: var(--space-4);
+  transition: transform var(--transition);
+}
+
+.link:hover svg {
+  transform: translate(calc(var(--space-1) / 2), calc(-1 * var(--space-1) / 2));
+}

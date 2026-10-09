@@ -103,6 +103,7 @@
 /* ---------- Bandeau final « Rejoindre AGRI'SUP » : photo + voile ---------- */
 
 .cta_band {
+  --keyword-color: var(--color-band-accent);
   position: relative;
   isolation: isolate;
   overflow: hidden;

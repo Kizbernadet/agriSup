@@ -276,3 +276,17 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Performance (lot 3, en cours)** : traductions envoyées au navigateur limitées aux espaces utilisés côté client (`src/i18n/client_messages.ts`) ; `priority` (déprécié en Next 16) remplacé par `loading` / `fetchPriority`. Mesures locales faussées par l'antivirus Kaspersky (script injecté de 207 Ko) : mesures à refaire sur le site en ligne.
 - **Incident** : le commit `6c43ad0` (lot 2) a embarqué par erreur 171 photos et la suppression de `etudiants_3.webp` (`git add -A` pendant le tri de la cliente) ; les déploiements Vercel ont échoué. Correctif : commits limités aux fichiers de code, photo restaurée depuis l'historique.
 
+### 2026-10-08 — Mur des partenaires
+
+- **Source unique** : `src/content/partners.ts` (14 partenaires : territoire, domaine, localisation, description, `logo` et `url` facultatifs, `featured` pour le ruban). Mode d'emploi en tête du fichier pour ajouter logos et liens.
+- **Page AGRI'SUP** : mur avec chiffres clés (partenaires, pays, continents), filtres par territoire et par domaine (composant `FilterGroup` partagé avec le catalogue), cartes teintées par domaine, logos en niveaux de gris passant en couleur au survol, monogramme aux couleurs de la charte en l'absence de logo, lien « Site web » (nouvel onglet) quand l'adresse est renseignée.
+- **Accueil** : le ruban lit la même source (partenaires `featured`), nom cliquable vers le site du partenaire, doublons inertes au clavier, lien « Voir tous nos partenaires ».
+
+
+### 2026-10-09 — Fluidité, mise en valeur des mots clés, parallaxe
+
+- **Photos réorganisées par la cliente** (`assets/photos/activites`, `batiments`, `equipements`, `etudiants`, `flyers`, `partenaires`, `non_classes`) : imports mis à jour (36 chemins). `etudiants_1` est désormais un PNG et `etudiants_3` un JPEG ; `next/image` les recompresse à la compilation.
+- **Mots clés** : marqueur `**…**` dans les traductions et les contenus, rendu par `RichText` (`src/components/ui/rich_text.tsx`) en `<strong class="keyword">`. Couleur d'accent dans les titres (Vert Terrain, or brillant sur fond sombre via `--keyword-color`), surligneur or à 35 % dans le texte, tracé à l'apparition du bloc. `Section`, `PageHeader` et le hero acceptent ces chaînes. Ne pas utiliser le marqueur dans les clés reprises en métadonnées (`title`, `description`) ; `plainText()` le retire au besoin.
+- **Parallaxe** en CSS seul (`animation-timeline`), ignorée par les navigateurs qui ne la gèrent pas et désactivée si mouvement réduit : `data-parallax="float"` (élément qui glisse un peu plus vite que la page) et `data-parallax="layer"` (photo de fond agrandie) dans `base.css` ; hero (ordinateur : photo plus lente, texte qui s'efface), motif des en-têtes de page, visuels latéraux, photo du bandeau « Rejoindre ». Propriété `translate`, cumulable avec les effets de survol et d'apparition. Pas d'agrandissement sur les photos de la galerie (netteté, demande de la cliente).
+- **Fluidité** : défilement doux des ancres (`data-scroll-behavior="smooth"` : Next.js le neutralise lors des changements de page), entrée en fondu du contenu à chaque page (`PageTransition`, clé liée à l'adresse : un `template.tsx` sous `[locale]` ne serait pas recréé d'une page à l'autre).
+- **Bouton « Haut de page »** en bas à gauche (la droite est occupée par la FAQ et WhatsApp) : apparaît après trois quarts d'écran, barre or de progression de lecture (CSS), focus ramené en haut de page au clavier.

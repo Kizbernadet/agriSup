@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Card } from "@/components/ui/card";
-import { CheckIcon, GlobeIcon, InstitutionIcon } from "@/components/ui/icons";
+import { CheckIcon, InstitutionIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
 import { PedagogySteps } from "@/components/home/pedagogy_steps";
+import { PartnerWall } from "@/components/partners/partner_wall";
 import { Timeline } from "@/components/ui/timeline";
 import {
   CAMPUS_FACTS,
@@ -15,20 +16,21 @@ import {
   LMD_PATHS,
   MOTIVATION,
   MOTTO,
-  PARTNERSHIPS,
   RECOGNITION,
   SEAL_MOTTO,
   VALUES,
 } from "@/content/agrisup";
+import { PARTNERS } from "@/content/partners";
 import { INSTITUTION, INSTITUTION_DETAILS } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
 import { revealProps } from "@/lib/reveal";
-import fieldPhoto from "../../../../assets/photos/etudiants_3.webp";
-import kakemono from "../../../../assets/photos/kakemono_offre_formations.jpg";
-import labPhoto from "../../../../assets/photos/labo_1.jpeg";
-import classroomPhoto from "../../../../assets/photos/salle_cours_1.jpeg";
-import computerPhoto from "../../../../assets/photos/salle_informatique_2.jpeg";
+import fieldPhoto from "../../../../assets/photos/etudiants/etudiants_3.jpg";
+import kakemono from "../../../../assets/photos/non_classes/kakemono_offre_formations.jpg";
+import labPhoto from "../../../../assets/photos/equipements/labo_1.jpeg";
+import classroomPhoto from "../../../../assets/photos/non_classes/salle_cours_1.jpeg";
+import computerPhoto from "../../../../assets/photos/non_classes/salle_informatique_2.jpeg";
 import table from "@/components/ui/data_table.module.css";
+import { RichText } from "@/components/ui/rich_text";
 import styles from "./agrisup.module.css";
 
 export async function generateMetadata({
@@ -74,7 +76,9 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>{tPage("intro")}</p>}
+        intro={<p>
+            <RichText text={tPage("intro")} />
+          </p>}
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
       >
         <nav aria-label={tPage("on_this_page")} className={styles.anchors}>
@@ -91,7 +95,9 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
       <Section id="presentation" title={tPage("presentation_title")}>
         <div className={styles.presentation}>
           <div className={styles.presentation_text}>
-            <p className={styles.lead}>{INSTITUTION.presentation[locale]}</p>
+            <p className={styles.lead}>
+              <RichText text={INSTITUTION.presentation[locale]} />
+            </p>
             <p className={styles.recognition}>
               <InstitutionIcon className={styles.recognition_icon} />
               <span>
@@ -114,7 +120,7 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
               </ul>
             </div>
           </div>
-          <figure className={styles.kakemono}>
+          <figure className={styles.kakemono} data-parallax="float">
             <Image
               src={kakemono}
               alt={tGallery("kakemono")}
@@ -221,28 +227,7 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
         title={tPage("partners_title")}
         intro={tPage("partners_intro")}
       >
-        <div className={styles.partnerships}>
-          {(["national", "international"] as const).map((scope) => (
-            <div key={scope} className={styles.partner_group}>
-              <h3>
-                {scope === "national" ? (
-                  <InstitutionIcon className={styles.group_icon} />
-                ) : (
-                  <GlobeIcon className={styles.group_icon} />
-                )}
-                {tPage(`partners_${scope}`)}
-              </h3>
-              <ul>
-                {PARTNERSHIPS[scope].map((partner) => (
-                  <li key={partner.name}>
-                    <strong>{partner.name}</strong>
-                    <span>{partner.description[locale]}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <PartnerWall partners={PARTNERS} />
       </Section>
 
       <Section

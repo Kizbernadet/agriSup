@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import { MailIcon, MapPinIcon, PhoneIcon, WhatsappIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
+import { RichText } from "@/components/ui/rich_text";
 import { BROCHURE_PATH, CONTACT, SOCIAL_LINKS } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
 import { directionsUrl } from "@/lib/maps";
@@ -41,7 +42,9 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>{tPage("intro")}</p>}
+        intro={<p>
+            <RichText text={tPage("intro")} />
+          </p>}
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
       />
 

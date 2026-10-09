@@ -5,6 +5,7 @@ import { Accordion } from "@/components/ui/accordion";
 import { ButtonLink } from "@/components/ui/button";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
+import { RichText } from "@/components/ui/rich_text";
 import { FAQ_ITEMS } from "@/content/faq";
 import { toAppLocale } from "@/i18n/locale";
 import { Link } from "@/i18n/navigation";
@@ -33,7 +34,9 @@ export default async function FaqPage({ params }: PageProps<"/[locale]/faq">) {
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>{tPage("intro")}</p>}
+        intro={<p>
+            <RichText text={tPage("intro")} />
+          </p>}
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
       />
       <Section>

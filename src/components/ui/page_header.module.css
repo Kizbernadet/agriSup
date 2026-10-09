@@ -1,14 +1,43 @@
 .header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding-block: var(--space-5) var(--space-6);
   background-color: var(--color-surface);
   border-bottom: var(--border-width) solid var(--color-border);
-  /* Halo décoratif, mêmes teintes douces que le bandeau d'accueil. */
-  /* Halos de couleur puis motif du thème (tuile de 480px affichée à 384px). */
+  /* Halos de couleur, mêmes teintes douces que le bandeau d'accueil. */
   background-image:
     radial-gradient(circle at 92% 10%, var(--color-accent-soft), transparent 35%),
-    radial-gradient(circle at 70% 120%, var(--color-action-soft), transparent 40%),
-    var(--pattern-image);
-  background-size: auto, auto, calc(var(--space-7) * 6);
+    radial-gradient(circle at 70% 120%, var(--color-action-soft), transparent 40%);
+}
+
+/* Motif du thème (tuile de 480px affichée à 384px) sur un calque à part, plus haut que
+   l'en-tête : il glisse au défilement (parallaxe, base.css). */
+.header::before {
+  position: absolute;
+  z-index: -1;
+  inset: calc(-1 * var(--parallax-distance)) 0;
+  background-image: var(--pattern-image);
+  background-size: calc(var(--space-7) * 6);
+  content: "";
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .header::before {
+      animation: header-pattern-drift linear both;
+      animation-timeline: view();
+    }
+  }
+}
+
+@keyframes header-pattern-drift {
+  from {
+    translate: 0 calc(-1 * var(--parallax-distance));
+  }
+  to {
+    translate: 0 var(--parallax-distance);
+  }
 }
 
 .inner {

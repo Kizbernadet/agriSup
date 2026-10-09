@@ -32,6 +32,7 @@
   padding-bottom: var(--space-7);
   /* Fond sombre : contour de focus or, visible dans les deux thèmes. */
   --color-focus: var(--color-band-accent);
+  --keyword-color: var(--color-band-accent);
   background-color: var(--color-band-bg);
   background-image:
     radial-gradient(circle at 90% 10%, var(--color-accent-soft), transparent 45%),
@@ -236,5 +237,41 @@
     max-width: 100%;
     height: auto;
     max-height: min(76svh, calc(var(--space-7) * 12));
+  }
+}
+
+/* Profondeur à la sortie du hero (ordinateur) : la photo glisse moins vite que la page et
+   le texte s'efface en remontant. Pilotée par le défilement, CSS seul ; désactivée si le
+   visiteur demande moins d'animations. Sur mobile, le texte se lit en défilant : pas
+   d'effet. */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .media,
+    .content {
+      animation: linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100svh;
+    }
+
+    .media {
+      animation-name: hero-media-depth;
+    }
+
+    .content {
+      animation-name: hero-content-depth;
+    }
+  }
+}
+
+@keyframes hero-media-depth {
+  to {
+    translate: 0 calc(var(--space-7) * 2);
+  }
+}
+
+@keyframes hero-content-depth {
+  to {
+    translate: 0 calc(-1 * var(--space-6));
+    opacity: 0;
   }
 }

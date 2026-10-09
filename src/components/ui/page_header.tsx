@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Breadcrumb, type BreadcrumbItem } from "./breadcrumb";
 import { Container } from "./container";
+import { RichText } from "./rich_text";
 import styles from "./page_header.module.css";
 
 type PageHeaderProps = {
@@ -24,8 +25,14 @@ export function PageHeader({
   const content = (
     <>
       {breadcrumb && <Breadcrumb items={breadcrumb} />}
-      <h1>{title}</h1>
-      {intro && <div className={styles.intro}>{intro}</div>}
+      <h1>
+        <RichText text={title} />
+      </h1>
+      {intro && (
+        <div className={styles.intro}>
+          {typeof intro === "string" ? <RichText text={intro} /> : intro}
+        </div>
+      )}
       {children}
     </>
   );
@@ -35,7 +42,9 @@ export function PageHeader({
       {aside ? (
         <Container className={styles.with_aside}>
           <div className={styles.inner}>{content}</div>
-          <div className={styles.aside}>{aside}</div>
+          <div className={styles.aside} data-parallax="float">
+            {aside}
+          </div>
         </Container>
       ) : (
         <Container className={styles.inner}>{content}</Container>

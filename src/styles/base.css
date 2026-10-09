@@ -12,6 +12,8 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* Couleur de la barre de défilement et des contrôles natifs aux couleurs de l'école. */
+  accent-color: var(--color-action);
   text-size-adjust: 100%;
   /* Hauteur de l'en-tête (toujours visible) + marge, pour les liens d'ancre. */
   scroll-padding-top: calc(
@@ -101,5 +103,69 @@ a {
   [data-js] [data-reveal][data-revealed] {
     opacity: 1;
     transform: none;
+  }
+
+  /* Le surligneur des mots clés se trace une fois le bloc apparu. */
+  [data-js] [data-reveal] .keyword {
+    background-size: 0 var(--keyword-marker-height);
+    transition: background-size var(--transition-slow) calc(4 * var(--reveal-stagger));
+  }
+
+  [data-js] [data-reveal][data-revealed] .keyword {
+    background-size: 100% var(--keyword-marker-height);
+  }
+
+  /* Ancres de la page : défilement doux. Next.js le neutralise lors des changements de
+     page (attribut data-scroll-behavior sur <html>, voir layout.tsx). */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Contenu de chaque nouvelle page : entrée en fondu (template.tsx). */
+  .page_enter {
+    animation: page-enter var(--page-enter-duration) ease-out backwards;
+  }
+
+  /* Parallaxe pilotée par le défilement, sans JavaScript ; ignorée par les navigateurs
+     qui ne la gèrent pas. Propriété translate (et non transform) : elle se cumule avec
+     les effets de survol et d'apparition existants.
+     - data-parallax="float" : l'élément glisse un peu plus vite que la page ;
+     - data-parallax="layer" : photo de fond, agrandie, qui glisse plus lentement. */
+  @supports (animation-timeline: view()) {
+    [data-parallax="float"] {
+      animation: parallax-float linear both;
+      animation-timeline: view();
+    }
+
+    [data-parallax="layer"] {
+      scale: var(--parallax-scale);
+      animation: parallax-layer linear both;
+      animation-timeline: view();
+    }
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    translate: 0 var(--space-2);
+  }
+}
+
+@keyframes parallax-float {
+  from {
+    translate: 0 var(--parallax-distance);
+  }
+  to {
+    translate: 0 calc(-1 * var(--parallax-distance));
+  }
+}
+
+@keyframes parallax-layer {
+  from {
+    translate: 0 calc(-1 * var(--parallax-distance));
+  }
+  to {
+    translate: 0 var(--parallax-distance);
   }
 }

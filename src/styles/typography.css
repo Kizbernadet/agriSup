@@ -58,3 +58,27 @@ strong,
 b {
   font-weight: var(--font-weight-semibold);
 }
+
+/* Mots clés mis en évidence (composant RichText, marqueur **…** dans les textes). Dans le
+   texte courant : surligneur or sous les mots ; dans les titres : couleur d'accent. */
+.keyword {
+  font-weight: var(--font-weight-semibold);
+  background-image: linear-gradient(var(--keyword-marker), var(--keyword-marker));
+  background-repeat: no-repeat;
+  background-position: 0 90%;
+  background-size: 100% var(--keyword-marker-height);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+:is(h1, h2, h3, h4) .keyword {
+  color: var(--keyword-color);
+  font-weight: inherit;
+  background-image: none;
+}
+
+/* Chiffres alignés dans les tableaux et les montants. */
+table,
+dd {
+  font-variant-numeric: tabular-nums;
+}

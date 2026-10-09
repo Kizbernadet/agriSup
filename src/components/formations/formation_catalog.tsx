@@ -1,14 +1,13 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { FormationDomain, FormationLevel } from "@/generated/prisma/enums";
+import { FilterGroup, type Filter } from "@/components/ui/filter_group";
 import type { FormationSummary } from "@/lib/data/formations";
 import { DomainIcon } from "./domain_icon";
 import { FormationGrid } from "./formation_grid";
 import styles from "./formation_catalog.module.css";
-
-type Filter<T> = T | "all";
 
 const LEVELS = Object.values(FormationLevel);
 const DOMAINS = Object.values(FormationDomain);
@@ -90,46 +89,5 @@ export function FormationCatalog({ formations }: { formations: FormationSummary[
 
       <FormationGrid formations={visible} headingLevel="h2" />
     </div>
-  );
-}
-
-type FilterGroupProps<T extends string> = {
-  legend: string;
-  options: { value: T; label: string; icon?: ReactNode }[];
-  allLabel: string;
-  selected: Filter<T>;
-  onSelect: (value: Filter<T>) => void;
-};
-
-function FilterGroup<T extends string>({
-  legend,
-  options,
-  allLabel,
-  selected,
-  onSelect,
-}: FilterGroupProps<T>) {
-  const choices: { value: Filter<T>; label: string; icon?: ReactNode }[] = [
-    { value: "all", label: allLabel },
-    ...options,
-  ];
-
-  return (
-    <fieldset className={styles.group}>
-      <legend className={styles.legend}>{legend}</legend>
-      <div className={styles.chips}>
-        {choices.map((choice) => (
-          <button
-            key={choice.value}
-            type="button"
-            className={styles.chip}
-            aria-pressed={selected === choice.value}
-            onClick={() => onSelect(choice.value)}
-          >
-            {choice.icon}
-            {choice.label}
-          </button>
-        ))}
-      </div>
-    </fieldset>
   );
 }

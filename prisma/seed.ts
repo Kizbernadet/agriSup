@@ -2,7 +2,7 @@
  * Données de test — lancées par `npm run db:seed` (idempotent : relançable sans doublon).
  *
  * - Formations : intitulés et niveaux relevés sur le kakémono officiel
- *   (assets/photos/kakemono_offre_formations.jpg) ; durées LMD confirmées par la cliente ;
+ *   (assets/photos/non_classes/kakemono_offre_formations.jpg) ; durées LMD confirmées par la cliente ;
  *   fiches détaillées rédigées dans prisma/formation_content.ts (voir l'en-tête du fichier).
  * - Actualités : FICTIVES, inspirées des affiches de assets/annonces/ (non publiées).
  *   À supprimer avant la mise en ligne.

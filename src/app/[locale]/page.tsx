@@ -20,6 +20,7 @@ import {
   SproutIcon,
   UsersIcon,
 } from "@/components/ui/icons";
+import { RichText } from "@/components/ui/rich_text";
 import { Section } from "@/components/ui/section";
 import { PedagogySteps } from "@/components/home/pedagogy_steps";
 import { SECTOR_POINTS } from "@/content/domains";
@@ -28,15 +29,15 @@ import { toAppLocale } from "@/i18n/locale";
 import { Link } from "@/i18n/navigation";
 import { listFormations, type FormationSummary } from "@/lib/data/formations";
 import { revealProps } from "@/lib/reveal";
-import embleme from "../../../assets/photos/batiment_2.jpeg";
-import elevage from "../../../assets/photos/elevage_1.jpeg";
-import elevagePratique from "../../../assets/photos/elevage_2.jpeg";
-import tracteur from "../../../assets/photos/equipement_3.jpeg";
-import kakemono from "../../../assets/photos/kakemono_offre_formations.jpg";
-import labo1 from "../../../assets/photos/labo_1.jpeg";
-import labo3 from "../../../assets/photos/labo_3.jpeg";
-import salleCours from "../../../assets/photos/salle_cours_1.jpeg";
-import salleInformatique from "../../../assets/photos/salle_informatique_1.jpeg";
+import embleme from "../../../assets/photos/batiments/batiment_2.jpeg";
+import elevage from "../../../assets/photos/activites/elevage_1.jpeg";
+import elevagePratique from "../../../assets/photos/etudiants/elevage_2.jpeg";
+import tracteur from "../../../assets/photos/equipements/equipement_3.jpeg";
+import kakemono from "../../../assets/photos/non_classes/kakemono_offre_formations.jpg";
+import labo1 from "../../../assets/photos/equipements/labo_1.jpeg";
+import labo3 from "../../../assets/photos/equipements/labo_3.jpeg";
+import salleCours from "../../../assets/photos/non_classes/salle_cours_1.jpeg";
+import salleInformatique from "../../../assets/photos/non_classes/salle_informatique_1.jpeg";
 import styles from "./home.module.css";
 
 export const revalidate = 3600;
@@ -96,8 +97,12 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         <div className={styles.intro}>
           <div className={styles.intro_text} {...revealProps()}>
             <Eyebrow>{t("eyebrow_about")}</Eyebrow>
-            <h2>{t("intro_title")}</h2>
-            <p className={styles.presentation}>{INSTITUTION.presentation[locale]}</p>
+            <h2>
+              <RichText text={t("intro_title")} />
+            </h2>
+            <p className={styles.presentation}>
+              <RichText text={INSTITUTION.presentation[locale]} />
+            </p>
             <ul className={styles.axes} aria-label={t("axes_title")}>
               {INSTITUTION.axes.map((axis, index) => {
                 const Icon = AXIS_ICONS[index] ?? SproutIcon;
@@ -117,7 +122,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
               </ButtonLink>
             </div>
           </div>
-          <div {...revealProps(1)}>
+          <div {...revealProps(1)} data-parallax="float">
             <PresentationVideo />
           </div>
         </div>
@@ -261,11 +266,20 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         className={styles.cta_band}
       >
         {/* Photo de fond décorative sous un voile sombre (texte lisible quelle que soit l'image). */}
-        <Image src={labo3} alt="" fill sizes="100vw" className={styles.cta_photo} />
+        <Image
+          src={labo3}
+          alt=""
+          fill
+          sizes="100vw"
+          className={styles.cta_photo}
+          data-parallax="layer"
+        />
         <Container className={styles.cta_inner}>
           <div {...revealProps()}>
             <Eyebrow onBand>{t("eyebrow_join")}</Eyebrow>
-            <h2 id="rejoindre_titre">{t("cta_title")}</h2>
+            <h2 id="rejoindre_titre">
+              <RichText text={t("cta_title")} />
+            </h2>
           </div>
           <ol className={styles.admission_steps}>
             {joinSteps.map((step, index) => (

@@ -158,6 +158,22 @@
   /* Décalage entre deux éléments d'une même grille (apparition en cascade). */
   --reveal-stagger: 80ms;
 
+  /* [AJOUT — mise en valeur] Mots clés (RichText) : couleur dans les titres (Vert
+     Terrain, ≥ 5,6:1 sur les fonds clairs ; or brillant sur les bandeaux sombres) et
+     surligneur Or Moisson à 35 % sous le texte courant (texte inchangé, contraste ≥ 9:1
+     dans les deux thèmes). */
+  --keyword-color: var(--color-action);
+  --keyword-marker: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  --keyword-marker-height: 0.4em;
+
+  /* [AJOUT — profondeur] Parallaxe pilotée par le défilement (CSS seul) : amplitude du
+     déplacement et agrandissement des photos de fond pour qu'aucun bord ne se découvre. */
+  --parallax-distance: var(--space-5);
+  --parallax-scale: 1.15;
+
+  /* [AJOUT — fluidité] Entrée en fondu du contenu à chaque changement de page. */
+  --page-enter-duration: 400ms;
+
   /* [AJOUT] Graisses autorisées (charte §1). */
   --font-weight-regular: 400;
   --font-weight-medium: 500;

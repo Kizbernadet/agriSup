@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { revealProps } from "@/lib/reveal";
 import { Container } from "./container";
 import { Eyebrow } from "./eyebrow";
+import { RichText } from "./rich_text";
 import styles from "./section.module.css";
 
 type SectionProps = {
@@ -44,8 +45,16 @@ export function Section({
         {(title || intro) && (
           <header className={styles.header} {...revealProps()}>
             {eyebrow && <Eyebrow onBand={tone === "band"}>{eyebrow}</Eyebrow>}
-            {title && <h2 id={titleId}>{title}</h2>}
-            {intro && <div className={styles.intro}>{intro}</div>}
+            {title && (
+              <h2 id={titleId}>
+                <RichText text={title} />
+              </h2>
+            )}
+            {intro && (
+              <div className={styles.intro}>
+                {typeof intro === "string" ? <RichText text={intro} /> : intro}
+              </div>
+            )}
           </header>
         )}
         {children}

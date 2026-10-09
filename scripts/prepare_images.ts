@@ -95,7 +95,7 @@ async function prepareSlides() {
 // Kakémono : seule photo réelle fournie. On ne garde que la bannière (sans les sacs de riz).
 async function prepareGallery() {
   mkdirSync("public/images/galerie", { recursive: true });
-  await sharp("assets/photos/kakemono_offre_formations.jpg")
+  await sharp("assets/photos/non_classes/kakemono_offre_formations.jpg")
     .extract({ left: 22, top: 250, width: 772, height: 1650 })
     .jpeg({ quality: 88 })
     .toFile("public/images/galerie/kakemono_offre_formations.jpg");

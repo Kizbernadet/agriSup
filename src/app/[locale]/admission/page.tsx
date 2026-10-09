@@ -25,6 +25,7 @@ import {
 import { toAppLocale } from "@/i18n/locale";
 import { revealProps } from "@/lib/reveal";
 import table from "@/components/ui/data_table.module.css";
+import { RichText } from "@/components/ui/rich_text";
 import styles from "./admission.module.css";
 
 export async function generateMetadata({
@@ -57,7 +58,9 @@ export default async function AdmissionPage({
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>{tPage("intro")}</p>}
+        intro={<p>
+            <RichText text={tPage("intro")} />
+          </p>}
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
       />
 

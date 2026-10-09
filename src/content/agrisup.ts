@@ -26,13 +26,13 @@ export const SEAL_MOTTO: Localized = {
 };
 
 export const MOTIVATION: Localized = {
-  fr: "Notre ambition : offrir à la jeunesse de Bamako des formations supérieures agricoles innovantes, qui mènent à des métiers d'avenir et à un plein épanouissement professionnel. Nos parcours sont centrés sur les maillons prioritaires des chaînes de valeur agropastorales, là où le manque de personnel qualifié est aujourd'hui le plus critique.",
-  en: "Our ambition: to offer young people in Bamako innovative higher education in agriculture, leading to future-proof careers and full professional fulfilment. Our programs focus on the priority links of agropastoral value chains, where the shortage of qualified staff is most critical today.",
+  fr: "Notre ambition : offrir à la jeunesse de Bamako des **formations supérieures agricoles innovantes**, qui mènent à des métiers d'avenir et à un plein épanouissement professionnel. Nos parcours sont centrés sur les maillons prioritaires des chaînes de valeur agropastorales, là où le **manque de personnel qualifié** est aujourd'hui le plus critique.",
+  en: "Our ambition: to offer young people in Bamako **innovative higher education in agriculture**, leading to future-proof careers and full professional fulfilment. Our programs focus on the priority links of agropastoral value chains, where the **shortage of qualified staff** is most critical today.",
 };
 
 export const HISTORY_INTRO: Localized = {
-  fr: "Depuis 2006, l'histoire d'AGRI'SUP s'écrit au service de la formation agricole et pastorale. Née à Ségou, notre institution a constamment adapté ses programmes aux défis du développement rural au Mali, en gravissant trois niveaux de formation : secondaire, professionnel puis supérieur.",
-  en: "Since 2006, AGRI'SUP's story has been one of service to agricultural and pastoral education. Founded in Ségou, our institution has constantly adapted its programs to the challenges of rural development in Mali, rising through three levels of education: secondary, vocational and higher education.",
+  fr: "**Depuis 2006**, l'histoire d'AGRI'SUP s'écrit au service de la formation agricole et pastorale. Née à Ségou, notre institution a constamment adapté ses programmes aux défis du développement rural au Mali, en gravissant **trois niveaux de formation** : secondaire, professionnel puis supérieur.",
+  en: "**Since 2006**, AGRI'SUP's story has been one of service to agricultural and pastoral education. Founded in Ségou, our institution has constantly adapted its programs to the challenges of rural development in Mali, rising through **three levels of education**: secondary, vocational and higher education.",
 };
 
 export const HISTORY: { label: string; title: Localized; text: Localized }[] = [
@@ -368,99 +368,3 @@ export const ADVANTAGES: { title: Localized; text: Localized }[] = [
     },
   },
 ];
-
-// ---------- Partenariats ----------
-
-export const PARTNERSHIPS: {
-  national: { name: string; description: Localized }[];
-  international: { name: string; description: Localized }[];
-} = {
-  national: [
-    {
-      name: "IPR/IFRA de Katibougou",
-      description: {
-        fr: "Institut polytechnique rural de formation et de recherche appliquée, référence nationale et sous-régionale de l'enseignement supérieur agricole. Convention signée le 10 février 2026.",
-        en: "Rural polytechnic institute for training and applied research, a national and regional reference in agricultural higher education. Agreement signed on 10 February 2026.",
-      },
-    },
-    {
-      name: "IER — Institut d'économie rurale",
-      description: {
-        fr: "Référence malienne et sous-régionale de la recherche agricole.",
-        en: "A Malian and regional reference in agricultural research.",
-      },
-    },
-    {
-      name: "CNIA",
-      description: {
-        fr: "Centre national d'insémination artificielle : coopération technique.",
-        en: "National artificial insemination centre: technical cooperation.",
-      },
-    },
-    {
-      name: "Sahel Veto",
-      description: {
-        fr: "Établissement vétérinaire pharmaceutique d'import-export.",
-        en: "Veterinary pharmaceutical import-export company.",
-      },
-    },
-    {
-      name: "Tambaroua Business Farming",
-      description: {
-        fr: "Ferme de Samaya (Bamako) : partenariat technique.",
-        en: "Farm in Samaya (Bamako): technical partnership.",
-      },
-    },
-    {
-      name: "Ferme Sidibé",
-      description: {
-        fr: "Référence de la production maraîchère sous serre.",
-        en: "A reference in greenhouse vegetable production.",
-      },
-    },
-    {
-      name: "Fermes Boya Sylla et Tierno Sidibé",
-      description: {
-        fr: "Exploitations partenaires pour les stages et les visites de terrain.",
-        en: "Partner farms for internships and field visits.",
-      },
-    },
-  ],
-  international: [
-    {
-      name: "Purdue University (États-Unis)",
-      description: {
-        fr: "Université de référence mondiale en formation agricole (Indiana) : coopération.",
-        en: "A world-leading agricultural university (Indiana): cooperation.",
-      },
-    },
-    {
-      name: "CARFS (Burkina Faso)",
-      description: {
-        fr: "Centre africain de recherche et de formation en synécoculture.",
-        en: "African centre for research and training in synecoculture.",
-      },
-    },
-    {
-      name: "KISAMEN (Pays-Bas)",
-      description: {
-        fr: "Laboratoire de production de semences bovines.",
-        en: "Bovine semen production laboratory.",
-      },
-    },
-    {
-      name: "KEPRO (Pays-Bas)",
-      description: {
-        fr: "Laboratoire pharmaceutique vétérinaire.",
-        en: "Veterinary pharmaceutical laboratory.",
-      },
-    },
-    {
-      name: "LIHUA (Chine)",
-      description: {
-        fr: "Laboratoire pharmaceutique vétérinaire.",
-        en: "Veterinary pharmaceutical laboratory.",
-      },
-    },
-  ],
-};

@@ -1,13 +1,13 @@
 import type { StaticImageData } from "next/image";
 import type { FormationDomain } from "@/generated/prisma/enums";
-import elevage from "../../assets/photos/elevage_1.jpeg";
-import travauxElevage from "../../assets/photos/elevage_2.jpeg";
-import charrue from "../../assets/photos/equipement_1.jpeg";
-import couveuse from "../../assets/photos/equipement_2.jpeg";
-import microscopeEtudiants from "../../assets/photos/etudiants_2.jpg";
-import champ from "../../assets/photos/etudiants_3.webp";
-import laboratoire from "../../assets/photos/labo_1.jpeg";
-import laboratoireMateriel from "../../assets/photos/labo_5.jpeg";
+import elevage from "../../assets/photos/activites/elevage_1.jpeg";
+import travauxElevage from "../../assets/photos/etudiants/elevage_2.jpeg";
+import charrue from "../../assets/photos/equipements/equipement_1.jpeg";
+import couveuse from "../../assets/photos/equipements/equipement_2.jpeg";
+import microscopeEtudiants from "../../assets/photos/etudiants/etudiants_2.jpg";
+import champ from "../../assets/photos/etudiants/etudiants_3.jpg";
+import laboratoire from "../../assets/photos/equipements/labo_1.jpeg";
+import laboratoireMateriel from "../../assets/photos/non_classes/labo_5.jpeg";
 
 // Photos réelles de l'établissement associées aux domaines et aux formations.
 // null = pas encore de photo : une illustration aux couleurs de la charte est affichée

@@ -23,6 +23,8 @@ export {
   ArrowPathIcon as RestartIcon,
   ArrowsPointingOutIcon as ExpandIcon,
   ArrowRightIcon,
+  ArrowUpIcon,
+  ArrowTopRightOnSquareIcon as ExternalLinkIcon,
   Bars3Icon as MenuIcon,
   BeakerIcon as FlaskIcon,
   BookOpenIcon as BookIcon,

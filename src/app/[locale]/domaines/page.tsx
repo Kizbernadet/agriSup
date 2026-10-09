@@ -8,6 +8,7 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import { ArrowRightIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Paragraphs } from "@/components/ui/paragraphs";
+import { RichText } from "@/components/ui/rich_text";
 import { DOMAINS } from "@/content/domains";
 import { DOMAIN_PHOTOS } from "@/content/visuals";
 import type { FormationDomain } from "@/generated/prisma/enums";
@@ -47,7 +48,9 @@ export default async function DomainesPage({ params }: PageProps<"/[locale]/doma
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>{tPage("intro")}</p>}
+        intro={<p>
+            <RichText text={tPage("intro")} />
+          </p>}
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
       >
         <nav aria-label={tPage("on_this_page")} className={styles.anchors}>

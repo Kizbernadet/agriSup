@@ -5,6 +5,7 @@ import Image, { type StaticImageData } from "next/image";
 import { useTranslations } from "next-intl";
 import useEmblaCarousel from "embla-carousel-react";
 import { ButtonLink } from "@/components/ui/button";
+import { RichText } from "@/components/ui/rich_text";
 import type { Link } from "@/i18n/navigation";
 import styles from "./hero_slider.module.css";
 
@@ -73,8 +74,12 @@ export function HeroSlider({ slides }: { slides: HeroSlide[] }) {
                 <div className={styles.inner}>
                   <div className={styles.content}>
                     <p className={styles.eyebrow}>{slide.eyebrow}</p>
-                    <Heading className={styles.title}>{slide.title}</Heading>
-                    <p className={styles.text}>{slide.text}</p>
+                    <Heading className={styles.title}>
+                      <RichText text={slide.title} />
+                    </Heading>
+                    <p className={styles.text}>
+                      <RichText text={slide.text} />
+                    </p>
                     {slide.partners && (
                       <ul className={styles.partners}>
                         {slide.partners.map((partner) => (

@@ -44,8 +44,8 @@ export const INSTITUTION = {
   // Rédigée à partir du kakémono (offre de formation, système LMD) et des photos de
   // l'établissement (laboratoire, salle informatique, champ d'expérimentation).
   presentation: {
-    fr: "AGRI'SUP est une école supérieure privée entièrement dédiée aux sciences et technologies agricoles, implantée à Sotuba ACI, à Bamako, et reconnue par l'État malien. Héritière d'une expérience de formation agropastorale née à Ségou en 2006, elle propose seize formations en système LMD, du DUT au master, en production végétale, élevage et santé animale, aquaculture, agribusiness, foresterie et agroforesterie. Sa devise résume son projet : une formation agricole axée sur la pratique, pour un avenir certain.",
-    en: "AGRI'SUP is a private higher school entirely dedicated to agricultural sciences and technologies, based in Sotuba ACI, Bamako, and recognised by the Malian State. Building on agropastoral training experience that began in Ségou in 2006, it offers sixteen programs within the LMD system, from DUT to master's level, in crop production, livestock and animal health, aquaculture, agribusiness, forestry and agroforestry. Its motto sums up its mission: practice-based agricultural training for a secure future.",
+    fr: "AGRI'SUP est une école supérieure privée **entièrement dédiée aux sciences et technologies agricoles**, implantée à Sotuba ACI, à Bamako, et **reconnue par l'État malien**. Héritière d'une expérience de formation agropastorale née à Ségou en 2006, elle propose **seize formations en système LMD**, du DUT au master, en production végétale, élevage et santé animale, aquaculture, agribusiness, foresterie et agroforesterie. Sa devise résume son projet : **une formation agricole axée sur la pratique, pour un avenir certain**.",
+    en: "AGRI'SUP is a private higher school **entirely dedicated to agricultural sciences and technologies**, based in Sotuba ACI, Bamako, and **recognised by the Malian State**. Building on agropastoral training experience that began in Ségou in 2006, it offers **sixteen programs within the LMD system**, from DUT to master's level, in crop production, livestock and animal health, aquaculture, agribusiness, forestry and agroforestry. Its motto sums up its mission: **practice-based agricultural training for a secure future**.",
   } satisfies Localized,
 
   // Source : document « Mots clés à afficher », reformulé.
@@ -72,75 +72,6 @@ export const INSTITUTION = {
     },
     { fr: "Professionnalisation", en: "Professional readiness" },
   ] satisfies Localized[],
-
-  // Partenaires du ruban de l'accueil : sélection du document « Partenariats et
-  // coopération » (liste complète : src/content/agrisup.ts), plus AFG Bank, cité dans les
-  // premiers documents de la cliente.
-  partners: [
-    {
-      name: "IPR/IFRA de Katibougou",
-      description: {
-        fr: "Référence de l'enseignement supérieur agricole au Mali. Convention signée en 2026.",
-        en: "A reference in agricultural higher education in Mali. Agreement signed in 2026.",
-      },
-    },
-    {
-      name: "IER",
-      description: {
-        fr: "Institut d'économie rurale, référence de la recherche agricole.",
-        en: "Institute of Rural Economy, a reference in agricultural research.",
-      },
-    },
-    {
-      name: "Purdue University",
-      description: {
-        fr: "Université agricole de référence mondiale (États-Unis).",
-        en: "A world-leading agricultural university (United States).",
-      },
-    },
-    {
-      name: "CNIA",
-      description: {
-        fr: "Centre national d'insémination artificielle.",
-        en: "National artificial insemination centre.",
-      },
-    },
-    {
-      name: "CARFS",
-      description: {
-        fr: "Recherche et formation en synécoculture (Burkina Faso).",
-        en: "Research and training in synecoculture (Burkina Faso).",
-      },
-    },
-    {
-      name: "Sahel Veto",
-      description: {
-        fr: "Établissement vétérinaire pharmaceutique.",
-        en: "Veterinary pharmaceutical company.",
-      },
-    },
-    {
-      name: "KISAMEN",
-      description: {
-        fr: "Production de semences bovines (Pays-Bas).",
-        en: "Bovine semen production (Netherlands).",
-      },
-    },
-    {
-      name: "Tambaroua Business Farming",
-      description: {
-        fr: "Ferme partenaire à Samaya, Bamako.",
-        en: "Partner farm in Samaya, Bamako.",
-      },
-    },
-    {
-      name: "AFG Bank",
-      description: {
-        fr: "Établissement bancaire présent au Mali.",
-        en: "A bank operating in Mali.",
-      },
-    },
-  ] satisfies { name: string; description: Localized }[],
 };
 
 // Vidéo de présentation : identifiant YouTube (ex. « dQw4w9WgXcQ » dans

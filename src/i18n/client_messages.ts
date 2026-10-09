@@ -17,6 +17,7 @@ const CLIENT_NAMESPACES = [
   "home",
   "language",
   "nav",
+  "partners",
   "preinscription_page",
   "slider",
   "theme",
