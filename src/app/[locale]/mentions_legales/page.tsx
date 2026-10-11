@@ -7,6 +7,8 @@ import { PageHeader } from "@/components/ui/page_header";
 import { RichText } from "@/components/ui/rich_text";
 import { CONTACT, LEGAL } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
+import { ButtonLink } from "@/components/ui/button";
+import headerPhoto from "../../../../assets/site/campus/enseigne_entree.jpg";
 import styles from "./mentions_legales.module.css";
 
 export async function generateMetadata({
@@ -23,6 +25,7 @@ export default async function MentionsLegalesPage({
 }: PageProps<"/[locale]/mentions_legales">) {
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
+  const tHeader = await getTranslations("page_header");
 
   const [t, tPage, tNav, tFooter] = await Promise.all([
     getTranslations("pages.mentions_legales"),
@@ -36,10 +39,20 @@ export default async function MentionsLegalesPage({
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>
+        intro={
+          <p>
             <RichText text={tPage("intro")} />
-          </p>}
+          </p>
+        }
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
+        media={{ image: headerPhoto, alt: tHeader("alt_mentions") }}
+        actions={
+          <>
+            <ButtonLink href="/contact" variant="secondary">
+              {tHeader("cta_contact")}
+            </ButtonLink>
+          </>
+        }
       />
       <Container className={styles.body}>
         <Alert variant="warning">{tPage("draft")}</Alert>

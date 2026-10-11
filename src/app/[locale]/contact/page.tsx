@@ -12,6 +12,8 @@ import { RichText } from "@/components/ui/rich_text";
 import { BROCHURE_PATH, CONTACT, SOCIAL_LINKS } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
 import { directionsUrl } from "@/lib/maps";
+import { buttonClassName } from "@/components/ui/button";
+import headerPhoto from "../../../../assets/site/campus/batiment_entree.jpg";
 import styles from "./contact.module.css";
 
 export async function generateMetadata({
@@ -26,6 +28,7 @@ export async function generateMetadata({
 export default async function ContactPage({ params }: PageProps<"/[locale]/contact">) {
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
+  const tHeader = await getTranslations("page_header");
 
   const [t, tPage, tNav, tForm] = await Promise.all([
     getTranslations("pages.contact"),
@@ -42,10 +45,24 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>
+        intro={
+          <p>
             <RichText text={tPage("intro")} />
-          </p>}
+          </p>
+        }
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
+        media={{ image: headerPhoto, alt: tHeader("alt_contact") }}
+        actions={
+          <>
+            <a href={`tel:${CONTACT.phones[0].tel}`} className={buttonClassName()}>
+              <PhoneIcon aria-hidden="true" />
+              {tHeader("cta_call", { phone: CONTACT.phones[0].display })}
+            </a>
+            <a href="#formulaire" className={buttonClassName("secondary")}>
+              {tHeader("cta_write")}
+            </a>
+          </>
+        }
       />
 
       <Section id="coordonnees" title={tPage("info_title")}>

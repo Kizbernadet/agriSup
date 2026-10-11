@@ -9,6 +9,7 @@ import { RichText } from "@/components/ui/rich_text";
 import { FAQ_ITEMS } from "@/content/faq";
 import { toAppLocale } from "@/i18n/locale";
 import { Link } from "@/i18n/navigation";
+import headerPhoto from "../../../../assets/site/etudiants/salle_informatique_cours.jpg";
 import styles from "./faq.module.css";
 
 export async function generateMetadata({
@@ -22,6 +23,7 @@ export async function generateMetadata({
 export default async function FaqPage({ params }: PageProps<"/[locale]/faq">) {
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
+  const tHeader = await getTranslations("page_header");
 
   const [t, tPage, tNav, tCommon] = await Promise.all([
     getTranslations("pages.faq"),
@@ -34,10 +36,23 @@ export default async function FaqPage({ params }: PageProps<"/[locale]/faq">) {
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>
+        intro={
+          <p>
             <RichText text={tPage("intro")} />
-          </p>}
+          </p>
+        }
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
+        media={{ image: headerPhoto, alt: tHeader("alt_faq") }}
+        actions={
+          <>
+            <ButtonLink href={{ pathname: "/contact", hash: "formulaire" }}>
+              {tHeader("cta_ask")}
+            </ButtonLink>
+            <ButtonLink href="/preinscription" variant="secondary">
+              {tHeader("cta_preinscription")}
+            </ButtonLink>
+          </>
+        }
       />
       <Section>
         <Accordion

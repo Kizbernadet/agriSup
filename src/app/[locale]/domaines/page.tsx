@@ -16,6 +16,7 @@ import { toAppLocale } from "@/i18n/locale";
 import { Link } from "@/i18n/navigation";
 import { listFormations } from "@/lib/data/formations";
 import { revealProps } from "@/lib/reveal";
+import headerPhoto from "../../../../assets/site/domaines/maraichage_aubergines.jpg";
 import styles from "./domaines.module.css";
 
 // Page statique régénérée au plus toutes les heures (formations lues en base).
@@ -34,6 +35,7 @@ export async function generateMetadata({
 export default async function DomainesPage({ params }: PageProps<"/[locale]/domaines">) {
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
+  const tHeader = await getTranslations("page_header");
 
   const [t, tPage, tNav, tFormation, formations] = await Promise.all([
     getTranslations("pages.domaines"),
@@ -48,10 +50,21 @@ export default async function DomainesPage({ params }: PageProps<"/[locale]/doma
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>
+        intro={
+          <p>
             <RichText text={tPage("intro")} />
-          </p>}
+          </p>
+        }
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
+        media={{ image: headerPhoto, alt: tHeader("alt_domaines") }}
+        actions={
+          <>
+            <ButtonLink href="/formations">{tHeader("cta_formations")}</ButtonLink>
+            <ButtonLink href="/preinscription" variant="secondary">
+              {tHeader("cta_preinscription")}
+            </ButtonLink>
+          </>
+        }
       >
         <nav aria-label={tPage("on_this_page")} className={styles.anchors}>
           <ul>

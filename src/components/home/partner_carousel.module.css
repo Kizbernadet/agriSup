@@ -29,75 +29,60 @@
    ont ainsi exactement la même largeur. */
 .item {
   flex: 0 0 auto;
-  width: 72vw;
+  width: 58vw;
   padding-inline-end: var(--space-3);
 }
 
+/* Carte verticale : grand logo en couleur sur sa plaque, nom et ville dessous. */
 .card.card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-rows: auto 1fr;
   gap: var(--space-3);
   height: 100%;
-  min-height: calc(var(--space-7) * 1.75);
   padding: var(--space-3);
-  background-image: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-surface) 88%, var(--color-action)),
-    var(--color-surface) 52%,
-    color-mix(in srgb, var(--color-surface) 92%, var(--color-accent))
-  );
-  transition: border-color var(--transition);
+  border-top: var(--space-1) solid var(--color-accent);
+  text-align: center;
+  transition:
+    border-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
-.card.card:hover {
+.card.card:hover,
+.card.card:focus-within {
   border-color: var(--color-action);
+  transform: translateY(calc(-1 * var(--space-1)));
+  box-shadow: var(--shadow-card-hover);
 }
 
+/* Plaque claire dans les deux thèmes : les logos sont conçus pour un fond blanc. */
 .logo_frame {
   display: flex;
-  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: var(--space-7);
-  height: var(--space-7);
-  padding: var(--space-1);
-  border: var(--border-width) solid var(--color-border);
+  height: calc(var(--space-7) * 1.5);
+  padding: var(--space-3);
   border-radius: var(--radius);
-  background-color: var(--color-surface);
-  overflow: hidden;
+  background-color: var(--color-on-photo);
 }
 
-/* Logos en gris au repos, en couleur au survol ou au focus de la carte. */
+/* multiply : le fond blanc des logos (JPEG) se fond dans la plaque. */
 .logo {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: grayscale(1);
-  opacity: 0.85;
-  transition:
-    filter var(--transition-slow),
-    opacity var(--transition-slow);
+  mix-blend-mode: multiply;
+  transition: transform var(--transition-slow);
 }
 
 .card:hover .logo,
 .card:focus-within .logo {
-  filter: none;
-  opacity: 1;
-}
-
-/* Partenaire sans logo : initiales aux couleurs de la charte. */
-.logo_fallback {
-  color: var(--color-action);
-  font-family: var(--font-heading);
-  font-size: var(--font-size-h4);
-  font-weight: var(--font-weight-bold);
+  transform: scale(1.06);
 }
 
 .text {
   display: grid;
-  flex: 0 1 auto;
+  align-content: start;
   gap: var(--space-1);
   min-width: 0;
 }
@@ -116,23 +101,13 @@
 
 @media (min-width: 640px) {
   .item {
-    width: 44vw;
-  }
-
-  .logo_frame {
-    width: calc(var(--space-7) * 1.5);
-    height: calc(var(--space-7) * 1.5);
+    width: 32vw;
   }
 }
 
-/* Largeur plafonnée : la moitié de l'ancienne carte (88 % du contenu de 1200px). */
 @media (min-width: 1024px) {
   .item {
-    width: calc(var(--container-max) * 0.44);
-  }
-
-  .card.card {
-    padding: var(--space-3) var(--space-4);
+    width: calc(var(--container-max) * 0.24);
   }
 }
 

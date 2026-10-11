@@ -1,34 +1,43 @@
 .wall {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-4);
 }
 
-/* ---------- Chiffres clés ---------- */
+/* ---------- Chiffres clés : bandeau Bleu Académie ---------- */
 
 .stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-3);
   margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background-color: var(--color-band-bg);
+  background-image:
+    radial-gradient(circle at 100% 0%, var(--color-accent-soft), transparent 45%),
+    radial-gradient(circle at 0% 100%, var(--color-action-soft), transparent 50%);
+  box-shadow: var(--shadow-card);
 }
 
 /* Chiffre au-dessus du libellé (ordre du code : libellé puis valeur, pour les lecteurs
    d'écran). */
 .stat {
+  position: relative;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   gap: var(--space-1);
   padding: var(--space-4) var(--space-2);
-  border-radius: var(--radius);
-  background-color: var(--color-surface);
-  box-shadow: var(--shadow-card);
   text-align: center;
+}
+
+.stat + .stat {
+  border-left: var(--border-width) solid
+    color-mix(in srgb, var(--color-on-band) 15%, transparent);
 }
 
 .stat dd {
   margin: 0;
-  color: var(--color-accent-text);
+  color: var(--color-band-accent);
   font-family: var(--font-heading);
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-bold);
@@ -36,10 +45,32 @@
 }
 
 .stat dt {
-  color: var(--color-text-muted);
+  color: var(--color-on-band);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
+}
+
+/* Icône en filigrane, dans l'angle (décorative). */
+.stat_icon {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  width: var(--space-5);
+  height: var(--space-5);
+  color: var(--color-band-accent);
+  opacity: 0.3;
+}
+
+@media (min-width: 640px) {
+  .stat {
+    padding-block: var(--space-5);
+  }
+
+  .stat_icon {
+    width: var(--space-6);
+    height: var(--space-6);
+  }
 }
 
 /* ---------- Filtres ---------- */
@@ -60,23 +91,67 @@
   }
 }
 
+.chip_icon {
+  width: var(--space-4);
+  height: var(--space-4);
+}
+
 .count {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
   color: var(--color-text-muted);
   font-weight: var(--font-weight-semibold);
 }
 
-/* ---------- Cartes ---------- */
+/* Invitation à faire glisser : mobile uniquement (carrousel). */
+.swipe_hint {
+  color: var(--color-accent-text);
+  font-size: var(--font-size-small);
+}
+
+/* ---------- Liste : carrousel sur mobile, grille ensuite ---------- */
+
+.scroller {
+  margin-inline: calc(-1 * var(--space-3));
+  padding-inline: var(--space-3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--space-3);
+  scrollbar-width: none;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
 
 .grid {
   display: grid;
-  gap: var(--space-4);
+  grid-auto-columns: 84%;
+  grid-auto-flow: column;
+  gap: var(--space-3);
+  padding: var(--space-2) 0 var(--space-4);
   list-style: none;
-  padding: 0;
 }
 
 @media (min-width: 640px) {
+  .swipe_hint {
+    display: none;
+  }
+
+  .scroller {
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+  }
+
   .grid {
+    grid-auto-flow: row;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
   }
 }
 
@@ -86,130 +161,176 @@
   }
 }
 
-/* Teinte de la carte selon le domaine du partenaire. */
+/* ---------- Carte ---------- */
+
+/* --tone : couleur du domaine pour le texte (contraste vérifié dans les deux thèmes) ;
+   --banner : fond du bandeau, mélange avec le Bleu Académie pour rester sombre. */
 .card {
   --tone: var(--color-action);
+  --banner: color-mix(in srgb, var(--color-action) 75%, var(--color-band-bg));
 
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr;
   overflow: hidden;
+  scroll-snap-align: start;
   border: var(--border-width) solid var(--color-border);
-  border-top: var(--space-1) solid var(--tone);
   border-radius: var(--radius);
   background-color: var(--color-surface);
   box-shadow: var(--shadow-card);
   transition:
     transform var(--transition),
-    box-shadow var(--transition);
+    box-shadow var(--transition),
+    border-color var(--transition);
 }
 
 .card[data-category="formation"] {
   --tone: var(--color-brand);
+  --banner: var(--color-band-bg);
 }
 
 .card[data-category="farm"] {
   --tone: var(--color-accent-text);
+  --banner: color-mix(in srgb, var(--color-accent) 70%, var(--color-band-bg));
 }
 
 .card[data-category="finance"] {
   --tone: var(--color-text-muted);
+  --banner: color-mix(in srgb, var(--color-band-muted) 45%, var(--color-band-bg));
 }
 
 .card:hover,
 .card:focus-within {
+  border-color: var(--tone);
   transform: translateY(calc(-1 * var(--space-1)));
   box-shadow: var(--shadow-card-hover);
 }
 
-/* Logo sur plaque claire (fond des logos), ou monogramme sur dégradé de la charte. */
-.visual {
-  display: grid;
-  place-items: center;
-  height: calc(var(--space-7) * 2);
-  border-bottom: var(--border-width) solid var(--color-border);
-  background-color: var(--color-surface);
-}
-
-[data-theme="dark"] .visual:has(.logo) {
-  background-color: var(--color-brand);
-}
-
-.visual:has(.monogram) {
+/* Bandeau : dégradé du domaine et motif au sceau, ou photo du partenaire. */
+.banner {
+  position: relative;
+  height: calc(var(--space-7) * 1.75);
+  background-color: var(--banner);
   background-image:
     var(--pattern-image),
     linear-gradient(
       135deg,
-      var(--color-band-bg),
-      color-mix(in srgb, var(--color-band-bg) 60%, var(--color-action))
+      var(--banner),
+      color-mix(in srgb, var(--banner) 55%, var(--color-band-bg))
     );
+  background-position:
+    0 0,
+    0 0;
   background-size: calc(var(--space-7) * 4), auto;
+  transition: background-position var(--transition-slow);
 }
 
-/* Logos en gris au repos, en couleur au survol ou au focus de la carte. */
-.logo {
-  width: auto;
-  max-width: 70%;
-  height: auto;
-  max-height: 70%;
-  object-fit: contain;
-  filter: grayscale(1);
-  opacity: 0.85;
-  transition:
-    filter var(--transition-slow),
-    opacity var(--transition-slow),
-    transform var(--transition-slow);
+.card:hover .banner,
+.card:focus-within .banner {
+  background-position:
+    var(--space-5) var(--space-3),
+    0 0;
 }
 
-.card:hover .logo,
-.card:focus-within .logo {
-  filter: none;
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.monogram {
-  display: grid;
-  place-items: center;
-  min-width: var(--space-7);
-  height: var(--space-7);
-  padding-inline: var(--space-3);
-  border: var(--border-width) solid
-    color-mix(in srgb, var(--color-band-accent) 60%, transparent);
-  border-radius: var(--radius);
-  background-color: color-mix(in srgb, var(--color-band-bg) 70%, transparent);
-  color: var(--color-band-accent);
-  font-family: var(--font-heading);
-  font-size: var(--font-size-h3);
-  font-weight: var(--font-weight-bold);
+.banner_photo {
+  object-fit: cover;
   transition: transform var(--transition-slow);
 }
 
-.card:hover .monogram,
-.card:focus-within .monogram {
-  transform: rotate(-4deg) scale(1.05);
+.card:hover .banner_photo,
+.card:focus-within .banner_photo {
+  transform: scale(1.04);
+}
+
+/* Territoire : pastille sur voile sombre, lisible sur le dégradé comme sur une photo. */
+.scope {
+  position: absolute;
+  z-index: 1;
+  top: var(--space-2);
+  right: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius);
+  background-color: var(--photo-scrim);
+  color: var(--color-on-photo);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.scope svg {
+  width: var(--space-3);
+  height: var(--space-3);
+}
+
+/* Plaque du logo, à cheval sur le bandeau. Claire dans les deux thèmes : les logos
+   sont conçus pour un fond blanc. */
+.plate {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: calc(var(--space-7) * 2);
+  height: calc(var(--space-7) * 1.25);
+  margin: calc(-1 * var(--space-6)) 0 0 var(--space-4);
+  padding: var(--space-2);
+  border: var(--space-1) solid var(--color-surface);
+  border-radius: var(--radius);
+  background-color: var(--color-on-photo);
+  box-shadow: var(--shadow-card-hover);
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .plate,
+.card:focus-within .plate {
+  transform: translateY(calc(-1 * var(--space-1))) rotate(-2deg);
+}
+
+/* multiply : le fond blanc des logos (JPEG) se fond dans la plaque. */
+.logo {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.monogram {
+  color: var(--color-band-bg);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.05em;
 }
 
 .body {
   display: grid;
   align-content: start;
   gap: var(--space-2);
-  padding: var(--space-4);
-}
-
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--font-size-small);
+  padding: var(--space-3) var(--space-4) var(--space-4);
 }
 
 .category {
-  padding: 0 var(--space-2);
-  border: var(--border-width) solid var(--tone);
-  border-radius: var(--radius);
-  color: var(--color-text);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--tone);
+  font-size: var(--font-size-small);
   font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+}
+
+.category svg {
+  width: var(--space-4);
+  height: var(--space-4);
+}
+
+.name {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
 }
 
 .location {
@@ -217,6 +338,7 @@
   align-items: center;
   gap: var(--space-1);
   color: var(--color-text-muted);
+  font-size: var(--font-size-small);
 }
 
 .location svg {
@@ -225,32 +347,37 @@
   color: var(--color-accent-text);
 }
 
-.name {
-  font-size: var(--font-size-h4);
-  line-height: var(--line-height-h4);
-}
-
 .description {
   color: var(--color-text-muted);
   font-size: var(--font-size-small);
   line-height: var(--line-height-small);
 }
 
+/* Lien vers le site du partenaire : bouton secondaire compact. */
 .link {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--space-2);
   justify-self: start;
   min-height: var(--tap-target);
+  margin-top: var(--space-1);
+  padding-inline: var(--space-3);
+  border: var(--border-width) solid var(--color-action);
+  border-radius: var(--radius);
+  color: var(--color-action);
   font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.link:hover {
+  background-color: var(--color-action);
+  color: var(--color-on-action);
 }
 
 .link svg {
   width: var(--space-4);
   height: var(--space-4);
-  transition: transform var(--transition);
-}
-
-.link:hover svg {
-  transform: translate(calc(var(--space-1) / 2), calc(-1 * var(--space-1) / 2));
 }

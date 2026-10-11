@@ -22,6 +22,7 @@
 
 ## 2. Contenus à valider par AGRI'SUP
 
+- [ ] **Photos des fermes partenaires** : vérifier l'association de chaque photo à sa ferme (Ferme Sidibé, Boya Sylla, Tierno Sidibé) et confirmer qu'il s'agit de photos réelles.
 - [ ] **Photos associées aux formations et aux domaines**, par exemple le compostage pour le DUT Fumure organique, la couveuse pour l'aviculture et les bassins pour l'aquaculture (liste dans `src/content/visuals.ts`).
 - [ ] **Textes des infrastructures** rédigés d'après les photos : bibliothèque (« ouvrages et postes informatiques ») et bus de l'école (« sorties pédagogiques et visites de terrain »).
 - [ ] **Partenaires** :

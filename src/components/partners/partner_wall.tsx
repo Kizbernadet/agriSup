@@ -1,10 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ComponentType, type SVGProps } from "react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { FilterGroup, type Filter } from "@/components/ui/filter_group";
-import { ExternalLinkIcon, MapPinIcon } from "@/components/ui/icons";
+import {
+  ChartIcon,
+  ExternalLinkIcon,
+  GlobeIcon,
+  GraduationIcon,
+  MapPinIcon,
+  PawIcon,
+  UsersIcon,
+  WheatIcon,
+} from "@/components/ui/icons";
 import {
   PARTNER_CATEGORIES,
   partnerInitials,
@@ -16,7 +25,17 @@ import styles from "./partner_wall.module.css";
 
 const SCOPES: PartnerScope[] = ["national", "international"];
 
+type Icon = ComponentType<SVGProps<SVGSVGElement>>;
+
+const CATEGORY_ICONS: Record<PartnerCategory, Icon> = {
+  formation: GraduationIcon,
+  animal: PawIcon,
+  farm: WheatIcon,
+  finance: ChartIcon,
+};
+
 // Mur des partenaires : chiffres clés, filtres (territoire, domaine) et cartes.
+// Mobile : carrousel horizontal à faire glisser ; tablette et ordinateur : grille.
 // Filtrage côté navigateur ; sans JavaScript, tous les partenaires restent affichés.
 export function PartnerWall({ partners }: { partners: Partner[] }) {
   const t = useTranslations("partners");
@@ -29,25 +48,34 @@ export function PartnerWall({ partners }: { partners: Partner[] }) {
       (scope === "all" || partner.scope === scope) &&
       (category === "all" || partner.category === category),
   );
-  const stats = [
-    { value: partners.length, label: t("stats_partners", { count: partners.length }) },
+  const stats: { value: number; label: string; icon: Icon }[] = [
+    {
+      value: partners.length,
+      label: t("stats_partners", { count: partners.length }),
+      icon: UsersIcon,
+    },
     {
       value: new Set(partners.map((partner) => partner.country)).size,
       label: t("stats_countries"),
+      icon: MapPinIcon,
     },
     {
       value: new Set(partners.map((partner) => partner.continent)).size,
       label: t("stats_continents"),
+      icon: GlobeIcon,
     },
   ];
 
   return (
     <div className={styles.wall}>
       <dl className={styles.stats}>
-        {stats.map((stat) => (
-          <div key={stat.label} className={styles.stat}>
-            <dt>{stat.label}</dt>
-            <dd>{stat.value}</dd>
+        {stats.map(({ value, label, icon: StatIcon }) => (
+          <div key={label} className={styles.stat}>
+            <dt>
+              <StatIcon className={styles.stat_icon} aria-hidden="true" />
+              {label}
+            </dt>
+            <dd>{value}</dd>
           </div>
         ))}
       </dl>
@@ -62,10 +90,14 @@ export function PartnerWall({ partners }: { partners: Partner[] }) {
         />
         <FilterGroup
           legend={t("category_legend")}
-          options={PARTNER_CATEGORIES.map((value) => ({
-            value,
-            label: t(`category.${value}`),
-          }))}
+          options={PARTNER_CATEGORIES.map((value) => {
+            const CategoryIcon = CATEGORY_ICONS[value];
+            return {
+              value,
+              label: t(`category.${value}`),
+              icon: <CategoryIcon className={styles.chip_icon} aria-hidden="true" />,
+            };
+          })}
           allLabel={t("all")}
           selected={category}
           onSelect={setCategory}
@@ -74,56 +106,92 @@ export function PartnerWall({ partners }: { partners: Partner[] }) {
 
       <p className={styles.count} aria-live="polite">
         {t("results", { count: visible.length })}
+        <span className={styles.swipe_hint} aria-hidden="true">
+          {t("swipe_hint")}
+        </span>
       </p>
 
-      <ul className={styles.grid}>
-        {visible.map((partner) => (
-          <li key={partner.id} className={styles.card} data-category={partner.category}>
-            <div className={styles.visual}>
-              {partner.logo ? (
-                <Image
-                  src={partner.logo}
-                  alt={t("logo_alt", { name: partner.name })}
-                  sizes="(min-width: 1024px) 160px, 40vw"
-                  className={styles.logo}
-                />
-              ) : (
-                <span className={styles.monogram} aria-hidden="true">
-                  {partnerInitials(partner.name)}
-                </span>
-              )}
-            </div>
-            <div className={styles.body}>
-              <p className={styles.meta}>
-                <span className={styles.category}>
-                  {t(`category.${partner.category}`)}
-                </span>
-                <span className={styles.location}>
-                  <MapPinIcon aria-hidden="true" />
-                  {partner.location[locale]}
-                </span>
-              </p>
-              <h3 className={styles.name}>{partner.name}</h3>
-              <p className={styles.description}>{partner.description[locale]}</p>
-              {partner.url && (
-                <a
-                  href={partner.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.link}
-                >
-                  {t("website")}
-                  <ExternalLinkIcon aria-hidden="true" />
-                  <span className="visually_hidden">
-                    {" "}
-                    {t("new_tab", { name: partner.name })}
+      {/* Zone défilante sur mobile : atteignable au clavier pour défiler aux flèches. */}
+      <div
+        className={styles.scroller}
+        role="region"
+        aria-label={t("list_label")}
+        tabIndex={0}
+      >
+        <ul className={styles.grid}>
+          {visible.map((partner) => {
+            const CategoryIcon = CATEGORY_ICONS[partner.category];
+            const ScopeIcon = partner.scope === "national" ? MapPinIcon : GlobeIcon;
+            return (
+              <li
+                key={partner.id}
+                className={styles.card}
+                data-category={partner.category}
+              >
+                <div className={styles.banner}>
+                  {partner.photo && (
+                    <Image
+                      src={partner.photo}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 85vw"
+                      className={styles.banner_photo}
+                      placeholder="blur"
+                    />
+                  )}
+                  <span className={styles.scope}>
+                    <ScopeIcon aria-hidden="true" />
+                    {t(`scope.${partner.scope}`)}
                   </span>
-                </a>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
+                </div>
+
+                <div className={styles.plate}>
+                  {partner.logo ? (
+                    <Image
+                      src={partner.logo}
+                      alt={t("logo_alt", { name: partner.name })}
+                      sizes="160px"
+                      className={styles.logo}
+                    />
+                  ) : (
+                    <span className={styles.monogram} aria-hidden="true">
+                      {partnerInitials(partner.name)}
+                    </span>
+                  )}
+                </div>
+
+                <div className={styles.body}>
+                  <p className={styles.category}>
+                    <CategoryIcon aria-hidden="true" />
+                    {t(`category.${partner.category}`)}
+                  </p>
+                  <h3 className={styles.name}>{partner.name}</h3>
+                  <p className={styles.location}>
+                    <MapPinIcon aria-hidden="true" />
+                    {partner.location[locale]}
+                  </p>
+                  <p className={styles.description}>{partner.description[locale]}</p>
+                  {partner.url && (
+                    <a
+                      href={partner.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.link}
+                    >
+                      {t("website")}
+                      <ExternalLinkIcon aria-hidden="true" />
+                      <span className="visually_hidden">
+                        {" "}
+                        {t("new_tab", { name: partner.name })}
+                      </span>
+                    </a>
+                  )}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }

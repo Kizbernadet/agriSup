@@ -511,11 +511,33 @@
     "logo_alt": "Logo de {name}",
     "website": "Site web",
     "new_tab": "de {name} (nouvel onglet)",
-    "see_all": "Voir tous nos partenaires"
+    "see_all": "Voir tous nos partenaires",
+    "swipe_hint": "Faites glisser pour voir la suite →",
+    "list_label": "Liste des partenaires"
   },
   "pwa": {
     "update_available": "Une nouvelle version du site est disponible.",
     "update_action": "Mettre à jour",
     "dismiss": "Fermer"
+  },
+  "page_header": {
+    "cta_preinscription": "Se préinscrire",
+    "cta_formations": "Découvrir nos formations",
+    "cta_contact": "Nous contacter",
+    "cta_about": "Découvrir AGRI'SUP",
+    "cta_conditions": "Conditions d'admission",
+    "cta_fees": "Frais de scolarité",
+    "cta_call": "Appeler le {phone}",
+    "cta_write": "Écrire un message",
+    "cta_ask": "Poser une question",
+    "cta_form": "Remplir le formulaire",
+    "alt_agrisup": "Façade du bâtiment d'AGRI'SUP à Sotuba ACI, Bamako.",
+    "alt_domaines": "Un intervenant présente des aubergines récoltées à un groupe d'étudiants.",
+    "alt_admission": "Une promotion d'étudiants en blouse verte et leurs encadrants devant le bâtiment d'AGRI'SUP.",
+    "alt_actualites": "Photo de groupe des étudiants et de l'équipe devant le portail d'AGRI'SUP.",
+    "alt_faq": "Des étudiants suivent un cours en salle informatique.",
+    "alt_contact": "Entrée d'AGRI'SUP à Sotuba ACI, avec l'enseigne de l'école au-dessus du bâtiment vert.",
+    "alt_preinscription": "Deux étudiants en blouse verte observent un échantillon au microscope.",
+    "alt_mentions": "L'enseigne d'AGRI'SUP à l'entrée de l'école."
   }
 }

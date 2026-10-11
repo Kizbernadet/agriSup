@@ -1,8 +1,16 @@
 import type { StaticImageData } from "next/image";
 import afgBankLogo from "../../assets/site/partenaires/afg_bank.png";
 import carfsLogo from "../../assets/site/partenaires/carfs.png";
+import fermeBoyaSyllaPhoto from "../../assets/site/partenaires/ferme_boya_sylla.jpg";
+import fermeSidibePhoto from "../../assets/site/partenaires/ferme_sidibe.jpg";
+import fermeTiernoSidibePhoto from "../../assets/site/partenaires/ferme_tierno_sidibe.jpg";
 import ierLogo from "../../assets/site/partenaires/ier.png";
 import iprIfraLogo from "../../assets/site/partenaires/ipr_ifra.png";
+import keproLogo from "../../assets/site/partenaires/kepro.png";
+import kisamenLogo from "../../assets/site/partenaires/kisamen.png";
+import lihuaLogo from "../../assets/site/partenaires/lihua.png";
+import purdueLogo from "../../assets/site/partenaires/purdue.png";
+import tambarouaLogo from "../../assets/site/partenaires/tambaroua.png";
 
 /**
  * Partenaires d'AGRI'SUP : source unique du ruban de l'accueil et du mur de la page
@@ -14,8 +22,10 @@ import iprIfraLogo from "../../assets/site/partenaires/ipr_ifra.png";
  *   scripts/prepare_photos.ts puis lancer npm run photos (PNG sur fond clair
  *   de préférence), l'importer en haut de ce fichier, puis l'indiquer dans « logo » ;
  * - lien : indiquer l'adresse complète du site officiel dans « url » (https://…).
+ * - photo : pour un partenaire sans logo (ferme), photo de l'exploitation, même procédure
+ *   (PHOTOS dans scripts/prepare_photos.ts).
  * Sans logo, un monogramme aux couleurs de la charte est affiché ; sans lien, aucun
- * bouton « Site web ».
+ * bouton « Site web ». Le ruban de l'accueil n'affiche que les partenaires avec logo.
  */
 
 type Localized = { fr: string; en: string };
@@ -35,9 +45,9 @@ export type Partner = {
   continent: "afrique" | "amerique" | "europe" | "asie";
   description: Localized;
   logo?: StaticImageData;
+  // Photo du partenaire (exploitation), en couverture de sa carte.
+  photo?: StaticImageData;
   url?: string;
-  // Affiché dans le ruban de l'accueil.
-  featured?: boolean;
 };
 
 export const PARTNER_CATEGORIES: PartnerCategory[] = [
@@ -61,7 +71,6 @@ export const PARTNERS: Partner[] = [
       en: "Rural polytechnic institute for training and applied research, a reference in agricultural higher education in Mali and the region. Partnership agreement signed on 10 February 2026.",
     },
     logo: iprIfraLogo,
-    featured: true,
   },
   {
     id: "ier",
@@ -76,7 +85,6 @@ export const PARTNERS: Partner[] = [
       en: "Institute of Rural Economy, a Malian and regional reference in agricultural research.",
     },
     logo: ierLogo,
-    featured: true,
   },
   {
     id: "purdue",
@@ -91,7 +99,7 @@ export const PARTNERS: Partner[] = [
       en: "A world-leading agricultural university, partner in redesigning our programs within the LMD system.",
     },
     url: "https://www.purdue.edu",
-    featured: true,
+    logo: purdueLogo,
   },
   {
     id: "carfs",
@@ -106,7 +114,6 @@ export const PARTNERS: Partner[] = [
       en: "African centre for research and training in synecoculture.",
     },
     logo: carfsLogo,
-    featured: true,
   },
   {
     id: "cnia",
@@ -120,7 +127,6 @@ export const PARTNERS: Partner[] = [
       fr: "Centre national d'insémination artificielle : coopération technique pour la formation en reproduction animale.",
       en: "National artificial insemination centre: technical cooperation for training in animal reproduction.",
     },
-    featured: true,
   },
   {
     id: "sahel-veto",
@@ -134,7 +140,6 @@ export const PARTNERS: Partner[] = [
       fr: "Établissement vétérinaire pharmaceutique d'import-export.",
       en: "Veterinary pharmaceutical import-export company.",
     },
-    featured: true,
   },
   {
     id: "kisamen",
@@ -148,7 +153,7 @@ export const PARTNERS: Partner[] = [
       fr: "Laboratoire de production de semences bovines.",
       en: "Bovine semen production laboratory.",
     },
-    featured: true,
+    logo: kisamenLogo,
   },
   {
     id: "kepro",
@@ -162,6 +167,7 @@ export const PARTNERS: Partner[] = [
       fr: "Laboratoire pharmaceutique vétérinaire.",
       en: "Veterinary pharmaceutical laboratory.",
     },
+    logo: keproLogo,
   },
   {
     id: "lihua",
@@ -175,6 +181,7 @@ export const PARTNERS: Partner[] = [
       fr: "Laboratoire pharmaceutique vétérinaire.",
       en: "Veterinary pharmaceutical laboratory.",
     },
+    logo: lihuaLogo,
   },
   {
     id: "tambaroua",
@@ -188,7 +195,7 @@ export const PARTNERS: Partner[] = [
       fr: "Ferme partenaire : stages, visites et partenariat technique.",
       en: "Partner farm: internships, visits and technical partnership.",
     },
-    featured: true,
+    logo: tambarouaLogo,
   },
   {
     id: "ferme-sidibe",
@@ -202,6 +209,7 @@ export const PARTNERS: Partner[] = [
       fr: "Référence de la production maraîchère sous serre.",
       en: "A reference in greenhouse vegetable production.",
     },
+    photo: fermeSidibePhoto,
   },
   {
     id: "ferme-boya-sylla",
@@ -215,6 +223,7 @@ export const PARTNERS: Partner[] = [
       fr: "Exploitation partenaire pour les stages et les visites de terrain.",
       en: "Partner farm for internships and field visits.",
     },
+    photo: fermeBoyaSyllaPhoto,
   },
   {
     id: "ferme-tierno-sidibe",
@@ -228,6 +237,7 @@ export const PARTNERS: Partner[] = [
       fr: "Exploitation partenaire pour les stages et les visites de terrain.",
       en: "Partner farm for internships and field visits.",
     },
+    photo: fermeTiernoSidibePhoto,
   },
   {
     id: "afg-bank",
@@ -242,7 +252,6 @@ export const PARTNERS: Partner[] = [
       en: "A bank operating in Mali that helps finance the economy.",
     },
     logo: afgBankLogo,
-    featured: true,
   },
 ];
 

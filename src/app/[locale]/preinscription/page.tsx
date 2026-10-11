@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { WhatsappButton } from "@/components/contact/whatsapp_button";
 import { PreinscriptionForm } from "@/components/forms/preinscription_form";
 import { Alert } from "@/components/ui/alert";
-import { ButtonLink } from "@/components/ui/button";
+import { ButtonLink, buttonClassName } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { PhoneIcon } from "@/components/ui/icons";
@@ -13,6 +13,7 @@ import { CONTACT } from "@/content/placeholders";
 import { toAppLocale } from "@/i18n/locale";
 import { academicYearOptions } from "@/lib/academic_year";
 import { listFormations } from "@/lib/data/formations";
+import headerPhoto from "../../../../assets/site/etudiants/tp_microscope_binome.jpg";
 import styles from "./preinscription.module.css";
 
 // Liste des formations et années académiques recalculées au plus toutes les heures.
@@ -31,6 +32,7 @@ export default async function PreinscriptionPage({
 }: PageProps<"/[locale]/preinscription">) {
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
+  const tHeader = await getTranslations("page_header");
 
   const [t, tPage, tNav, tAdmission, tFormation, tCommon, formations] = await Promise.all(
     [
@@ -53,13 +55,29 @@ export default async function PreinscriptionPage({
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>
+        intro={
+          <p>
             <RichText text={tPage("intro")} />
-          </p>}
+          </p>
+        }
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
+        media={{ image: headerPhoto, alt: tHeader("alt_preinscription") }}
+        actions={
+          <>
+            <a href="#formulaire" className={buttonClassName()}>
+              {tHeader("cta_form")}
+            </a>
+            <ButtonLink
+              href={{ pathname: "/admission", hash: "conditions" }}
+              variant="secondary"
+            >
+              {tHeader("cta_conditions")}
+            </ButtonLink>
+          </>
+        }
       />
       <Container className={styles.layout}>
-        <div className={styles.main}>
+        <div id="formulaire" className={styles.main}>
           <Alert variant="info">{tAdmission("disclaimer")}</Alert>
           <PreinscriptionForm
             formations={formationOptions}

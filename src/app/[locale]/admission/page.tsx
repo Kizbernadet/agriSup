@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { WhatsappButton } from "@/components/contact/whatsapp_button";
 import { Alert } from "@/components/ui/alert";
-import { ButtonLink } from "@/components/ui/button";
+import { ButtonLink, buttonClassName } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   BriefcaseIcon,
@@ -26,6 +26,7 @@ import { toAppLocale } from "@/i18n/locale";
 import { revealProps } from "@/lib/reveal";
 import table from "@/components/ui/data_table.module.css";
 import { RichText } from "@/components/ui/rich_text";
+import headerPhoto from "../../../../assets/site/etudiants/promotion_encadrants.jpg";
 import styles from "./admission.module.css";
 
 export async function generateMetadata({
@@ -45,6 +46,7 @@ export default async function AdmissionPage({
 }: PageProps<"/[locale]/admission">) {
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
+  const tHeader = await getTranslations("page_header");
 
   const [t, tPage, tNav, tCommon] = await Promise.all([
     getTranslations("pages.admission"),
@@ -58,10 +60,23 @@ export default async function AdmissionPage({
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>
+        intro={
+          <p>
             <RichText text={tPage("intro")} />
-          </p>}
+          </p>
+        }
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
+        media={{ image: headerPhoto, alt: tHeader("alt_admission") }}
+        actions={
+          <>
+            <ButtonLink href="/preinscription">
+              {tHeader("cta_preinscription")}
+            </ButtonLink>
+            <a href="#frais" className={buttonClassName("secondary")}>
+              {tHeader("cta_fees")}
+            </a>
+          </>
+        }
       />
 
       <Section

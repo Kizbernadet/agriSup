@@ -511,11 +511,33 @@
     "logo_alt": "{name} logo",
     "website": "Website",
     "new_tab": "of {name} (new tab)",
-    "see_all": "See all our partners"
+    "see_all": "See all our partners",
+    "swipe_hint": "Swipe to see more →",
+    "list_label": "Partner list"
   },
   "pwa": {
     "update_available": "A new version of the site is available.",
     "update_action": "Update",
     "dismiss": "Close"
+  },
+  "page_header": {
+    "cta_preinscription": "Pre-register",
+    "cta_formations": "Discover our programs",
+    "cta_contact": "Contact us",
+    "cta_about": "Discover AGRI'SUP",
+    "cta_conditions": "Entry requirements",
+    "cta_fees": "Tuition fees",
+    "cta_call": "Call {phone}",
+    "cta_write": "Send a message",
+    "cta_ask": "Ask a question",
+    "cta_form": "Fill in the form",
+    "alt_agrisup": "Front of the AGRI'SUP building in Sotuba ACI, Bamako.",
+    "alt_domaines": "A speaker shows harvested aubergines to a group of students.",
+    "alt_admission": "A class of students in green lab coats with their supervisors in front of the AGRI'SUP building.",
+    "alt_actualites": "Group photo of students and staff in front of the AGRI'SUP gate.",
+    "alt_faq": "Students attending a class in the computer room.",
+    "alt_contact": "The AGRI'SUP entrance in Sotuba ACI, with the school sign above the green building.",
+    "alt_preinscription": "Two students in green lab coats looking at a sample under a microscope.",
+    "alt_mentions": "The AGRI'SUP sign at the school entrance."
   }
 }

@@ -8,6 +8,8 @@ import { RichText } from "@/components/ui/rich_text";
 import { toAppLocale } from "@/i18n/locale";
 import { listActualites } from "@/lib/data/actualites";
 import { revealProps } from "@/lib/reveal";
+import { ButtonLink } from "@/components/ui/button";
+import headerPhoto from "../../../../assets/site/etudiants/photo_groupe_entree.jpg";
 import styles from "./actualites.module.css";
 
 export async function generateMetadata({
@@ -25,6 +27,7 @@ export default async function ActualitesPage({
 }: PageProps<"/[locale]/actualites">) {
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
+  const tHeader = await getTranslations("page_header");
 
   const requestedPage = Number((await searchParams).page);
   const page = Number.isInteger(requestedPage) && requestedPage > 1 ? requestedPage : 1;
@@ -40,10 +43,21 @@ export default async function ActualitesPage({
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>
+        intro={
+          <p>
             <RichText text={tPage("intro")} />
-          </p>}
+          </p>
+        }
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
+        media={{ image: headerPhoto, alt: tHeader("alt_actualites") }}
+        actions={
+          <>
+            <ButtonLink href="/agrisup">{tHeader("cta_about")}</ButtonLink>
+            <ButtonLink href="/contact" variant="secondary">
+              {tHeader("cta_contact")}
+            </ButtonLink>
+          </>
+        }
       />
       <Section>
         {result.items.length === 0 ? (

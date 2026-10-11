@@ -307,3 +307,12 @@ Chaque entrée indique la décision, sa raison et, le cas échéant, ce qu'il fa
 - **Page hors ligne** (`public/offline.html`) : autonome (aucune ressource du site n'est accessible hors connexion), couleurs de la charte recopiées, thème clair ou sombre, français ou anglais selon l'adresse, numéros officiels cliquables.
 - **Mises à jour** : une nouvelle version attend le clic du visiteur sur « Mettre à jour » (avis en haut de l'écran) au lieu de recharger la page en pleine lecture.
 - **Hors périmètre, non fait** : notifications push (serveur, clés VAPID et consentement nécessaires).
+
+### 2026-10-11 — Partenaires et en-têtes de page
+
+- **Nouveaux visuels de partenaires** (fournis par la cliente) : logos KEPRO, KISAMEN (SVG, rendu net), LIHUA Pharma, Purdue (version verticale), Tambaroua ; photos des trois fermes partenaires (`photo`, en couverture de leur carte). Association ferme / photo à valider : maraîchage → Ferme Sidibé (maraîchage sous serre), vue aérienne → Ferme Boya Sylla, élevage → Ferme Tierno Sidibé.
+- **Ruban de l'accueil** : ne garde que les partenaires avec logo (9) ; le champ `featured` est supprimé. Cartes verticales, grand logo en couleur sur plaque claire (plus de niveaux de gris).
+- **Mur des partenaires** : chiffres clés sur bandeau Bleu Académie ; cartes avec bandeau coloré selon le domaine (ou photo du partenaire), territoire en pastille, plaque du logo à cheval sur le bandeau, domaine avec icône, bouton « Site web ». Mobile : carrousel horizontal à faire glisser (accroche magnétique, zone atteignable au clavier) au lieu d'une liste empilée.
+- **Filtres (partenaires et catalogue)** : sur mobile, une ligne de puces qui défile horizontalement au lieu de plusieurs lignes empilées.
+- **En-têtes de page** : `PageHeader` accepte `media` (photo de la thématique, cadre or décalé, sceau en médaillon, chargée en priorité) et `actions` (boutons d'appel à l'action). Appliqué à AGRI'SUP, Domaines, Admission, Actualités, FAQ, Contact, Préinscription et Mentions légales ; Formations garde ses affiches et reçoit des boutons ; la fiche formation avait déjà photo et boutons.
+- **Photos de la cliente** : `etudiants/elevage_2.jpeg` renommée `etudiant_6.jpeg` (script mis à jour) ; photos du promoteur ajoutées (pour un futur « mot du fondateur », nom et texte à fournir).

@@ -44,7 +44,7 @@ const PHOTOS: [string, string][] = [
   ["non_classes/photo de groupe.jpg", "etudiants/photo_groupe_entree.jpg"],
   // Élevage et production
   ["activites/elevage_1.jpeg", "domaines/elevage_bovins.jpg"],
-  ["etudiants/elevage_2.jpeg", "domaines/elevage_travaux_pratiques.jpg"],
+  ["etudiants/etudiant_6.jpeg", "domaines/elevage_travaux_pratiques.jpg"],
   ["activites/FB_IMG_1791288891191.jpg", "domaines/elevage_ecurie_visite.jpg"],
   ["equipements/equipement_2.jpeg", "domaines/aviculture_couveuse.jpg"],
   ["non_classes/photo expert agi biologique.jpg", "domaines/maraichage_aubergines.jpg"],
@@ -54,6 +54,10 @@ const PHOTOS: [string, string][] = [
   ["non_classes/FB_IMG_1791288929030.jpg", "domaines/agribusiness_chambre_froide.jpg"],
   ["activites/FB_IMG_1791288925817.jpg", "domaines/agribusiness_unite_transformation.jpg"],
   ["activites/FB_IMG_1791288888844.jpg", "domaines/agroforesterie_haie.jpg"],
+  // Fermes partenaires (photos fournies par la cliente, sans logo)
+  ["partenaires/ferme_2.webp", "partenaires/ferme_sidibe.jpg"],
+  ["partenaires/fermes_1.jpg", "partenaires/ferme_boya_sylla.jpg"],
+  ["partenaires/ferme_3.png", "partenaires/ferme_tierno_sidibe.jpg"],
 ];
 
 // Logos des partenaires : marges blanches retirées, PNG sans perte.
@@ -62,6 +66,11 @@ const LOGOS: [string, string][] = [
   ["partenaires/ier_logo.jpg", "partenaires/ier.png"],
   ["partenaires/carf_logo.jpg", "partenaires/carfs.png"],
   ["partenaires/afg_bank_logo_2.png", "partenaires/afg_bank.png"],
+  ["partenaires/kepro_logo.png", "partenaires/kepro.png"],
+  ["partenaires/kisamen_logo.svg", "partenaires/kisamen.png"],
+  ["partenaires/lihua_logo.webp", "partenaires/lihua.png"],
+  ["partenaires/pu_logo_2.png", "partenaires/purdue.png"],
+  ["partenaires/tambaroua_logo.webp", "partenaires/tambaroua.png"],
 ];
 
 async function preparePhoto(source: string, output: string) {
@@ -83,7 +92,8 @@ async function preparePhoto(source: string, output: string) {
 async function prepareLogo(source: string, output: string) {
   const target = `${OUTPUT}/${output}`;
   mkdirSync(dirname(target), { recursive: true });
-  const info = await sharp(`${SOURCE}/${source}`)
+  // density : rendu net des logos vectoriels (SVG).
+  const info = await sharp(`${SOURCE}/${source}`, { density: 300 })
     .trim({ background: "#ffffff", threshold: 20 })
     .resize(512, 512, { fit: "inside", withoutEnlargement: true })
     .png()

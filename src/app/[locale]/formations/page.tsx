@@ -10,6 +10,7 @@ import { listFormations } from "@/lib/data/formations";
 import affichesInscriptions from "../../../../assets/photos/flyers/annonce_1.jpeg";
 import kakemono from "../../../../assets/photos/non_classes/kakemono_offre_formations.jpg";
 import afficheLmd from "../../../../assets/photos/flyers/poster_2.jpg";
+import { ButtonLink } from "@/components/ui/button";
 
 // Page statique régénérée au plus toutes les heures (modifications en base).
 export const revalidate = 3600;
@@ -27,6 +28,7 @@ export default async function FormationsPage({
 }: PageProps<"/[locale]/formations">) {
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
+  const tHeader = await getTranslations("page_header");
 
   const [t, tNav, tPage, tGallery, formations] = await Promise.all([
     getTranslations("pages.formations"),
@@ -40,10 +42,25 @@ export default async function FormationsPage({
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>
+        intro={
+          <p>
             <RichText text={tPage("intro")} />
-          </p>}
+          </p>
+        }
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
+        actions={
+          <>
+            <ButtonLink href="/preinscription">
+              {tHeader("cta_preinscription")}
+            </ButtonLink>
+            <ButtonLink
+              href={{ pathname: "/admission", hash: "conditions" }}
+              variant="secondary"
+            >
+              {tHeader("cta_conditions")}
+            </ButtonLink>
+          </>
+        }
         aside={
           <PosterFan
             posters={[

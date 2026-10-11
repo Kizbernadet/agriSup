@@ -33,6 +33,8 @@ import classroomPhoto from "../../../../assets/site/salles/salle_cours.jpg";
 import computerPhoto from "../../../../assets/site/salles/salle_informatique.jpg";
 import table from "@/components/ui/data_table.module.css";
 import { RichText } from "@/components/ui/rich_text";
+import { ButtonLink } from "@/components/ui/button";
+import headerPhoto from "../../../../assets/site/campus/batiment_facade.jpg";
 import styles from "./agrisup.module.css";
 
 export async function generateMetadata({
@@ -48,6 +50,7 @@ export async function generateMetadata({
 export default async function AgrisupPage({ params }: PageProps<"/[locale]/agrisup">) {
   const locale = toAppLocale((await params).locale);
   setRequestLocale(locale);
+  const tHeader = await getTranslations("page_header");
 
   const [t, tPage, tNav, tGallery] = await Promise.all([
     getTranslations("pages.agrisup"),
@@ -80,10 +83,21 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
     <>
       <PageHeader
         title={t("title")}
-        intro={<p>
+        intro={
+          <p>
             <RichText text={tPage("intro")} />
-          </p>}
+          </p>
+        }
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
+        media={{ image: headerPhoto, alt: tHeader("alt_agrisup") }}
+        actions={
+          <>
+            <ButtonLink href="/formations">{tHeader("cta_formations")}</ButtonLink>
+            <ButtonLink href="/contact" variant="secondary">
+              {tHeader("cta_contact")}
+            </ButtonLink>
+          </>
+        }
       >
         <nav aria-label={tPage("on_this_page")} className={styles.anchors}>
           <ul>

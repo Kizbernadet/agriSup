@@ -80,3 +80,60 @@
 .aside {
   min-width: 0;
 }
+
+/* Boutons d'appel à l'action. */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+/* Photo de la thématique : cadre or décalé (comme le hero de l'accueil) et sceau. */
+.media {
+  position: relative;
+  margin: 0 var(--space-3) var(--space-3) 0;
+}
+
+.media::before {
+  position: absolute;
+  z-index: -1;
+  inset: var(--space-3) calc(-1 * var(--space-3)) calc(-1 * var(--space-3)) var(--space-3);
+  border: var(--border-width) solid var(--color-accent);
+  border-radius: var(--radius);
+  content: "";
+}
+
+.media_image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Sceau posé sur l'angle de la photo (décoratif). */
+.media_seal {
+  position: absolute;
+  bottom: calc(-1 * var(--space-3));
+  left: calc(-1 * var(--space-3));
+  width: var(--space-7);
+  height: var(--space-7);
+  border-radius: 50%;
+  background-color: var(--color-on-photo);
+  box-shadow: var(--shadow-card-hover);
+}
+
+@media (min-width: 1024px) {
+  .media_image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .media_seal {
+    width: calc(var(--space-7) * 1.5);
+    height: calc(var(--space-7) * 1.5);
+  }
+}
