@@ -1,0 +1,228 @@
+/* Section placée sur le bandeau Bleu Académie (Section tone="band") : textes en clair,
+   accents or (contrastes vérifiés dans tokens.css). */
+.showcase {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.intro {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .intro {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: var(--space-7);
+  }
+}
+
+/* Collage : portrait dans un cadre or décalé, photo au laboratoire en médaillon. */
+.collage {
+  position: relative;
+  max-width: calc(var(--space-7) * 7);
+  margin: 0 var(--space-5) var(--space-6) 0;
+}
+
+.collage::before {
+  position: absolute;
+  z-index: 0;
+  inset: var(--space-3) calc(-1 * var(--space-3)) calc(-1 * var(--space-3)) var(--space-3);
+  border: var(--border-width) solid var(--color-band-accent);
+  border-radius: var(--radius);
+  content: "";
+}
+
+.portrait {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  object-fit: cover;
+  object-position: top;
+}
+
+.inset {
+  position: absolute;
+  z-index: 2;
+  right: calc(-1 * var(--space-5));
+  bottom: calc(-1 * var(--space-6));
+  width: 45%;
+  height: auto;
+  aspect-ratio: 1;
+  border: var(--space-1) solid var(--color-band-bg);
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: var(--shadow-card-hover);
+}
+
+.text {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.identity {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.name {
+  color: var(--color-on-band);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-h3);
+}
+
+.role {
+  color: var(--color-band-accent);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+}
+
+.lead {
+  color: var(--color-on-band);
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-body);
+}
+
+.quote {
+  margin: 0;
+  padding-left: var(--space-4);
+  border-left: var(--space-1) solid var(--color-band-accent);
+  color: var(--color-on-band);
+  font-style: italic;
+}
+
+.quote footer {
+  margin-top: var(--space-2);
+  color: var(--color-band-muted);
+  font-size: var(--font-size-small);
+  font-style: normal;
+}
+
+/* ---------- Missions : carrousel sur mobile, grille ensuite ---------- */
+
+.missions {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.missions_title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-on-band);
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+/* Filet or à gauche du titre. */
+.missions_title::before {
+  width: var(--space-5);
+  height: var(--focus-ring-width);
+  background-color: var(--color-band-accent);
+  content: "";
+}
+
+.scroller {
+  margin-inline: calc(-1 * var(--space-3));
+  padding-inline: var(--space-3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--space-3);
+  scrollbar-width: none;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.mission_list {
+  display: grid;
+  grid-auto-columns: 78%;
+  grid-auto-flow: column;
+  gap: var(--space-3);
+  padding: 0 0 var(--space-2);
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .scroller {
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+  }
+
+  .mission_list {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mission_list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.mission {
+  scroll-snap-align: start;
+}
+
+.mission figure {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.mission_frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.mission_image {
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.mission:hover .mission_image {
+  transform: scale(1.04);
+}
+
+/* Pays : pastille sur voile sombre, lisible quelle que soit la photo. */
+.country {
+  position: absolute;
+  bottom: var(--space-2);
+  left: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius);
+  background-color: var(--photo-scrim);
+  color: var(--color-on-photo);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.country svg {
+  width: var(--space-3);
+  height: var(--space-3);
+  color: var(--color-band-accent);
+}
+
+.mission figcaption {
+  color: var(--color-band-muted);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}

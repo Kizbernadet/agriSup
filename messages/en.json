@@ -334,7 +334,13 @@
     "infra_library_title": "Library",
     "infra_library_text": "A space for reading and independent study, with books and computers.",
     "infra_bus_title": "School bus",
-    "infra_bus_text": "A bus in AGRI'SUP colours for educational trips and field visits."
+    "infra_bus_text": "A bus in AGRI'SUP colours for educational trips and field visits.",
+    "founder_title": "The founder",
+    "founder_eyebrow": "Behind AGRI'SUP",
+    "founder_missions_title": "International partnership missions",
+    "founder_portrait_alt": "Portrait of the founder of AGRI'SUP.",
+    "founder_lab_alt": "The founder of AGRI'SUP alongside a student doing practical work with a microscope.",
+    "founder_message_label": "A word from the founder"
   },
   "actualites_page": {
     "intro": "Announcements, events and teaching activities: follow life at the school.",
@@ -512,8 +518,9 @@
     "website": "Website",
     "new_tab": "of {name} (new tab)",
     "see_all": "See all our partners",
-    "swipe_hint": "Swipe to see more →",
-    "list_label": "Partner list"
+    "list_label": "Partner list",
+    "previous": "Previous partners",
+    "next": "Next partners"
   },
   "pwa": {
     "update_available": "A new version of the site is available.",
@@ -538,6 +545,7 @@
     "alt_faq": "Students attending a class in the computer room.",
     "alt_contact": "The AGRI'SUP entrance in Sotuba ACI, with the school sign above the green building.",
     "alt_preinscription": "Two students in green lab coats looking at a sample under a microscope.",
-    "alt_mentions": "The AGRI'SUP sign at the school entrance."
+    "alt_mentions": "The AGRI'SUP sign at the school entrance.",
+    "alt_formations": "Students in green lab coats doing practical work with microscopes."
   }
 }

@@ -3,17 +3,21 @@
   isolation: isolate;
   overflow: hidden;
   padding-block: var(--space-5) var(--space-6);
-  background-color: var(--color-surface);
   border-bottom: var(--border-width) solid var(--color-border);
-  /* Halos de couleur, mêmes teintes douces que le bandeau d'accueil. */
+  background-color: var(--color-surface);
+}
+
+/* ---------- Sans photo : halos de couleur et motif du thème ---------- */
+
+.with_pattern {
   background-image:
     radial-gradient(circle at 92% 10%, var(--color-accent-soft), transparent 35%),
     radial-gradient(circle at 70% 120%, var(--color-action-soft), transparent 40%);
 }
 
-/* Motif du thème (tuile de 480px affichée à 384px) sur un calque à part, plus haut que
-   l'en-tête : il glisse au défilement (parallaxe, base.css). */
-.header::before {
+/* Motif (tuile de 480px affichée à 384px) sur un calque plus haut que l'en-tête : il
+   glisse au défilement (parallaxe). */
+.with_pattern::before {
   position: absolute;
   z-index: -1;
   inset: calc(-1 * var(--parallax-distance)) 0;
@@ -22,16 +26,71 @@
   content: "";
 }
 
+/* ---------- Avec photo : fond photographique sous un voile sombre ---------- */
+
+.with_photo {
+  display: flex;
+  align-items: center;
+  min-height: calc(var(--space-7) * 6);
+  padding-block: var(--space-6);
+  border-bottom: var(--space-1) solid var(--color-accent);
+  color: var(--color-text);
+}
+
+@media (min-width: 1024px) {
+  .with_photo {
+    min-height: calc(var(--space-7) * 7.5);
+    padding-block: var(--space-7);
+  }
+}
+
+/* Calque photo, plus haut que l'en-tête pour la parallaxe. */
+.backdrop {
+  position: absolute;
+  z-index: -2;
+  inset: calc(-1 * var(--parallax-distance)) 0;
+}
+
+.backdrop_image {
+  object-fit: cover;
+}
+
+/* Voile : uniforme sur mobile (texte sur toute la largeur), plus dense côté texte sur
+   ordinateur pour laisser respirer la photo à droite. */
+.with_photo::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--photo-scrim);
+  content: "";
+}
+
+@media (min-width: 1024px) {
+  .with_photo::after {
+    background: var(--photo-scrim-side);
+  }
+}
+
+/* Le contenu occupe toute la largeur du conteneur (en-tête en flex). */
+.with_photo > * {
+  flex: 1;
+}
+
+.with_photo .intro {
+  color: var(--color-text);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    .header::before {
-      animation: header-pattern-drift linear both;
+    .with_pattern::before,
+    .backdrop {
+      animation: header-drift linear both;
       animation-timeline: view();
     }
   }
 }
 
-@keyframes header-pattern-drift {
+@keyframes header-drift {
   from {
     translate: 0 calc(-1 * var(--parallax-distance));
   }
@@ -39,6 +98,8 @@
     translate: 0 var(--parallax-distance);
   }
 }
+
+/* ---------- Contenu ---------- */
 
 .inner {
   display: grid;
@@ -63,6 +124,15 @@
   max-width: var(--line-length);
 }
 
+/* Boutons d'appel à l'action. */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
 /* Variante avec visuel : texte puis visuel sur mobile, deux colonnes sur ordinateur. */
 .with_aside {
   display: grid;
@@ -79,61 +149,4 @@
 
 .aside {
   min-width: 0;
-}
-
-/* Boutons d'appel à l'action. */
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-3);
-  margin-top: var(--space-2);
-}
-
-/* Photo de la thématique : cadre or décalé (comme le hero de l'accueil) et sceau. */
-.media {
-  position: relative;
-  margin: 0 var(--space-3) var(--space-3) 0;
-}
-
-.media::before {
-  position: absolute;
-  z-index: -1;
-  inset: var(--space-3) calc(-1 * var(--space-3)) calc(-1 * var(--space-3)) var(--space-3);
-  border: var(--border-width) solid var(--color-accent);
-  border-radius: var(--radius);
-  content: "";
-}
-
-.media_image {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-  border-radius: var(--radius);
-  object-fit: cover;
-  box-shadow: var(--shadow-card-hover);
-}
-
-/* Sceau posé sur l'angle de la photo (décoratif). */
-.media_seal {
-  position: absolute;
-  bottom: calc(-1 * var(--space-3));
-  left: calc(-1 * var(--space-3));
-  width: var(--space-7);
-  height: var(--space-7);
-  border-radius: 50%;
-  background-color: var(--color-on-photo);
-  box-shadow: var(--shadow-card-hover);
-}
-
-@media (min-width: 1024px) {
-  .media_image {
-    aspect-ratio: 4 / 3;
-  }
-
-  .media_seal {
-    width: calc(var(--space-7) * 1.5);
-    height: calc(var(--space-7) * 1.5);
-  }
 }

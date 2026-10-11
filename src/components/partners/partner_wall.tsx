@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, type ComponentType, type SVGProps } from "react";
+import { useRef, useState, type ComponentType, type SVGProps } from "react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { FilterGroup, type Filter } from "@/components/ui/filter_group";
 import {
   ChartIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
   ExternalLinkIcon,
   GlobeIcon,
   GraduationIcon,
@@ -42,6 +44,18 @@ export function PartnerWall({ partners }: { partners: Partner[] }) {
   const locale = useLocale() === "en" ? "en" : "fr";
   const [scope, setScope] = useState<Filter<PartnerScope>>("all");
   const [category, setCategory] = useState<Filter<PartnerCategory>>("all");
+  const scroller = useRef<HTMLDivElement>(null);
+
+  // Flèches du carrousel mobile : avance d'environ une carte.
+  function scrollCards(direction: 1 | -1) {
+    const element = scroller.current;
+    if (!element) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    element.scrollBy({
+      left: direction * element.clientWidth * 0.85,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  }
 
   const visible = partners.filter(
     (partner) =>
@@ -104,15 +118,34 @@ export function PartnerWall({ partners }: { partners: Partner[] }) {
         />
       </div>
 
-      <p className={styles.count} aria-live="polite">
-        {t("results", { count: visible.length })}
-        <span className={styles.swipe_hint} aria-hidden="true">
-          {t("swipe_hint")}
-        </span>
-      </p>
+      <div className={styles.toolbar}>
+        <p className={styles.count} aria-live="polite">
+          {t("results", { count: visible.length })}
+        </p>
+        {/* Mobile : flèches en complément du glissement au doigt. */}
+        <div className={styles.arrows}>
+          <button
+            type="button"
+            className={styles.arrow}
+            onClick={() => scrollCards(-1)}
+            aria-label={t("previous")}
+          >
+            <ChevronLeftIcon aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            className={styles.arrow}
+            onClick={() => scrollCards(1)}
+            aria-label={t("next")}
+          >
+            <ChevronRightIcon aria-hidden="true" />
+          </button>
+        </div>
+      </div>
 
       {/* Zone défilante sur mobile : atteignable au clavier pour défiler aux flèches. */}
       <div
+        ref={scroller}
         className={styles.scroller}
         role="region"
         aria-label={t("list_label")}

@@ -334,7 +334,13 @@
     "infra_library_title": "Bibliothèque",
     "infra_library_text": "Un espace de lecture et de travail personnel, avec des ouvrages et des postes informatiques.",
     "infra_bus_title": "Bus de l'école",
-    "infra_bus_text": "Un bus aux couleurs d'AGRI'SUP pour les sorties pédagogiques et les visites de terrain."
+    "infra_bus_text": "Un bus aux couleurs d'AGRI'SUP pour les sorties pédagogiques et les visites de terrain.",
+    "founder_title": "Le fondateur",
+    "founder_eyebrow": "À l'origine d'AGRI'SUP",
+    "founder_missions_title": "Missions de partenariat à l'international",
+    "founder_portrait_alt": "Portrait du fondateur d'AGRI'SUP.",
+    "founder_lab_alt": "Le fondateur d'AGRI'SUP aux côtés d'un étudiant en travaux pratiques au microscope.",
+    "founder_message_label": "Le mot du fondateur"
   },
   "actualites_page": {
     "intro": "Annonces, événements et activités pédagogiques : suivez la vie de l'établissement.",
@@ -512,8 +518,9 @@
     "website": "Site web",
     "new_tab": "de {name} (nouvel onglet)",
     "see_all": "Voir tous nos partenaires",
-    "swipe_hint": "Faites glisser pour voir la suite →",
-    "list_label": "Liste des partenaires"
+    "list_label": "Liste des partenaires",
+    "previous": "Partenaires précédents",
+    "next": "Partenaires suivants"
   },
   "pwa": {
     "update_available": "Une nouvelle version du site est disponible.",
@@ -538,6 +545,7 @@
     "alt_faq": "Des étudiants suivent un cours en salle informatique.",
     "alt_contact": "Entrée d'AGRI'SUP à Sotuba ACI, avec l'enseigne de l'école au-dessus du bâtiment vert.",
     "alt_preinscription": "Deux étudiants en blouse verte observent un échantillon au microscope.",
-    "alt_mentions": "L'enseigne d'AGRI'SUP à l'entrée de l'école."
+    "alt_mentions": "L'enseigne d'AGRI'SUP à l'entrée de l'école.",
+    "alt_formations": "Des étudiants en blouse verte en travaux pratiques au microscope."
   }
 }

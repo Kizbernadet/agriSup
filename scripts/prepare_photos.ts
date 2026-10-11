@@ -55,9 +55,20 @@ const PHOTOS: [string, string][] = [
   ["activites/FB_IMG_1791288925817.jpg", "domaines/agribusiness_unite_transformation.jpg"],
   ["activites/FB_IMG_1791288888844.jpg", "domaines/agroforesterie_haie.jpg"],
   // Fermes partenaires (photos fournies par la cliente, sans logo)
-  ["partenaires/ferme_2.webp", "partenaires/ferme_sidibe.jpg"],
-  ["partenaires/fermes_1.jpg", "partenaires/ferme_boya_sylla.jpg"],
+  // Ordre provisoire (numéro de la photo = ordre des fermes), à confirmer par la cliente.
+  ["partenaires/ferme_1.jpg", "partenaires/ferme_sidibe.jpg"],
+  ["partenaires/ferme_2.webp", "partenaires/ferme_boya_sylla.jpg"],
   ["partenaires/ferme_3.png", "partenaires/ferme_tierno_sidibe.jpg"],
+  // Promoteur : portraits et missions à l'étranger (photos du document « Photos voyages
+  // pour partenariat du promoteur », docs/).
+  ["etudiants/promoteur_1.jpg", "promoteur/portrait.jpg"],
+  ["etudiants/promoteur_2.jpg", "promoteur/encadrement_laboratoire.jpg"],
+  ["promoteur/mission_tunisie.jpeg", "promoteur/mission_tunisie.jpg"],
+  ["promoteur/mission_maroc_iav_hassan_ii.jpeg", "promoteur/mission_maroc.jpg"],
+  ["promoteur/mission_usa_purdue_veterinaire.jpeg", "promoteur/mission_usa_purdue.jpg"],
+  ["promoteur/mission_usa_certificat.jpeg", "promoteur/mission_usa_certificat.jpg"],
+  ["promoteur/mission_canada.jpeg", "promoteur/mission_canada.jpg"],
+  ["promoteur/mission_pays_bas.jpeg", "promoteur/mission_pays_bas.jpg"],
 ];
 
 // Logos des partenaires : marges blanches retirées, PNG sans perte.

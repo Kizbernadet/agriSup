@@ -6,6 +6,7 @@ import { CheckIcon, InstitutionIcon } from "@/components/ui/icons";
 import { PageHeader } from "@/components/ui/page_header";
 import { Section } from "@/components/ui/section";
 import { PedagogySteps } from "@/components/home/pedagogy_steps";
+import { FounderShowcase } from "@/components/agrisup/founder_showcase";
 import { PartnerWall } from "@/components/partners/partner_wall";
 import { Timeline } from "@/components/ui/timeline";
 import {
@@ -65,6 +66,7 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
     { id: "valeurs", label: tPage("values_title") },
     { id: "lmd", label: tPage("lmd_title") },
     { id: "expertise", label: tPage("expertise_title") },
+    { id: "fondateur", label: tPage("founder_title") },
     { id: "partenariats", label: tPage("partners_title") },
     { id: "infrastructures", label: tPage("infrastructures_title") },
   ];
@@ -237,6 +239,15 @@ export default async function AgrisupPage({ params }: PageProps<"/[locale]/agris
             </ul>
           </Card>
         </div>
+      </Section>
+
+      <Section
+        id="fondateur"
+        tone="band"
+        eyebrow={tPage("founder_eyebrow")}
+        title={tPage("founder_title")}
+      >
+        <FounderShowcase locale={locale} />
       </Section>
 
       <Section

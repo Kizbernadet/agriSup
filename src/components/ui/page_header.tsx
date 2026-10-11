@@ -13,13 +13,16 @@ type PageHeaderProps = {
   children?: ReactNode;
   // Boutons d'appel à l'action, sous l'introduction.
   actions?: ReactNode;
-  // Photo de la thématique de la page (cadre or et sceau), à droite sur ordinateur.
+  // Photo de la thématique de la page, en fond de tout l'en-tête (à la place du motif).
   media?: { image: StaticImageData; alt: string };
-  // Visuel libre (remplace media), à droite sur ordinateur, sous le texte sur mobile.
+  // Visuel affiché à droite sur ordinateur, sous le texte sur mobile.
   aside?: ReactNode;
 };
 
 // En-tête des pages intérieures : fil d'Ariane, H1 unique de la page, introduction.
+// Avec une photo : fond photographique sous un voile sombre ; data-theme="dark" applique
+// à l'en-tête seul la palette sombre de la charte (tokens.css), dont les contrastes
+// sont vérifiés, quel que soit le thème choisi par le visiteur.
 export function PageHeader({
   title,
   intro,
@@ -45,37 +48,34 @@ export function PageHeader({
     </>
   );
 
-  const visual =
-    aside ??
-    (media && (
-      <figure className={styles.media}>
-        <Image
-          src={media.image}
-          alt={media.alt}
-          sizes="(min-width: 1024px) 560px, 100vw"
-          className={styles.media_image}
-          // Image principale de la page (LCP) : chargée en priorité.
-          loading="eager"
-          fetchPriority="high"
-          placeholder="blur"
-        />
-        <Image
-          src="/logo/sceau_agrisup.png"
-          alt=""
-          width={96}
-          height={96}
-          className={styles.media_seal}
-        />
-      </figure>
-    ));
-
   return (
-    <div className={styles.header}>
-      {visual ? (
+    <div
+      className={[styles.header, media ? styles.with_photo : styles.with_pattern].join(
+        " ",
+      )}
+      data-theme={media ? "dark" : undefined}
+    >
+      {media && (
+        <div className={styles.backdrop}>
+          <Image
+            src={media.image}
+            alt={media.alt}
+            fill
+            sizes="100vw"
+            quality={90}
+            className={styles.backdrop_image}
+            // Image principale de la page (LCP) : chargée en priorité.
+            loading="eager"
+            fetchPriority="high"
+            placeholder="blur"
+          />
+        </div>
+      )}
+      {aside ? (
         <Container className={styles.with_aside}>
           <div className={styles.inner}>{content}</div>
           <div className={styles.aside} data-parallax="float">
-            {visual}
+            {aside}
           </div>
         </Container>
       ) : (

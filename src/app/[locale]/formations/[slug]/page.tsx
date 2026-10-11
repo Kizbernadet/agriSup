@@ -57,6 +57,7 @@ export default async function FormationDetailPage({
     query: { formation: formation.slug },
   };
   const domainContent = DOMAINS[formation.domain];
+  const photo = formationPhoto(formation.slug, formation.domain);
 
   return (
     <>
@@ -67,14 +68,19 @@ export default async function FormationDetailPage({
           { label: tNav("formations"), href: "/formations" },
           { label: formation.name },
         ]}
+        // Photo de la formation en fond de l'en-tête (décorative : le titre la décrit) ;
+        // sans photo, illustration du domaine à droite.
+        media={photo ? { image: photo, alt: "" } : undefined}
         aside={
-          <DomainCover
-            domain={formation.domain}
-            photo={formationPhoto(formation.slug, formation.domain)}
-            sizes="(min-width: 1024px) 560px, 100vw"
-            priority
-            className={styles.cover}
-          />
+          photo ? undefined : (
+            <DomainCover
+              domain={formation.domain}
+              photo={null}
+              sizes="(min-width: 1024px) 560px, 100vw"
+              priority
+              className={styles.cover}
+            />
+          )
         }
       >
         <div className={styles.identity}>

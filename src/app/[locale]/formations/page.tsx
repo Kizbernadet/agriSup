@@ -10,6 +10,7 @@ import { listFormations } from "@/lib/data/formations";
 import affichesInscriptions from "../../../../assets/photos/flyers/annonce_1.jpeg";
 import kakemono from "../../../../assets/photos/non_classes/kakemono_offre_formations.jpg";
 import afficheLmd from "../../../../assets/photos/flyers/poster_2.jpg";
+import headerPhoto from "../../../../assets/site/etudiants/tp_microscopes_salle.jpg";
 import { ButtonLink } from "@/components/ui/button";
 
 // Page statique régénérée au plus toutes les heures (modifications en base).
@@ -48,6 +49,7 @@ export default async function FormationsPage({
           </p>
         }
         breadcrumb={[{ label: tNav("home"), href: "/" }, { label: t("title") }]}
+        media={{ image: headerPhoto, alt: tHeader("alt_formations") }}
         actions={
           <>
             <ButtonLink href="/preinscription">

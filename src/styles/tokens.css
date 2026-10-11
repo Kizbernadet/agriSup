@@ -228,6 +228,14 @@
   /* [AJOUT — habillage] Voile uniforme sur une photo de fond ou derrière une visionneuse :
      Vert Nuit à 82 %. Le texte --color-on-photo y garde un contraste ≥ 10:1. */
   --photo-scrim: rgba(12, 20, 16, 0.82);
+  /* [AJOUT — en-têtes photo] Voile latéral (ordinateur) : Vert Nuit à 90 % côté texte,
+     encore 78 % au milieu (texte ≥ 9:1), 45 % à droite où la photo respire. */
+  --photo-scrim-side: linear-gradient(
+    90deg,
+    rgba(12, 20, 16, 0.9) 0%,
+    rgba(12, 20, 16, 0.78) 55%,
+    rgba(12, 20, 16, 0.45) 100%
+  );
 
   /* [AJOUT] Couleur du texte sur photo : blanc cassé de la charte (#F3F4F6). */
   --color-on-photo: #f3f4f6;

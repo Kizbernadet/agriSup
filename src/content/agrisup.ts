@@ -7,6 +7,14 @@
  * La typographie française (espaces insécables) est appliquée dans ce fichier.
  */
 
+import type { StaticImageData } from "next/image";
+import missionCanada from "../../assets/site/promoteur/mission_canada.jpg";
+import missionMaroc from "../../assets/site/promoteur/mission_maroc.jpg";
+import missionPaysBas from "../../assets/site/promoteur/mission_pays_bas.jpg";
+import missionTunisie from "../../assets/site/promoteur/mission_tunisie.jpg";
+import missionUsaCertificat from "../../assets/site/promoteur/mission_usa_certificat.jpg";
+import missionUsaPurdue from "../../assets/site/promoteur/mission_usa_purdue.jpg";
+
 type Localized = { fr: string; en: string };
 
 export const RECOGNITION: Localized = {
@@ -366,5 +374,64 @@ export const ADVANTAGES: { title: Localized; text: Localized }[] = [
       fr: "Nos partenariats avec des ONG ouvrent l'accès à des financements de kits de démarrage, comme le projet IDDA (Insertion durable des diplômés du secteur agropastoral), financé par le Canada.",
       en: "Our partnerships with NGOs open access to start-up kit funding, such as the IDDA project (sustainable integration of agropastoral graduates), funded by Canada.",
     },
+  },
+];
+
+// ---------- Fondateur ----------
+// Source : document « Photos voyages pour partenariat du promoteur » (pays et photos) et
+// photos du promoteur fournies par la cliente. Aucune fonction ni biographie inventée.
+
+export const FOUNDER_TEXT: Localized = {
+  fr: "À l'origine d'AGRI'SUP, le fondateur de l'école s'investit aussi bien **auprès des étudiants**, en salle comme au laboratoire, que dans la **coopération internationale**. Ses missions de partenariat l'ont conduit à la rencontre d'établissements et d'entreprises du secteur agricole en Tunisie, au Maroc, aux États-Unis, au Canada et aux Pays-Bas.",
+  en: "The founder of AGRI'SUP is closely involved **with students**, in the classroom and in the laboratory, as well as in **international cooperation**. Partnership missions have taken the founder to agricultural institutions and companies in Tunisia, Morocco, the United States, Canada and the Netherlands.",
+};
+
+export const FOUNDER_MISSIONS: {
+  id: string;
+  country: Localized;
+  caption: Localized;
+  image: StaticImageData;
+}[] = [
+  {
+    id: "usa_purdue",
+    country: { fr: "États-Unis", en: "United States" },
+    caption: {
+      fr: "Purdue University, College of Veterinary Medicine",
+      en: "Purdue University, College of Veterinary Medicine",
+    },
+    image: missionUsaPurdue,
+  },
+  {
+    id: "usa_certificat",
+    country: { fr: "États-Unis", en: "United States" },
+    caption: { fr: "Remise de certificat", en: "Certificate presentation" },
+    image: missionUsaCertificat,
+  },
+  {
+    id: "maroc",
+    country: { fr: "Maroc", en: "Morocco" },
+    caption: {
+      fr: "Institut agronomique et vétérinaire Hassan II",
+      en: "Hassan II Agronomic and Veterinary Institute",
+    },
+    image: missionMaroc,
+  },
+  {
+    id: "tunisie",
+    country: { fr: "Tunisie", en: "Tunisia" },
+    caption: { fr: "Mission de partenariat", en: "Partnership mission" },
+    image: missionTunisie,
+  },
+  {
+    id: "canada",
+    country: { fr: "Canada", en: "Canada" },
+    caption: { fr: "Mission de partenariat", en: "Partnership mission" },
+    image: missionCanada,
+  },
+  {
+    id: "pays_bas",
+    country: { fr: "Pays-Bas", en: "Netherlands" },
+    caption: { fr: "Mission de partenariat", en: "Partnership mission" },
+    image: missionPaysBas,
   },
 ];

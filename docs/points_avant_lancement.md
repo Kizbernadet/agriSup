@@ -22,7 +22,7 @@
 
 ## 2. Contenus à valider par AGRI'SUP
 
-- [ ] **Photos des fermes partenaires** : vérifier l'association de chaque photo à sa ferme (Ferme Sidibé, Boya Sylla, Tierno Sidibé) et confirmer qu'il s'agit de photos réelles.
+- [ ] **Photos des fermes partenaires** : indiquer quelle photo (`ferme_1`, `ferme_2`, `ferme_3`) correspond à quelle ferme (Sidibé, Boya Sylla, Tierno Sidibé) ; ordre provisoire 1-2-3.
 - [ ] **Photos associées aux formations et aux domaines**, par exemple le compostage pour le DUT Fumure organique, la couveuse pour l'aviculture et les bassins pour l'aquaculture (liste dans `src/content/visuals.ts`).
 - [ ] **Textes des infrastructures** rédigés d'après les photos : bibliothèque (« ouvrages et postes informatiques ») et bus de l'école (« sorties pédagogiques et visites de terrain »).
 - [ ] **Partenaires** :
@@ -42,7 +42,7 @@
   - l'accueil des nouveaux élèves orientés en 2026-27 ;
   - une sortie pédagogique.
 - [ ] **Vidéo de présentation** (AGRI'SUP) : fournir le lien YouTube, sinon le bloc affiche « Vidéo à venir ».
-- [ ] **Mot du fondateur** (AGRI'SUP) : nom, fonction et court texte validé. Une photo existe déjà (`fondateur.jpg`).
+- [ ] **Fondateur** (AGRI'SUP) : la section existe sur la page AGRI'SUP (photos et missions à l'international). Il manque le nom exact, la fonction et un court mot du fondateur validé, à renseigner dans `FOUNDER` (`src/content/placeholders.ts`).
 - [ ] **Témoignages** (AGRI'SUP) : 2 ou 3 citations d'étudiants ou de diplômés, avec leur accord.
 - [ ] **Chiffres clés sur l'accueil** (Dev) : bandeau à partir de données vérifiées (depuis 2006, 16 formations, 5 domaines, 14 partenaires). Le composant existe déjà.
 - [ ] **Réseaux sociaux** (AGRI'SUP) : adresse exacte de la page Facebook (« Agri'sup Sotuba » sur les affiches) et des autres comptes.

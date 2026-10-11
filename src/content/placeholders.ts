@@ -113,6 +113,16 @@ export const BROCHURE_PATH: string | null = null;
 
 // Mentions légales. Hébergeur : informations publiques de Vercel (à revérifier sur
 // vercel.com/legal avant mise en ligne). Éditeur : à compléter par AGRI'SUP.
+// Fondateur (section de la page AGRI'SUP). Identité CONTRADICTOIRE dans les sources
+// (docs/suivi_infos_a_confirmer.md : « Dr Jules Koné » / « Gilles Koné ») : rien n'est
+// affiché tant que le nom, la fonction et le message ne sont pas confirmés par écrit.
+export const FOUNDER = {
+  name: null as string | null,
+  role: null as Localized | null,
+  // Mot du fondateur, 120 à 180 mots, validé par la direction.
+  message: null as Localized | null,
+};
+
 export const LEGAL = {
   publicationManager: null as string | null,
   registration: "Décision de création n° 2026-000976/MESRS-SG du 1er juillet 2026" as
